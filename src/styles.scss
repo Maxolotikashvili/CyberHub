@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+// Fonts
+
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap'); //'Play', sans-serif
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100&display=swap'); //'Saira Condensed', sans-serif
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap'); // 'Dosis', sans-serif
+
+// Reset
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+  }
