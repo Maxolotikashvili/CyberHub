@@ -1,0 +1,112 @@
+$font-play: 'Play', sans-serif;
+$font-saira: 'Saira Condensed', sans-serif;
+$font-roboto: 'Roboto', sans-serif;
+
+$background: radial-gradient(circle, rgb(5, 0, 94) 0%, rgba(6,6,80,1) 50%, rgba(0,20,83,1) 100%);
+
+.bigbox {
+    background-image: url('/assets/Backgrounds/squares.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    padding: 50px 0px 100px 10px;
+
+    .categorybox {  
+        margin-right: 40px;
+        border: 1px solid black;
+        border-radius: 8px;
+        box-shadow: 2px -2px 3px black;
+        color: white;
+        
+        .categories-h {
+            background: $background;
+            font-size: 24px;
+            font-family: $font-saira;
+            letter-spacing: 3px;
+            border-bottom: 1px solid black;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            color: black;
+        }
+
+        .listbox {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 27px 100px 27px 15px;
+            border-bottom: 1px solid black;
+            border-radius: 8px;
+            font-family: $font-roboto;
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: rgb(109, 109, 109);
+            transition: all 0.1s linear;
+        }
+
+        .listbox:hover {
+            border-radius: 8px;
+            box-shadow: 4px 4px 1px black;
+        }
+
+        .active {
+            border-radius: 8px;
+            box-shadow: 4px 4px 1px black;
+            color: blue;
+            font-weight: bolder;
+        }
+
+    }
+
+
+    // Accessories
+
+    .accessoriesbox {
+        margin: 50px 40px 0px 0px;
+        border: 1px solid black;
+        border-radius: 8px;
+        box-shadow: 2px -2px 3px black;
+        color: white;
+
+        .accessories-h {
+            background: $background;
+            font-size: 24px;
+            font-family: $font-saira;
+            letter-spacing: 3px;
+            border-bottom: 1px solid black;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            color: black;
+        }
+
+        .accessorieslink {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 27px 100px 27px 15px;
+            border-bottom: 1px solid black;
+            border-radius: 8px;
+            font-family: $font-roboto;
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: rgb(109, 109, 109);
+            transition: all 0.1s linear;
+        }
+
+        .accessorieslink:hover {
+            border-radius: 8px;
+            box-shadow: 4px 4px 1px black;
+        }
+
+        .active {
+            border-radius: 8px;
+            box-shadow: 4px 4px 1px black;
+            color: blue;
+        }
+    }
+
+}

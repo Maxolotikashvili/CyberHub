@@ -7,7 +7,6 @@ $font-play: 'Play', sans-serif;
 
 
     .headerbox {
-        position: fixed;
         background: rgb(2,0,36);
         background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(6,6,80,1) 50%, rgba(0,20,83,1) 100%);
         width: 100%;
@@ -41,19 +40,24 @@ $font-play: 'Play', sans-serif;
             display: flex; 
 
             .link {
-                margin-left: 40px;
-                padding: 9px 25px 9px 25px;
-                border-right: 1px solid blue;
-                border-bottom: 1px solid blue;
-                color: blue;
+                margin-left: 20px;
+                padding: 9px 20px 9px 20px;
+                color: black;
                 transition: all 0.2s linear;
                 letter-spacing: 2px;
             }
-        }
+        
+            .link:hover {
+                box-shadow: 1px 0px 1px inset;
+                background-color: black;
+                color: blue;
+            }
 
-        .link:hover {
-            box-shadow: 1px 1px inset;
-            background-color: black;
+            .active {
+                box-shadow: 1px 0px 1px inset;
+                background-color: black;
+                color: blue;
+            }
         }
 
     }

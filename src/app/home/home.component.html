@@ -98,17 +98,17 @@
     <div class="nzxt-buy-box">
 
       <div class="nzxtboxes">
-        <span class="nzxt-span">Z73 RGB</span>
+        <span class="nzxt-span">Z 73 RGB</span>
         <img class="z73" src="/assets/NZXT/kraken-z73.png">
-        <span class="price-span">149.99$</span>
-        <span class="span-buy">Buy</span>
+        <span class="price-span">369.99$</span>
+        <span class="span-buy" routerLink="/build/cpu-coolers">Buy</span>
       </div>
 
       <div class="nzxtboxes">
-        <span class="nzxt-span">Z63 RGB</span>
-        <img class="z63" src="/assets/NZXT/kraken-z63.png">
-        <span class="price-span">119.99$</span>
-        <span class="span-buy">Buy</span>
+        <span class="nzxt-span">X 73 RGB</span>
+        <img class="x73" src="/assets/NZXT/kraken-x73.png">
+        <span class="price-span">189.99$</span>
+        <span class="span-buy" routerLink="/build/cpu-coolers">Buy</span>
       </div>
 
     </div>
@@ -143,11 +143,11 @@
 
 <section class="section2">
 
-  <h2 class="build-h2">Build Your Own Masterpiece</h2>
+  <h2 class="build-h2">Build Your Own</h2>
 
   <div class="bigboxgrid">
 
-    <div class="assemblebox" *ngFor="let item of parts">
+    <div class="assemblebox" *ngFor="let item of parts" [routerLink]="item.router">
       <div class="partbox">
         <img class="image" [src]="item.imageUrl">
         {{item.name}}

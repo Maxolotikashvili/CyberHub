@@ -1,0 +1,33 @@
+<section>
+
+    <div class="bigbox">
+
+        <div class="biglistbox">
+            
+            <!-- Category -->
+            <div class="categorybox">
+                <h3 class="categories-h">Categories</h3>
+            
+                <a class="listbox" *ngFor="let item of list" [routerLink]="item.routerName" routerLinkActive="active">
+                    {{item.name}}
+                </a>
+            </div>
+
+
+            <!-- Accessories -->
+            <div class="accessoriesbox">
+                <h3 class="accessories-h">Accessories</h3>
+
+                <a class="accessorieslink" routerLink="keyboards" routerLinkActive="active">Keyboard</a>
+                <a class="accessorieslink" routerLink="headsets" routerLinkActive="active">Headset</a>
+            </div>
+
+        </div>
+
+
+        <!-- Parts -->
+        <router-outlet></router-outlet>
+
+    </div>
+
+</section>

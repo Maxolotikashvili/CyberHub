@@ -1,0 +1,10 @@
+<div class="gridbox">
+
+    <div class="gridlist" *ngFor="let item of gpus">
+        <img class="gpu-image" [src]="item.imageUrl">
+        <span class="gpu-name">{{item.name}}</span>
+        <span class="gpu-price">{{item.price}}</span>
+        <a class="gpu-buy">Add To Cart</a>
+    </div>
+
+</div>

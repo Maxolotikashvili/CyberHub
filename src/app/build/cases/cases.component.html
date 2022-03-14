@@ -1,0 +1,10 @@
+<div class="gridbox">
+
+    <div class="gridlist" *ngFor="let item of cases">
+        <img class="case-image" [src]="item.imageUrl" alt="image">
+        <span class="case-name">{{item.name}}</span>
+        <span class="case-price">{{item.price}}</span>
+        <a class="case-buy">Add To Cart</a>
+    </div>
+
+</div>

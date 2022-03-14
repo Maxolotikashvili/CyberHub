@@ -1,0 +1,11 @@
+<div class="gridbox">
+
+    <div class="gridlist" *ngFor="let item of psus">
+        <img class="psu-image" [src]="item.imageUrl" alt="image">
+        <span class="psu-name">{{item.name}}</span>
+        <span class="psu-power">{{item.power}}</span>
+        <span class="psu-price">{{item.price}}</span>
+        <a class="psu-buy">Add To Cart</a>
+    </div>
+
+</div>

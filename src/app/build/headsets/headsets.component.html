@@ -1,0 +1,10 @@
+<div class="gridbox">
+
+    <div class="gridlist" *ngFor="let item of headsets">
+        <img class="headset-image" [src]="item.imageUrl" alt="image">
+        <span class="headset-name">{{item.name}}</span>
+        <span class="headset-price">{{item.price}}</span>
+        <a class="headset-buy">Add To Cart</a>
+    </div>
+
+</div>

@@ -6,7 +6,16 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
-  }
+  },
+  { path: 'build', loadChildren: () => import('./build/build.module').then(m => m.BuildModule) },
+
+  {
+    path: "",
+    redirectTo: 'home',
+    pathMatch: "full"
+  },
+
+  // PageNotFound
 ];
 
 @NgModule({

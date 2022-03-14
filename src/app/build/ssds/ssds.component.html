@@ -1,0 +1,11 @@
+<div class="gridbox">
+
+    <div class="gridlist" *ngFor="let item of ssds">
+        <img class="ssd-image" [src]="item.imageUrl" alt="image">
+        <span class="ssd-name">{{item.name}}</span>
+        <span class="ssd-memory">{{item.memory}}</span>
+        <span class="ssd-price">{{item.price}}</span>
+        <a class="ssd-buy">Add To Cart</a>
+    </div>
+
+</div>

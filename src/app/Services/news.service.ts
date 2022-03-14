@@ -16,6 +16,7 @@ export interface newsType {
 
 export interface partsType {
   id: number,
+  router: string,
   imageUrl: string,
   name: string
 };
@@ -122,54 +123,63 @@ export class NewsService {
     pcParts: partsType[] = [
       {
         id: 1,
+        router: "/build/mobos",
         imageUrl: "/assets/Icons/mobo-icon.png",
         name: "Motherboard"
       },
   
       {
         id: 2,
+        router: "/build/cpus",
         imageUrl: "/assets/Icons/cpu-icon.png",
         name: "Cpu",
       },
   
       {
         id: 3,
+        router: "/build/gpus",
         imageUrl: "/assets/Icons/gpu-icon.png",
         name: "Video Card",
       },
   
       {
         id: 4,
+        router: "/build/rams",
         imageUrl: "/assets/Icons/ram-icon.png",
         name: "Memory",
       },
   
       {
         id: 5,
+        router: "/build/psus",
         imageUrl: "assets/Icons/psu-icon.png",
         name: "Power Supply",
       },
   
       {
         id: 6,
+        router: "/build/hdds",
         imageUrl: "/assets/Icons/hdd-icon.png",
         name: "HDD",
       },
   
       {
         id: 7,
+        router: "/build/ssds",
         imageUrl: "/assets/Icons/ssd-icon.png",
         name: "SSD",
       },
   
       {
         id: 8,
+        router: "/build/cpu-coolers",
         imageUrl: "/assets/Icons/cooler-icon.png",
         name: "Cpu Cooler",
       },
   
       {
         id: 9,
+        router: "/build/cases",
         imageUrl: "/assets/Icons/case-icon.png",
         name: "Case",
       },

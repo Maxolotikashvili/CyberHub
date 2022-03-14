@@ -1,0 +1,11 @@
+<div class="gridbox">
+
+    <div class="gridlist" *ngFor="let item of rams">
+        <img class="ram-image" [src]="item.imageUrl" alt="image">
+        <span class="ram-name">{{item.name}}</span>
+        <span class="ram-memory">{{item.memory}}</span>
+        <span class="ram-price">{{item.price}}</span>
+        <a class="ram-buy">Add To Cart</a>
+    </div>
+
+</div>
