@@ -1,35 +1,30 @@
 $font-play: 'Play', sans-serif;
 $font-saira: 'Saira Condensed', sans-serif;
 $font-roboto: 'Roboto', sans-serif;
+$shadow-e2: #e2e2e2;
 
 $background: radial-gradient(circle, rgb(5, 0, 94) 0%, rgba(6,6,80,1) 50%, rgba(0,20,83,1) 100%);
 
 .bigbox {
-    background-image: url('/assets/Backgrounds/squares.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: white;
     display: flex;
     padding: 50px 0px 100px 10px;
 
     .categorybox {  
         margin-right: 40px;
-        border: 1px solid black;
         border-radius: 8px;
-        box-shadow: 2px -2px 3px black;
-        color: white;
+        box-shadow: 3px 3px 5px $shadow-e2;
         
         .categories-h {
             background: $background;
             font-size: 24px;
             font-family: $font-saira;
             letter-spacing: 3px;
-            border-bottom: 1px solid black;
             border-top-left-radius: 8px;
             border-top-right-radius: 8px;
             padding: 20px;
             text-align: center;
-            color: black;
+            color: white;
         }
 
         .listbox {
@@ -37,9 +32,9 @@ $background: radial-gradient(circle, rgb(5, 0, 94) 0%, rgba(6,6,80,1) 50%, rgba(
             flex-direction: column;
             justify-content: center;
             padding: 27px 100px 27px 15px;
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid $shadow-e2;
             border-radius: 8px;
-            font-family: $font-roboto;
+            font-weight: bold;
             font-size: 14px;
             letter-spacing: 1px;
             color: rgb(109, 109, 109);
@@ -48,14 +43,12 @@ $background: radial-gradient(circle, rgb(5, 0, 94) 0%, rgba(6,6,80,1) 50%, rgba(
 
         .listbox:hover {
             border-radius: 8px;
-            box-shadow: 4px 4px 1px black;
+            box-shadow: 4px 4px 1px $shadow-e2;
         }
 
         .active {
-            border-radius: 8px;
-            box-shadow: 4px 4px 1px black;
-            color: blue;
-            font-weight: bolder;
+            box-shadow: 4px 4px 1px $shadow-e2;
+            color: black;
         }
 
     }
@@ -65,22 +58,20 @@ $background: radial-gradient(circle, rgb(5, 0, 94) 0%, rgba(6,6,80,1) 50%, rgba(
 
     .accessoriesbox {
         margin: 50px 40px 0px 0px;
-        border: 1px solid black;
         border-radius: 8px;
-        box-shadow: 2px -2px 3px black;
-        color: white;
+        border-radius: 8px;
+        box-shadow: 3px 3px 5px $shadow-e2;
 
         .accessories-h {
             background: $background;
             font-size: 24px;
             font-family: $font-saira;
             letter-spacing: 3px;
-            border-bottom: 1px solid black;
             border-top-left-radius: 8px;
             border-top-right-radius: 8px;
             padding: 20px;
             text-align: center;
-            color: black;
+            color: white;
         }
 
         .accessorieslink {
@@ -88,9 +79,9 @@ $background: radial-gradient(circle, rgb(5, 0, 94) 0%, rgba(6,6,80,1) 50%, rgba(
             flex-direction: column;
             justify-content: center;
             padding: 27px 100px 27px 15px;
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid $shadow-e2;
             border-radius: 8px;
-            font-family: $font-roboto;
+            font-weight: bold;
             font-size: 14px;
             letter-spacing: 1px;
             color: rgb(109, 109, 109);
@@ -99,13 +90,13 @@ $background: radial-gradient(circle, rgb(5, 0, 94) 0%, rgba(6,6,80,1) 50%, rgba(
 
         .accessorieslink:hover {
             border-radius: 8px;
-            box-shadow: 4px 4px 1px black;
+            box-shadow: 3px 3px 5px $shadow-e2;
         }
 
         .active {
             border-radius: 8px;
-            box-shadow: 4px 4px 1px black;
-            color: blue;
+            box-shadow: 3px 3px 5px $shadow-e2;
+            color: black;
         }
     }
 

@@ -31,31 +31,31 @@ export class NewsService {
     {
       id: 1,
       imageUrl: "/assets/Accessories/keyboards.png",
-      title: "Keyboards"
+      title: "Keyboard"
     },
 
     {
       id: 2,
       imageUrl: "/assets/Accessories/mouses.png",
-      title: "Mouses"
+      title: "Mouse"
     },
 
     {
       id: 3,
       imageUrl: "/assets/Accessories/headsets.png",
-      title: "Headsets"
+      title: "Headset"
     },
 
     {
       id: 4,
       imageUrl: "/assets/Accessories/chairs.png",
-      title: "Chairs"
+      title: "Chair"
     },
 
     {
       id: 5,
       imageUrl: "/assets/Accessories/mousepads.png",
-      title: "Pads"
+      title: "Pad"
     }
   ];
 
@@ -99,7 +99,7 @@ export class NewsService {
     {
       id: 6,
       title: "Thermaltake's Water Cooling Friendly ToughRAM RC DDR5 Kits Hit Retail",
-      body: "Thermaltake ToughRAM RC DDR5 memory kits have started to become available at retail.",
+      body: "Thermaltake ToughRAM RC DDR5 memory kits have started to become available at retail, as DDR5 Rams kick in.",
       photoUrl: "/assets/News/thermaltake-water.jpg"
     },
 

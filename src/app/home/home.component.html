@@ -1,162 +1,166 @@
-<body>
+<div class="bodybox">
+  
+  <section class="section1">
 
-<section class="section1">
+    <h1 class="h1">
+      Premium PC Shop For Ultimate <span style="color: blue">Gaming</span>
+    </h1>
 
-  <h1 class="h1">
-    Premium PC Shop For Ultimate <span style="color: blue">Gaming</span>
-  </h1>
+    <div class="bigbox">
 
-  <div class="bigbox">
+      <div class="mainbox">
+        <h2 class="browse-h2">Browse Accessories</h2>
 
-    <div class="mainbox">
-      <h2 class="browse-h2">Browse Accessories</h2>
+        <div class="browsebigbox">
 
-      <div class="browsebigbox">
+          <div class="browsebox" *ngFor="let item of accessories">
+            
+            <img class="browsephotos" [src]="item.imageUrl" alt="image">
+            
+            <div class="spanbox">
+              <span class="browsespan">{{item.title}}</span>
+            </div>
 
-        <div class="browsebox" *ngFor="let item of accessories">
-          
-          <img class="browsephotos" [src]="item.imageUrl" alt="image">
-          
-          <div class="spanbox">
-            <span class="browsespan">{{item.title}}</span>
           </div>
-
+        
         </div>
-      
+
+      </div>
+
+
+      <!-- Commerce -->
+
+
+      <h3 class="stock-h">Now In Stock</h3> 
+
+      <div class="commercebox">
+        
+
+        <div class="gtx1060box">
+
+          <div class="nowinstock">
+            <span class="gtx1060-span">GTX 1060</span>
+          </div>
+          
+          <img src="/assets/gtx1060.jpg" class="gtx1060">  
+          <button mat-button class="buy-1060">Buy Now</button>    
+        
+        </div>
+
+        <div class="arctisbox">
+        
+          <div class="newinstock">
+            <span class="arctis-span">Steelseries Arctis Pro</span>
+          </div>
+          
+          <img class="arctis" src="/assets/arctis.jpg">
+          <button mat-button class="buy-arctis">Buy Now</button>
+        </div>
+
       </div>
 
     </div>
 
 
-    <!-- Commerce -->
+    <!-- New Arrivals -->
 
 
-    <h3 class="stock-h">Now In Stock</h3> 
+    <h3 class="newmanufacturers-h">New Manufacturer Products</h3>
 
-    <div class="commercebox">
+    <div class="manufacturersbox">
+      <h3 class="kraken-h">NZXT Kraken 120 Series</h3>
+      <h5 class="kraken-display">Liquid Coolers With Displays</h5>
       
+      <div class="pumpbox">
 
-      <div class="gtx1060box">
+        <img class="pump" src="/assets/NZXT/nzxt-pump.png">
 
-        <div class="nowinstock">
-          <span class="gtx1060-span">GTX 1060</span>
+        <div class="pumptextbox">
+          <h4 class="pump-h">New Pump Control System</h4>
+          <p class="pump-p">New pump control system has reduced the usage of power and increased the efficiency. All new Kraken series Cpu Coolers have implemented new display system, which provides an absolute control over cooling proccess in every detail.</p>
+        </div>
+      
+      </div>
+
+      <div class="nzxt-rgbbox">
+
+        <div class="rgbtextbox">
+          <h4 class="nzxt-rgb-h">RGB Mode</h4>
+          <p class="nzxt-rgb-p">Chained colors, Circle mode, Rainbow... NZXT RGB controller can now integrate with your Motherboard to give you best possible experience with controling RGB colors and lighting modes.</p>
         </div>
         
-        <img src="/assets/gtx1060.jpg" class="gtx1060">  
-        <div class="buy-1060">Buy Now</div>    
-      
+        <img class="nzxt-rgb" src="/assets/NZXT/nzxt-rgb.png">
       </div>
 
-      <div class="arctisbox">
       
-        <div class="newinstock">
-          <span class="arctis-span">Steelseries Arctis Pro</span>
+      <!-- NZXT Buy  -->
+      <h3 class="buy-now">Buy Now</h3>
+      <h6 class="buy-white">NZXT <span style="color: white;">White</span> Series</h6>
+
+      <div class="nzxt-buy-box">
+
+        <div class="nzxtboxes">
+          <span class="nzxt-span">Z 73 RGB</span>
+          <img class="z73" src="/assets/NZXT/kraken-z73.png">
+          <span class="price-span">369.99$</span>
+          <button mat-button class="span-buy" routerLink="/build/cpu-coolers">Buy</button>
         </div>
-        
-        <img class="arctis" src="/assets/arctis.jpg">
-        <div class="buy-arctis">Buy Now</div>
+
+        <div class="nzxtboxes">
+          <span class="nzxt-span">X 73 RGB</span>
+          <img class="x73" src="/assets/NZXT/kraken-x73.png">
+          <span class="price-span">189.99$</span>
+          <button mat-button class="span-buy" routerLink="/build/cpu-coolers">Buy</button>
+        </div>
+
+      </div>
+  
+    </div>
+
+
+
+    <!-- News -->
+
+
+
+    <div class="newsbox">
+      <h3 class="news-h">News</h3>
+
+      <div class="ngfor-news" *ngFor="let item of news">
+        <img class="news-images" [src]="item.photoUrl" alt="image">
+
+        <div class="news-text-box">
+          <p class="news-title">{{item.title}}</p>
+          <p class="news-body">{{item.body}}</p>
+        </div>
       </div>
 
     </div>
-
-  </div>
-
-
-  <!-- New Arrivals -->
-
-
-  <h3 class="newmanufacturers-h">New Manufacturer Products</h3>
-
-  <div class="manufacturersbox">
-    <h3 class="kraken-h">NZXT Kraken 120 Series</h3>
-    <h5 class="kraken-display">Liquid Coolers With Displays</h5>
-    
-    <div class="pumpbox">
-
-      <img class="pump" src="/assets/NZXT/nzxt-pump.png">
-
-      <div class="pumptextbox">
-        <h4 class="pump-h">New Pump Control System</h4>
-        <p class="pump-p">New pump control system has reduced the usage of power and increased the efficiency. All new Kraken series Cpu Coolers have implemented new display system, which provides an absolute control over cooling proccess.</p>
-      </div>
-    
-    </div>
-
-    <div class="nzxt-rgbbox">
-
-      <div class="rgbtextbox">
-        <h4 class="nzxt-rgb-h">RGB Mode</h4>
-        <p class="nzxt-rgb-p">Chained colors, Circle mode, Rainbow... NZXT RGB controller can now integrate with your Motherboard to give you best possible experience with controling RGB colors and lighting modes.</p>
-      </div>
       
-      <img class="nzxt-rgb" src="/assets/NZXT/nzxt-rgb.png">
-    </div>
+  </section>
 
-    <h3 class="buy-now">Buy Now</h3>
-    <h6 class="buy-white">NZXT <span style="color: white;">White</span> Series</h6>
 
-    <div class="nzxt-buy-box">
+  <!-- Section II ( Build ) -->
 
-      <div class="nzxtboxes">
-        <span class="nzxt-span">Z 73 RGB</span>
-        <img class="z73" src="/assets/NZXT/kraken-z73.png">
-        <span class="price-span">369.99$</span>
-        <span class="span-buy" routerLink="/build/cpu-coolers">Buy</span>
-      </div>
 
-      <div class="nzxtboxes">
-        <span class="nzxt-span">X 73 RGB</span>
-        <img class="x73" src="/assets/NZXT/kraken-x73.png">
-        <span class="price-span">189.99$</span>
-        <span class="span-buy" routerLink="/build/cpu-coolers">Buy</span>
-      </div>
+  <section class="section2">
+
+    <h2 class="build-h2">Build Your Own</h2>
+
+    <div class="bigboxgrid">
+
+      <button mat-button class="assemblebox" *ngFor="let item of parts" [routerLink]="item.router">
+        <div class="partbox">
+          <img class="image" [src]="item.imageUrl">
+          {{item.name}}
+        </div>
+      </button>
 
     </div>
- 
-  </div>
 
+  </section>
 
-
-  <!-- News -->
-
-
-
-  <div class="newsbox">
-    <h3 class="news-h">News</h3>
-
-    <div class="ngfor-news" *ngFor="let item of news">
-      <img class="news-images" [src]="item.photoUrl" alt="image">
-
-      <div class="news-text-box">
-        <p class="news-title">{{item.title}}</p>
-        <p class="news-body">{{item.body}}</p>
-      </div>
-    </div>
-
-  </div>
-    
-</section>
-
-
-<!-- Section II ( Build ) -->
-
-
-<section class="section2">
-
-  <h2 class="build-h2">Build Your Own</h2>
-
-  <div class="bigboxgrid">
-
-    <div class="assemblebox" *ngFor="let item of parts" [routerLink]="item.router">
-      <div class="partbox">
-        <img class="image" [src]="item.imageUrl">
-        {{item.name}}
-      </div>
-    </div>
-
-  </div>
-
-</section>
+</div>
 
 
 

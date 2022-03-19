@@ -13,6 +13,7 @@ import { CasesComponent } from './cases/cases.component';
 import { PsusComponent } from './psus/psus.component';
 import { KeyboardsComponent } from './keyboards/keyboards.component';
 import { HeadsetsComponent } from './headsets/headsets.component';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { HeadsetsComponent } from './headsets/headsets.component';
   ],
   imports: [
     CommonModule,
-    BuildRoutingModule
+    BuildRoutingModule,
+    MaterialModule
   ]
 })
 export class BuildModule { }

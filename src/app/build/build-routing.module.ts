@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, PreloadingStrategy, RouterModule, Routes } from '@angular/router';
 import { BuildComponent } from './build.component';
 import { CasesComponent } from './cases/cases.component';
 import { CpuCoolersComponent } from './cpu-coolers/cpu-coolers.component';

@@ -1,10 +1,12 @@
 $font-play: 'Play', sans-serif;
 $font-saira: 'Saira Condensed', sans-serif;
 $font-roboto: 'Roboto', sans-serif;
+$silver: silver;
 
 .gridbox {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-gap: 20px;
 
     .gridlist {
         display: flex;
@@ -12,10 +14,8 @@ $font-roboto: 'Roboto', sans-serif;
         justify-content: center;
         align-items: center;
         text-align: center;
-        border: 1px solid black;
-        box-shadow: -2px 2px 2px;
+        box-shadow: -2px 2px 10px $silver;
         border-radius: 5px;
-        margin: 0px 12px 12px 0px;
 
         .keyboard-image {
             max-width: 220px;
@@ -24,18 +24,13 @@ $font-roboto: 'Roboto', sans-serif;
             padding: 15px;
             object-fit: contain;
             margin-bottom: 20px;
-            transition: all 0.2s ease;
-        }
-
-        .keyboard-image:hover {
-            transform: scale(1.2);
         }
 
         .keyboard-name {
             font-family: $font-play;
             font-size: 14px;
             letter-spacing: 1px;
-            color: white;
+            color: black;
         }
 
         .keyboard-price {
@@ -43,22 +38,19 @@ $font-roboto: 'Roboto', sans-serif;
             font-family: $font-play;
             font-size: 14px;
             letter-spacing: 1px;
-            color: white;
+            color: black;
         }
 
         .keyboard-buy {
             margin: 20px 0px 14px 0px;
-            padding: 10px;
-            border-radius: 20px;
-            font-size: 14px;
             font-family: $font-play;
-            border: 1px solid blue;
-            color: blue;
+            letter-spacing: 1px;
+            border: 1px solid $silver;
+            color: black;
             transition: all 0.1s linear;
         }
 
         .keyboard-buy:hover {
-            background-color: black;
             border-color: black;
         }
     }

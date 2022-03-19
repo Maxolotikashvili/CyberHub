@@ -1,10 +1,16 @@
 $font-play: 'Play', sans-serif;
 
-.body {background-image: url('/assets/Backgrounds/background-gaming.jpg');
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
+mat-sidenav {
+    max-width: 300px;
+    width: 100%;
+    background-color: #171717;
+}
 
+.body {
+    // background-image: url('/assets/Backgrounds/background-gaming.jpg');
+    // background-attachment: fixed;
+    // background-repeat: no-repeat;
+    // background-size: cover;
 
     .headerbox {
         background: rgb(2,0,36);
@@ -13,26 +19,37 @@ $font-play: 'Play', sans-serif;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        padding: 20px;
+        padding: 20px 20px 20px 0px;
         font-family: $font-play;
         border-bottom: 1px solid blue;
 
-        .logo {
-            letter-spacing: 14px;
-            font-weight: bold;
-            font-size: 22px;
-            color: black;
+        .logobox {
+            display: flex;
+            align-items: center;
 
-            .letter-c {
-                color: blue;
+            .bar {
+                font-size: 26px;
+                cursor: pointer;
+                margin-right: 40px;
             }
 
-            .hub {
-                border: 1px solid black;
-                border-radius: 5px;
-                background-color: black;
-                color: blue;
-                padding: 0px 4px 1px 15px;
+            .logo {
+                letter-spacing: 14px;
+                font-weight: bold;
+                font-size: 22px;
+                color: black;
+
+                .letter-c {
+                    color: blue;
+                }
+
+                .hub {
+                    border: 1px solid black;
+                    border-radius: 5px;
+                    background-color: black;
+                    color: blue;
+                    padding: 0px 4px 1px 15px;
+                }
             }
         }
 
