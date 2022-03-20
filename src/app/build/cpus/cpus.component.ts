@@ -9,6 +9,7 @@ import { CpusService, cpusType } from 'src/app/Services/buildservice/cpus.servic
 export class CpusComponent implements OnInit {
   cpus!: cpusType[];
 
+
   constructor(private cpusservice: CpusService) { }
 
   ngOnInit(): void {

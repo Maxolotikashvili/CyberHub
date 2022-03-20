@@ -14,6 +14,7 @@ export class CpuCoolersComponent implements OnInit {
   ngOnInit(): void {
     this.coolersservice.getCoolers().subscribe((data) => {
       this.coolers = data;
+      console.log(this.coolers)
     })
   }
 

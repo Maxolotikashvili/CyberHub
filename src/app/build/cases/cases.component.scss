@@ -5,7 +5,6 @@ $box-shadow: silver;
 
 .gridbox {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-gap: 20px;
 
     .gridlist {
