@@ -1,0 +1,94 @@
+$font-play: "Play", sans-serif;
+
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-family: $font-play;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 5, 78, 1) 100%);
+
+    .footerbox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        // Icons
+
+        .iconbox {
+            display: flex;
+            font-size: 26px;
+
+            .facebook {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 45px;
+                margin-right: 20px;
+                border-radius: 50%;
+                background-color: black;
+                color: white;
+            }
+
+            .twitter {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 45px;
+                margin-right: 20px;
+                border-radius: 50%;
+                background-color: black;
+                color: white;
+            }
+
+            .youtube {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 45px;
+                padding: 10px;
+                border-radius: 50%;
+                background-color: black;
+                color: white;
+            }
+        }
+
+        // Text
+
+        .footertextbox {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin-left: 17px;
+
+            .footerlink {
+                color: white;
+                text-align: center;
+                margin-right: 15px;
+            }
+
+            .firstlistbox {
+                margin-top: 50px;
+                display: flex;
+                margin-bottom: 20px;
+                padding-left: 9px;
+            }
+
+            .secondlistbox {
+                display: flex;
+            }
+        }
+
+        // Copyright
+
+        .copyrightbox {
+            display: flex;
+            margin-top: 30px;
+            color: white;
+            font-size: 14px;
+            cursor: default;
+            margin-bottom: 20px;
+        }
+    }
+}

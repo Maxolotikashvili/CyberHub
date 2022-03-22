@@ -7,7 +7,8 @@ export interface psusType {
   imageUrl: string,
   name: string,
   power: string,
-  price: string
+  quantity: number,
+  price: number
 }
 
 @Injectable({
@@ -23,7 +24,8 @@ export class PsusService {
       imageUrl: "/assets/PcParts/Psus/bequet-darkpowerpro12-1500w.png",
       name: "Be Quet! Dark Power Pro 12",
       power: "1500 W",
-      price: "599.99$"
+      quantity: 1,
+      price: 599.99
     },
 
     {
@@ -32,7 +34,8 @@ export class PsusService {
       imageUrl: "/assets/PcParts/Psus/bequet-darkpowerpro12-1500w.png",
       name: "Be Quet! Dark Power Pro 12",
       power: "1000 W",
-      price: "399.99$"
+      quantity: 1,
+      price: 399.99
     },
 
     {
@@ -41,7 +44,8 @@ export class PsusService {
       imageUrl: "/assets/PcParts/Psus/Supernova-1000w.png",
       name: "Evga Supernova",
       power: "1000 W",
-      price: "329.99$"
+      quantity: 1,
+      price: 329.99
     },
 
     {
@@ -50,7 +54,8 @@ export class PsusService {
       imageUrl: "/assets/PcParts/Psus/evga-g61000w.png",
       name: "Evga G6",
       power: "1000 W",
-      price: "279.99$"
+      quantity: 1,
+      price: 279.99
     },
 
     {
@@ -59,7 +64,8 @@ export class PsusService {
       imageUrl: "/assets/PcParts/Psus/evga-600w.png",
       name: "Evga Standart",
       power: "600 W",
-      price: "149.99$"
+      quantity: 1,
+      price: 149.99
     },
 
     {
@@ -68,7 +74,8 @@ export class PsusService {
       imageUrl: "/assets/PcParts/Psus/thermaltake-toughpowere1200w.png",
       name: "Thermaltake Toughpower PF1",
       power: "1200 W",
-      price: "289.99$"
+      quantity: 1,
+      price: 289.99
     },
 
     {
@@ -77,7 +84,8 @@ export class PsusService {
       imageUrl: "/assets/PcParts/Psus/thermaltaketoughpower-850w.png",
       name: "Thermaltake Toughpower GF",
       power: "850 W",
-      price: "209.99$"
+      quantity: 1,
+      price: 209.99
     },
 
     {
@@ -86,7 +94,8 @@ export class PsusService {
       imageUrl: "/assets/PcParts/Psus/thermaltake-toughpower-500w.png",
       name: "Thermaltake Toughpower",
       power: "500 W",
-      price: "159.99$"
+      quantity: 1,
+      price: 159.99
     },
 
     {
@@ -95,7 +104,8 @@ export class PsusService {
       imageUrl: "/assets/PcParts/Psus/deepcool-850m.png",
       name: "DeepCool M-V2L",
       power: "850 W",
-      price: "199.99$"
+      quantity: 1,
+      price: 199.99
     },
 
   ];

@@ -1,0 +1,29 @@
+<section>
+
+    <div class="bigbox">
+        <h2 class="cart-h2">Cart <span class="empty-span" *ngIf="items.length == 0">is empty</span></h2>
+
+        <div class="cartbox">
+            <div class="itembox">
+                <div class="item" *ngFor="let item of items">
+                    <img class="item-img" [src]="item.imageUrl">
+                    <h6 class="item-h6 margin">{{item.name}}</h6>
+                    <span class="item-price margin">{{item.price}}</span>
+                    
+                    <div class="item-quantity-box margin">
+                        <button mat-icon-button class="icon-button" (click)="reduceQuantity(item.quantity)">-</button>
+                        <span class="quantity">{{item.quantity}}</span>
+                        <button mat-icon-button class="icon-button" (click)="increaseQuantity(item.quantity)">+</button>
+                    </div>
+                    
+                    <span class="item-overall">{{item.quantity * item.price}}</span>
+                </div>
+            </div>
+
+            <div class="summarybox">summary</div>
+
+        </div>
+
+    </div>
+
+</section>

@@ -3,8 +3,8 @@
     <div class="gridlist" *ngFor="let item of headsets">
         <img class="headset-image" [src]="item.imageUrl" alt="image">
         <span class="headset-name">{{item.name}}</span>
-        <span class="headset-price">{{item.price}}</span>
-        <button mat-button class="headset-buy">Add To Cart</button>
+        <span class="headset-price">{{item.price}}$</span>
+        <button mat-button class="headset-buy" (click)="sendToCart(item)">Add To Cart</button>
     </div>
 
 </div>

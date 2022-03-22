@@ -3,8 +3,8 @@
     <div class="gridlist" *ngFor="let item of gpus">
         <img class="gpu-image" [src]="item.imageUrl">
         <span class="gpu-name">{{item.name}}</span>
-        <span class="gpu-price">{{item.price}}</span>
-        <button mat-button class="gpu-buy">Add To Cart</button>
+        <span class="gpu-price">{{item.price}}$</span>
+        <button mat-button class="gpu-buy" (click)="sendToCart(item)">Add To Cart</button>
     </div>
 
 </div>

@@ -3,8 +3,8 @@
     <div class="gridlist" *ngFor="let item of coolers">
         <img class="cooler-image" [src]="item.imageUrl" alt="image">
         <span class="cooler-name">{{item.name}}</span>
-        <span class="cooler-price">{{item.price}}</span>
-        <button mat-button class="cooler-buy">Add To Cart</button>
+        <span class="cooler-price">{{item.price}}$</span>
+        <button mat-button class="cooler-buy" (click)="sendToCart(item)">Add To Cart</button>
     </div>
 
 </div>

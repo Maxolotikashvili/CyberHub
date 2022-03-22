@@ -1,18 +1,18 @@
 @media (min-width: 1800px) {
     .gridbox {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
+        grid-template-columns: repeat(7, minmax(0, 1fr));
     }
 }
 
 @media (min-width: 1580px) {
     .gridbox {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: repeat(6, minmax(0, 1fr));
     }
 }
 
-@media (min-width: 1470px) {
+@media (min-width: 1471px) {
     .gridbox {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(5, minmax(0, 1fr));
     }
 }
 

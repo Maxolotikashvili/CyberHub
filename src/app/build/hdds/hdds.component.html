@@ -4,8 +4,8 @@
         <img class="hdd-image" [src]="item.imageUrl" alt="image">
         <span class="hdd-name">{{item.name}}</span>
         <span class="hdd-memory">{{item.memory}}</span>
-        <span class="hdd-price">{{item.price}}</span>
-        <button mat-button class="hdd-buy">Add To Cart</button>
+        <span class="hdd-price">{{item.price}}$</span>
+        <button mat-button class="hdd-buy" (click)="sendToCart(item)">Add To Cart</button>
     </div>
 
 </div>

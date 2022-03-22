@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CpusService, cpusType } from 'src/app/Services/buildservice/cpus.service';
+import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 
 @Component({
   selector: 'app-cpus',
@@ -10,7 +11,7 @@ export class CpusComponent implements OnInit {
   cpus!: cpusType[];
 
 
-  constructor(private cpusservice: CpusService) { }
+  constructor(private cpusservice: CpusService, private cartItemService: CartItemService) { }
 
   ngOnInit(): void {
 
@@ -18,6 +19,10 @@ export class CpusComponent implements OnInit {
     this.cpusservice.getCpus().subscribe((data) => {
       this.cpus = data;
     })
+  }
+
+  sendToCart(item: cpusType) {
+    this.cartItemService.getItems(item)
   }
 
 }

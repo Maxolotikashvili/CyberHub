@@ -7,12 +7,16 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { CartComponent } from './cart/cart.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SidenavComponent
+    SidenavComponent,
+    CartComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

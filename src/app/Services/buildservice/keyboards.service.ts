@@ -6,7 +6,8 @@ export interface keyboardsType {
   manufacturer: string,
   imageUrl: string,
   name: string,
-  price: string
+  quantity: number,
+  price: number
 }
 
 @Injectable({
@@ -19,7 +20,8 @@ export class KeyboardsService {
       manufacturer: "HyperX",
       imageUrl: "/assets/PcParts/Keyboards/elite2.png",
       name: "HyperX Alloy Elite 2",
-      price: "279.99$"
+      quantity: 1,
+      price: 279.99
     },
 
     {
@@ -27,7 +29,8 @@ export class KeyboardsService {
       manufacturer: "HyperX",
       imageUrl: "/assets/PcParts/Keyboards/fps.png",
       name: "HyperX Alloy FPS",
-      price: "189.99$"
+      quantity: 1,
+      price: 189.99
     },
 
     {
@@ -35,7 +38,8 @@ export class KeyboardsService {
       manufacturer: "HyperX",
       imageUrl: "/assets/PcParts/Keyboards/origins.png",
       name: "HyperX Alloy Origins",
-      price: "109.99$"
+      quantity: 1,
+      price: 109.99
     },
 
     {
@@ -43,7 +47,8 @@ export class KeyboardsService {
       manufacturer: "Razer",
       imageUrl: "/assets/PcParts/Keyboards/razer-blackwidowv3green.png",
       name: "Razer Blackwidow 3",
-      price: "189.99"
+      quantity: 1,
+      price: 189.99
     },
 
     {
@@ -51,7 +56,8 @@ export class KeyboardsService {
       manufacturer: "Asus",
       imageUrl: "/assets/PcParts/Keyboards/Rog-claymore.png",
       name: "Asus Rog Claymore",
-      price: "219.99$"
+      quantity: 1,
+      price: 219.99
     },
   ];
 

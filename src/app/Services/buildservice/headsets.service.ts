@@ -6,7 +6,8 @@ export interface headsetsType {
   manufacturer: string,
   imageUrl: string,
   name: string,
-  price: string
+  quantity: number,
+  price: number
 }
 
 @Injectable({
@@ -19,7 +20,8 @@ export class HeadsetsService {
       manufacturer: "Steelseries",
       imageUrl: "/assets/PcParts/Headsets/steelseriesarctispro.png",
       name: "Steelseries Arctis Pro",
-      price: "559.99$"
+      quantity: 1,
+      price: 559.99
     },
 
     {
@@ -27,7 +29,8 @@ export class HeadsetsService {
       manufacturer: "Steelseries",
       imageUrl: "/assets/PcParts/Headsets/arctis9.png",
       name: "Steelseries Arctis 9",
-      price: "479.99$"
+      quantity: 1,
+      price: 479.99
     },
 
     {
@@ -35,7 +38,8 @@ export class HeadsetsService {
       manufacturer: "Steelseries",
       imageUrl: "/assets/PcParts/Headsets/steelseriesarctis7.png",
       name: "Steelseries Arctis 7",
-      price: "429.99$"
+      quantity: 1,
+      price: 429.99
     },
 
     {
@@ -43,7 +47,8 @@ export class HeadsetsService {
       manufacturer: "Razer",
       imageUrl: "/assets/PcParts/Headsets/razer-nari.png",
       name: "Razer Nari",
-      price: "389.99$"
+      quantity: 1,
+      price: 389.99
     },
 
     {
@@ -51,7 +56,8 @@ export class HeadsetsService {
       manufacturer: "Asus",
       imageUrl: "/assets/PcParts/Headsets/rog-deltargb.png",
       name: "Asus Rog Delta RGB",
-      price: "359.99$"
+      quantity: 1,
+      price: 359.99
     },
 
     {
@@ -59,7 +65,8 @@ export class HeadsetsService {
       manufacturer: "HyperX",
       imageUrl: "/assets/PcParts/Headsets/Cloud-orbits.png",
       name: "HyperX Cloud Orbit S",
-      price: "309.99$"
+      quantity: 1,
+      price: 309.99
     },
 
     {
@@ -67,7 +74,8 @@ export class HeadsetsService {
       manufacturer: "HyperX",
       imageUrl: "/assets/PcParts/Headsets/cloud2-wired.png",
       name: "HyperX Cloud 2",
-      price: "179.99$"
+      quantity: 1,
+      price: 179.99
     },
 
     {
@@ -75,7 +83,8 @@ export class HeadsetsService {
       manufacturer: "HyperX",
       imageUrl: "/assets/PcParts/Headsets/cloudii-71.png",
       name: "HyperX Cloud Orbit 71",
-      price: "139.99$"
+      quantity: 1,
+      price: 139.99
     },
 
   ];

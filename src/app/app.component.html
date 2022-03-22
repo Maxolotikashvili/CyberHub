@@ -1,105 +1,56 @@
-<mat-sidenav-container #sidenav>
+<html>
+  <mat-sidenav-container #sidenav>
 
-  <mat-sidenav class="sidenav">
-    <app-sidenav [sidenav]="sidenav"></app-sidenav>
-  </mat-sidenav>
-  
-  <mat-sidenav-content>
-
-<body class="body">
-
-  <header class="header">
-    <div class="headerbox">
-
-      <div class="logobox">
-        <fa-icon [icon]="bar" class="bar" (click)="sidenav.open()"></fa-icon>
-
-        <a class="logo" routerLink="/home">
-          <span class="letter-c">C</span>yber<span class="hub">Hub</span>
-        </a>
-      </div>
-
-      <br><br>
-      
-      <nav>
-        <ul class="unlist">
-  
-          <li class="list">
-            <a class="link" routerLink="/home" routerLinkActive="active">Home</a>
-          </li>
-          <li class="list">
-            <a class="link" routerLink="/browse" routerLinkActive="active">Browse</a>
-          </li>
-          <li class="list">
-            <a class="link" routerLink="/build" routerLinkActive="active">Shop</a>
-          </li>
-  
-        </ul>
-      </nav>
-      
-    </div>
-  </header>
-
-
-  <router-outlet></router-outlet>
-
-  
-  <footer class="footer">
-
-    <div class="footerbox">
+    <mat-sidenav class="sidenav">
+      <app-sidenav [sidenav]="sidenav"></app-sidenav>
+    </mat-sidenav>
     
-      <div class="iconbox">
-        <fa-icon class="facebook" [icon]="facebook"></fa-icon>
-        <fa-icon class="twitter" [icon]="twitter"></fa-icon>
-        <fa-icon class="youtube" [icon]="youtube"></fa-icon>
-      </div>
-  
-      <ul class="footerunordered">
-  
-        <div class="footertextbox">
-  
-          <div class="firstlistbox">
-  
-            <li class="firstfooterlist">
-              <a class="footerlink" href="#">Info</a>
-            </li>
-  
-            <li class="firstfooterlist">
-              <a class="footerlink" href="#">Support</a>
-            </li>
-  
-            <li class="firstfooterlist">
-              <a class="footerlink" href="#">Marketing</a>
-            </li>
-  
-          </div>
-  
-          <div class="secondlistbox">
-  
-            <li class="secondfooterlist">
-              <a class="footerlink" href="#">Terms Of Use</a>
-            </li>
-  
-            <li class="secondfooterlist">
-              <a class="footerlink" href="#">Privacy Policy</a>
-            </li>
-  
-          </div>
-  
+    <mat-sidenav-content>
+
+  <body class="body">
+
+    <header class="header">
+      <div class="headerbox">
+
+        <div class="logobox">
+          <fa-icon [icon]="bar" class="bar" (click)="sidenav.open()"></fa-icon>
+
+          <a class="logo" routerLink="/home">
+            <span class="letter-c">C</span>yber<span class="hub">Hub</span>
+          </a>
         </div>
-  
-      </ul>
-  
-      <div class="copyrightbox">
-        <fa-icon [icon]="copyright"></fa-icon>
-        <p style="margin-left: 10px; color: gray;">CyberHub</p>
+
+        <br><br>
+        
+        <nav>
+          <ul class="unlist">
+    
+            <li class="list">
+              <a class="link" routerLink="/home" routerLinkActive="active">Home</a>
+            </li>
+            <li class="list">
+              <a class="link" routerLink="/cart" routerLinkActive="active">Browse</a>
+            </li>
+            <li class="list">
+              <a class="link" routerLink="/build" routerLinkActive="active">Shop</a>
+            </li>
+    
+          </ul>
+        </nav>
+        
       </div>
-  
-    </div>
-  
-  </footer>
+    </header>
 
-</body>
 
-</mat-sidenav-content>
-</mat-sidenav-container>
+    <router-outlet></router-outlet>
+
+
+    <!-- Footer -->
+    <app-footer></app-footer>
+  
+  </body>
+
+  </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</html>

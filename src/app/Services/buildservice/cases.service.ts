@@ -6,7 +6,8 @@ export interface casesType {
   manufacturer: string,
   imageUrl: string,
   name: string,
-  price: string
+  quantity: number,
+  price: number
 };
 
 @Injectable({
@@ -19,7 +20,8 @@ export class CasesService {
       manufacturer: "Thermaltake",
       imageUrl: "/assets/PcParts/Cases/Thermaltake-ah-t600.png",
       name: "Thermaltake AH-T 600",
-      price: "469.99$"
+      quantity: 1,
+      price: 469.99
     },
 
     {
@@ -27,7 +29,8 @@ export class CasesService {
       manufacturer: "Thermaltake",
       imageUrl: "/assets/PcParts/Cases/Thermaltake-ah-t600white.png",
       name: "Thermaltake AH-T 600 White",
-      price: "469.99$"
+      quantity: 1,
+      price: 469.99
     },
     
     {
@@ -35,7 +38,8 @@ export class CasesService {
       manufacturer: "Thermaltake",
       imageUrl: "/assets/PcParts/Cases/Thermaltake-view71-rgbplus.png",
       name: "Thermaltake View 71 RGB Plus",
-      price: "379.99$"
+      quantity: 1,
+      price: 379.99
     },
     
     {
@@ -43,7 +47,8 @@ export class CasesService {
       manufacturer: "Thermaltake",
       imageUrl: "/assets/PcParts/Cases/Thermaltake-view71.png",
       name: "Thermaltake View 71",
-      price: "359.99$"
+      quantity: 1,
+      price: 359.99
     },
 
     {
@@ -51,7 +56,8 @@ export class CasesService {
       manufacturer: "Thermaltake",
       imageUrl: "/assets/PcParts/Cases/thermaltake-divier-mid.png",
       name: "Thermaltake Divider",
-      price: "249.99$"
+      quantity: 1,
+      price: 249.99
     },
     
     {
@@ -59,7 +65,8 @@ export class CasesService {
       manufacturer: "Thermaltake",
       imageUrl: "/assets/PcParts/Cases/thermaltake-divider-midwhite.png",
       name: "Thermaltake Divider White",
-      price: "249.99$"
+      quantity: 1,
+      price: 249.99
     },
     
     {
@@ -67,7 +74,8 @@ export class CasesService {
       manufacturer: "Thermaltake",
       imageUrl: "/assets/PcParts/Cases/thermaltake-commander-midtower.png",
       name: "Thermaltake Commander",
-      price: "219.99$"
+      quantity: 1,
+      price: 219.99
     },
 
     {
@@ -75,7 +83,8 @@ export class CasesService {
       manufacturer: "Anidees",
       imageUrl: "/assets/PcParts/Cases/Anidees-Ai-Crystal-XL-full.png",
       name: "Anidees Crystal XL",
-      price: "259.99$"
+      quantity: 1,
+      price: 259.99
     },
 
     {
@@ -83,7 +92,8 @@ export class CasesService {
       manufacturer: "Corsair",
       imageUrl: "/assets/PcParts/Cases/icue5000x.png",
       name: "Corsair iCue 5000X",
-      price: "199.99$"
+      quantity: 1,
+      price: 199.99
     },
 
     {
@@ -91,7 +101,8 @@ export class CasesService {
       manufacturer: "Corsair",
       imageUrl: "/assets/PcParts/Cases/icue4000x.jpg",
       name: "Corsair iCue 4000X",
-      price: "179.99$"
+      quantity: 1,
+      price: 179.99
     },
     
     {
@@ -99,7 +110,8 @@ export class CasesService {
       manufacturer: "Gamemax",
       imageUrl: "/assets/PcParts/Cases/Gamemax-atx-rgb.png",
       name: "Gamemax Diamond Black",
-      price: "169.99$"
+      quantity: 1,
+      price: 169.99
     },
     
     {
@@ -107,7 +119,8 @@ export class CasesService {
       manufacturer: "Genesis",
       imageUrl: "/assets/PcParts/Cases/Genesis-midtower.png",
       name: "Genesis IRID 515 Black",
-      price: "159.99$"
+      quantity: 1,
+      price: 159.99
     },
 
     {
@@ -115,7 +128,8 @@ export class CasesService {
       manufacturer: "Asus",
       imageUrl: "/assets/PcParts/Cases/tufgaming-gt501mid.png",
       name: "Asus Tuf Gaming GT501",
-      price: "149.99$"
+      quantity: 1,
+      price: 149.99
     },
     
     {
@@ -123,7 +137,8 @@ export class CasesService {
       manufacturer: "Asus",
       imageUrl: "/assets/PcParts/Cases/tufgaming-gt501midwhite.png",
       name: "Asus Tuf Gaming GT501 White",
-      price: "149.99$"
+      quantity: 1,
+      price: 149.99
     },
     
   ];

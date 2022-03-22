@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GpusService, gpusType } from 'src/app/Services/buildservice/gpus.service';
+import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 
 @Component({
   selector: 'app-gpus',
@@ -9,7 +10,7 @@ import { GpusService, gpusType } from 'src/app/Services/buildservice/gpus.servic
 export class GpusComponent implements OnInit {
   gpus!: gpusType[];
 
-  constructor(private gpusservice: GpusService) { }
+  constructor(private gpusservice: GpusService, private cartitemservice: CartItemService) { }
 
   ngOnInit(): void {
     
@@ -18,6 +19,10 @@ export class GpusComponent implements OnInit {
         this.gpus = data;
       })
 
+  }
+
+  sendToCart(item: gpusType) {
+    this.cartitemservice.getItems(item)
   }
 
 }

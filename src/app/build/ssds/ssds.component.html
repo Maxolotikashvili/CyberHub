@@ -4,8 +4,8 @@
         <img class="ssd-image" [src]="item.imageUrl" alt="image">
         <span class="ssd-name">{{item.name}}</span>
         <span class="ssd-memory">{{item.memory}}</span>
-        <span class="ssd-price">{{item.price}}</span>
-        <button mat-button class="ssd-buy">Add To Cart</button>
+        <span class="ssd-price">{{item.price}}$</span>
+        <button mat-button class="ssd-buy" (click)="sendToCart(item)">Add To Cart</button>
     </div>
 
 </div>
