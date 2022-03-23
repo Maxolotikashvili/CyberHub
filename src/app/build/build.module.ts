@@ -14,6 +14,7 @@ import { PsusComponent } from './psus/psus.component';
 import { KeyboardsComponent } from './keyboards/keyboards.component';
 import { HeadsetsComponent } from './headsets/headsets.component';
 import { MaterialModule } from '../material/material.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { MaterialModule } from '../material/material.module';
   imports: [
     CommonModule,
     BuildRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FontAwesomeModule
   ]
 })
 export class BuildModule { }

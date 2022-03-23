@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-build',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./build.component.scss']
 })
 export class BuildComponent implements OnInit {
-  
+
   list = [
     {
       name:  "Processor (CPU)",

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { CartItemService } from '../Services/Cart/cart-item.service';
 
 @Component({
@@ -9,6 +10,9 @@ import { CartItemService } from '../Services/Cart/cart-item.service';
 export class CartComponent implements OnInit {
   items!: any[];
 
+  xmark = faXmark;
+
+  somenumber!: number;
   constructor(private cartitemservice: CartItemService) { }
 
   ngOnInit(): void {
@@ -19,13 +23,18 @@ export class CartComponent implements OnInit {
     })
   }
 
-  increaseQuantity(element: number) {
-    element++
+  increaseQuantity(element: any) {
+    element.quantity++
   }
 
-  reduceQuantity(element: number) {
-    element--
+  reduceQuantity(element: any) {
+    if(element.quantity > 0) {
+      element.quantity--
+    }
   }
 
+  removeItem(item: any) {
+    this.items.splice(item, 1)
+  }
 
 }
