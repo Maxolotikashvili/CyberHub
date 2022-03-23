@@ -2,10 +2,6 @@
 $font-play: "Play", sans-serif;
 $font-saira: "Saira Condensed", sans-serif;
 
-section {
-    position: relative;
-}
-
 .bigbox {
     display: flex;
     flex-direction: column;
@@ -20,6 +16,27 @@ section {
         color: darkblue;
         letter-spacing: 1px;
         margin-bottom: 100px;
+    }
+
+    .emptybox {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: silver;
+        font-size: 200px;
+        margin: 70px 50px 70px 50px;
+
+        .fill-h4 {
+            margin-top: 30px;
+        }
+
+        .goshopping {
+            margin-top: 20px;
+            letter-spacing: 1px;
+            width: 170px;
+            padding: 10px;
+        }
     }
 
     .smallbox {
@@ -229,14 +246,12 @@ section {
 }
 
 .spinnerboxshow {
-    position: absolute;
     position: fixed;
-    z-index: 3;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .blur {
-    filter: blur(40px);
+    filter: blur(10px);
 }

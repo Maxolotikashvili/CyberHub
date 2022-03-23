@@ -88,13 +88,11 @@ $silver: silver;
 }
 
 .spinnerboxshow {
-    position: absolute;
     position: fixed;
-    z-index: 3;
     top: 50%;
     left: 50%;
 }
 
 .blur {
-    filter: blur(50px);
+    filter: blur(10px);
 }

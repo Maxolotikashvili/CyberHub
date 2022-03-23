@@ -27,6 +27,9 @@ export class SsdsComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.ssdsservice.getSsds().subscribe((data) => {
+      this.ssds = data;
+    })
 
      // Spinner Timeout
      this.spinnerboxshow = "spinnerboxshow";
@@ -36,9 +39,6 @@ export class SsdsComponent implements OnInit {
        this.blur = "";
      }, 1500);
      
-    this.ssdsservice.getSsds().subscribe((data) => {
-      this.ssds = data;
-    })
   }
 
   sendToCart(item: ssdsType) {

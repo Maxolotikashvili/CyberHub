@@ -1,58 +1,59 @@
-<html>
-  <mat-sidenav-container #sidenav>
+<mat-sidenav-container #sidenav>
+  <mat-sidenav class="sidenav">
+    <app-sidenav [sidenav]="sidenav"></app-sidenav>
+  </mat-sidenav>
 
-    <mat-sidenav class="sidenav">
-      <app-sidenav [sidenav]="sidenav"></app-sidenav>
-    </mat-sidenav>
-    
-    <mat-sidenav-content>
+  <mat-sidenav-content>
+      <header class="header">
+        <div class="headerbox">
+          <div class="logobox">
+            <fa-icon
+              [icon]="bar"
+              class="bar"
+              (click)="sidenav.open()"
+            ></fa-icon>
 
-  <body class="body">
+            <a class="logo" routerLink="/home">
+              <span class="letter-c">C</span>yber<span class="hub">Hub</span>
+            </a>
+          </div>
 
-    <header class="header">
-      <div class="headerbox">
+          <br /><br />
 
-        <div class="logobox">
-          <fa-icon [icon]="bar" class="bar" (click)="sidenav.open()"></fa-icon>
-
-          <a class="logo" routerLink="/home">
-            <span class="letter-c">C</span>yber<span class="hub">Hub</span>
-          </a>
+          <nav>
+            <ul class="unlist">
+              <li class="list">
+                <a class="link" routerLink="/home" routerLinkActive="active"
+                  >Home</a
+                >
+              </li>
+              <li class="list">
+                <a class="link" routerLink="/cart" routerLinkActive="active"
+                  >Browse</a
+                >
+              </li>
+              <li class="list">
+                <a class="link" routerLink="/build" routerLinkActive="active"
+                  >Shop</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <div
+            class="badgebox"
+            [matBadge]="items.length"
+            [matBadgeHidden]="items.length === 0"
+            matBadgeOverlap="false"
+          >
+            <fa-icon [icon]="cart" class="cart" routerLink="/cart"></fa-icon>
+          </div>
         </div>
+      </header>
 
-        <br><br>
-        
-        <nav>
-          <ul class="unlist">
+      <router-outlet></router-outlet>
     
-            <li class="list">
-              <a class="link" routerLink="/home" routerLinkActive="active">Home</a>
-            </li>
-            <li class="list">
-              <a class="link" routerLink="/cart" routerLinkActive="active">Browse</a>
-            </li>
-            <li class="list">
-              <a class="link" routerLink="/build" routerLinkActive="active">Shop</a>
-            </li>
-    
-          </ul>
-        </nav>
-        <div class="badgebox" [matBadge]="items.length" [matBadgeHidden]="items.length === 0" matBadgeOverlap="false">
-          <fa-icon [icon]="cart" class="cart" routerLink="/cart"></fa-icon>
-        </div>
-      </div>
-    </header>
-
-
-    <router-outlet></router-outlet>
-
-
-    <!-- Footer -->
-    <app-footer></app-footer>
-  
-  </body>
-
   </mat-sidenav-content>
-  </mat-sidenav-container>
+</mat-sidenav-container>
 
-</html>
+<app-footer></app-footer>
+
