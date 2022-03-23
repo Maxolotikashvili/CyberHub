@@ -5,7 +5,7 @@
         <span class="psu-name">{{item.name}}</span>
         <span class="psu-power">{{item.power}}</span>
         <span class="psu-price">{{item.price}}$</span>
-        <button mat-button class="psu-buy" (click)="sendToCart(item)">Add To Cart</button>
+        <button mat-button class="psu-buy" (click)="sendToCart(item)" (click)="snackDisplay('Item Added To Cart', 'Dismiss')">Add To Cart</button>
     </div>
 
 </div>

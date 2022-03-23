@@ -4,7 +4,7 @@
         <img class="cpu-image" [src]="item.imageUrl" alt="image">
         <span class="cpu-name">{{item.name}}</span>
         <span class="cpu-price">{{item.price}}$</span>
-        <button mat-button class="cpu-buy" (click)="sendToCart(item)">Add To Cart</button>
+        <button mat-button class="cpu-buy" (click)="sendToCart(item)" (click)="snackDisplay('Item Added To Cart', 'Dismiss')">Add To Cart</button>
     </div>
 
 </div>

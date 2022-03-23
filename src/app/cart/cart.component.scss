@@ -127,6 +127,22 @@ $font-saira: "Saira Condensed", sans-serif;
                 }
             }
 
+            .buttonbox {
+                display: flex;
+                justify-content: space-around;
+                margin-top: 50px;
+
+                .clearbutton {
+                    width: 200px;
+                    height: 50px;
+                }
+
+                .gobutton {
+                    width: 200px;
+                    height: 50px;
+                }
+            }
+
             .margin {
                 margin: 0px 20px 0px 20px;
             }
@@ -139,6 +155,66 @@ $font-saira: "Saira Condensed", sans-serif;
    
         .summarybox {
             background-color: rgba(128, 128, 128, 0.411);
+            margin: 0px 20px 0px 20px;
+            padding: 10px 40px 10px 40px;
+            border-radius: 10px;
+
+            .summary-h3 {
+                text-align: center;
+                font-size: 26px;
+                letter-spacing: 0.5px;
+                font-family: $font-play;
+                font-weight: bold;
+            }
+
+            .selected-h5 {
+                margin-top: 50px;
+                font-size: 14px;
+                text-align: center;
+            }
+
+            .item-namebox {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 10px;
+
+                .item-names {
+                    text-align: center;
+                    font-weight: bold;
+                }
+            }
+
+            .quantity-h5 {
+                margin-top: 20px;
+                font-size: 14px;
+            }
+
+            .shipping-h5 {
+                font-size: 14px;
+            }
+
+            .tax-h5 {
+                font-size: 14px;
+            }
+
+            .time-h5 {
+                font-size: 14px;
+            }
+
+            .total-h4 {
+                margin-top: 30px;
+                font-size: 18px;
+                font-weight: bold;
+                text-align: end;
+            }
+
+            .checkoutbutton {
+                display: flex;
+                justify-content: center;
+                margin-top: 30px;
+            }
         }
     }
 }

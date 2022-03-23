@@ -37,7 +37,9 @@
     
           </ul>
         </nav>
-        
+        <div class="badgebox" [matBadge]="items.length" [matBadgeHidden]="items.length === 0" matBadgeOverlap="false">
+          <fa-icon [icon]="cart" class="cart" routerLink="/cart"></fa-icon>
+        </div>
       </div>
     </header>
 

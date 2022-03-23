@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { KeyboardsService, keyboardsType } from 'src/app/Services/buildservice/keyboards.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 
@@ -10,7 +11,11 @@ import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 export class KeyboardsComponent implements OnInit {
   keyboards!: keyboardsType[];
 
-  constructor(private keyboardsservice: KeyboardsService, private cartitemservice: CartItemService) { }
+  constructor(
+    private keyboardsservice: KeyboardsService, 
+    private cartitemservice: CartItemService,
+    private snack: MatSnackBar
+    ) { }
 
   ngOnInit(): void {
     this.keyboardsservice.getKeyboards().subscribe((data) => {
@@ -20,6 +25,10 @@ export class KeyboardsComponent implements OnInit {
 
   sendToCart(item: keyboardsType) {
     this.cartitemservice.getItems(item)
+  }
+
+  snackDisplay(message: string, action: any) {
+    this.snack.open(message, action, {duration: 3000})
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { RamsService, ramsType } from 'src/app/Services/buildservice/rams.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 
@@ -10,7 +11,11 @@ import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 export class RamsComponent implements OnInit {
   rams!: ramsType[];
 
-  constructor(private ramsservice: RamsService, private cartitemservice: CartItemService) { }
+  constructor(
+    private ramsservice: RamsService, 
+    private cartitemservice: CartItemService,
+    private snack: MatSnackBar
+    ) { }
 
   ngOnInit(): void {
     this.ramsservice.getRams().subscribe((data) => {
@@ -20,6 +25,10 @@ export class RamsComponent implements OnInit {
 
   sendToCart(item: ramsType) {
     this.cartitemservice.getItems(item)
+  }
+
+  snackDisplay(message: string, action: any) {
+    this.snack.open(message, action, {duration: 3000})
   }
 
 }

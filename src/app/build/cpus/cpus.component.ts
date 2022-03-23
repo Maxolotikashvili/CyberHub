@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { CpusService, cpusType } from 'src/app/Services/buildservice/cpus.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 
@@ -11,7 +12,11 @@ export class CpusComponent implements OnInit {
   cpus!: cpusType[];
 
 
-  constructor(private cpusservice: CpusService, private cartItemService: CartItemService) { }
+  constructor(
+    private cpusservice: CpusService, 
+    private cartItemService: CartItemService,
+    private snack: MatSnackBar
+    ) { }
 
   ngOnInit(): void {
 
@@ -23,6 +28,10 @@ export class CpusComponent implements OnInit {
 
   sendToCart(item: cpusType) {
     this.cartItemService.getItems(item)
+  }
+
+  snackDisplay(message: string, action: any) {
+    this.snack.open(message, action, {duration: 3000})
   }
 
 }

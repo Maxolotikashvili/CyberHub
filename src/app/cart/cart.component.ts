@@ -37,4 +37,8 @@ export class CartComponent implements OnInit {
     this.items.splice(item, 1)
   }
 
+  clearCart() {
+    this.items.splice(0, this.items.length);
+  }
+
 }
