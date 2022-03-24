@@ -102,3 +102,20 @@ $background: radial-gradient(circle, rgb(5, 0, 94) 0%, rgba(6,6,80,1) 50%, rgba(
     }
 
 }
+
+// Spinner
+.spinnerboxhide {
+    display: none;
+}
+
+.spinnerboxshow {
+    position: absolute;
+    position: fixed;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+}
+
+.blur {
+    filter: blur(50px);
+}

@@ -1,6 +1,10 @@
-<div class="gridbox">
+<div class="gridbox" [class]="blur">
 
     <div class="gridlist" *ngFor="let item of hdds">
+        <div class="iconbox">
+            <fa-icon [icon]="eye" class="icon"></fa-icon>
+            <fa-icon [icon]="heart" class="icon"></fa-icon>
+        </div>
         <img class="hdd-image" [src]="item.imageUrl" alt="image">
         <span class="hdd-name">{{item.name}}</span>
         <span class="hdd-memory">{{item.memory}}</span>
@@ -8,4 +12,9 @@
         <button mat-button class="hdd-buy" (click)="sendToCart(item)" (click)="snackDisplay('Item Added To Cart', 'Dismiss')">Add To Cart</button>
     </div>
 
+</div>
+
+<!-- Spinner -->
+<div [class]="spinnerboxshow">
+    <mat-spinner></mat-spinner>
 </div>

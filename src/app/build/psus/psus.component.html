@@ -1,6 +1,10 @@
-<div class="gridbox">
+<div class="gridbox" [class]="blur">
 
     <div class="gridlist" *ngFor="let item of psus">
+        <div class="iconbox">
+            <fa-icon [icon]="eye" class="icon"></fa-icon>
+            <fa-icon [icon]="heart" class="icon"></fa-icon>
+        </div>
         <img class="psu-image" [src]="item.imageUrl" alt="image">
         <span class="psu-name">{{item.name}}</span>
         <span class="psu-power">{{item.power}}</span>
@@ -8,4 +12,9 @@
         <button mat-button class="psu-buy" (click)="sendToCart(item)" (click)="snackDisplay('Item Added To Cart', 'Dismiss')">Add To Cart</button>
     </div>
 
+</div>
+
+<!-- Spinner -->
+<div [class]="spinnerboxshow">
+    <mat-spinner></mat-spinner>
 </div>

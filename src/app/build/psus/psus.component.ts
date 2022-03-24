@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { PsusService, psusType } from 'src/app/Services/buildservice/psus.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 
@@ -11,6 +12,14 @@ import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 export class PsusComponent implements OnInit {
   psus!: psusType[];
 
+  // Fontawesome
+  eye = faEye;
+  heart = faHeart;
+
+  // Spinner
+  spinnerboxshow = "spinnerboxshow";
+  blur = "blur"; 
+
   constructor(
     private psuservice: PsusService, 
     private cartitemservice: CartItemService,
@@ -18,6 +27,15 @@ export class PsusComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+
+     // Spinner Timeout
+     this.spinnerboxshow = "spinnerboxshow";
+
+     setTimeout(() => {
+       this.spinnerboxshow = "spinnerboxhide";
+       this.blur = "";
+     }, 1500);
+     
     this.psuservice.getPsus().subscribe((data) => {
       this.psus = data;
     })

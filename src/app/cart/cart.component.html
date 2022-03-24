@@ -1,5 +1,5 @@
 <section>
-  <div class="bigbox">
+  <div class="bigbox" [class]="blur">
     <h2 class="cart-h2">
       Cart <span class="empty-span" *ngIf="items.length == 0">is empty</span>
     </h2>
@@ -59,11 +59,17 @@
         <h5 class="tax-h5">Tax: 10% Per Item,</h5>
         <h5 class="time-h5">Estimated Arrival Time: 25 - 30 Days</h5>
         <mat-divider></mat-divider>
-        <h4 class="total-h4">Total: 3800$</h4>
+        <h4 class="total-h4">Total: </h4>
         <div class="checkoutbutton">
           <button mat-raised-button color="primary">Proceed To Checkout</button>
         </div>
       </div>
     </div>
+  </div>
+
+
+  <!-- Spinner -->
+  <div [class]="spinnerboxshow">
+    <mat-spinner></mat-spinner>
   </div>
 </section>

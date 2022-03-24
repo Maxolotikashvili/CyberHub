@@ -1,10 +1,19 @@
-<div class="gridbox">
+<div class="gridbox" [class]="blur">
 
     <div class="gridlist" *ngFor="let item of keyboards">
+        <div class="iconbox">
+            <fa-icon [icon]="eye" class="icon"></fa-icon>
+            <fa-icon [icon]="heart" class="icon"></fa-icon>
+        </div>
         <img class="keyboard-image" [src]="item.imageUrl" alt="image">
         <span class="keyboard-name">{{item.name}}</span>
         <span class="keyboard-price">{{item.price}}$</span>
         <button mat-button class="keyboard-buy" (click)="sendToCart(item)" (click)="snackDisplay('Item Added To Cart', 'Dismiss')">Add To Cart</button>
     </div>
 
+</div>
+
+<!-- Spinner -->
+<div [class]="spinnerboxshow">
+    <mat-spinner></mat-spinner>
 </div>

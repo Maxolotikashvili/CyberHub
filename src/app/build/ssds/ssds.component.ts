@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { SsdsService, ssdsType } from 'src/app/Services/buildservice/ssds.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 
@@ -11,6 +12,14 @@ import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 export class SsdsComponent implements OnInit {
   ssds!: ssdsType[];
 
+  // Fontawesome
+  eye = faEye;
+  heart = faHeart;
+
+  // Spinner
+  spinnerboxshow = "spinnerboxshow";
+  blur = "blur"; 
+
   constructor(
     private ssdsservice: SsdsService, 
     private cartitemservice: CartItemService,
@@ -18,6 +27,15 @@ export class SsdsComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+
+     // Spinner Timeout
+     this.spinnerboxshow = "spinnerboxshow";
+
+     setTimeout(() => {
+       this.spinnerboxshow = "spinnerboxhide";
+       this.blur = "";
+     }, 1500);
+     
     this.ssdsservice.getSsds().subscribe((data) => {
       this.ssds = data;
     })

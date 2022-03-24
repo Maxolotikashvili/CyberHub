@@ -2,6 +2,10 @@
 $font-play: "Play", sans-serif;
 $font-saira: "Saira Condensed", sans-serif;
 
+section {
+    position: relative;
+}
+
 .bigbox {
     display: flex;
     flex-direction: column;
@@ -217,4 +221,22 @@ $font-saira: "Saira Condensed", sans-serif;
             }
         }
     }
+}
+
+// Spinner
+.spinnerboxhide {
+    display: none;
+}
+
+.spinnerboxshow {
+    position: absolute;
+    position: fixed;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.blur {
+    filter: blur(40px);
 }

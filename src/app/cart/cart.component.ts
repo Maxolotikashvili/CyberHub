@@ -10,12 +10,24 @@ import { CartItemService } from '../Services/Cart/cart-item.service';
 export class CartComponent implements OnInit {
   items!: any[];
 
+  // Fontawesome
   xmark = faXmark;
 
-  somenumber!: number;
+  // Spinner
+  spinnerboxshow = "spinnerboxshow";
+  blur = "blur";
+
   constructor(private cartitemservice: CartItemService) { }
 
   ngOnInit(): void {
+
+    // Spinner Timeout
+    this.spinnerboxshow = "spinnerboxshow";
+
+    setTimeout(() => {
+      this.spinnerboxshow = "spinnerboxhide";
+      this.blur = "";
+    }, 1200);
 
     // Receive Items
     this.cartitemservice.sendItems().subscribe((data) => {

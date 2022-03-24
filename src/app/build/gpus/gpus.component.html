@@ -1,10 +1,19 @@
-<div class="gridbox">
+<div class="gridbox" [class]="blur">
 
     <div class="gridlist" *ngFor="let item of gpus">
+        <div class="iconbox">
+            <fa-icon [icon]="eye" class="icon"></fa-icon>
+            <fa-icon [icon]="heart" class="icon"></fa-icon>
+        </div>
         <img class="gpu-image" [src]="item.imageUrl">
         <span class="gpu-name">{{item.name}}</span>
         <span class="gpu-price">{{item.price}}$</span>
         <button mat-button class="gpu-buy" (click)="sendToCart(item)" (click)="snackDisplay('Item Added To Cart', 'Dismiss')">Add To Cart</button>
     </div>
 
+</div>
+
+<!-- Spinner -->
+<div [class]="spinnerboxshow">
+    <mat-spinner></mat-spinner>
 </div>

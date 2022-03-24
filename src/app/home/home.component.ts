@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
   accessories!: accessoriesType[];
   news!: newsType[];
   parts!: partsType[];
-  
+
   constructor(private newsservice: NewsService) { }
 
   ngOnInit(): void {

@@ -16,6 +16,19 @@ $silver: silver;
         box-shadow: -2px 2px 10px $silver;
         border-radius: 5px;
 
+        .iconbox {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 10px;
+            font-size: 20px;
+            visibility: hidden;
+
+            .icon {
+                cursor: pointer;
+            }
+        }
+
         .mobo-image {
             max-width: 220px;
             width: 100%;
@@ -53,4 +66,27 @@ $silver: silver;
             border-color: black;
         }
     }
+
+    .gridlist:hover {
+        .iconbox {
+            visibility: visible;
+        }
+    }
+}
+
+// Spinner
+.spinnerboxhide {
+    display: none;
+}
+
+.spinnerboxshow {
+    position: absolute;
+    position: fixed;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+}
+
+.blur {
+    filter: blur(50px);
 }

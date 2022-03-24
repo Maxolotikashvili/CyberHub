@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { RamsService, ramsType } from 'src/app/Services/buildservice/rams.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 
@@ -11,6 +12,14 @@ import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 export class RamsComponent implements OnInit {
   rams!: ramsType[];
 
+  // Fontawesome
+  eye = faEye;
+  heart = faHeart;
+
+  // Spinner
+  spinnerboxshow = "spinnerboxshow";
+  blur = "blur"; 
+
   constructor(
     private ramsservice: RamsService, 
     private cartitemservice: CartItemService,
@@ -18,6 +27,15 @@ export class RamsComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+
+     // Spinner Timeout
+     this.spinnerboxshow = "spinnerboxshow";
+
+     setTimeout(() => {
+       this.spinnerboxshow = "spinnerboxhide";
+       this.blur = "";
+     }, 1500);
+     
     this.ramsservice.getRams().subscribe((data) => {
       this.rams = data;
     })
