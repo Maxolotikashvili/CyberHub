@@ -17,6 +17,7 @@ export class CpuCoolersService {
 
   coolers: coolersType[] = [
     {
+      id: 15,
       coolerId: 1,
       imageUrl: "/assets/PcParts/Cpu-Coolers/corsair-h150cappelix.png",
       manufacturer: "Corsair",
@@ -26,6 +27,7 @@ export class CpuCoolersService {
     },
 
     {
+      id: 16,
       coolerId: 2,
       imageUrl: "/assets/PcParts/Cpu-Coolers/h115i.png",
       manufacturer: "Corsair",
@@ -35,6 +37,7 @@ export class CpuCoolersService {
     },
 
     {
+      id: 17,
       coolerId: 3,
       imageUrl: "/assets/PcParts/Cpu-Coolers/h100i.png",
       manufacturer: "Corsair",
@@ -44,6 +47,7 @@ export class CpuCoolersService {
     },
 
     {
+      id: 18,
       coolerId: 4,
       imageUrl: "/assets/PcParts/Cpu-Coolers/kraken-z73.png",
       manufacturer: "NZXT",
@@ -53,6 +57,7 @@ export class CpuCoolersService {
     },
 
     {
+      id: 19,
       coolerId: 5,
       imageUrl: "/assets/NZXT/kraken-z73.png",
       manufacturer: "NZXT",
@@ -62,6 +67,7 @@ export class CpuCoolersService {
     },
 
     {
+      id: 20,
       coolerId: 6,
       imageUrl: "/assets/PcParts/Cpu-Coolers/kraken-z63.png",
       manufacturer: "NZXT",
@@ -71,6 +77,7 @@ export class CpuCoolersService {
     },
 
     {
+      id: 21,
       coolerId: 7,
       imageUrl: "/assets/NZXT/kraken-x73.png",
       manufacturer: "NZXT",
@@ -80,6 +87,7 @@ export class CpuCoolersService {
     },
 
     {
+      id: 22,
       coolerId: 8,
       imageUrl: "/assets/PcParts/Cpu-Coolers/asus-l360.png",
       manufacturer: "Asus",
@@ -88,7 +96,9 @@ export class CpuCoolersService {
       price: 359.99
     },
 
-    { coolerId: 9,
+    {
+      id: 23,
+      coolerId: 9,
       imageUrl: "/assets/PcParts/Cpu-Coolers/rog-lc240.png",
       manufacturer: "Asus",
       name: "Asus Rog LC240",
@@ -97,6 +107,7 @@ export class CpuCoolersService {
     },
 
     {
+      id: 24,
       coolerId: 10,
       imageUrl: "/assets/PcParts/Cpu-Coolers/Deepcool-gammax-l360.png",
       manufacturer: "DeepCool",
@@ -106,6 +117,7 @@ export class CpuCoolersService {
     },
 
     {
+      id: 25,
       coolerId: 11,
       imageUrl: "/assets/PcParts/Cpu-Coolers/Gammax-l240.png",
       manufacturer: "DeepCool",
@@ -115,6 +127,7 @@ export class CpuCoolersService {
     },
 
     {
+      id: 26, 
       coolerId: 12,
       imageUrl: "/assets/PcParts/Cpu-Coolers/gammaxx-l240argb.png",
       manufacturer: "DeepCool",
@@ -124,6 +137,7 @@ export class CpuCoolersService {
     },
 
     {
+      id: 27,
       coolerId: 13,
       imageUrl: "/assets/PcParts/Cpu-Coolers/Thermaltake-th360.png",
       manufacturer: "Thermaltake",
@@ -133,6 +147,7 @@ export class CpuCoolersService {
     },
 
     {
+      id: 28,
       coolerId: 14,
       imageUrl: "/assets/PcParts/Cpu-Coolers/Thermaltake-th360argb.png",
       manufacturer: "Thermaltake",
@@ -142,6 +157,7 @@ export class CpuCoolersService {
     },
 
     {
+      id: 29,
       coolerId: 15,
       imageUrl: "/assets/PcParts/Cpu-Coolers/Thermaltake-th240.png",
       manufacturer: "Thermaltake",
@@ -151,6 +167,7 @@ export class CpuCoolersService {
     },
 
     {
+      id: 30,
       coolerId: 16,
       imageUrl: "/assets/PcParts/Cpu-Coolers/thermaltake-pureplus.png",
       manufacturer: "Thermaltake",
@@ -160,6 +177,7 @@ export class CpuCoolersService {
     },
 
     {
+      id: 31,
       coolerId: 16,
       imageUrl: "/assets/PcParts/Cpu-Coolers/coolermaster-masterfan-mf120.png",
       manufacturer: "Cooler Master",
@@ -169,6 +187,7 @@ export class CpuCoolersService {
     },
 
     {
+      id: 32,
       coolerId: 17,
       imageUrl: "/assets/PcParts/Cpu-Coolers/zalman-CNPS20x.png",
       manufacturer: "Zalman",
@@ -178,6 +197,7 @@ export class CpuCoolersService {
     },
 
     {
+      id: 33,
       coolerId: 18,
       imageUrl: "/assets/PcParts/Cpu-Coolers/ux200.png",
       manufacturer: "Thermaltake",
@@ -187,6 +207,7 @@ export class CpuCoolersService {
     },
 
     {
+      id: 34,
       coolerId: 19,
       imageUrl: "/assets/PcParts/Cpu-Coolers/gammax-gte.png",
       manufacturer: "DeepCool",
@@ -194,7 +215,7 @@ export class CpuCoolersService {
       quantity: 1,
       price: 69.99
     },
-    
+
   ];
 
   constructor() { }

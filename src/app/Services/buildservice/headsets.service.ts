@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 
 export interface headsetsType {
+  id: number,
   headsetId: number,
   manufacturer: string,
   imageUrl: string,
@@ -16,6 +17,7 @@ export interface headsetsType {
 export class HeadsetsService {
   headsets: headsetsType[] = [
     {
+      id: 69,
       headsetId: 1,
       manufacturer: "Steelseries",
       imageUrl: "/assets/PcParts/Headsets/steelseriesarctispro.png",
@@ -25,6 +27,7 @@ export class HeadsetsService {
     },
 
     {
+      id: 70,
       headsetId: 2,
       manufacturer: "Steelseries",
       imageUrl: "/assets/PcParts/Headsets/arctis9.png",
@@ -34,6 +37,7 @@ export class HeadsetsService {
     },
 
     {
+      id: 71,
       headsetId: 3,
       manufacturer: "Steelseries",
       imageUrl: "/assets/PcParts/Headsets/steelseriesarctis7.png",
@@ -43,6 +47,7 @@ export class HeadsetsService {
     },
 
     {
+      id: 72,
       headsetId: 4,
       manufacturer: "Razer",
       imageUrl: "/assets/PcParts/Headsets/razer-nari.png",
@@ -52,6 +57,7 @@ export class HeadsetsService {
     },
 
     {
+      id: 73,
       headsetId: 5,
       manufacturer: "Asus",
       imageUrl: "/assets/PcParts/Headsets/rog-deltargb.png",
@@ -61,6 +67,7 @@ export class HeadsetsService {
     },
 
     {
+      id: 74,
       headsetId: 6,
       manufacturer: "HyperX",
       imageUrl: "/assets/PcParts/Headsets/Cloud-orbits.png",
@@ -70,6 +77,7 @@ export class HeadsetsService {
     },
 
     {
+      id: 75,
       headsetId: 7,
       manufacturer: "HyperX",
       imageUrl: "/assets/PcParts/Headsets/cloud2-wired.png",
@@ -79,6 +87,7 @@ export class HeadsetsService {
     },
 
     {
+      id: 76,
       headsetId: 8,
       manufacturer: "HyperX",
       imageUrl: "/assets/PcParts/Headsets/cloudii-71.png",

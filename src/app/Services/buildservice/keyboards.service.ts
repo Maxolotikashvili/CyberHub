@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 
 export interface keyboardsType {
+  id: number,
   keyboardId: number,
   manufacturer: string,
   imageUrl: string,
@@ -16,6 +17,7 @@ export interface keyboardsType {
 export class KeyboardsService {
   keyboards: keyboardsType[] = [
     {
+      id: 77,
       keyboardId: 1,
       manufacturer: "HyperX",
       imageUrl: "/assets/PcParts/Keyboards/elite2.png",
@@ -25,6 +27,7 @@ export class KeyboardsService {
     },
 
     {
+      id: 78,
       keyboardId: 2,
       manufacturer: "HyperX",
       imageUrl: "/assets/PcParts/Keyboards/fps.png",
@@ -34,6 +37,7 @@ export class KeyboardsService {
     },
 
     {
+      id: 79,
       keyboardId: 3,
       manufacturer: "HyperX",
       imageUrl: "/assets/PcParts/Keyboards/origins.png",
@@ -43,6 +47,7 @@ export class KeyboardsService {
     },
 
     {
+      id: 80,
       keyboardId: 4,
       manufacturer: "Razer",
       imageUrl: "/assets/PcParts/Keyboards/razer-blackwidowv3green.png",
@@ -52,6 +57,7 @@ export class KeyboardsService {
     },
 
     {
+      id: 81,
       keyboardId: 5,
       manufacturer: "Asus",
       imageUrl: "/assets/PcParts/Keyboards/Rog-claymore.png",

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 
 export interface hddsType {
+  id: number,
   hddId: number,
   manufacturer: string,
   imageUrl: string,
@@ -18,6 +19,7 @@ export class HddsService {
 
   hdds: hddsType[] = [
     {
+      id: 63,
       hddId: 1,
       manufacturer: "Seagate",
       imageUrl: "/assets/PcParts/HDDs/Skyhawk-6tb.png",
@@ -28,6 +30,7 @@ export class HddsService {
     },
 
     {
+      id: 64,
       hddId: 2,
       manufacturer: "Seagate",
       imageUrl: "/assets/PcParts/HDDs/barracuda-2tb.png",
@@ -38,6 +41,7 @@ export class HddsService {
     },
 
     {
+      id: 65,
       hddId: 3,
       manufacturer: "Seagate",
       imageUrl: "/assets/PcParts/HDDs/barracuda-compute-1tb.png",
@@ -48,6 +52,7 @@ export class HddsService {
     },
 
     {
+      id: 66,
       hddId: 4,
       manufacturer: "Western Digital",
       imageUrl: "/assets/PcParts/HDDs/wd-red2tb.png",
@@ -58,6 +63,7 @@ export class HddsService {
     },
 
     {
+      id: 67,
       hddId: 5,
       manufacturer: "Western Digital",
       imageUrl: "/assets/PcParts/HDDs/wd-blue1tb.png",
@@ -68,6 +74,7 @@ export class HddsService {
     },
 
     {
+      id: 68,
       hddId: 6,
       manufacturer: "Western Digital",
       imageUrl: "/assets/PcParts/HDDs/wd-black1tb.png",

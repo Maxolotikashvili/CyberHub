@@ -4,7 +4,7 @@
       Cart <span class="empty-span" *ngIf="items.length == 0">is empty</span>
     </h2>
 
-    <div class="emptybox">
+    <div class="emptybox" *ngIf="items.length == 0">
       <fa-icon [icon]="basket"></fa-icon>
       <h4 class="fill-h4">You Should Fill Your Cart By Navigating To Shopping Section</h4>
       <button mat-flat-button class="goshopping" color="primary" routerLink="../build">Go Shopping</button>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 
 export interface casesType {
+  id: number,
   caseId: number,
   manufacturer: string,
   imageUrl: string,
@@ -16,6 +17,7 @@ export interface casesType {
 export class CasesService {
   cases: casesType[] = [
     {
+      id: 1,
       caseId: 1,
       manufacturer: "Thermaltake",
       imageUrl: "/assets/PcParts/Cases/Thermaltake-ah-t600.png",
@@ -25,6 +27,7 @@ export class CasesService {
     },
 
     {
+      id: 2,
       caseId: 2,
       manufacturer: "Thermaltake",
       imageUrl: "/assets/PcParts/Cases/Thermaltake-ah-t600white.png",
@@ -34,6 +37,7 @@ export class CasesService {
     },
     
     {
+      id: 3,
       caseId: 3,
       manufacturer: "Thermaltake",
       imageUrl: "/assets/PcParts/Cases/Thermaltake-view71-rgbplus.png",
@@ -43,6 +47,7 @@ export class CasesService {
     },
     
     {
+      id: 4,
       caseId: 4,
       manufacturer: "Thermaltake",
       imageUrl: "/assets/PcParts/Cases/Thermaltake-view71.png",
@@ -52,6 +57,7 @@ export class CasesService {
     },
 
     {
+      id: 5,
       caseId: 5,
       manufacturer: "Thermaltake",
       imageUrl: "/assets/PcParts/Cases/thermaltake-divier-mid.png",
@@ -61,6 +67,7 @@ export class CasesService {
     },
     
     {
+      id: 6,
       caseId: 6,
       manufacturer: "Thermaltake",
       imageUrl: "/assets/PcParts/Cases/thermaltake-divider-midwhite.png",
@@ -70,6 +77,7 @@ export class CasesService {
     },
     
     {
+      id: 7,
       caseId: 7,
       manufacturer: "Thermaltake",
       imageUrl: "/assets/PcParts/Cases/thermaltake-commander-midtower.png",
@@ -79,6 +87,7 @@ export class CasesService {
     },
 
     {
+      id: 8,
       caseId: 8,
       manufacturer: "Anidees",
       imageUrl: "/assets/PcParts/Cases/Anidees-Ai-Crystal-XL-full.png",
@@ -88,6 +97,7 @@ export class CasesService {
     },
 
     {
+      id: 9,
       caseId: 9,
       manufacturer: "Corsair",
       imageUrl: "/assets/PcParts/Cases/icue5000x.png",
@@ -97,6 +107,7 @@ export class CasesService {
     },
 
     {
+      id: 10,
       caseId: 10,
       manufacturer: "Corsair",
       imageUrl: "/assets/PcParts/Cases/icue4000x.jpg",
@@ -106,6 +117,7 @@ export class CasesService {
     },
     
     {
+      id: 11,
       caseId: 11,
       manufacturer: "Gamemax",
       imageUrl: "/assets/PcParts/Cases/Gamemax-atx-rgb.png",
@@ -115,6 +127,7 @@ export class CasesService {
     },
     
     {
+      id: 12,
       caseId: 12,
       manufacturer: "Genesis",
       imageUrl: "/assets/PcParts/Cases/Genesis-midtower.png",
@@ -124,6 +137,7 @@ export class CasesService {
     },
 
     {
+      id: 13,
       caseId: 13,
       manufacturer: "Asus",
       imageUrl: "/assets/PcParts/Cases/tufgaming-gt501mid.png",
@@ -133,6 +147,7 @@ export class CasesService {
     },
     
     {
+      id: 14,
       caseId: 14,
       manufacturer: "Asus",
       imageUrl: "/assets/PcParts/Cases/tufgaming-gt501midwhite.png",

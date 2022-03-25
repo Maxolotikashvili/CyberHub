@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 
 export interface ssdsType {
+  id: number,
   ssdId: number,
   manufacturer: string,
   type: string,
@@ -18,6 +19,7 @@ export interface ssdsType {
 export class SsdsService {
   ssds: ssdsType[] = [
     {
+      id: 112,
       ssdId: 1,
       manufacturer: "Seagate",
       type: "SSD",
@@ -29,6 +31,7 @@ export class SsdsService {
     },
 
     {
+      id: 113,
       ssdId: 2,
       manufacturer: "Seagate",
       type: "SSD",
@@ -40,6 +43,7 @@ export class SsdsService {
     },
 
     {
+      id: 114,
       ssdId: 3,
       manufacturer: "Seagate",
       type: "SSD",
@@ -51,6 +55,7 @@ export class SsdsService {
     },
 
     {
+      id: 115,
       ssdId: 4,
       manufacturer: "Samsung",
       type: "SSD",
@@ -62,6 +67,7 @@ export class SsdsService {
     },
 
     {
+      id: 116,
       ssdId: 5,
       manufacturer: "Samsung",
       type: "SSD",
@@ -73,6 +79,7 @@ export class SsdsService {
     },
 
     {
+      id: 117,
       ssdId: 6,
       manufacturer: "Samsung",
       type: "SSD",
@@ -84,6 +91,7 @@ export class SsdsService {
     },
 
     {
+      id: 118,
       ssdId: 7,
       manufacturer: "Samsung",
       type: "Sata",
@@ -95,6 +103,7 @@ export class SsdsService {
     },
 
     {
+      id: 119,
       ssdId: 8,
       manufacturer: "Western Digital",
       type: "SSD",
@@ -106,6 +115,7 @@ export class SsdsService {
     },
 
     {
+      id: 120,
       ssdId: 9,
       manufacturer: "Western Digital",
       type: "SSD",
@@ -117,6 +127,7 @@ export class SsdsService {
     },
 
     {
+      id: 121,
       ssdId: 10,
       manufacturer: "Western Digital",
       type: "SSD",

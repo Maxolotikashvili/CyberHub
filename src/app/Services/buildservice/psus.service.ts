@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 
 export interface psusType {
+  id: number,
   psuId: number,
   manufacturer: string,
   imageUrl: string,
@@ -19,6 +20,7 @@ export class PsusService {
   psus: psusType[] = [
 
     {
+      id: 91,
       psuId: 1,
       manufacturer: "Be Quet!",
       imageUrl: "/assets/PcParts/Psus/bequet-darkpowerpro12-1500w.png",
@@ -29,6 +31,7 @@ export class PsusService {
     },
 
     {
+      id: 92,
       psuId: 2,
       manufacturer: "Be Quet!",
       imageUrl: "/assets/PcParts/Psus/bequet-darkpowerpro12-1500w.png",
@@ -39,6 +42,7 @@ export class PsusService {
     },
 
     {
+      id: 93,
       psuId: 3,
       manufacturer: "Evga",
       imageUrl: "/assets/PcParts/Psus/Supernova-1000w.png",
@@ -49,6 +53,7 @@ export class PsusService {
     },
 
     {
+      id: 94,
       psuId: 4,
       manufacturer: "Evga",
       imageUrl: "/assets/PcParts/Psus/evga-g61000w.png",
@@ -59,6 +64,7 @@ export class PsusService {
     },
 
     {
+      id: 95,
       psuId: 5,
       manufacturer: "Evga",
       imageUrl: "/assets/PcParts/Psus/evga-600w.png",
@@ -69,6 +75,7 @@ export class PsusService {
     },
 
     {
+      id: 96,
       psuId: 6,
       manufacturer: "Thermaltake",
       imageUrl: "/assets/PcParts/Psus/thermaltake-toughpowere1200w.png",
@@ -79,6 +86,7 @@ export class PsusService {
     },
 
     {
+      id: 97,
       psuId: 7,
       manufacturer: "Thermaltake",
       imageUrl: "/assets/PcParts/Psus/thermaltaketoughpower-850w.png",
@@ -89,6 +97,7 @@ export class PsusService {
     },
 
     {
+      id: 98,
       psuId: 8,
       manufacturer: "Thermaltake",
       imageUrl: "/assets/PcParts/Psus/thermaltake-toughpower-500w.png",
@@ -99,6 +108,7 @@ export class PsusService {
     },
 
     {
+      id: 99,
       psuId: 9,
       manufacturer: "DeepCool",
       imageUrl: "/assets/PcParts/Psus/deepcool-850m.png",

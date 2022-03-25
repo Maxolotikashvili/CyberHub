@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 
 export interface mobosType {
+  id: number,
   moboId: number,
   manufacturer: String,
   imageUrl: string,
@@ -17,6 +18,7 @@ export class MobosService {
   
   mobos: mobosType[] = [
     {
+      id: 82,
       moboId: 1,
       manufacturer: "MSI",
       imageUrl:  "assets/PcParts/MOBOs/Msi-meggodlike.png",
@@ -26,6 +28,7 @@ export class MobosService {
     },
 
     {
+      id: 83,
       moboId: 2,
       manufacturer: "MSI",
       imageUrl: "assets/PcParts/MOBOs/Msi-megace.png",
@@ -35,6 +38,7 @@ export class MobosService {
     },
 
     {
+      id: 84,
       moboId: 3,
       manufacturer: "Asus",
       imageUrl: "/assets/PcParts/MOBOs/rog-maximus12hero.png",
@@ -44,6 +48,7 @@ export class MobosService {
     },
 
     {
+      id: 85,
       moboId: 4,
       manufacturer: "Asus",
       imageUrl: "/assets/PcParts/MOBOs/rog-maximus11wifi.png",
@@ -53,6 +58,7 @@ export class MobosService {
     },
 
     {
+      id: 86,
       moboId: 5,
       manufacturer: "Asus",
       imageUrl: "assets/PcParts/MOBOs/Strix-z490egaming.png",
@@ -62,6 +68,7 @@ export class MobosService {
     },
 
     {
+      id: 87,
       moboId: 6,
       manufacturer: "Asus",
       imageUrl: "assets/PcParts/MOBOs/strix-z490hgaming.png",
@@ -71,6 +78,7 @@ export class MobosService {
     },
 
     {
+      id: 88,
       moboId: 7,
       manufacturer: "Gigabyte",
       imageUrl: "assets/PcParts/MOBOs/Gigabyte-z690master.png",
@@ -80,6 +88,7 @@ export class MobosService {
     },
 
     {
+      id: 89,
       moboId: 8,
       manufacturer: "Gigabyte",
       imageUrl: "assets/PcParts/MOBOs/z590aoruselite.png",
@@ -89,6 +98,7 @@ export class MobosService {
     },
 
     {
+      id: 90,
       moboId: 9,
       manufacturer: "Gigabyte",
       imageUrl: "assets/PcParts/MOBOs/z390aorusprowifi.png",

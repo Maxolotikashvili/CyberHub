@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 
 export interface gpusType {
+  id: number,
   gpuId: number,
   manufacturer: String,
   imageUrl: string,
@@ -16,6 +17,7 @@ export interface gpusType {
 export class GpusService {
   gpus: gpusType[] = [
     {
+      id: 46,
       gpuId: 1,
       manufacturer: "Asus",
       imageUrl: "/assets/PcParts/Gpus/Strix-3090.png",
@@ -25,6 +27,7 @@ export class GpusService {
     },
 
     {
+      id: 47,
       gpuId: 2,
       manufacturer: "Asus",
       imageUrl: "assets/PcParts/Gpus/Strix-3080ti.png",
@@ -34,6 +37,7 @@ export class GpusService {
     },
 
     {
+      id: 48,
       gpuId: 3,
       manufacturer: "Asus",
       imageUrl: "assets/PcParts/Gpus/Strix-6900xt.png",
@@ -43,6 +47,7 @@ export class GpusService {
     },
 
     {
+      id: 49,
       gpuId: 4,
       manufacturer: "Gigabyte",
       imageUrl: "/assets/PcParts/Gpus/Aorus-6700xt.png",
@@ -52,6 +57,7 @@ export class GpusService {
     },
 
     {
+      id: 50,
       gpuId: 5,
       manufacturer: "Nvidia",
       imageUrl: "/assets/PcParts/Gpus/Fe-3080.png",
@@ -61,6 +67,7 @@ export class GpusService {
     },
 
     {
+      id: 51,
       gpuId: 6,
       manufacturer: "Nvidia",
       imageUrl: "/assets/PcParts/Gpus/Fe-3080ti.png",
@@ -70,6 +77,7 @@ export class GpusService {
     },
 
     {
+      id: 52,
       gpuId: 7,
       manufacturer: "MSI",
       imageUrl: "assets/PcParts/Gpus/Msi-6800xt.png",
@@ -79,6 +87,7 @@ export class GpusService {
     },
 
     {
+      id: 53,
       gpuId: 8,
       manufacturer: "Asus",
       imageUrl: "/assets/PcParts/Gpus/Tuf-3080ti.png",
@@ -88,6 +97,7 @@ export class GpusService {
     },
 
     {
+      id: 54,
       gpuId: 9,
       manufacturer: "Nvidia",
       imageUrl: "/assets/PcParts/Gpus/Fe-gtx1060.png",
@@ -97,6 +107,7 @@ export class GpusService {
     },
   
     {
+      id: 55,
       gpuId: 10,
       manufacturer: "Gigabyte",
       imageUrl: "/assets/PcParts/Gpus/Vision-3060ti.png",
@@ -106,6 +117,7 @@ export class GpusService {
     },
 
     {
+      id: 56,
       gpuId: 11,
       manufacturer: "Nvidia",
       imageUrl: "/assets/PcParts/Gpus/Fe-2080super.png",
@@ -115,6 +127,7 @@ export class GpusService {
     },
 
     {
+      id: 57,
       gpuId: 12,
       manufacturer: "MSI",
       imageUrl: "/assets/PcParts/Gpus/Msi-1070ti.png",
@@ -124,6 +137,7 @@ export class GpusService {
     },
 
     {
+      id: 58,
       gpuId: 13,
       manufacturer: "Gigabyte",
       imageUrl: "/assets/PcParts/Gpus/Aorus-3070ti.png",
@@ -133,6 +147,7 @@ export class GpusService {
     },
 
     {
+      id: 59,
       gpuId: 14,
       manufacturer: "Asus",
       imageUrl: "/assets/PcParts/Gpus/Strix-1070.png",
@@ -142,6 +157,7 @@ export class GpusService {
     },
 
     {
+      id: 60,
       gpuId: 15,
       manufacturer: "Nvidia",
       imageUrl: "/assets/PcParts/Gpus/Fe-1080ti.png",
@@ -151,6 +167,7 @@ export class GpusService {
     },
 
     {
+      id: 61,
       gpuId: 16,
       manufacturer: "Gigabyte",
       imageUrl: "/assets/PcParts/Gpus/Gigabyte-3060ti.png",
@@ -160,6 +177,7 @@ export class GpusService {
     },
 
     {
+      id: 62,
       gpuId: 17,
       manufacturer: "Gigabyte",
       imageUrl: "/assets/PcParts/Gpus/Aorus-3080.png",

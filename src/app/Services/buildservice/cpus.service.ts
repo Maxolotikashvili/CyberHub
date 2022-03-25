@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 
 export interface cpusType {
+  id: number,
   cpuId: number,
   manufacturer: string,
   imageUrl: string,
@@ -17,6 +18,7 @@ export class CpusService {
   cpus: cpusType[] = [
     
     {
+      id: 35,
       cpuId: 1,
       manufacturer: "AMD",
       imageUrl: "/assets/PcParts/Cpus/Amd-ryzenthreadripper.png",
@@ -26,6 +28,7 @@ export class CpusService {
     },
     
     {
+      id: 36,
       cpuId: 2,
       manufacturer: "Intel",
       imageUrl: "/assets/PcParts/Cpus/i9-12900k.png",
@@ -35,6 +38,7 @@ export class CpusService {
     },
 
     {
+      id: 37,
       cpuId: 3,
       manufacturer: "Intel",
       imageUrl: "/assets/PcParts/Cpus/i9-11900k.png",
@@ -44,6 +48,7 @@ export class CpusService {
     },
 
     {
+      id: 38,
       cpuId: 4,
       manufacturer: "Intel",
       imageUrl: "/assets/PcParts/Cpus/i9-11900f.png",
@@ -53,6 +58,7 @@ export class CpusService {
     },
 
     {
+      id: 39,
       cpuId: 5,
       manufacturer: "Intel",
       imageUrl: "/assets/PcParts/Cpus/i9-9900k.png",
@@ -62,6 +68,7 @@ export class CpusService {
     },
 
     {
+      id: 40,
       cpuId: 6,
       manufacturer: "AMD", 
       imageUrl: "/assets/PcParts/Cpus/Amd-ryzen7.png",
@@ -71,6 +78,7 @@ export class CpusService {
     },
 
     {
+      id: 41,
       cpuId: 7,
       manufacturer: "Intel",
       imageUrl: "/assets/PcParts/Cpus/i7-11700k.png",
@@ -80,6 +88,7 @@ export class CpusService {
     },
 
     {
+      id: 42,
       cpuId: 8,
       manufacturer: "Intel",
       imageUrl: "/assets/PcParts/Cpus/i7-10700kf.png",
@@ -89,6 +98,7 @@ export class CpusService {
     },
 
     {
+      id: 43,
       cpuId: 9,
       manufacturer: "AMD",
       imageUrl: "/assets/PcParts/Cpus/Amd-ryzen7.png",
@@ -98,6 +108,7 @@ export class CpusService {
     },
 
     {
+      id: 44,
       cpuId: 10,
       manufacturer: "Intel",
       imageUrl: "/assets/PcParts/Cpus/i5-11500f.png",
@@ -107,6 +118,7 @@ export class CpusService {
     },
 
     {
+      id: 45,
       cpuId: 11,
       manufacturer: "Intel",
       imageUrl: "/assets/PcParts/Cpus/i5-10500kf.png",
