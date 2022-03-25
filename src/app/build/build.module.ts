@@ -15,6 +15,7 @@ import { KeyboardsComponent } from './keyboards/keyboards.component';
 import { HeadsetsComponent } from './headsets/headsets.component';
 import { MaterialModule } from '../material/material.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BuildHomeComponent } from './build-home/build-home.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CasesComponent,
     PsusComponent,
     KeyboardsComponent,
-    HeadsetsComponent
+    HeadsetsComponent,
+    BuildHomeComponent
   ],
   imports: [
     CommonModule,
