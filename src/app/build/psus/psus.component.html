@@ -3,7 +3,7 @@
     <div class="gridlist" *ngFor="let item of psus">
         <div class="iconbox">
             <fa-icon [icon]="eye" class="icon"></fa-icon>
-            <fa-icon [icon]="heart" class="icon" (click)="addWishlist(item)"></fa-icon>
+            <fa-icon [icon]="heart" class="icon" (click)="addWishlist(item)" (click)="wishSnackDisplay('Item Added To Wishlist', 'Dismiss')"></fa-icon>
         </div>
         <img class="psu-image" [src]="item.imageUrl" alt="image">
         <span class="psu-name">{{item.name}}</span>

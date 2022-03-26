@@ -57,4 +57,8 @@ export class GpusComponent implements OnInit {
     this.snack.open(message, action, {duration: 3000})
   }
 
+  wishSnackDisplay(message: string, action: any) {
+    this.snack.open(message, action, {duration: 3000})
+  }
+
 }

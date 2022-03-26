@@ -235,12 +235,11 @@ $font-dosis: "Dosis", sans-serif;
         }
 
         .manufacturersbox {
-            // background-image: url('/assets/NZXT/nzxt-new.jpg');
-            // background-repeat: no-repeat;
-            // background-attachment: fixed;
-            // background-size: cover;
-            // background-position: center;
-            background-color: #171717;
+            background-image: url('/assets/Backgrounds/nzxt-wallpaper.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
             padding-top: 100px;
             display: flex;
             flex-direction: column;
@@ -252,7 +251,7 @@ $font-dosis: "Dosis", sans-serif;
                 font-size: 42px;
                 border-bottom: 1px solid white;
                 letter-spacing: 4px;
-                padding: 0px 14px 5px 14px;
+                padding: 0px 14px 10px 14px;
                 margin-bottom: 10px;
             }
 
@@ -260,7 +259,7 @@ $font-dosis: "Dosis", sans-serif;
                 font-size: 22px;
                 letter-spacing: 3px;
                 margin-bottom: 50px;
-                color: gray;
+                color: rgb(233, 233, 233);
             }
 
             // Pump
@@ -270,10 +269,10 @@ $font-dosis: "Dosis", sans-serif;
                 align-items: center;
                 justify-content: space-around;
                 margin: 100px 0px 100px 0px;
-                padding: 20px;
+                background-color: rgba(192, 192, 192, 0.705);
 
                 .pump {
-                    max-width: 600px;
+                    max-width: 500px;
                     width: 100%;
                 }
 
@@ -286,33 +285,38 @@ $font-dosis: "Dosis", sans-serif;
                         margin-bottom: 15px;
                         font-size: 36px;
                         letter-spacing: 1px;
-                        color: white;
                     }
 
                     .pump-p {
                         font-size: 20px;
-                        color: rgb(207, 207, 207);
                         letter-spacing: 1px;
                     }
                 }
             }
 
+            // Divider
+            .divider {
+                width: 90%;
+                background-color: white;
+                margin: 100px 0px 100px 0px;
+            }
+
+
             // Rgb
 
             .nzxt-rgbbox {
-                border-top: 1px solid silver;
                 display: flex;
                 align-items: center;
-                padding-top: 150px;
-                margin: 0px 90px 300px 90px;
+                padding: 0px 50px 0px 50px;
+                background-color: rgba(192, 192, 192, 0.705);
 
                 .rgbtextbox {
                     display: flex;
                     flex-direction: column;
+                    padding: 0px 50px 0px 50px;
 
                     .nzxt-rgb-h {
                         font-size: 36px;
-                        color: white;
                         letter-spacing: 2px;
                         margin-bottom: 15px;
                     }
@@ -320,12 +324,11 @@ $font-dosis: "Dosis", sans-serif;
                     .nzxt-rgb-p {
                         font-size: 20px;
                         letter-spacing: 1px;
-                        color: rgb(207, 207, 207);
                     }
                 }
 
                 .nzxt-rgb {
-                    max-width: 600px;
+                    max-width: 350px;
                     width: 100%;
                 }
             }
@@ -336,6 +339,7 @@ $font-dosis: "Dosis", sans-serif;
                 font-size: 34px;
                 color: silver;
                 letter-spacing: 3px;
+                margin-top: 200px;
                 padding: 0px 30px 12px 30px;
                 border-bottom: 1px solid silver;
             }
