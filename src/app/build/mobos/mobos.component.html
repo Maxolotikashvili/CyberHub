@@ -3,7 +3,7 @@
     <div class="gridlist" *ngFor="let item of mobos">
         <div class="iconbox">
             <fa-icon [icon]="eye" class="icon"></fa-icon>
-            <fa-icon [icon]="heart" class="icon"></fa-icon>
+            <fa-icon [icon]="heart" class="icon" (click)="addWishlist(item)"></fa-icon>
         </div>
         <img class="mobo-image" [src]="item.imageUrl" alt="image">
         <span class="mobo-name">{{item.name}}</span>

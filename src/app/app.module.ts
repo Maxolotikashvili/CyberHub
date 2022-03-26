@@ -9,6 +9,7 @@ import { MaterialModule } from './material/material.module';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { CartComponent } from './cart/cart.component';
 import { FooterComponent } from './footer/footer.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     SidenavComponent,
     CartComponent,
-    FooterComponent
+    FooterComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,

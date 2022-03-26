@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { KeyboardsService, keyboardsType } from 'src/app/Services/buildservice/keyboards.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
+import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
 @Component({
   selector: 'app-keyboards',
@@ -22,6 +23,7 @@ export class KeyboardsComponent implements OnInit {
 
   constructor(
     private keyboardsservice: KeyboardsService, 
+    private wishlistservice: WishlistService,
     private cartitemservice: CartItemService,
     private snack: MatSnackBar
     ) { }
@@ -39,6 +41,10 @@ export class KeyboardsComponent implements OnInit {
     this.keyboardsservice.getKeyboards().subscribe((data) => {
       this.keyboards = data;
     })
+  }
+
+  addWishlist(item: any) {
+    this.wishlistservice.getItems(item);
   }
 
   sendToCart(item: keyboardsType) {

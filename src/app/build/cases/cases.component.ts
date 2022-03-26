@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { CasesService, casesType } from 'src/app/Services/buildservice/cases.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
+import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
 @Component({
   selector: 'app-cases',
@@ -22,6 +23,7 @@ export class CasesComponent implements OnInit {
 
   constructor(
     private casesservice: CasesService,
+    private wishlistservice: WishlistService,
     private cartitemservice: CartItemService,
     private snack: MatSnackBar
     ) { }
@@ -38,6 +40,10 @@ export class CasesComponent implements OnInit {
     this.casesservice.getCases().subscribe((data) => {
       this.cases = data;
     })
+  }
+
+  addWishlist(item: any) {
+    this.wishlistservice.getItems(item);
   }
 
   sendItem(item: casesType) {

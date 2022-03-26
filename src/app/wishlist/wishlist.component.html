@@ -1,0 +1,59 @@
+<section>
+    <div class="bigbox" [class]="blur">
+        <h2 class="cart-h2">
+            Wishlist <span class="empty-span" *ngIf="items.length == 0">is empty</span>
+        </h2>
+
+        <!-- Empty -->
+        <div class="emptybox" *ngIf="items.length == 0">
+            <fa-icon [icon]="heart"></fa-icon>
+            <h4 class="fill-h4">Add Items To Your Wishlist From Shopping Section</h4>
+            <button mat-flat-button class="goshopping" color="primary" routerLink="../build/buildhome">Go
+                Shopping</button>
+        </div>
+
+        <div class="smallbox" *ngIf="items.length !== 0">
+            <div class="wishlistbox">
+                <div class="titlebox">
+                    <br>
+                    <h4 class="manufacturer margin">Manufacturer</h4>
+                    <h4 class="name margin">Name</h4>
+                    <h4 class="price margin">Price</h4>
+                </div>
+
+                <div class="itembox">
+                    <div class="item" *ngFor="let item of items">
+                        <img class="item-img" [src]="item.imageUrl" />
+                        <h6 class="item-text margin margin-auto">{{ item.manufacturer }}</h6>
+                        <span class="item-text margin margin-auto">{{ item.name }}</span>
+                        <span class="item-text margin-auto">{{ item.price }}</span>
+
+                        <div class="removebox">
+                            <button mat-mini-fab color="primary" class="cartbutton">
+                                <fa-icon class="cart" [icon]="cart"></fa-icon>
+                            </button>
+                            <button mat-mini-fab color="warn" class="mat-fab" (click)="removeItem(item)">
+                                <fa-icon [icon]="xmark"></fa-icon>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="buttonbox">
+                        <br>
+                        <button mat-flat-button color="warn" class="clearbutton" (click)="clearCart()">Clear
+                            Wishlist</button>
+                        <button mat-flat-button color="primary" class="gobutton" routerLink="../build">Go
+                            Shopping</button>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Spinner -->
+    <div [class]="spinnerboxshow">
+        <mat-spinner></mat-spinner>
+    </div>
+</section>

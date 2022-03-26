@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { MobosService, mobosType } from 'src/app/Services/buildservice/mobos.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
+import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
 @Component({
   selector: 'app-mobos',
@@ -22,6 +23,7 @@ export class MobosComponent implements OnInit {
 
   constructor(
     private mobosservice: MobosService, 
+    private wishlistservice: WishlistService,
     private cartitemservice: CartItemService,
     private snack: MatSnackBar
     ) { }
@@ -40,6 +42,10 @@ export class MobosComponent implements OnInit {
     this.mobosservice.getMobos().subscribe((data) => {
       this.mobos = data;
     })
+  }
+
+  addWishlist(item: any) {
+    this.wishlistservice.getItems(item);
   }
 
   sendToCart(item: mobosType) {

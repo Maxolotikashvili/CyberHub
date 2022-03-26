@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { CpusService, cpusType } from 'src/app/Services/buildservice/cpus.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
+import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
 @Component({
   selector: 'app-cpus',
@@ -22,6 +23,7 @@ export class CpusComponent implements OnInit {
 
   constructor(
     private cpusservice: CpusService, 
+    private wishlistservice: WishlistService,
     private cartItemService: CartItemService,
     private snack: MatSnackBar
     ) { }
@@ -40,6 +42,10 @@ export class CpusComponent implements OnInit {
     this.cpusservice.getCpus().subscribe((data) => {
       this.cpus = data;
     })
+  }
+
+  addWishlist(item: any) {
+    this.wishlistservice.getItems(item);
   }
 
   sendToCart(item: cpusType) {

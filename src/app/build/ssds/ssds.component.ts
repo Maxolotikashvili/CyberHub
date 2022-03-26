@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { SsdsService, ssdsType } from 'src/app/Services/buildservice/ssds.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
+import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
 @Component({
   selector: 'app-ssds',
@@ -22,6 +23,7 @@ export class SsdsComponent implements OnInit {
 
   constructor(
     private ssdsservice: SsdsService, 
+    private wishlistservice: WishlistService,
     private cartitemservice: CartItemService,
     private snack: MatSnackBar
     ) { }
@@ -39,6 +41,10 @@ export class SsdsComponent implements OnInit {
        this.blur = "";
      }, 1500);
      
+  }
+
+  addWishlist(item: any) {
+    this.wishlistservice.getItems(item);
   }
 
   sendToCart(item: ssdsType) {

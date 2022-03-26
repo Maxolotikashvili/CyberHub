@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { coolersType, CpuCoolersService } from 'src/app/Services/buildservice/cpu-coolers.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
+import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
 @Component({
   selector: 'app-cpu-coolers',
@@ -22,6 +23,7 @@ export class CpuCoolersComponent implements OnInit {
 
   constructor(
     private coolersservice: CpuCoolersService, 
+    private wishlistservice: WishlistService,
     private cartitemservice: CartItemService,
     private snack: MatSnackBar
     ) { }
@@ -39,6 +41,10 @@ export class CpuCoolersComponent implements OnInit {
     this.coolersservice.getCoolers().subscribe((data) => {
       this.coolers = data;
     })
+  }
+
+  addWishlist(item: any) {
+    this.wishlistservice.getItems(item);
   }
 
   sendToCart(item: coolersType) {

@@ -3,7 +3,7 @@
     <div class="gridlist" *ngFor="let item of cpus">
         <div class="iconbox">
             <fa-icon [icon]="eye" class="icon"></fa-icon>
-            <fa-icon [icon]="heart" class="icon"></fa-icon>
+            <fa-icon [icon]="heart" class="icon" (click)="addWishlist(item)"></fa-icon>
         </div>
         <img class="cpu-image" [src]="item.imageUrl" alt="image">
         <span class="cpu-name">{{item.name}}</span>

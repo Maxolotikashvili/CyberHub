@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { HeadsetsService, headsetsType } from 'src/app/Services/buildservice/headsets.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
+import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
 @Component({
   selector: 'app-headsets',
@@ -22,6 +23,7 @@ export class HeadsetsComponent implements OnInit {
 
   constructor(
     private headsetsservice: HeadsetsService, 
+    private wishlistservice: WishlistService,
     private cartitemservice: CartItemService,
     private snack: MatSnackBar
     ) { }
@@ -39,6 +41,10 @@ export class HeadsetsComponent implements OnInit {
     this.headsetsservice.getHeadsets().subscribe((data) => {
       this.headsets = data;
     })
+  }
+
+  addWishlist(item: any) {
+    this.wishlistservice.getItems(item);
   }
 
   sendToCart(item: headsetsType) {

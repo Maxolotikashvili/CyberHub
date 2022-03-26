@@ -5,7 +5,7 @@
     </h2>
 
     <div class="emptybox" *ngIf="items.length == 0">
-      <fa-icon [icon]="basket"></fa-icon>
+      <fa-icon [icon]="cart"></fa-icon>
       <h4 class="fill-h4">You Should Fill Your Cart By Navigating To Shopping Section</h4>
       <button mat-flat-button class="goshopping" color="primary" routerLink="../build/buildhome">Go Shopping</button>
     </div>
@@ -43,7 +43,7 @@
               </button>
             </div>
           </div>
-        
+
           <div class="buttonbox">
             <br>
             <button mat-flat-button color="warn" class="clearbutton" (click)="clearCart()">Clear Cart</button>

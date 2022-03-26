@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { PsusService, psusType } from 'src/app/Services/buildservice/psus.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
+import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
 @Component({
   selector: 'app-psus',
@@ -22,6 +23,7 @@ export class PsusComponent implements OnInit {
 
   constructor(
     private psuservice: PsusService, 
+    private wishlistservice: WishlistService,
     private cartitemservice: CartItemService,
     private snack: MatSnackBar
     ) { }
@@ -39,6 +41,10 @@ export class PsusComponent implements OnInit {
     this.psuservice.getPsus().subscribe((data) => {
       this.psus = data;
     })
+  }
+
+  addWishlist(item: any) {
+    this.wishlistservice.getItems(item);
   }
 
   sendToCart(item: psusType) {

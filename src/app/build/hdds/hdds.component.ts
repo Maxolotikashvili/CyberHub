@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { HddsService, hddsType } from 'src/app/Services/buildservice/hdds.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
+import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
 @Component({
   selector: 'app-hdds',
@@ -22,6 +23,7 @@ export class HddsComponent implements OnInit {
 
   constructor(
     private hddservice: HddsService,
+    private wishlistservice: WishlistService,
     private cartitemservice: CartItemService,
     private snack: MatSnackBar
     ) { }
@@ -39,6 +41,10 @@ export class HddsComponent implements OnInit {
     this.hddservice.getHdds().subscribe((data) => {
       this.hdds = data;
     })
+  }
+
+  addWishlist(item: any) {
+    this.wishlistservice.getItems(item);
   }
 
   sendToCart(item: hddsType) {

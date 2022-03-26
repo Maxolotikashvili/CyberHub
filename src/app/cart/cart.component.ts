@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faBasketShopping, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faBasketShopping, faCartShopping, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { CartItemService } from '../Services/Cart/cart-item.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class CartComponent implements OnInit {
 
   // Fontawesome
   xmark = faXmark;
-  basket = faBasketShopping;
+  cart = faCartShopping;
 
   // Spinner
   spinnerboxshow = "spinnerboxshow";
@@ -28,7 +28,7 @@ export class CartComponent implements OnInit {
     setTimeout(() => {
       this.spinnerboxshow = "spinnerboxhide";
       this.blur = "";
-    }, 1700);
+    }, 1400);
 
     // Receive Items
     this.cartitemservice.sendItems().subscribe((data) => {
@@ -47,7 +47,7 @@ export class CartComponent implements OnInit {
   }
 
   removeItem(item: any) {
-    this.items.splice(item, 1)
+    this.items.splice(this.items.indexOf(item), 1)
   }
 
   clearCart() {

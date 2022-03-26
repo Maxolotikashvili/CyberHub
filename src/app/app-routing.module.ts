@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,11 @@ const routes: Routes = [
   },
 
   { path: 'build', loadChildren: () => import('./build/build.module').then(m => m.BuildModule) },
+
+  {
+    path: 'wishlist',
+    component: WishlistComponent
+  },
 
   {
     path: 'cart',
