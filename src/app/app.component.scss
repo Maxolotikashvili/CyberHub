@@ -1,21 +1,15 @@
 $font-play: "Play", sans-serif;
 
-mat-sidenav {
-    max-width: 400px;
-    width: 100%;
-    background-color: #171717;
+.header {
+    background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(6, 6, 80, 1) 50%, rgba(0, 20, 83, 1) 100%);    
 }
 
 .headerbox {
-    background: rgb(2, 0, 36);
-    background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(6, 6, 80, 1) 50%, rgba(0, 20, 83, 1) 100%);
-    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 20px 20px 20px 0px;
     font-family: $font-play;
-    border-bottom: 1px solid blue;
 
     .logobox {
         display: flex;
@@ -23,8 +17,8 @@ mat-sidenav {
 
         .bar {
             font-size: 26px;
-            cursor: pointer;
             margin-right: 40px;
+            cursor: pointer;
         }
 
         .logo {
@@ -38,11 +32,10 @@ mat-sidenav {
             }
 
             .hub {
-                border: 1px solid black;
-                border-radius: 5px;
+                border-radius: 3px;
                 background-color: black;
                 color: blue;
-                padding: 0px 4px 1px 15px;
+                padding: 0px 0px 1px 13px;
             }
         }
     }
@@ -53,21 +46,13 @@ mat-sidenav {
         .link {
             margin-left: 20px;
             padding: 9px 20px 9px 20px;
-            color: black;
-            transition: all 0.2s linear;
             letter-spacing: 2px;
+            transition: all 0.2s linear;
+            color: white;
         }
 
         .link:hover {
-            box-shadow: 1px 0px 1px inset;
-            background-color: black;
-            color: blue;
-        }
-
-        .active {
-            box-shadow: 1px 0px 1px inset;
-            background-color: black;
-            color: blue;
+            
         }
     }
 
@@ -76,6 +61,18 @@ mat-sidenav {
         color: gray;
         cursor: pointer;
     }
+}
+
+.divider {
+    background-color: white;
+}
+
+// Menu
+.menubox {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    color: white;
 }
 
 

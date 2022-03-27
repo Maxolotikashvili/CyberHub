@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faBasketShopping, faCartShopping, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { CartItemService } from '../Services/Cart/cart-item.service';
 
 @Component({

@@ -1,59 +1,60 @@
-<mat-sidenav-container #sidenav>
-  <mat-sidenav class="sidenav">
-    <app-sidenav [sidenav]="sidenav"></app-sidenav>
-  </mat-sidenav>
+<header class="header">
+  <div class="headerbox">
+    <div class="logobox">
 
-  <mat-sidenav-content>
-      <header class="header">
-        <div class="headerbox">
-          <div class="logobox">
-            <fa-icon
-              [icon]="bar"
-              class="bar"
-              (click)="sidenav.open()"
-            ></fa-icon>
+      <a class="logo" routerLink="/home">
+        <span class="letter-c">C</span>yber<span class="hub">Hub</span>
+      </a>
+    </div>
 
-            <a class="logo" routerLink="/home">
-              <span class="letter-c">C</span>yber<span class="hub">Hub</span>
-            </a>
-          </div>
+    <br /><br />
 
-          <br /><br />
+    <nav>
+      <ul class="unlist">
+        <li class="list">
+          <a class="link" routerLink="/build/buildhome" routerLinkActive="active">Shop</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="badgebox" [matBadge]="items.length" [matBadgeHidden]="items.length === 0" matBadgeOverlap="false">
+      <fa-icon [icon]="cart" class="cart" routerLink="/cart"></fa-icon>
+    </div>
+  </div>
 
-          <nav>
-            <ul class="unlist">
-              <li class="list">
-                <a class="link" routerLink="/home" routerLinkActive="active"
-                  >Home</a
-                >
-              </li>
-              <li class="list">
-                <a class="link" routerLink="/wishlist" routerLinkActive="active"
-                  >Browse</a
-                >
-              </li>
-              <li class="list">
-                <a class="link" routerLink="/build/buildhome" routerLinkActive="active"
-                  >Shop</a
-                >
-              </li>
-            </ul>
-          </nav>
-          <div
-            class="badgebox"
-            [matBadge]="items.length"
-            [matBadgeHidden]="items.length === 0"
-            matBadgeOverlap="false"
-          >
-            <fa-icon [icon]="cart" class="cart" routerLink="/cart"></fa-icon>
-          </div>
-        </div>
-      </header>
+  <mat-divider class="divider"></mat-divider>
 
-      <router-outlet></router-outlet>
+  <div class="menubox">
+
+    <mat-menu #builtmenu="matMenu">
+      <button mat-menu-item class="menu-inside-button">Intel PC</button>
+      <button mat-menu-item class="menu-inside-button">AMD PC</button>
+    </mat-menu>
+    <button mat-button class="menu-button" [matMenuTriggerFor]="builtmenu">Built PC - s</button>
     
-  </mat-sidenav-content>
-</mat-sidenav-container>
+    <mat-menu #partsmenu="matMenu">
+      <button class="menu-inside-button" mat-menu-item routerLink="/build/mobos">Motherboard</button>
+      <button class="menu-inside-button" mat-menu-item routerLink="/build/cpus">Proccessor</button>
+      <button class="menu-inside-button" mat-menu-item routerLink="/build/gpus">Video Card</button>
+      <button class="menu-inside-button" mat-menu-item routerLink="/build/rams">Memory</button>
+      <button class="menu-inside-button" mat-menu-item routerLink="/build/ssds">Solid State Drive</button>
+      <button class="menu-inside-button" mat-menu-item routerLink="/build/hdds">Hard Disk Drive</button>
+      <button class="menu-inside-button" mat-menu-item routerLink="/build/cpu-coolers">Cooler</button>
+      <button class="menu-inside-button" mat-menu-item routerLink="/build/cases">Case</button>
+    </mat-menu>
+
+    <button mat-button class="menu-button" [matMenuTriggerFor]="partsmenu">PC Parts</button>
+
+    <mat-menu #accessoriesmenu="matMenu">
+      <button mat-menu-item class="menu-inside-button">Monitor</button>
+      <button mat-menu-item class="menu-inside-button">Keyboard</button>
+      <button mat-menu-item class="menu-inside-button">Mouse</button>
+      <button mat-menu-item class="menu-inside-button">Headset</button>
+    </mat-menu>
+
+    <button mat-button class="menu-button" [matMenuTriggerFor]="accessoriesmenu">PC Accessories</button>
+  </div>
+</header>
+
+<router-outlet></router-outlet>
 
 <app-footer></app-footer>
-

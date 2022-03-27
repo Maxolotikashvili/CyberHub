@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { SidenavComponent } from './sidenav/sidenav.component';
 import { CartComponent } from './cart/cart.component';
 import { FooterComponent } from './footer/footer.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
@@ -15,7 +14,6 @@ import { WishlistComponent } from './wishlist/wishlist.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    SidenavComponent,
     CartComponent,
     FooterComponent,
     WishlistComponent
