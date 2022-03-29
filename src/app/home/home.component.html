@@ -8,26 +8,6 @@
 
     <div class="bigbox">
 
-      <div class="mainbox">
-        <h2 class="browse-h2">Browse Accessories</h2>
-
-        <div class="browsebigbox">
-
-          <div class="browsebox" *ngFor="let item of accessories">
-
-            <img class="browsephotos" [src]="item.imageUrl" alt="image">
-
-            <div class="spanbox">
-              <span class="browsespan">{{item.title}}</span>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
       <!-- Commerce -->
 
 
@@ -150,17 +130,45 @@
 
   <section class="section2">
 
-    <h2 class="build-h2">Build Your Own</h2>
+    <div class="mainbox">
+      <h2 class="browse-h2">Browse Accessories</h2>
 
-    <div class="bigboxgrid">
+      <div class="browsebigbox">
 
-      <button mat-button class="assemblebox" *ngFor="let item of parts" [routerLink]="item.router">
-        <div class="partbox">
-          <img class="image" [src]="item.imageUrl">
-          {{item.name}}
+        <div class="browsebox" *ngFor="let item of accessories">
+
+          <img class="browsephotos" [src]="item.imageUrl" alt="image">
+
+          <div class="spanbox">
+            <span class="browsespan">{{item.title}}</span>
+          </div>
+
         </div>
-      </button>
 
+      </div>
+
+    </div>
+
+    <div class="pc-gridbox">
+      <div class="pc-grid">
+        maxo
+      </div>
+    </div>
+
+    <div class="buildbox">
+
+      <h2 class="build-h2">Build Your Own</h2>
+
+      <div class="bigboxgrid">
+
+        <button mat-button class="assemblebox" *ngFor="let item of parts" [routerLink]="item.router">
+          <div class="partbox">
+            <img class="image" [src]="item.imageUrl">
+            {{item.name}}
+          </div>
+        </button>
+
+      </div>
     </div>
 
   </section>
