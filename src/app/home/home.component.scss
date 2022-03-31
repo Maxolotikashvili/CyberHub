@@ -470,7 +470,161 @@ $font-dosis: "Dosis", sans-serif;
 
         .pc-gridbox {
             display: grid;
-            grid-template-columns: auto auto auto;
+            grid-gap: 20px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            font-family: $font-play;
+            font-size: 18px;
+
+            .pc-grid {
+                grid-row: 1 / span 2;
+                height: fit-content;
+                display: flex;
+                background-color: black;
+                color: white;
+                border-radius: 10px;
+
+                .extremebox {
+                    display: flex;
+                    flex-direction: column;
+
+                    .extreme {
+                        text-align: center;
+                        font-size: 26px;
+                        letter-spacing: 3px;
+                        color: red;
+                        font-weight: bolder;
+                        margin-top: 10px;
+                    }
+                }
+
+                .specsbox {
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 100px;
+                    width: 100%;
+
+                    .specs {
+                        border-bottom: 1px solid red;
+                        text-align: center;
+                        padding-bottom: 10px;
+                        letter-spacing: 1px;
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+
+                    .detailsbox {
+                        display: flex;
+                        flex-direction: column;
+                        margin-top: 50px;
+
+                        .pricebox {
+                            margin-top: 30px;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+
+                            .pc-price {
+                                font-size: 22px;
+                                margin-bottom: 10px;
+                                letter-spacing: 1px;
+                            }
+
+                            .pc-button {
+                                border: 1px solid red;
+                                margin-top: 10px;
+                                font-family: $font-play;
+                                transition: all 0.2s ease;
+                            }
+
+                            .pc-button:hover {
+                                color: red;
+                            }
+
+                        }
+                    }
+                }
+
+                .margin {
+                    margin-bottom: 25px;
+                }
+            }
+
+            // Smallgrid
+
+            .smallgrid {
+                display: flex;
+                height: fit-content;
+                background-color: black;
+                color: white;
+                border-radius: 10px;
+
+                .highendbox {
+                    display: flex;
+                    flex-direction: column;
+                
+                    .highend {
+                        text-align: center;
+                        font-size: 26px;
+                        letter-spacing: 3px;
+                        color: blue;
+                        font-weight: bolder;
+                        margin-top: 10px;
+                    }
+
+                    .pc-image {
+                        max-width: 200px;
+                        height: 200px;
+                    }
+                }
+
+                .specsbox {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 50px 0px 0px 10px;
+                    width: 100%;
+
+                    .specs {
+                        border-bottom: 1px solid blue;
+                        text-align: center;
+                        padding-bottom: 10px;
+                        letter-spacing: 1px;
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+
+                    .detailsbox {
+                        display: flex;
+                        flex-direction: column;
+                        margin-top: 50px;
+
+                        .pricebox {
+                            margin-top: 30px;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+
+                            .pc-price {
+                                font-size: 22px;
+                                letter-spacing: 1px;
+                            }
+
+                            .pc-button {
+                                border: 1px solid blue;
+                                margin-top: 10px;
+                                font-family: $font-play;
+                                transition: all 0.2s ease;
+                            }
+
+                            .pc-button:hover {
+                                color: blue;
+                            }
+
+                        }
+                    }
+                }
+
+                
+            }
         }
 
         .buildbox {
