@@ -488,12 +488,16 @@ $font-dosis: "Dosis", sans-serif;
                     flex-direction: column;
 
                     .extreme {
-                        text-align: center;
+                        text-align: end;
                         font-size: 26px;
                         letter-spacing: 3px;
                         color: red;
                         font-weight: bolder;
                         margin-top: 10px;
+                    }
+
+                    .pc-image {
+                        max-width: 350px;
                     }
                 }
 
@@ -520,18 +524,17 @@ $font-dosis: "Dosis", sans-serif;
                         .pricebox {
                             margin-top: 30px;
                             display: flex;
-                            flex-direction: column;
                             align-items: center;
+                            padding-bottom: 10px;
 
                             .pc-price {
                                 font-size: 22px;
-                                margin-bottom: 10px;
                                 letter-spacing: 1px;
+                                margin: 0px 10px 3px 0px;
                             }
 
                             .pc-button {
                                 border: 1px solid red;
-                                margin-top: 10px;
                                 font-family: $font-play;
                                 transition: all 0.2s ease;
                             }
@@ -554,6 +557,7 @@ $font-dosis: "Dosis", sans-serif;
             .smallgrid {
                 display: flex;
                 height: fit-content;
+                padding: 0px 5px 2px 0px;
                 background-color: black;
                 color: white;
                 border-radius: 10px;
@@ -564,29 +568,30 @@ $font-dosis: "Dosis", sans-serif;
                 
                     .highend {
                         text-align: center;
-                        font-size: 26px;
-                        letter-spacing: 3px;
+                        font-size: 24px;
+                        letter-spacing: 2px;
                         color: blue;
                         font-weight: bolder;
                         margin-top: 10px;
                     }
 
                     .pc-image {
-                        max-width: 200px;
-                        height: 200px;
+                        max-width: 150px;
+                        height: 180px;
+                        margin-left: 5px;
                     }
                 }
 
                 .specsbox {
                     display: flex;
                     flex-direction: column;
-                    margin: 50px 0px 0px 10px;
+                    margin: 47px 0px 0px 20px;
                     width: 100%;
 
                     .specs {
                         border-bottom: 1px solid blue;
                         text-align: center;
-                        padding-bottom: 10px;
+                        padding-bottom: 5px;
                         letter-spacing: 1px;
                         font-size: 20px;
                         font-weight: bold;
@@ -595,22 +600,25 @@ $font-dosis: "Dosis", sans-serif;
                     .detailsbox {
                         display: flex;
                         flex-direction: column;
-                        margin-top: 50px;
+                        margin-top: 10px;
+
+                        .pc-hdd {
+                            margin-top: 3.7px;
+                        }
 
                         .pricebox {
-                            margin-top: 30px;
                             display: flex;
-                            flex-direction: column;
                             align-items: center;
+                            justify-content: space-between;
 
                             .pc-price {
                                 font-size: 22px;
                                 letter-spacing: 1px;
+                                margin: 0px 10px 3px 0px;
                             }
 
                             .pc-button {
                                 border: 1px solid blue;
-                                margin-top: 10px;
                                 font-family: $font-play;
                                 transition: all 0.2s ease;
                             }
@@ -623,7 +631,9 @@ $font-dosis: "Dosis", sans-serif;
                     }
                 }
 
-                
+                .margin {
+                    margin-bottom: 3.7px;
+                }                
             }
         }
 
