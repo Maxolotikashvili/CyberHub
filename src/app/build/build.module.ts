@@ -16,6 +16,9 @@ import { HeadsetsComponent } from './headsets/headsets.component';
 import { MaterialModule } from '../material/material.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BuildHomeComponent } from './build-home/build-home.component';
+import { PctypeComponent } from './pctype/pctype.component';
+import { IntelComponent } from './intel/intel.component';
+import { AmdComponent } from './amd/amd.component';
 
 
 @NgModule({
@@ -32,7 +35,10 @@ import { BuildHomeComponent } from './build-home/build-home.component';
     PsusComponent,
     KeyboardsComponent,
     HeadsetsComponent,
-    BuildHomeComponent
+    BuildHomeComponent,
+    PctypeComponent,
+    IntelComponent,
+    AmdComponent
   ],
   imports: [
     CommonModule,

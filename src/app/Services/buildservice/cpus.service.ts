@@ -24,7 +24,7 @@ export class CpusService {
       imageUrl: "/assets/PcParts/Cpus/Amd-ryzenthreadripper.png",
       name: "AMD Ryzen Theadripper 3990X",
       quantity: 1,
-      price: 3499.99
+      price: 3499
     },
     
     {
@@ -34,7 +34,7 @@ export class CpusService {
       imageUrl: "/assets/PcParts/Cpus/i9-12900k.png",
       name: "Intel Core i9 12900K",
       quantity: 1,
-      price: 1499.99
+      price: 1499
     },
 
     {
@@ -44,7 +44,7 @@ export class CpusService {
       imageUrl: "/assets/PcParts/Cpus/i9-11900k.png",
       name: "Intel Core i9 11900K",
       quantity: 1,
-      price: 999.99
+      price: 999
     },
 
     {
@@ -54,7 +54,7 @@ export class CpusService {
       imageUrl: "/assets/PcParts/Cpus/i9-11900f.png",
       name: "Intel Core i9 11900F",
       quantity: 1,
-      price: 899.99
+      price: 899
     },
 
     {
@@ -64,7 +64,7 @@ export class CpusService {
       imageUrl: "/assets/PcParts/Cpus/i9-9900k.png",
       name: "Intel Core i9 9900KF",
       quantity: 1,
-      price: 809.99
+      price: 809
     },
 
     {
@@ -74,7 +74,7 @@ export class CpusService {
       imageUrl: "/assets/PcParts/Cpus/Amd-ryzen7.png",
       name: "AMD Ryzen 9 5900X",
       quantity: 1,
-      price: 749.99
+      price: 749
     },
 
     {
@@ -84,7 +84,7 @@ export class CpusService {
       imageUrl: "/assets/PcParts/Cpus/i7-11700k.png",
       name: "Intel Core i7 11700K",
       quantity: 1,
-      price: 599.99
+      price: 599
     },
 
     {
@@ -94,7 +94,7 @@ export class CpusService {
       imageUrl: "/assets/PcParts/Cpus/i7-10700kf.png",
       name: "Intel Core i7 10700KF",
       quantity: 1,
-      price: 499.99
+      price: 499
     },
 
     {
@@ -104,7 +104,7 @@ export class CpusService {
       imageUrl: "/assets/PcParts/Cpus/Amd-ryzen7.png",
       name: "AMD Ryzen 7 5800X",
       quantity: 1,
-      price: 449.99
+      price: 449
     },
 
     {
@@ -114,7 +114,7 @@ export class CpusService {
       imageUrl: "/assets/PcParts/Cpus/i5-11500f.png",
       name: "Intel Core i5 11500F",
       quantity: 1,
-      price: 299.99
+      price: 299
     },
 
     {
@@ -124,7 +124,7 @@ export class CpusService {
       imageUrl: "/assets/PcParts/Cpus/i5-10500kf.png",
       name: "Intel Core i5 10500KF",
       quantity: 1,
-      price: 249.99
+      price: 249
     },
   ]
 

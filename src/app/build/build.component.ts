@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuildComponent implements OnInit {
 
-  list = [
+  partslist = [
+    {
+      name: "Pre - Built PC-s",
+      routerName: "pctype"
+    },
+
     {
       name:  "Processor (CPU)",
       routerName: "cpus"

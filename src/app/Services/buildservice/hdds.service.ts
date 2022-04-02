@@ -26,7 +26,7 @@ export class HddsService {
       name: "Seagate Skyhawk",
       memory: "6 TB",
       quantity: 1,
-      price: 279.99
+      price: 279
     },
 
     {
@@ -37,7 +37,7 @@ export class HddsService {
       name: "Seagate Barracuda",
       memory: "2 TB",
       quantity: 1,
-      price: 99.99
+      price: 99
     },
 
     {
@@ -48,7 +48,7 @@ export class HddsService {
       name: "Seagate Barracuda Compute",
       memory: "1 TB",
       quantity: 1,
-      price: 49.99
+      price: 49
     },
 
     {
@@ -59,7 +59,7 @@ export class HddsService {
       name: "Western Digital Red",
       memory: "2 TB",
       quantity: 1,
-      price: 94.99
+      price: 94
     },
 
     {
@@ -70,7 +70,7 @@ export class HddsService {
       name: "Western Digital Blue",
       memory: "1 TB",
       quantity: 1,
-      price: 49.99
+      price: 49
     },
 
     {
@@ -81,7 +81,7 @@ export class HddsService {
       name: "Western Digital Black Gaming",
       memory: "1 TB",
       quantity: 1,
-      price: 59.99
+      price: 59
     }
   ];
 

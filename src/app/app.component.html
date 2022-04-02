@@ -23,8 +23,8 @@
   <div class="menubox">
     <br>
     <mat-menu #builtmenu="matMenu">
-      <button mat-menu-item class="menu-inside-button">Intel PC</button>
-      <button mat-menu-item class="menu-inside-button">AMD PC</button>
+      <button mat-menu-item class="menu-inside-button" routerLink="/build/pctype/intel">Intel PC</button>
+      <button mat-menu-item class="menu-inside-button" routerLink="/build/pctype/amd">AMD PC</button>
     </mat-menu>
     <button mat-button class="menu-button" [matMenuTriggerFor]="builtmenu">Built PC - s</button>
 

@@ -10,6 +10,8 @@ import { CartItemService } from '../Services/Cart/cart-item.service';
 export class CartComponent implements OnInit {
   items!: any[];
 
+  total: number = 0; 
+
   // Fontawesome
   xmark = faXmark;
   cart = faCartShopping;
@@ -33,7 +35,7 @@ export class CartComponent implements OnInit {
     // Receive Items
     this.cartitemservice.sendItems().subscribe((data) => {
       this.items = data;
-    })
+    });
   }
 
   increaseQuantity(element: any) {
@@ -41,7 +43,7 @@ export class CartComponent implements OnInit {
   }
 
   reduceQuantity(element: any) {
-    if(element.quantity > 0) {
+    if (element.quantity > 0) {
       element.quantity--
     }
   }

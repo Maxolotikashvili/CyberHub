@@ -25,7 +25,7 @@ export class RamsService {
       name: "G Skill Trident Z5",
       memory: "32 GB",
       quantity: 1,
-      price: 899.99
+      price: 899
     },
 
     {
@@ -36,7 +36,7 @@ export class RamsService {
       name: "G Skill Trident Z Royal Elite",
       memory: "64 GB",
       quantity: 1,
-      price: 849.99
+      price: 849
     },
 
     {
@@ -47,7 +47,7 @@ export class RamsService {
       name: "G Skill Trident Z Neo",
       memory: "32 GB",
       quantity: 1,
-      price: 499.99
+      price: 499
     },
 
     {
@@ -58,7 +58,7 @@ export class RamsService {
       name: "G Skill Trident Z RGB",
       memory: "32 GB",
       quantity: 1,
-      price: 419.99
+      price: 419
     },
 
     {
@@ -69,7 +69,7 @@ export class RamsService {
       name: "G Skill Ripjaws",
       memory: "16 GB",
       quantity: 1,
-      price: 239.99
+      price: 239
     },
 
     {
@@ -80,7 +80,7 @@ export class RamsService {
       name: "Corsair Dominator Platinum",
       memory: "32 GB",
       quantity: 1,
-      price: 499.99
+      price: 499
     },
 
     {
@@ -91,7 +91,7 @@ export class RamsService {
       name: "Corsair Dominator White",
       memory: "64 GB",
       quantity: 1,
-      price: 869.99
+      price: 869
     },
 
     {
@@ -102,7 +102,7 @@ export class RamsService {
       name: "Corsair Vengeance RGB Pro",
       memory: "32 GB",
       quantity: 1,
-      price: 399.99
+      price: 399
     },
 
     {
@@ -113,7 +113,7 @@ export class RamsService {
       name: "Corsair Vengeance LPX",
       memory: "16 GB",
       quantity: 1,
-      price: 179.99
+      price: 179
     },
 
     {
@@ -124,7 +124,7 @@ export class RamsService {
       name: "Corsair Vengeance RGB SL",
       memory: "16 GB",
       quantity: 1,
-      price: 169.99
+      price: 169
     },
 
     {
@@ -135,7 +135,7 @@ export class RamsService {
       name: "Teamgroup T - Force",
       memory: "16 GB",
       quantity: 1,
-      price: 159.99
+      price: 159
     },
 
     {
@@ -146,7 +146,7 @@ export class RamsService {
       name: "Crucial Balistix White",
       memory: "16 GB",
       quantity: 1,
-      price: 149.99
+      price: 149
     }
   ]
   

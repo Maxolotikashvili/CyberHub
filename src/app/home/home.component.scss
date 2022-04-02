@@ -394,7 +394,6 @@ $font-dosis: "Dosis", sans-serif;
         padding-bottom: 100px;
         display: flex;
         flex-direction: column;
-        // align-items: center;
 
         .mainbox {
             display: flex;
@@ -468,12 +467,23 @@ $font-dosis: "Dosis", sans-serif;
             }
         }
 
+        .intro-grid {
+            letter-spacing: 3px;
+            font-size: 36px;
+            color: white;
+            font-family: $font-play;
+            margin: 150px 0px 50px 0px;
+        }
+        
+        // Grid
+
         .pc-gridbox {
             display: grid;
             grid-gap: 20px;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             font-family: $font-play;
             font-size: 18px;
+            margin-bottom: 200px;
 
             .pc-grid {
                 grid-row: 1 / span 2;
@@ -486,6 +496,7 @@ $font-dosis: "Dosis", sans-serif;
                 .extremebox {
                     display: flex;
                     flex-direction: column;
+                    justify-content: center;
 
                     .extreme {
                         text-align: end;
@@ -498,6 +509,7 @@ $font-dosis: "Dosis", sans-serif;
 
                     .pc-image {
                         max-width: 350px;
+                        padding: 30px 20px 0px 20px;
                     }
                 }
 
@@ -552,7 +564,7 @@ $font-dosis: "Dosis", sans-serif;
                 }
             }
 
-            // Smallgrid
+            // Highend
 
             .smallgrid {
                 display: flex;
@@ -603,18 +615,18 @@ $font-dosis: "Dosis", sans-serif;
                         margin-top: 10px;
 
                         .pc-hdd {
-                            margin-top: 3.7px;
+                            margin-bottom: 3.7px;
                         }
 
                         .pricebox {
                             display: flex;
-                            align-items: center;
+                            align-items: flex-start;
                             justify-content: space-between;
 
                             .pc-price {
                                 font-size: 22px;
                                 letter-spacing: 1px;
-                                margin: 0px 10px 3px 0px;
+                                margin: 0px 5px 5px 0px;
                             }
 
                             .pc-button {
@@ -634,6 +646,37 @@ $font-dosis: "Dosis", sans-serif;
                 .margin {
                     margin-bottom: 3.7px;
                 }                
+            
+
+                // Budget
+
+                .budget {
+                    text-align: center;
+                    font-size: 24px;
+                    letter-spacing: 2px;
+                    color: yellow;
+                    font-weight: bolder;
+                    margin-top: 10px; 
+                }
+
+                .specs-rx {
+                    border-bottom: 1px solid yellow;
+                    text-align: center;
+                    padding-bottom: 5px;
+                    letter-spacing: 1px;
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+
+                .pc-rx-button {
+                    border: 1px solid yellow;
+                    font-family: $font-play;
+                    transition: all 0.2s ease;
+                }
+
+                .pc-rx-button:hover {
+                    color: yellow;
+                }
             }
         }
 

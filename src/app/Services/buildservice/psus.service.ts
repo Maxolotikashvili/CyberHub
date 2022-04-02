@@ -27,7 +27,7 @@ export class PsusService {
       name: "Be Quet! Dark Power Pro 12",
       power: "1500 W",
       quantity: 1,
-      price: 599.99
+      price: 599
     },
 
     {
@@ -38,7 +38,7 @@ export class PsusService {
       name: "Be Quet! Dark Power Pro 12",
       power: "1000 W",
       quantity: 1,
-      price: 399.99
+      price: 399
     },
 
     {
@@ -49,7 +49,7 @@ export class PsusService {
       name: "Evga Supernova",
       power: "1000 W",
       quantity: 1,
-      price: 329.99
+      price: 329
     },
 
     {
@@ -60,7 +60,7 @@ export class PsusService {
       name: "Evga G6",
       power: "1000 W",
       quantity: 1,
-      price: 279.99
+      price: 279
     },
 
     {
@@ -71,7 +71,7 @@ export class PsusService {
       name: "Evga Standart",
       power: "600 W",
       quantity: 1,
-      price: 149.99
+      price: 149
     },
 
     {
@@ -82,7 +82,7 @@ export class PsusService {
       name: "Thermaltake Toughpower PF1",
       power: "1200 W",
       quantity: 1,
-      price: 289.99
+      price: 289
     },
 
     {
@@ -93,7 +93,7 @@ export class PsusService {
       name: "Thermaltake Toughpower GF",
       power: "850 W",
       quantity: 1,
-      price: 209.99
+      price: 209
     },
 
     {
@@ -104,7 +104,7 @@ export class PsusService {
       name: "Thermaltake Toughpower",
       power: "500 W",
       quantity: 1,
-      price: 159.99
+      price: 159
     },
 
     {
@@ -115,7 +115,7 @@ export class PsusService {
       name: "DeepCool M-V2L",
       power: "850 W",
       quantity: 1,
-      price: 199.99
+      price: 199
     },
 
   ];

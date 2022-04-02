@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AmdComponent } from './amd/amd.component';
 import { BuildHomeComponent } from './build-home/build-home.component';
 import { BuildComponent } from './build.component';
 import { CasesComponent } from './cases/cases.component';
@@ -8,8 +9,10 @@ import { CpusComponent } from './cpus/cpus.component';
 import { GpusComponent } from './gpus/gpus.component';
 import { HddsComponent } from './hdds/hdds.component';
 import { HeadsetsComponent } from './headsets/headsets.component';
+import { IntelComponent } from './intel/intel.component';
 import { KeyboardsComponent } from './keyboards/keyboards.component';
 import { MobosComponent } from './mobos/mobos.component';
+import { PctypeComponent } from './pctype/pctype.component';
 import { PsusComponent } from './psus/psus.component';
 import { RamsComponent } from './rams/rams.component';
 import { SsdsComponent } from './ssds/ssds.component';
@@ -28,6 +31,21 @@ const routes: Routes = [
         path: "",
         redirectTo: "/build/buildhome",
         pathMatch: "full"
+      },
+
+      {
+        path: "pctype",
+        component: PctypeComponent
+      },
+
+      {
+        path: "pctype/intel",
+        component: IntelComponent
+      },
+
+      {
+        path: "pctype/amd",
+        component: AmdComponent
       },
 
       {

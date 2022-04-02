@@ -24,7 +24,7 @@ export class MobosService {
       imageUrl:  "assets/PcParts/MOBOs/Msi-meggodlike.png",
       name: "MSI MEG Godlike",
       quantity: 1,
-      price: 1799.99
+      price: 1799
     },
 
     {
@@ -34,7 +34,7 @@ export class MobosService {
       imageUrl: "assets/PcParts/MOBOs/Msi-megace.png",
       name: "MSI Meg Ace",
       quantity: 1,
-      price: 1199.99
+      price: 1199
     },
 
     {
@@ -44,7 +44,7 @@ export class MobosService {
       imageUrl: "/assets/PcParts/MOBOs/rog-maximus12hero.png",
       name: "Asus ROG Maximus 12 Hero",
       quantity: 1,
-      price: 1099.99
+      price: 1099
     },
 
     {
@@ -54,7 +54,7 @@ export class MobosService {
       imageUrl: "/assets/PcParts/MOBOs/rog-maximus11wifi.png",
       name: "Asus ROG Maximus 11 Hero",
       quantity: 1,
-      price: 899.99
+      price: 899
     },
 
     {
@@ -64,7 +64,7 @@ export class MobosService {
       imageUrl: "assets/PcParts/MOBOs/Strix-z490egaming.png",
       name: "Asus ROG Z490 - E Gaming",
       quantity: 1,
-      price: 599.99
+      price: 599
     },
 
     {
@@ -74,7 +74,7 @@ export class MobosService {
       imageUrl: "assets/PcParts/MOBOs/strix-z490hgaming.png",
       name: "Asus ROG Z490 - H Gaming",
       quantity: 1,
-      price: 369.99
+      price: 369
     },
 
     {
@@ -84,7 +84,7 @@ export class MobosService {
       imageUrl: "assets/PcParts/MOBOs/Gigabyte-z690master.png",
       name: "Gigabyte Z690 Aorus Master",
       quantity: 1,
-      price: 479.99
+      price: 479
     },
 
     {
@@ -94,7 +94,7 @@ export class MobosService {
       imageUrl: "assets/PcParts/MOBOs/z590aoruselite.png",
       name: "Gigabyte Z590 Aorus Elite",
       quantity: 1,
-      price: 499.99
+      price: 499
     },
 
     {
@@ -104,7 +104,7 @@ export class MobosService {
       imageUrl: "assets/PcParts/MOBOs/z390aorusprowifi.png",
       name: "Gigabyte Z390 Aorus Pro",
       quantity: 1,
-      price: 399.99
+      price: 399
     }
   ]
 

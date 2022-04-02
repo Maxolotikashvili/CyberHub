@@ -24,7 +24,7 @@ export class CpuCoolersService {
       manufacturer: "Corsair",
       name: "Corsair H150i Elite Cappelix",
       quantity: 1,
-      price: 279.99
+      price: 279
     },
 
     {
@@ -34,7 +34,7 @@ export class CpuCoolersService {
       manufacturer: "Corsair",
       name: "Corsair H115i Pro",
       quantity: 1,
-      price: 199.99
+      price: 199
     },
 
     {
@@ -44,7 +44,7 @@ export class CpuCoolersService {
       manufacturer: "Corsair",
       name: "Corsair H100i",
       quantity: 1,
-      price: 139.99
+      price: 139
     },
 
     {
@@ -54,7 +54,7 @@ export class CpuCoolersService {
       manufacturer: "NZXT",
       name: "NZXT Kraken Z73",
       quantity: 1,
-      price: 369.99
+      price: 369
     },
 
     {
@@ -64,7 +64,7 @@ export class CpuCoolersService {
       manufacturer: "NZXT",
       name: "NZXT Kraken Z73 White",
       quantity: 1,
-      price: 369.99
+      price: 369
     },
 
     {
@@ -74,7 +74,7 @@ export class CpuCoolersService {
       manufacturer: "NZXT",
       name: "NZXT Kraken Z63",
       quantity: 1,
-      price: 249.99
+      price: 249
     },
 
     {
@@ -84,7 +84,7 @@ export class CpuCoolersService {
       manufacturer: "NZXT",
       name: "NZXT Kraken X73 White",
       quantity: 1,
-      price: 189.99
+      price: 189
     },
 
     {
@@ -94,7 +94,7 @@ export class CpuCoolersService {
       manufacturer: "Asus",
       name: "Asus Rog LC360",
       quantity: 1,
-      price: 359.99
+      price: 359
     },
 
     {
@@ -104,7 +104,7 @@ export class CpuCoolersService {
       manufacturer: "Asus",
       name: "Asus Rog LC240",
       quantity: 1,
-      price: 279.99
+      price: 279
     },
 
     {
@@ -114,7 +114,7 @@ export class CpuCoolersService {
       manufacturer: "DeepCool",
       name: "DeepCool Gammaxx L360",
       quantity: 1,
-      price: 149.99
+      price: 149
     },
 
     {
@@ -124,7 +124,7 @@ export class CpuCoolersService {
       manufacturer: "DeepCool",
       name: "DeepCool Gammaxx L240",
       quantity: 1,
-      price: 109.99
+      price: 109
     },
 
     {
@@ -134,7 +134,7 @@ export class CpuCoolersService {
       manufacturer: "DeepCool",
       name: "DeepCool Gammaxx L240 ARGB",
       quantity: 1,
-      price: 109.99
+      price: 109
     },
 
     {
@@ -144,7 +144,7 @@ export class CpuCoolersService {
       manufacturer: "Thermaltake",
       name: "Thermaltake TH360",
       quantity: 1,
-      price: 219.99
+      price: 219
     },
 
     {
@@ -154,7 +154,7 @@ export class CpuCoolersService {
       manufacturer: "Thermaltake",
       name: "Thermaltake TH360 White",
       quantity: 1,
-      price: 219.99
+      price: 219
     },
 
     {
@@ -164,7 +164,7 @@ export class CpuCoolersService {
       manufacturer: "Thermaltake",
       name: "Thermaltake TH240 White",
       quantity: 1,
-      price: 169.99
+      price: 169
     },
 
     {
@@ -174,7 +174,7 @@ export class CpuCoolersService {
       manufacturer: "Thermaltake",
       name: "Thermaltake Pure Plus",
       quantity: 1,
-      price: 99.99
+      price: 99
     },
 
     {
@@ -184,7 +184,7 @@ export class CpuCoolersService {
       manufacturer: "Cooler Master",
       name: "Cooler Master MF120",
       quantity: 1,
-      price: 89.99
+      price: 89
     },
 
     {
@@ -194,7 +194,7 @@ export class CpuCoolersService {
       manufacturer: "Zalman",
       name: "Zalman CNPS20X",
       quantity: 1,
-      price: 79.99
+      price: 79
     },
 
     {
@@ -204,7 +204,7 @@ export class CpuCoolersService {
       manufacturer: "Thermaltake",
       name: "Thermaltake UX200 ARGB",
       quantity: 1,
-      price: 69.99
+      price: 69
     },
 
     {
@@ -214,7 +214,7 @@ export class CpuCoolersService {
       manufacturer: "DeepCool",
       name: "DeepCool Gammaxx GTE",
       quantity: 1,
-      price: 69.99
+      price: 69
     },
 
   ];

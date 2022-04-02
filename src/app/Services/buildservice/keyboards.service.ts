@@ -23,7 +23,7 @@ export class KeyboardsService {
       imageUrl: "/assets/PcParts/Keyboards/elite2.png",
       name: "HyperX Alloy Elite 2",
       quantity: 1,
-      price: 279.99
+      price: 279
     },
 
     {
@@ -33,7 +33,7 @@ export class KeyboardsService {
       imageUrl: "/assets/PcParts/Keyboards/fps.png",
       name: "HyperX Alloy FPS",
       quantity: 1,
-      price: 189.99
+      price: 189
     },
 
     {
@@ -43,7 +43,7 @@ export class KeyboardsService {
       imageUrl: "/assets/PcParts/Keyboards/origins.png",
       name: "HyperX Alloy Origins",
       quantity: 1,
-      price: 109.99
+      price: 109
     },
 
     {
@@ -53,7 +53,7 @@ export class KeyboardsService {
       imageUrl: "/assets/PcParts/Keyboards/razer-blackwidowv3green.png",
       name: "Razer Blackwidow 3",
       quantity: 1,
-      price: 189.99
+      price: 189
     },
 
     {
@@ -63,7 +63,7 @@ export class KeyboardsService {
       imageUrl: "/assets/PcParts/Keyboards/Rog-claymore.png",
       name: "Asus Rog Claymore",
       quantity: 1,
-      price: 219.99
+      price: 219
     },
   ];
 

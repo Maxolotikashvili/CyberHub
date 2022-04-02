@@ -27,7 +27,7 @@ export class SsdsService {
       name: "Seagate Firecuda 530 Heatsink",
       memory: "2 TB",
       quantity: 1,
-      price: 879.99
+      price: 879
     },
 
     {
@@ -51,7 +51,7 @@ export class SsdsService {
       name: "Seagate Firecuda 510",
       memory: "500 GB",
       quantity: 1,
-      price: 119.99
+      price: 119
     },
 
     {
@@ -63,7 +63,7 @@ export class SsdsService {
       name: "Samsung 970 Evo Plus",
       memory: "250 GB",
       quantity: 1,
-      price: 79.99
+      price: 79
     },
 
     {
@@ -75,7 +75,7 @@ export class SsdsService {
       name: "Samsung 980 Evo",
       memory: "1 TB",
       quantity: 1,
-      price: 299.99
+      price: 299
     },
 
     {
@@ -87,7 +87,7 @@ export class SsdsService {
       name: "Samsung 980 Evo",
       memory: "500 GB",
       quantity: 1,
-      price: 149.99
+      price: 149
     },
 
     {
@@ -99,7 +99,7 @@ export class SsdsService {
       name: "Samsung 870 Evo",
       memory: "1 TB",
       quantity: 1,
-      price: 199.99
+      price: 199
     },
 
     {
@@ -111,7 +111,7 @@ export class SsdsService {
       name: "Western Digital Black SN 750",
       memory:"1 TB",
       quantity: 1,
-      price: 379.99
+      price: 379
     },
 
     {
@@ -123,7 +123,7 @@ export class SsdsService {
       name: "Western Digital Blue",
       memory: "500 GB",
       quantity: 1,
-      price: 179.99
+      price: 179
     },
 
     {
@@ -135,7 +135,7 @@ export class SsdsService {
       name: "Western Digital Green",
       memory: "240 GB",
       quantity: 1,
-      price: 89.99
+      price: 89
     }
   ]
 

@@ -23,7 +23,7 @@ export class HeadsetsService {
       imageUrl: "/assets/PcParts/Headsets/steelseriesarctispro.png",
       name: "Steelseries Arctis Pro",
       quantity: 1,
-      price: 559.99
+      price: 559
     },
 
     {
@@ -33,7 +33,7 @@ export class HeadsetsService {
       imageUrl: "/assets/PcParts/Headsets/arctis9.png",
       name: "Steelseries Arctis 9",
       quantity: 1,
-      price: 479.99
+      price: 479
     },
 
     {
@@ -43,7 +43,7 @@ export class HeadsetsService {
       imageUrl: "/assets/PcParts/Headsets/steelseriesarctis7.png",
       name: "Steelseries Arctis 7",
       quantity: 1,
-      price: 429.99
+      price: 429
     },
 
     {
@@ -53,7 +53,7 @@ export class HeadsetsService {
       imageUrl: "/assets/PcParts/Headsets/razer-nari.png",
       name: "Razer Nari",
       quantity: 1,
-      price: 389.99
+      price: 389
     },
 
     {
@@ -63,7 +63,7 @@ export class HeadsetsService {
       imageUrl: "/assets/PcParts/Headsets/rog-deltargb.png",
       name: "Asus Rog Delta RGB",
       quantity: 1,
-      price: 359.99
+      price: 359
     },
 
     {
@@ -73,7 +73,7 @@ export class HeadsetsService {
       imageUrl: "/assets/PcParts/Headsets/Cloud-orbits.png",
       name: "HyperX Cloud Orbit S",
       quantity: 1,
-      price: 309.99
+      price: 309
     },
 
     {
@@ -83,7 +83,7 @@ export class HeadsetsService {
       imageUrl: "/assets/PcParts/Headsets/cloud2-wired.png",
       name: "HyperX Cloud 2",
       quantity: 1,
-      price: 179.99
+      price: 179
     },
 
     {
@@ -93,7 +93,7 @@ export class HeadsetsService {
       imageUrl: "/assets/PcParts/Headsets/cloudii-71.png",
       name: "HyperX Cloud Orbit 71",
       quantity: 1,
-      price: 139.99
+      price: 139
     },
 
   ];
