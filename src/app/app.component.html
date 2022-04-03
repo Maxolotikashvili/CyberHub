@@ -13,9 +13,19 @@
       <button mat-button class="sign">Sign In</button>
       <button mat-button class="register">Register</button>
     </div>
-    <div class="badgebox" [matBadge]="items.length" [matBadgeHidden]="items.length === 0" matBadgeOverlap="false">
-      <fa-icon [icon]="cart" class="cart" routerLink="/cart"></fa-icon>
+
+    <!-- Badges -->
+    <div class="badgebigbox">
+      <div class="badgebox margin" [matBadge]="wishes.length" [matBadgeHidden]="wishes.length === 0"
+        matBadgeOverlap="false">
+        <fa-icon class="cart" [icon]="heart" routerLink="/wishlist"></fa-icon>
+      </div>
+
+      <div class="badgebox" [matBadge]="items.length" [matBadgeHidden]="items.length === 0" matBadgeOverlap="false">
+        <fa-icon [icon]="cart" class="cart" routerLink="/cart"></fa-icon>
+      </div>
     </div>
+
   </div>
 
   <mat-divider class="divider"></mat-divider>

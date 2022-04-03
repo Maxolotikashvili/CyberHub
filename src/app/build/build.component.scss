@@ -5,6 +5,30 @@ $shadow-e2: #e2e2e2;
 
 $background: radial-gradient(circle, rgb(5, 0, 94) 0%, rgba(6, 6, 80, 1) 50%, rgba(0, 20, 83, 1) 100%);
 
+// Filter
+.filterbox {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    margin: 20px 20px 10px 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 10px $shadow-e2;
+    color: gray;
+
+    .filterbutton {
+        color: rgb(75, 75, 75);
+    }
+
+    .sortbutton {
+        font-size: 15px;
+        letter-spacing: 0.5px;
+        color: gray;
+    }
+
+    
+}
+
 .bigbox {
     background-color: white;
     display: flex;

@@ -4,9 +4,11 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
-import { MatBadgeModule } from '@angular/material/badge'
-import { MatSnackBarModule } from '@angular/material/snack-bar'
-import { MatMenuModule } from '@angular/material/menu'
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatExpansionModule } from '@angular/material/expansion'
 
 const MaterialComponents = [
   MatButtonModule,
@@ -16,7 +18,9 @@ const MaterialComponents = [
   MatInputModule,
   MatBadgeModule,
   MatSnackBarModule,
-  MatMenuModule
+  MatMenuModule,
+  MatCheckboxModule,
+  MatExpansionModule
 ]
 
 @NgModule({

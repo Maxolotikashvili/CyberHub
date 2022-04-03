@@ -29,7 +29,7 @@
                         <span class="item-text margin-auto">{{ item.price }}</span>
 
                         <div class="removebox">
-                            <button mat-mini-fab color="primary" class="cartbutton">
+                            <button mat-mini-fab color="primary" class="cartbutton" (click)="sendItems(item)" (click)="snackDisplay('Item Added To Cart', 'Dismiss')">
                                 <fa-icon class="cart" [icon]="cart"></fa-icon>
                             </button>
                             <button mat-mini-fab color="warn" class="mat-fab" (click)="removeItem(item)">
