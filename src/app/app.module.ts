@@ -9,6 +9,9 @@ import { MaterialModule } from './material/material.module';
 import { CartComponent } from './cart/cart.component';
 import { FooterComponent } from './footer/footer.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,14 +19,17 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     HomeComponent,
     CartComponent,
     FooterComponent,
-    WishlistComponent
+    WishlistComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

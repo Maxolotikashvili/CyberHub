@@ -1,46 +1,5 @@
 <section>
 
-    <!-- Filter -->
-    <div class="filterbox">
-        <div class="sortbox">
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                    <mat-panel-description class="sortbutton">Price</mat-panel-description>
-                </mat-expansion-panel-header>
-                <button mat-button class="filterbutton">Over 5000$</button>
-                <button mat-button class="filterbutton">>4000$</button>
-                <button mat-button class="filterbutton">>3000$</button>
-                <button mat-button class="filterbutton">>2000$</button>
-                <button mat-button class="filterbutton">>1000$</button>
-                <button mat-button class="filterbutton">>500$</button>
-            </mat-expansion-panel>
-        </div>
-
-
-        <div class="sortbox">
-            <button mat-button [matMenuTriggerFor]="sortmenu" class="sortbutton">Sort By:</button>
-            <mat-menu #sortmenu="matMenu">
-                <button mat-menu-item>Price: High To Low</button>
-                <button mat-menu-item>Price: Low To High</button>
-                <button mat-menu-item>Rating</button>
-            </mat-menu>
-        </div>
-
-        <div class="sortbox">
-            <button mat-button [matMenuTriggerFor]="colormenu" class="sortbutton">Color:</button>
-            <mat-menu #colormenu="matMenu">
-                <button mat-menu-item>Black</button>
-                <button mat-menu-item>White</button>
-            </mat-menu>
-        </div>
-
-        <div class="ratingbox">
-            <mat-checkbox color="primary" class="sortbutton">Rated</mat-checkbox>
-        </div>
-
-    </div>
-    
-
     <!-- Parts -->
     <div class="bigbox">
 

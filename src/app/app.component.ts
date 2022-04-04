@@ -3,6 +3,9 @@ import { faFacebook, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-i
 import { faBars, faCartShopping, faCopyright, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { CartItemService } from './Services/Cart/cart-item.service';
 import { WishlistService } from './Services/Wishlist/wishlist.service';
+import { MatDialog } from '@angular/material/dialog'
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +27,11 @@ export class AppComponent implements OnInit {
 
   copyright = faCopyright;
 
-  constructor(private cartitemservice: CartItemService, private wishlistservice: WishlistService) {}
+  constructor(
+    private cartitemservice: CartItemService, 
+    private wishlistservice: WishlistService,
+    private dialog: MatDialog
+    ) {}
 
   ngOnInit(): void {
     // Wishlist Items
@@ -36,5 +43,13 @@ export class AppComponent implements OnInit {
     this.cartitemservice.sendItems().subscribe((data) => {
       this.items = data;
     })
+  }
+
+  openLogin() {
+    this.dialog.open(LoginComponent);
+  }
+
+  openRegister() {
+    this.dialog.open(RegisterComponent);
   }
 }

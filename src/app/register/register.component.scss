@@ -1,0 +1,33 @@
+.bigbox {
+    .create {
+        margin: 10px 0px 20px 0px;
+        text-align: center;
+        color: gray;
+        font-size: 26px;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .input {
+            width: 400px;
+        }
+
+        .flexbox {
+            width: 400px;
+            display: flex;
+            justify-content: space-between;
+
+            .firstnameform {
+                width: 175px;
+            }
+
+            .lastnameform {
+                width: 175px;
+            }
+        }
+    }
+}

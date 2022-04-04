@@ -64,5 +64,8 @@ export class BuildComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onRated() {
+    
+  }
 
 }
