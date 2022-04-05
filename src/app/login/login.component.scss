@@ -1,0 +1,58 @@
+$font-play: "Play", sans-serif;
+
+.iconbox {
+    display: flex;
+    justify-content: flex-end;
+
+    .xmark {
+        font-size: 24px;
+        cursor: pointer;
+    }
+}
+
+.bigbox {
+    padding: 20px 35px 20px 35px;
+
+    .login {
+        text-align: center;
+        color: darkblue;
+        font-family: $font-play;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .passwordform {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .input {
+        margin-top: 15px;
+    }
+
+    .strong {
+        text-align: center;
+        font-size: 12px;
+        color: red;
+    }
+
+    .button {
+        color: white;
+        letter-spacing: 1px;
+        padding: 0px 5px 0px 5px;
+        margin-top: 10px;
+    }
+
+    .create {
+        background-color: green;
+        color: white;
+        letter-spacing: 1px;
+        margin-top: 10px;
+        padding: 0px 5px 0px 5px;
+    }
+}

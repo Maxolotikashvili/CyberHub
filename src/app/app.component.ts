@@ -6,6 +6,7 @@ import { WishlistService } from './Services/Wishlist/wishlist.service';
 import { MatDialog } from '@angular/material/dialog'
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { SignService } from './Services/sign.service';
 
 @Component({
   selector: 'app-root',
@@ -15,21 +16,23 @@ import { RegisterComponent } from './register/register.component';
 export class AppComponent implements OnInit {
   title = 'Cyberhub';
 
+  // Cart & Wishlist
   items!: any[];
   wishes!: any[];
 
+  // Fontawesome
   facebook = faFacebook;
   twitter = faTwitter;
   youtube = faYoutube;
   bar = faBars;
   cart = faCartShopping;
   heart = faHeart;
-
   copyright = faCopyright;
 
   constructor(
     private cartitemservice: CartItemService, 
     private wishlistservice: WishlistService,
+    private signservice: SignService,
     private dialog: MatDialog
     ) {}
 
