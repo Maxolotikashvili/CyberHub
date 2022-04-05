@@ -15,12 +15,6 @@ $font-play: "Play", sans-serif;
         display: flex;
         align-items: center;
 
-        .bar {
-            font-size: 26px;
-            margin-right: 40px;
-            cursor: pointer;
-        }
-
         .logo {
             letter-spacing: 14px;
             font-weight: bold;
@@ -40,6 +34,10 @@ $font-play: "Play", sans-serif;
         }
     }
 
+    .list {
+        display: flex;
+    }
+
     .link {
         margin-left: 20px;
         padding: 9px 20px 9px 20px;
@@ -56,7 +54,7 @@ $font-play: "Play", sans-serif;
         color: white;
 
         .sign {
-            border-right: 1px solid white;
+            margin-right: 5px;
             border-radius: 0px;
             font-family: $font-play;
         }

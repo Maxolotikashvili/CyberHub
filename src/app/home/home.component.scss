@@ -9,22 +9,25 @@ $font-dosis: "Dosis", sans-serif;
     background-size: cover;
 
     .section1 {
-        padding: 200px 0px 400px 0px;
+        padding-top: 200px;
+        margin-bottom: 200px;
 
         .h1 {
             font-size: 32px;
             text-align: center;
-            margin: 100px 0px 500px 0px;
+            margin: 100px 0px 300px 0px;
             font-family: $font-play;
+            color: white;
         }
 
         .bigbox {
+            padding-top: 20px;
             background-color: rgba(0, 0, 0, 0.514);
 
             .stock-h {
                 text-align: center;
+                margin-bottom: 100px;
                 font-size: 36px;
-                margin-top: 400px;
                 color: white;
                 font-family: $font-play;
                 letter-spacing: 3px;
@@ -34,7 +37,6 @@ $font-dosis: "Dosis", sans-serif;
             // Commerce
 
             .commercebox {
-                margin: 100px 0px 400px 0px;
                 display: flex;
                 justify-content: space-around;
                 flex-wrap: wrap;
@@ -153,7 +155,7 @@ $font-dosis: "Dosis", sans-serif;
         // Arrivals
 
         .newmanufacturers-h {
-            margin: 100px 0px 100px 10px;
+            margin: 200px 0px 100px 10px;
             font-size: 36px;
             letter-spacing: 3px;
             font-family: $font-play;

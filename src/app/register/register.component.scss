@@ -18,11 +18,11 @@
 }
 
 .form {
-  padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0px 30px 0px 30px;
 
   .input {
     width: 400px;
@@ -46,7 +46,6 @@
   .strong {
     text-align: start;
     font-size: 12px;
-    margin-top: 50px;
     color: red;
   }
 

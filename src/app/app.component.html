@@ -1,5 +1,5 @@
 <header class="header">
-  
+
   <div class="headerbox">
     <div class="logobox">
 
@@ -8,12 +8,19 @@
       </a>
     </div>
 
-    <a class="link" routerLink="/build/buildhome" routerLinkActive="active">Shop</a>
-
-    <div class="signbox">
-      <button mat-button class="sign" (click)="openLogin()">Sign In</button>
-      <button mat-button class="register" (click)="openRegister()">Register</button>
-    </div>
+    <nav>
+      <ul class="list">
+        <li>
+          <a class="link" href="#News">News</a>
+        </li>
+        <li>
+          <a class="link" href="#Accessories">Accessories</a>
+        </li>
+        <li>
+          <a class="link" routerLink="/build/buildhome" routerLinkActive="active">Shop</a>
+        </li>
+      </ul>
+    </nav>
 
     <!-- Badges -->
     <div class="badgebigbox">
@@ -27,9 +34,18 @@
       </div>
     </div>
 
+    <div class="signbox">
+      <button mat-flat-button class="sign" color="warn" (click)="openLogin()">Sign In</button>
+      <button mat-flat-button class="register" color="primary" (click)="openRegister()">Register</button>
+    </div>
+
   </div>
 
+
+  <!-- Divider -->
   <mat-divider class="divider"></mat-divider>
+
+
 
   <div class="menubox">
     <br>

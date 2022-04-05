@@ -2,7 +2,15 @@ $font-play: "Play", sans-serif;
 
 .iconbox {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+
+    .login {
+        text-align: center;
+        color: darkblue;
+        font-family: $font-play;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
 
     .xmark {
         font-size: 24px;
@@ -11,7 +19,7 @@ $font-play: "Play", sans-serif;
 }
 
 .bigbox {
-    padding: 20px 35px 20px 35px;
+    padding: 10px 20px 10px 20px;
 
     .login {
         text-align: center;
