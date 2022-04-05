@@ -1,12 +1,6 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 
-export interface accessoriesType {
-  id: number,
-  imageUrl: string,
-  title: string
-};
-
 export interface newsType {
   id: number,
   title: string,
@@ -25,39 +19,6 @@ export interface partsType {
   providedIn: 'root'
 })
 export class NewsService {
-
-  // Accessories 
-  accessories: accessoriesType[] = [
-    {
-      id: 1,
-      imageUrl: "/assets/Accessories/keyboards.png",
-      title: "Keyboard"
-    },
-
-    {
-      id: 2,
-      imageUrl: "/assets/Accessories/mouses.png",
-      title: "Mouse"
-    },
-
-    {
-      id: 3,
-      imageUrl: "/assets/Accessories/headsets.png",
-      title: "Headset"
-    },
-
-    {
-      id: 4,
-      imageUrl: "/assets/Accessories/chairs.png",
-      title: "Chair"
-    },
-
-    {
-      id: 5,
-      imageUrl: "/assets/Accessories/mousepads.png",
-      title: "Pad"
-    }
-  ];
 
   // News
   news: newsType[] = [
@@ -186,11 +147,6 @@ export class NewsService {
     ];
 
   constructor() { }
-
-  // Get Accessories
-  getAccessories() {
-    return of(this.accessories)
-  }
 
   // Get News
   getNews() {

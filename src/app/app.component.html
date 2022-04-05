@@ -14,7 +14,7 @@
           <a class="link" href="#News">News</a>
         </li>
         <li>
-          <a class="link" href="#Accessories">Accessories</a>
+          <a class="link" href="#Accessories">Gamers Choice</a>
         </li>
         <li>
           <a class="link" routerLink="/build/buildhome" routerLinkActive="active">Shop</a>
@@ -35,8 +35,9 @@
     </div>
 
     <div class="signbox">
-      <button mat-flat-button class="sign" color="warn" (click)="openLogin()">Sign In</button>
-      <button mat-flat-button class="register" color="primary" (click)="openRegister()">Register</button>
+      <button mat-button class="sign" (click)="openLogin()">Sign In</button>
+      <span>Or</span>
+      <button mat-button class="register" color="primary" (click)="openRegister()">Register</button>
     </div>
 
   </div>
