@@ -1,126 +1,209 @@
 $font-play: "Play", sans-serif;
 
 .header {
-    background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(6, 6, 80, 1) 50%, rgba(0, 20, 83, 1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(6, 6, 80, 1) 50%,
+    rgba(0, 20, 83, 1) 100%
+  );
 }
 
 .headerbox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 20px 20px 0px;
+  font-family: $font-play;
+
+  .logobox {
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    padding: 20px 20px 20px 0px;
-    font-family: $font-play;
 
-    .logobox {
-        display: flex;
-        align-items: center;
+    .logo {
+      letter-spacing: 14px;
+      font-weight: bold;
+      font-size: 22px;
+      color: rgb(233, 233, 233);
 
-        .logo {
-            letter-spacing: 14px;
-            font-weight: bold;
-            font-size: 22px;
-            color: rgb(233, 233, 233);
+      .letter-c {
+        color: blue;
+      }
 
-            .letter-c {
-                color: blue;
-            }
+      .hub {
+        border-radius: 3px;
+        background-color: rgb(235, 235, 235);
+        color: blue;
+        padding: 0px 0px 1px 13px;
+      }
+    }
+  }
 
-            .hub {
-                border-radius: 3px;
-                background-color: rgb(235, 235, 235);
-                color: blue;
-                padding: 0px 0px 1px 13px;
-            }
-        }
+  .list {
+    display: flex;
+  }
+
+  .link {
+    margin-left: 20px;
+    padding: 9px 20px 9px 20px;
+    letter-spacing: 2px;
+    color: white;
+    transition: all 0.2s linear;
+  }
+
+  .link:hover {
+    color: gray;
+  }
+
+  .signbox {
+    color: white;
+
+    .sign {
+      margin-right: 15px;
+      border-radius: 0px;
+      font-family: $font-play;
+      color: red;
+      border: 1px solid red;
+      border-color: red;
+      transition: all 0.2s linear;
     }
 
-    .list {
-        display: flex;
+    .sign:hover {
+      background-color: red;
+      color: white;
     }
 
-    .link {
-        margin-left: 20px;
-        padding: 9px 20px 9px 20px;
-        letter-spacing: 2px;
-        color: white;
-        transition: all 0.2s linear;
+    .register {
+      margin-left: 15px;
+      border-radius: 0px;
+      font-family: $font-play;
+      color: rgb(0, 221, 0);
+      border: 1px solid rgb(0, 221, 0);
+      border-color: rgb(0, 221, 0);
+      transition: all 0.2s linear;
     }
 
-    .link:hover {
-        color: gray;
+    .register:hover {
+      background-color: rgb(0, 221, 0);
+      color: white;
+    }
+  }
+
+  .badgebigbox {
+    display: flex;
+
+    .badgebox {
+      font-size: 20px;
+      color: rgb(224, 224, 224);
+      cursor: pointer;
     }
 
-    .signbox {
-        color: white;
-
-        .sign {
-            margin-right: 15px;
-            border-radius: 0px;
-            font-family: $font-play;
-            color: red;
-            border: 1px solid red;
-            border-color: red;
-            transition: all 0.2s linear;
-        }
-
-        .sign:hover {
-            background-color: red;
-            color: white;
-        }
-
-        .register {
-            margin-left: 15px;
-            border-radius: 0px;
-            font-family: $font-play;
-            color: rgb(0, 221, 0);
-            border: 1px solid rgb(0, 221, 0);
-            border-color: rgb(0, 221, 0);
-            transition: all 0.2s linear;
-        }
-
-        .register:hover {
-            background-color: rgb(0, 221, 0);
-            color: white;
-        }
+    .margin {
+      margin-right: 30px;
     }
-
-    .badgebigbox {
-        display: flex;
-
-        .badgebox {
-            font-size: 20px;
-            color: rgb(224, 224, 224);
-            cursor: pointer;
-        }
-
-        .margin {
-            margin-right: 30px;
-        }
-    }
+  }
+  
 }
 
 .divider {
-    background-color: white;
+  background-color: white;
 }
 
 // Menu
 .menubox {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  color: white;
 
-    .menu-button {
-        font-family: $font-play;
-        font-size: 14px;
-        letter-spacing: 0.5px;
-        border-radius: 7px;
-        transition: all 0.2s ease;
-    }
+  .menu-button {
+    font-family: $font-play;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    border-radius: 7px;
+    transition: all 0.2s ease;
+  }
 
-    .menu-button:hover {
-        box-shadow: 0px -1px inset;
-    }
+  .menu-button:hover {
+    box-shadow: 0px -1px inset;
+  }
 }
 
 // Footer
+
+// Responsive
+
+@media (max-width: 925px) {
+  .signbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .sign {
+      margin: 0px 0px 5px 15px;
+    }
+
+    .register {
+      margin: 5px 15px 0px 0px;
+    }
+  }
+}
+
+@media (max-width: 830px) {
+  .list {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 625px) {
+  .list {
+    font-size: 13px;
+  }
+
+  .badgebigbox {
+    flex-direction: column;
+    align-items: center;
+
+    .badgebox {
+      margin-top: 20px;
+    }
+
+    .margin {
+      margin-left: 30px;
+    }
+  }
+}
+
+@media (max-width: 570px) {
+  .navigation {
+    display: none;
+  }
+
+  .badgebigbox {
+    display: none;
+
+    .badgebox {
+      display: none;
+    }
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .signbox {
+    display: none;
+  }
+
+  .menubox {
+    display: none;
+  }
+
+  // Bars
+  .bars {
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+  }
+}

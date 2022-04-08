@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
   cart = faCartShopping;
   heart = faHeart;
   copyright = faCopyright;
+  bars = faBars;
 
   constructor(
     private cartitemservice: CartItemService, 
@@ -55,4 +56,9 @@ export class AppComponent implements OnInit {
   openRegister() {
     this.dialog.open(RegisterComponent);
   }
+
+  openMenu() {
+    
+  }
+
 }

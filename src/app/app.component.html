@@ -8,13 +8,13 @@
       </a>
     </div>
 
-    <nav>
+    <nav class="navigation">
       <ul class="list">
         <li>
           <a class="link" href="#News">News</a>
         </li>
         <li>
-          <a class="link" href="#Accessories">Gamers Choice</a>
+          <a class="link" href="#Accessories">PC</a>
         </li>
         <li>
           <a class="link" routerLink="/build/buildhome" routerLinkActive="active">Shop</a>
@@ -40,6 +40,7 @@
       <button mat-button class="register" color="primary" (click)="openRegister()">Register</button>
     </div>
 
+    <fa-icon [icon]="bars" class="bars" (click)="openMenu()"></fa-icon>
   </div>
 
 
