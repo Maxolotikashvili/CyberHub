@@ -45,6 +45,7 @@ $font-dosis: "Dosis", sans-serif;
                 .gtx1060box {
                     display: flex;
                     flex-direction: column;
+                    margin-top: 20px;
 
                     .nowinstock {
                         background: rgb(31, 31, 31);
@@ -93,6 +94,7 @@ $font-dosis: "Dosis", sans-serif;
                 .arctisbox {
                     display: flex;
                     flex-direction: column;
+                    margin-top: 20px;
 
                     .newinstock {
                         display: flex;
@@ -404,7 +406,7 @@ $font-dosis: "Dosis", sans-serif;
             font-family: $font-play;
             margin: 150px 0px 50px 0px;
         }
-        
+
         // Grid
 
         .pc-gridbox {
@@ -428,24 +430,29 @@ $font-dosis: "Dosis", sans-serif;
                     justify-content: center;
 
                     .extreme {
-                        text-align: center;
+                        text-align: end;
                         font-size: 26px;
-                        letter-spacing: 3px;
+                        letter-spacing: 4px;
                         color: red;
                         font-weight: bolder;
-                        margin-top: 10px;
                     }
 
-                    .pc-image {
-                        max-width: 350px;
-                        padding: 30px 20px 0px 20px;
+                    .pc-image-extreme {
+                        background-image: url("../../assets/PcParts/PCs/3090-pc.png");
+                        width: 300px;
+                        height: 100%;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
                     }
                 }
 
                 .specsbox {
                     display: flex;
                     flex-direction: column;
-                    margin-top: 100px;
+                    justify-content: flex-end;
+                    margin-bottom: 30px;
+                    margin-left: 30px;
                     width: 100%;
 
                     .specs {
@@ -460,7 +467,7 @@ $font-dosis: "Dosis", sans-serif;
                     .detailsbox {
                         display: flex;
                         flex-direction: column;
-                        margin-top: 50px;
+                        margin-top: 20px;
 
                         .pricebox {
                             margin-top: 30px;
@@ -484,7 +491,6 @@ $font-dosis: "Dosis", sans-serif;
                             .pc-button:hover {
                                 color: red;
                             }
-
                         }
                     }
                 }
@@ -507,7 +513,7 @@ $font-dosis: "Dosis", sans-serif;
                 .highendbox {
                     display: flex;
                     flex-direction: column;
-                
+
                     .highend {
                         text-align: center;
                         font-size: 24px;
@@ -517,10 +523,13 @@ $font-dosis: "Dosis", sans-serif;
                         margin-top: 10px;
                     }
 
-                    .pc-image {
-                        max-width: 150px;
-                        height: 180px;
-                        margin-left: 5px;
+                    .pc-image-highend {
+                        background-image: url("../../assets/PcParts/PCs/3070ti-pc.png");
+                        width: 100%;
+                        height: 200px;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
                     }
                 }
 
@@ -545,18 +554,18 @@ $font-dosis: "Dosis", sans-serif;
                         margin-top: 10px;
 
                         .pc-hdd {
-                            margin-bottom: 3.7px;
+                            margin: 3.7px 0px 3.7px 0px;
                         }
 
                         .pricebox {
                             display: flex;
-                            align-items: flex-start;
+                            align-items: baseline;
                             justify-content: space-between;
 
                             .pc-price {
                                 font-size: 22px;
                                 letter-spacing: 1px;
-                                margin: 0px 5px 5px 0px;
+                                margin-right: 5px;
                             }
 
                             .pc-button {
@@ -569,17 +578,24 @@ $font-dosis: "Dosis", sans-serif;
                             .pc-button:hover {
                                 color: blue;
                             }
-
                         }
                     }
                 }
 
                 .margin {
                     margin-bottom: 3.7px;
-                }                
-            
+                }
 
                 // Budget
+
+                .pc-image-budget {
+                    background-image: url("../../assets/PcParts/PCs/rx580-pc.png");
+                    width: 100%;
+                    height: 200px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                }
 
                 .budget {
                     text-align: center;
@@ -587,7 +603,7 @@ $font-dosis: "Dosis", sans-serif;
                     letter-spacing: 2px;
                     color: yellow;
                     font-weight: bolder;
-                    margin-top: 10px; 
+                    margin-top: 10px;
                 }
 
                 .specs-rx {
@@ -611,10 +627,8 @@ $font-dosis: "Dosis", sans-serif;
                 }
             }
         }
-        
 
         // Build Your Own
-
 
         .buildbox {
             display: flex;
@@ -664,6 +678,135 @@ $font-dosis: "Dosis", sans-serif;
                     border-color: rgb(160, 0, 160);
                 }
             }
+        }
+    }
+}
+
+// Responsive
+
+@media (max-width: 1225px) {
+    .pc-image-extreme {
+        width: 200px;
+    }
+
+    .highendbox {
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 1115px) {
+    .pc-gridbox {
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 600px;
+
+        .extreme {
+            text-align: center !important;
+            margin-left: 40px;
+        }
+
+        .specsbox {
+            margin-top: 60px;
+        }
+    }
+}
+
+@media (max-width: 655px) {
+    .extremebox {
+        .pc-image-extreme {
+            width: 250px !important;
+            height: 270px !important;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .h1 {
+        line-height: 45px;
+    }
+}
+
+@media (max-width: 548px) {
+    .extreme {
+        text-align: center !important;
+    }
+
+    .pc-image-extreme {
+        width: 280px;
+    }
+
+    .specsbox {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 525px) {
+    .responsive-pricebox {
+        flex-direction: column;
+
+        .pc-button,
+        .pc-rx-button {
+            margin-top: 15px;
+        }
+    }
+}
+
+@media (max-width: 493px) {
+    .pc-grid,
+    .smallgrid {
+        flex-direction: column;
+
+        .extreme {
+            margin-top: 10px;
+        }
+
+        .pc-image-extreme {
+            width: 100% !important;
+        }
+
+        .specsbox {
+            margin: 0 !important;
+            margin-top: 50px !important;
+            
+            .detailsbox {
+                padding: 0px 50px 0px 50px;
+            }
+
+            .responsive-detailsbox {
+                margin-top: 20px !important;
+            }
+        }
+
+        .pricebox {
+            flex-direction: column;
+            align-items: center;
+
+            .pc-price {
+                margin: 0px 0px 10px 2px !important;
+            }
+        }
+
+        .price-buttonbox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-top: 25px;
+
+            .pc-button, .pc-rx-button {
+                margin: 0 !important;
+            }
+        }
+
+        .pc-hdd {
+            margin: 0 !important;
+            margin-bottom: 10px !important;
+        }
+
+        .margin {
+            margin-bottom: 10px !important;
         }
     }
 }

@@ -1,19 +1,18 @@
 $font-play: "Play", sans-serif;
 
 .header {
-  background: radial-gradient(
-    circle,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(6, 6, 80, 1) 50%,
-    rgba(0, 20, 83, 1) 100%
-  );
+  background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(6, 6, 80, 1) 50%, rgba(0, 20, 83, 1) 100%);
+
+  .show {
+    display: none;
+  }
 }
 
 .headerbox {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 20px 20px 20px 0px;
+  padding: 20px 20px 20px 5px;
   font-family: $font-play;
 
   .logobox {
@@ -37,6 +36,11 @@ $font-play: "Play", sans-serif;
         padding: 0px 0px 1px 13px;
       }
     }
+
+  }
+
+  .bars {
+    display: none;
   }
 
   .list {
@@ -102,7 +106,6 @@ $font-play: "Play", sans-serif;
       margin-right: 30px;
     }
   }
-  
 }
 
 .divider {
@@ -128,8 +131,6 @@ $font-play: "Play", sans-serif;
     box-shadow: 0px -1px inset;
   }
 }
-
-// Footer
 
 // Responsive
 
@@ -200,10 +201,130 @@ $font-play: "Play", sans-serif;
     display: none;
   }
 
-  // Bars
+  // Responsive
+
+  // Bar
   .bars {
+    display: block !important;
+    width: 70%;
     color: white;
     font-size: 26px;
+    text-align: end;
     cursor: pointer;
   }
+
+  .show {
+    display: block;
+  }
+
+  .responsivebox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    // Sign Buttons
+    .responsive-signbox {
+      margin-top: 30px;
+      color: white;
+
+      .responsive-sign {
+        margin-right: 15px;
+        border-radius: 0px;
+        font-family: $font-play;
+        color: red;
+        border: 1px solid red;
+        border-color: red;
+        transition: all 0.2s linear;
+      }
+
+      .responsive-sign:hover {
+        background-color: red;
+        color: white;
+      }
+
+      .responsive-register {
+        margin-left: 15px;
+        border-radius: 0px;
+        font-family: $font-play;
+        color: rgb(0, 221, 0);
+        border: 1px solid rgb(0, 221, 0);
+        border-color: rgb(0, 221, 0);
+        transition: all 0.2s linear;
+      }
+
+      .responsive-register:hover {
+        background-color: rgb(0, 221, 0);
+        color: white;
+      }
+    }
+
+    // Badges
+    .responsive-badgebigbox {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      margin: 50px 0px 30px 0px;
+
+      .responsive-badgebox {
+        font-size: 20px;
+        color: rgb(224, 224, 224);
+        cursor: pointer;
+      }
+    }
+
+    // Navigation
+    .responsive-navigation {
+      width: 100%;
+      margin: 30px 0px 30px 0px;
+
+      .responsive-list {
+        display: flex;
+        justify-content: space-around;
+
+        .responsive-link {
+          color: white;
+          letter-spacing: 2px;
+          transition: all 0.2s linear;
+        }
+
+        .responsive-link:hover {
+          color: gray;
+        }
+      }
+    }
+
+    // Divider
+    .responsive-divider {
+      background-color: white;
+      width: 100%;
+    }
+
+    // Menu
+    .responsive-menubox {
+      margin: 20px 0px 20px 0px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      color: white;
+
+      .menu-button {
+        font-family: $font-play;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        border-radius: 7px;
+        transition: all 0.2s ease;
+      }
+
+      .menu-button:hover {
+        box-shadow: 0px -1px inset;
+      }
+    }
+  }
+}
+
+@media (min-width: 571px) {
+  .responsivebox {
+    display: none;
+  }
+
 }

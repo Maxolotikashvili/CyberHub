@@ -30,14 +30,18 @@ export class AppComponent implements OnInit {
   copyright = faCopyright;
   bars = faBars;
 
+  // Responsive
+  show: boolean = true;
+
   constructor(
-    private cartitemservice: CartItemService, 
+    private cartitemservice: CartItemService,
     private wishlistservice: WishlistService,
     private signservice: SignService,
     private dialog: MatDialog
-    ) {}
+  ) { }
 
   ngOnInit(): void {
+
     // Wishlist Items
     this.wishlistservice.sendItems().subscribe((data) => {
       this.wishes = data;
@@ -58,7 +62,6 @@ export class AppComponent implements OnInit {
   }
 
   openMenu() {
-    
+    this.show = !this.show;
   }
-
 }
