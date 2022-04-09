@@ -126,7 +126,8 @@ $font-dosis: "Dosis", sans-serif;
                     .arctis {
                         max-width: 600px;
                         width: 100%;
-                        height: 400px;
+                        max-height: 400px;
+                        height: 100%;
                         object-fit: cover;
                     }
 
@@ -217,6 +218,7 @@ $font-dosis: "Dosis", sans-serif;
                     .pump-p {
                         font-size: 20px;
                         letter-spacing: 1px;
+                        line-height: 28px;
                         font-weight: bold;
                     }
                 }
@@ -287,6 +289,10 @@ $font-dosis: "Dosis", sans-serif;
                 background: rgb(196, 196, 196);
                 background: radial-gradient(circle, rgba(196, 196, 196, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
                 width: 100%;
+
+                .responsivedivider {
+                    display: none;
+                }
 
                 .nzxtboxes {
                     display: flex;
@@ -430,7 +436,8 @@ $font-dosis: "Dosis", sans-serif;
                     justify-content: center;
 
                     .extreme {
-                        text-align: end;
+                        text-align: center;
+                        margin-left: 50px;
                         font-size: 26px;
                         letter-spacing: 4px;
                         color: red;
@@ -440,7 +447,7 @@ $font-dosis: "Dosis", sans-serif;
                     .pc-image-extreme {
                         background-image: url("../../assets/PcParts/PCs/3090-pc.png");
                         width: 300px;
-                        height: 100%;
+                        height: 70%;
                         background-position: center;
                         background-repeat: no-repeat;
                         background-size: contain;
@@ -525,8 +532,9 @@ $font-dosis: "Dosis", sans-serif;
 
                     .pc-image-highend {
                         background-image: url("../../assets/PcParts/PCs/3070ti-pc.png");
-                        width: 100%;
-                        height: 200px;
+                        width: 150px;
+                        height: 150px;
+                        margin-top: 20px;
                         background-position: center;
                         background-repeat: no-repeat;
                         background-size: contain;
@@ -590,8 +598,9 @@ $font-dosis: "Dosis", sans-serif;
 
                 .pc-image-budget {
                     background-image: url("../../assets/PcParts/PCs/rx580-pc.png");
-                    width: 100%;
-                    height: 200px;
+                    width: 150px;
+                    height: 150px;
+                    margin-top: 20px;
                     background-position: center;
                     background-repeat: no-repeat;
                     background-size: contain;
@@ -713,11 +722,90 @@ $font-dosis: "Dosis", sans-serif;
     }
 }
 
+@media (max-width: 1054px) {
+
+    .pumptextbox {
+        padding: 0 !important;
+    }
+
+    .pump-h {
+        text-align: center;
+        line-height: 35px;
+    }
+} 
+
+@media (max-width: 943px) {
+
+    .pump {
+        max-width: 300px !important;
+        width: 100%;
+    }
+
+    .nzxt-rgbbox {
+        padding: 0 !important;
+
+        .rgbtextbox {
+            padding: 0 !important;
+            padding-left: 5px !important;
+        }
+    }
+
+    .pumptextbox {
+        padding: 10px 0px 10px 0px !important;
+    }
+}
+
+@media (max-width: 778px) {
+    .ngfor-news {
+        flex-direction: column;
+        align-items: center;
+
+        .news-images {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media (max-width: 736px) {
+
+    .pumpbox {
+        flex-direction: column;
+        padding: 0px 5px 0px 5px;
+    }
+
+    .nzxt-rgbbox {
+        flex-direction: column-reverse;
+
+        .nzxt-rgb-h {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .nzxt-rgb-p {
+            line-height: 25px;
+        }
+    }
+}
+
 @media (max-width: 655px) {
     .extremebox {
         .pc-image-extreme {
             width: 250px !important;
             height: 270px !important;
+        }
+    }
+}
+
+@media (max-width: 610px) {
+    .nzxt-buy-box {
+        flex-direction: column;
+        align-items: center;
+
+        .responsivedivider {
+            display: block !important;
+            margin: 30px 0px 30px 0px;
+            width: 100%;
+            background-color: white;
         }
     }
 }
@@ -728,7 +816,26 @@ $font-dosis: "Dosis", sans-serif;
     }
 }
 
+@media (max-width: 568px) {
+    
+    .newmanufacturers-h {
+        width: 100%;
+        text-align: center;
+        line-height: 40px;
+    }
+
+    .kraken-h {
+        text-align: center;
+        line-height: 45px;
+    }
+
+    .kraken-display {
+        text-align: center;
+    }
+}
+
 @media (max-width: 548px) {
+
     .extreme {
         text-align: center !important;
     }
@@ -762,7 +869,7 @@ $font-dosis: "Dosis", sans-serif;
             margin-top: 10px;
         }
 
-        .pc-image-extreme {
+        .pc-image-extreme, .pc-image-highend, .pc-image-budget {
             width: 100% !important;
         }
 
@@ -808,5 +915,11 @@ $font-dosis: "Dosis", sans-serif;
         .margin {
             margin-bottom: 10px !important;
         }
+    }
+}
+
+@media (max-width: 400px) {
+    .news-text-box {
+        padding: 0 !important;
     }
 }
