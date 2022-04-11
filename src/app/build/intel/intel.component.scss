@@ -119,6 +119,12 @@ $silver: silver;
 
 @media (max-width: 490px) {
     .gridbox {
-        margin: 0px 20px 0px 20px;
+        margin: 0px 50px 0px 60px;
+    }
+}
+
+@media (max-width: 446px) {
+    .gridbox {
+        margin: 0px 25px 0px 30px !important;
     }
 }

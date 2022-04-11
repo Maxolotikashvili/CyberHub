@@ -87,3 +87,11 @@
         margin-left: -2784px;
     }
 }
+
+// Responsive
+
+@media (max-width: 1250px) {
+    .slideshow {
+        display: none !important;
+    }
+}

@@ -1,6 +1,6 @@
-$font-play: 'Play', sans-serif;
-$font-saira: 'Saira Condensed', sans-serif;
-$font-roboto: 'Roboto', sans-serif;
+$font-play: "Play", sans-serif;
+$font-saira: "Saira Condensed", sans-serif;
+$font-roboto: "Roboto", sans-serif;
 $silver: silver;
 
 .gridbox {
@@ -89,9 +89,7 @@ $silver: silver;
     filter: blur(10px);
 }
 
-
-
-// Responsive 
+// Responsive
 
 @media (min-width: 1800px) {
     .gridbox {
@@ -135,18 +133,14 @@ $silver: silver;
     }
 }
 
-@media (max-width: 450px) {
-  
-    .bigbox {
-      flex-direction: column;
-    }
-
-    .biglistbox {
-        margin-left: 50px;
-        margin-bottom: 100px;
-    }
-
+@media (max-width: 490px) {
     .gridbox {
-        margin: 0px 20px 0px 20px;
+        margin: 0px 50px 0px 60px;
+    }
+}
+
+@media (max-width: 413px) {
+    .gridbox {
+        margin: 0px 25px 0px 30px !important;
     }
 }

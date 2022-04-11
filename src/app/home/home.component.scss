@@ -810,17 +810,22 @@ $font-dosis: "Dosis", sans-serif;
     }
 }
 
+@media (max-width: 583px) {
+    .kraken-h {
+        text-align: center;
+        line-height: 40px;
+    }
+}
+
 @media (max-width: 576px) {
     .h1 {
         line-height: 45px;
     }
 }
 
-@media (max-width: 568px) {
+@media (max-width: 555px) {
     
     .newmanufacturers-h {
-        width: 100%;
-        text-align: center;
         line-height: 40px;
     }
 
@@ -918,8 +923,24 @@ $font-dosis: "Dosis", sans-serif;
     }
 }
 
+@media (max-width: 460px) {
+    .assemblebox {
+        font-size: 12px;
+    }
+}
+
 @media (max-width: 400px) {
     .news-text-box {
         padding: 0 !important;
+    }
+
+    .bigboxgrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 344px) {
+    .build-h2 {
+        line-height: 45px;
     }
 }

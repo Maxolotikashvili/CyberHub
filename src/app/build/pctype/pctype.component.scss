@@ -1,13 +1,10 @@
 $font-play: "Play", sans-serif;
 
 .bigpcbox {
+    margin: 100px 0px 0px 200px;
     display: flex;
     flex-direction: column;
-    margin-top: 100px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-25%, -20%);
+    align-items: center;
 
     .choose {
         text-align: center;
@@ -37,12 +34,13 @@ $font-play: "Play", sans-serif;
                 font-family: $font-play;
                 color: gray;
                 margin-bottom: 30px;
+                text-align: center;
                 transition: all 0.2s linear;
             }
 
             .image {
-               max-width: 130px;
-               width: 100%;
+                max-width: 130px;
+                width: 100%;
             }
         }
 
@@ -71,6 +69,7 @@ $font-play: "Play", sans-serif;
                 font-weight: bold;
                 color: gray;
                 margin-bottom: 30px;
+                text-align: center;
                 transition: all 0.2s linear;
             }
 
@@ -87,5 +86,50 @@ $font-play: "Play", sans-serif;
                 color: red;
             }
         }
+    }
+}
+
+// Responsive
+
+@media (max-width: 1040px) {
+    .bigpcbox {
+        margin-left: 100px !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .bigpcbox {
+        margin-left: 50px !important;
+    }
+}
+
+@media (max-width: 833px) {
+    .bigpcbox {
+        margin-left: 120px !important;
+
+        .pcbox {
+            flex-direction: column;
+
+            .intelbox {
+                margin-right: 0 !important;
+                margin-bottom: 30px !important;
+            }
+
+            .amdbox {
+                margin: 0 !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 633px) {
+    .bigpcbox {
+        margin-left: 50px !important;
+    }
+}
+
+@media (max-width: 551px) {
+    .bigpcbox {
+        margin-left: 50px !important;
     }
 }
