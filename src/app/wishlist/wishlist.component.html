@@ -8,7 +8,7 @@
         <div class="emptybox" *ngIf="items.length == 0">
             <fa-icon [icon]="heart"></fa-icon>
             <h4 class="fill-h4">Add Items To Your Wishlist From Shopping Section</h4>
-            <button mat-flat-button class="goshopping" color="primary" routerLink="../build/buildhome">Go
+            <button mat-flat-button class="goshopping" color="accent" routerLink="../build/buildhome">Go
                 Shopping</button>
         </div>
 
@@ -16,6 +16,7 @@
             <div class="wishlistbox">
                 <div class="titlebox">
                     <br>
+                    <h4 class="id margin">ID</h4>
                     <h4 class="manufacturer margin">Manufacturer</h4>
                     <h4 class="name margin">Name</h4>
                     <h4 class="price margin">Price</h4>
@@ -24,9 +25,10 @@
                 <div class="itembox">
                     <div class="item" *ngFor="let item of items">
                         <img class="item-img" [src]="item.imageUrl" />
-                        <h6 class="item-text margin margin-auto">{{ item.manufacturer }}</h6>
-                        <span class="item-text margin margin-auto">{{ item.name }}</span>
-                        <span class="item-text margin-auto">{{ item.price }}</span>
+                        <span class="item-text">{{item.id}}</span>
+                        <span class="item-text">{{ item.manufacturer }}</span>
+                        <span class="item-text">{{ item.name }}</span>
+                        <span class="item-text">{{ item.price }}$</span>
 
                         <div class="removebox">
                             <button mat-mini-fab color="primary" class="cartbutton" (click)="sendItems(item)" (click)="snackDisplay('Item Added To Cart', 'Dismiss')">
@@ -42,7 +44,7 @@
                         <br>
                         <button mat-flat-button color="warn" class="clearbutton" (click)="clearCart()">Clear
                             Wishlist</button>
-                        <button mat-flat-button color="primary" class="gobutton" routerLink="../build">Go
+                        <button mat-flat-button color="accent" class="gobutton" routerLink="../build">Go
                             Shopping</button>
                         <br>
                     </div>

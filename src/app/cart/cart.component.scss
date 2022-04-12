@@ -15,6 +15,7 @@ $font-saira: "Saira Condensed", sans-serif;
         font-weight: bold;
         color: darkblue;
         letter-spacing: 1px;
+        line-height: 40px;
     }
 
     .emptybox {
@@ -24,10 +25,11 @@ $font-saira: "Saira Condensed", sans-serif;
         align-items: center;
         color: silver;
         font-size: 200px;
-        margin: 70px 50px 70px 50px;
+        margin: 70px 0px 70px 0px;
 
         .fill-h4 {
             margin-top: 30px;
+            text-align: center;
         }
 
         .goshopping {
@@ -88,11 +90,14 @@ $font-saira: "Saira Condensed", sans-serif;
                     height: 100px;
                 }
 
-                .item-h6 {
+                .item-span {
                     font-size: 16px;
                     font-family: $font-play;
                     color: gray;
                     text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                 }
 
                 .item-price {
@@ -100,6 +105,9 @@ $font-saira: "Saira Condensed", sans-serif;
                     font-family: $font-play;
                     color: gray;
                     text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                 }
 
                 .item-quantity-box {
@@ -128,6 +136,9 @@ $font-saira: "Saira Condensed", sans-serif;
                     font-weight: bolder;
                     color: gray;
                     text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                 }
 
                 .removebox {
@@ -163,17 +174,8 @@ $font-saira: "Saira Condensed", sans-serif;
                     height: 50px;
                 }
             }
-
-            .margin {
-                margin: 0px 20px 0px 20px;
-            }
-
-            .margin-auto {
-                margin-top: auto;
-                margin-bottom: auto;
-            }
         }
-   
+
         .summarybox {
             background-color: rgba(128, 128, 128, 0.411);
             margin: 0px 20px 0px 20px;
@@ -254,4 +256,50 @@ $font-saira: "Saira Condensed", sans-serif;
 
 .blur {
     filter: blur(10px);
+}
+
+
+// Responsive
+
+@media (max-width: 850px) {
+    .smallbox {
+        flex-direction: column;
+    }
+
+    .summarybox {
+        margin: 0 !important;
+        margin-top: 50px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 350px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 800px) {
+    .item-img {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+@media (max-width: 450px) {
+    .titlebox {
+        display: none !important;
+    }
+
+    .item {
+        grid-template-columns: repeat(3, minmax(0, 150px)) !important;
+    }
+}
+
+@media (max-width: 440px) {
+    .buttonbox {
+        flex-direction: column;
+        align-items: center;
+
+        .gobutton {
+            margin-top: 15px;
+        }
+    }
 }

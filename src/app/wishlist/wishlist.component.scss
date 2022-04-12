@@ -11,8 +11,9 @@ $font-play: "Play", sans-serif;
         text-align: center;
         font-size: 38px;
         font-weight: bold;
-        color: darkblue;
+        color: rgb(247, 0, 144);
         letter-spacing: 1px;
+        line-height: 40px;
     }
 
     .emptybox {
@@ -26,6 +27,7 @@ $font-play: "Play", sans-serif;
 
         .fill-h4 {
             margin-top: 30px;
+            text-align: center;
         }
 
         .goshopping {
@@ -41,11 +43,9 @@ $font-play: "Play", sans-serif;
         margin-top: 100px;
 
         .wishlistbox {
-            
-
             .titlebox {
                 display: grid;
-                grid-template-columns: repeat(5, minmax(0, 200px));
+                grid-template-columns: repeat(6, minmax(0, 200px));
                 padding: 5px;
                 text-align: center;
 
@@ -64,7 +64,7 @@ $font-play: "Play", sans-serif;
                 margin: 10px 0px 20px 0px;
                 padding: 5px;
                 display: grid;
-                grid-template-columns: repeat(5, minmax(0, 200px));
+                grid-template-columns: repeat(6, minmax(0, 200px));
                 border: 1px solid rgb(204, 204, 204);
                 border-left: none;
 
@@ -79,27 +79,34 @@ $font-play: "Play", sans-serif;
                     font-family: $font-play;
                     color: gray;
                     text-align: center;
-                }
-
-                .cartbutton {
-                    border-radius: 3px;
-                    font-size: 25px;
-                    font-weight: bolder;
-                    margin: 20px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    box-shadow: none;
+                }
 
-                    .cart {
-                        font-size: 20px;
-                    }
+                .item-price {
+                    font-weight: bold;
                 }
 
                 .removebox {
                     display: flex;
                     justify-content: center;
                     align-items: center;
+
+                    .cartbutton {
+                        border-radius: 3px;
+                        font-size: 25px;
+                        font-weight: bolder;
+                        margin: 20px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        box-shadow: none;
+
+                        .cart {
+                            font-size: 20px;
+                        }
+                    }
 
                     .mat-fab {
                         border-radius: 3px;
@@ -129,15 +136,6 @@ $font-play: "Play", sans-serif;
                     height: 50px;
                 }
             }
-
-            .margin {
-                margin: 0px 20px 0px 20px;
-            }
-
-            .margin-auto {
-                margin-top: auto;
-                margin-bottom: auto;
-            }
         }
     }
 }
@@ -156,4 +154,44 @@ $font-play: "Play", sans-serif;
 
 .blur {
     filter: blur(10px);
+}
+
+
+// Responsive
+
+@media (max-width: 669px) {
+    .titlebox {
+        display: none !important;
+    }
+
+    .item {
+        grid-template-columns: repeat(3, minmax(0, 200px)) !important;
+
+        .item-img {
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+    }
+    .removebox {
+        justify-content: space-evenly !important;
+
+        .cartbutton {
+            margin: 0 !important;
+        }
+
+        .mat-fab {
+            margin: 0 !important;
+        }
+    }
+}
+
+@media (max-width: 430px) {
+    .buttonbox {
+        flex-direction: column;
+        align-items: center;
+
+        .gobutton {
+            margin-top: 15px;
+        }
+    }
 }

@@ -10,7 +10,7 @@ import { CartItemService } from '../Services/Cart/cart-item.service';
 export class CartComponent implements OnInit {
   items!: any[];
 
-  total: number = 0; 
+  total!: any; 
 
   // Fontawesome
   xmark = faXmark;
