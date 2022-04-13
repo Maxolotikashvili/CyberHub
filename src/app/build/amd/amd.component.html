@@ -1,18 +1,18 @@
 <div class="gridbox" [class]="blur">
-    <div class="gridlist" *ngFor="let item of amdpcs">
-        <img class="pc-image" [src]="item.imageUrl" alt="image">
-        <span class="pc-details"><span class="titles">MOBO: </span>{{item.mobo}},</span>
-        <span class="pc-details"><span class="titles">GPU: </span>{{item.gpu}},</span>
-        <span class="pc-details"><span class="titles">CPU: </span>{{item.cpu}},</span>
-        <span class="pc-details"><span class="titles">RAM: </span>{{item.ram}},</span>
-        <span class="pc-details"><span class="titles">Memory: </span>{{item.memory}},</span>
-        <span class="pc-details"><span class="titles">Cooling: </span>{{item.cooling}}</span>
-        <span class="pc-price">{{item.price}}$</span>
-        <button mat-button class="pc-buy">Buy</button>
-    </div>
+  <div class="gridlist" *ngFor="let item of amdpcs">
+    <img class="pc-image" [src]="item.imageUrl" alt="image">
+    <span class="pc-details"><span class="titles">MOBO: </span>{{item.mobo}},</span>
+    <span class="pc-details"><span class="titles">GPU: </span>{{item.gpu}},</span>
+    <span class="pc-details"><span class="titles">CPU: </span>{{item.cpu}},</span>
+    <span class="pc-details"><span class="titles">RAM: </span>{{item.ram}},</span>
+    <span class="pc-details"><span class="titles">Memory: </span>{{item.memory}},</span>
+    <span class="pc-details"><span class="titles">Cooling: </span>{{item.cooling}}</span>
+    <span class="pc-price">{{item.price}}$</span>
+    <button mat-button class="pc-buy">Buy</button>
+  </div>
 </div>
 
 <!-- Spinner -->
 <div [class]="spinnerboxshow">
-    <mat-spinner></mat-spinner>
+  <mat-spinner></mat-spinner>
 </div>

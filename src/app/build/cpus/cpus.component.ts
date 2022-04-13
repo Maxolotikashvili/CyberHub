@@ -19,24 +19,24 @@ export class CpusComponent implements OnInit {
 
   // Spinner
   spinnerboxshow = "spinnerboxshow";
-  blur = "blur"; 
+  blur = "blur";
 
   constructor(
-    private cpusservice: CpusService, 
+    private cpusservice: CpusService,
     private wishlistservice: WishlistService,
     private cartItemService: CartItemService,
     private snack: MatSnackBar
-    ) { }
+  ) { }
 
   ngOnInit(): void {
-    
-     // Spinner Timeout
-     this.spinnerboxshow = "spinnerboxshow";
 
-     setTimeout(() => {
-       this.spinnerboxshow = "spinnerboxhide";
-       this.blur = "";
-     }, 1500);
+    // Spinner Timeout
+    this.spinnerboxshow = "spinnerboxshow";
+
+    setTimeout(() => {
+      this.spinnerboxshow = "spinnerboxhide";
+      this.blur = "";
+    }, 1500);
 
     // Get CPU-s
     this.cpusservice.getCpus().subscribe((data) => {
@@ -53,11 +53,11 @@ export class CpusComponent implements OnInit {
   }
 
   snackDisplay(message: string, action: any) {
-    this.snack.open(message, action, {duration: 3000})
+    this.snack.open(message, action, { duration: 3000 })
   }
 
   wishSnackDisplay(message: string, action: any) {
-    this.snack.open(message, action, {duration: 3000})
+    this.snack.open(message, action, { duration: 3000 })
   }
 
 }

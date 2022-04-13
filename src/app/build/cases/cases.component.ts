@@ -26,16 +26,16 @@ export class CasesComponent implements OnInit {
     private wishlistservice: WishlistService,
     private cartitemservice: CartItemService,
     private snack: MatSnackBar
-    ) { }
+  ) { }
 
   ngOnInit(): void {
-     // Spinner Timeout
-     this.spinnerboxshow = "spinnerboxshow";
+    // Spinner Timeout
+    this.spinnerboxshow = "spinnerboxshow";
 
-     setTimeout(() => {
-       this.spinnerboxshow = "spinnerboxhide";
-       this.blur = "";
-     }, 1500);
+    setTimeout(() => {
+      this.spinnerboxshow = "spinnerboxhide";
+      this.blur = "";
+    }, 1500);
 
     this.casesservice.getCases().subscribe((data) => {
       this.cases = data;
@@ -51,11 +51,11 @@ export class CasesComponent implements OnInit {
   }
 
   snackDisplay(message: string, action: any) {
-    this.snack.open(message, action, {duration: 3000})
+    this.snack.open(message, action, { duration: 3000 })
   }
 
   wishSnackDisplay(message: string, action: any) {
-    this.snack.open(message, action, {duration: 3000})
+    this.snack.open(message, action, { duration: 3000 })
   }
 
 }

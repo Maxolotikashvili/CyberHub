@@ -1,21 +1,21 @@
 <div class="gridbox" [class]="blur">
 
-    <div class="gridlist" *ngFor="let item of cases">
-        <div class="iconbox">
-            <fa-icon [icon]="eye" class="icon"></fa-icon>
-            <fa-icon [icon]="heart" class="icon" (click)="addWishlist(item)"
-                (click)="wishSnackDisplay('Item Added To Wishlist', 'Dismiss')"></fa-icon>
-        </div>
-        <img class="case-image" [src]="item.imageUrl" alt="image">
-        <span class="case-name">{{item.name}}</span>
-        <span class="case-price">{{item.price}}$</span>
-        <button mat-button class="case-buy" (click)="sendItem(item)"
-            (click)="snackDisplay('Item Added To Cart', 'Dismiss')">Add To Cart</button>
+  <div class="gridlist" *ngFor="let item of cases">
+    <div class="iconbox">
+      <fa-icon [icon]="eye" class="icon"></fa-icon>
+      <fa-icon [icon]="heart" class="icon" (click)="addWishlist(item)"
+        (click)="wishSnackDisplay('Item Added To Wishlist', 'Dismiss')"></fa-icon>
     </div>
+    <img class="case-image" [src]="item.imageUrl" alt="image">
+    <span class="case-name">{{item.name}}</span>
+    <span class="case-price">{{item.price}}$</span>
+    <button mat-button class="case-buy" (click)="sendItem(item)"
+      (click)="snackDisplay('Item Added To Cart', 'Dismiss')">Add To Cart</button>
+  </div>
 
 </div>
 
 <!-- Spinner -->
 <div [class]="spinnerboxshow">
-    <mat-spinner></mat-spinner>
+  <mat-spinner></mat-spinner>
 </div>

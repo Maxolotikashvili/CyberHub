@@ -1,6 +1,9 @@
-$font-play: 'Play', sans-serif;
-$font-saira: 'Saira Condensed', sans-serif;
-$font-roboto: 'Roboto', sans-serif;
+$font-play: 'Play',
+sans-serif;
+$font-saira: 'Saira Condensed',
+sans-serif;
+$font-roboto: 'Roboto',
+sans-serif;
 $silver: silver;
 
 .gridbox {
@@ -39,7 +42,7 @@ $silver: silver;
         }
 
         .psu-name {
-             font-family: $font-play;
+            font-family: $font-play;
             font-size: 14px;
             letter-spacing: 1px;
             color: black;

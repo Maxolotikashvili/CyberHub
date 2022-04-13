@@ -1,4 +1,5 @@
-$font-play: 'Play', sans-serif;
+$font-play: 'Play',
+sans-serif;
 $box-shadow: silver;
 $silver: silver;
 
@@ -17,7 +18,7 @@ $silver: silver;
 
         .pc-image {
             height: 250px;
-            padding: 10px; 
+            padding: 10px;
             object-fit: contain;
             margin-bottom: 30px;
         }
@@ -28,7 +29,7 @@ $silver: silver;
             letter-spacing: 1px;
             margin-top: 10px;
             color: black;
-        
+
             .titles {
                 color: gray;
                 font-weight: bold;

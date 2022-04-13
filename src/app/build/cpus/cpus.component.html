@@ -1,19 +1,21 @@
  <div class="gridbox" [class]="blur">
 
-    <div class="gridlist" *ngFor="let item of cpus">
-        <div class="iconbox">
-            <fa-icon [icon]="eye" class="icon"></fa-icon>
-            <fa-icon [icon]="heart" class="icon" (click)="addWishlist(item)" (click)="wishSnackDisplay('Item Added To Wishlist', 'Dismiss')"></fa-icon>
-        </div>
-        <img class="cpu-image" [src]="item.imageUrl" alt="image">
-        <span class="cpu-name">{{item.name}}</span>
-        <span class="cpu-price">{{item.price}}$</span>
-        <button mat-button class="cpu-buy" (click)="sendToCart(item)" (click)="snackDisplay('Item Added To Cart', 'Dismiss')">Add To Cart</button>
-    </div>
+   <div class="gridlist" *ngFor="let item of cpus">
+     <div class="iconbox">
+       <fa-icon [icon]="eye" class="icon"></fa-icon>
+       <fa-icon [icon]="heart" class="icon" (click)="addWishlist(item)"
+         (click)="wishSnackDisplay('Item Added To Wishlist', 'Dismiss')"></fa-icon>
+     </div>
+     <img class="cpu-image" [src]="item.imageUrl" alt="image">
+     <span class="cpu-name">{{item.name}}</span>
+     <span class="cpu-price">{{item.price}}$</span>
+     <button mat-button class="cpu-buy" (click)="sendToCart(item)"
+       (click)="snackDisplay('Item Added To Cart', 'Dismiss')">Add To Cart</button>
+   </div>
 
-</div>
+ </div>
 
-<!-- Spinner -->
-<div [class]="spinnerboxshow">
-    <mat-spinner></mat-spinner>
-</div>
+ <!-- Spinner -->
+ <div [class]="spinnerboxshow">
+   <mat-spinner></mat-spinner>
+ </div>

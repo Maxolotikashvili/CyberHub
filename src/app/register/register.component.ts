@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
       date: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(5)]],
       confirmPassword: ['', Validators.required]
-    }, {validators: matchValidator })
+    }, { validators: matchValidator })
 
     // Getters
     this.Firstname = this.userForm.get('firstName');

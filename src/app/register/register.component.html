@@ -35,7 +35,8 @@
 
     <mat-form-field class="dateform input">
       <mat-label>Date</mat-label>
-      <input class="responsive-input" matInput [matDatepicker]="datePicker" formControlName="date" [min]="minDate" [max]="maxDate" #date />
+      <input class="responsive-input" matInput [matDatepicker]="datePicker" formControlName="date" [min]="minDate"
+        [max]="maxDate" #date />
       <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
       <mat-datepicker #datePicker></mat-datepicker>
       <mat-error *ngIf="Date?.errors?.['required']">Please Enter a Valid Date With a Following Format: MM / DD /

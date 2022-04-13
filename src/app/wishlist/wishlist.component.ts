@@ -25,7 +25,7 @@ export class WishlistComponent implements OnInit {
     private wishlistservice: WishlistService,
     private cartitemservice: CartItemService,
     private snack: MatSnackBar
-    ) { }
+  ) { }
 
   ngOnInit(): void {
 
@@ -58,7 +58,7 @@ export class WishlistComponent implements OnInit {
   }
 
   snackDisplay(message: string, action: any) {
-    this.snack.open(message, action, {duration: 3000})
+    this.snack.open(message, action, { duration: 3000 })
   }
 
 }

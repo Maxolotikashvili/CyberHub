@@ -19,25 +19,25 @@ export class PsusComponent implements OnInit {
 
   // Spinner
   spinnerboxshow = "spinnerboxshow";
-  blur = "blur"; 
+  blur = "blur";
 
   constructor(
-    private psuservice: PsusService, 
+    private psuservice: PsusService,
     private wishlistservice: WishlistService,
     private cartitemservice: CartItemService,
     private snack: MatSnackBar
-    ) { }
+  ) { }
 
   ngOnInit(): void {
 
-     // Spinner Timeout
-     this.spinnerboxshow = "spinnerboxshow";
+    // Spinner Timeout
+    this.spinnerboxshow = "spinnerboxshow";
 
-     setTimeout(() => {
-       this.spinnerboxshow = "spinnerboxhide";
-       this.blur = "";
-     }, 1500);
-     
+    setTimeout(() => {
+      this.spinnerboxshow = "spinnerboxhide";
+      this.blur = "";
+    }, 1500);
+
     this.psuservice.getPsus().subscribe((data) => {
       this.psus = data;
     })
@@ -52,11 +52,11 @@ export class PsusComponent implements OnInit {
   }
 
   snackDisplay(message: string, action: any) {
-    this.snack.open(message, action, {duration: 3000})
+    this.snack.open(message, action, { duration: 3000 })
   }
 
   wishSnackDisplay(message: string, action: any) {
-    this.snack.open(message, action, {duration: 3000})
+    this.snack.open(message, action, { duration: 3000 })
   }
 
 }

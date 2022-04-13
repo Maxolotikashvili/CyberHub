@@ -14,7 +14,7 @@ export class BuildComponent implements OnInit {
     },
 
     {
-      name:  "Processor (CPU)",
+      name: "Processor (CPU)",
       routerName: "cpus"
     },
 
@@ -65,7 +65,7 @@ export class BuildComponent implements OnInit {
   }
 
   onRated() {
-    
+
   }
 
 }

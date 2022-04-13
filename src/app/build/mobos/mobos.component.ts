@@ -19,24 +19,24 @@ export class MobosComponent implements OnInit {
 
   // Spinner
   spinnerboxshow = "spinnerboxshow";
-  blur = "blur"; 
+  blur = "blur";
 
   constructor(
-    private mobosservice: MobosService, 
+    private mobosservice: MobosService,
     private wishlistservice: WishlistService,
     private cartitemservice: CartItemService,
     private snack: MatSnackBar
-    ) { }
+  ) { }
 
   ngOnInit(): void {
 
-     // Spinner Timeout
-     this.spinnerboxshow = "spinnerboxshow";
+    // Spinner Timeout
+    this.spinnerboxshow = "spinnerboxshow";
 
-     setTimeout(() => {
-       this.spinnerboxshow = "spinnerboxhide";
-       this.blur = "";
-     }, 1500);
+    setTimeout(() => {
+      this.spinnerboxshow = "spinnerboxhide";
+      this.blur = "";
+    }, 1500);
 
     // Get MOBO-s
     this.mobosservice.getMobos().subscribe((data) => {
@@ -53,11 +53,11 @@ export class MobosComponent implements OnInit {
   }
 
   snackDisplay(message: string, action: any) {
-    this.snack.open(message, action, {duration: 3000})
+    this.snack.open(message, action, { duration: 3000 })
   }
 
   wishSnackDisplay(message: string, action: any) {
-    this.snack.open(message, action, {duration: 3000})
+    this.snack.open(message, action, { duration: 3000 })
   }
 
 }

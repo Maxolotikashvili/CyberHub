@@ -1,6 +1,9 @@
-$font-play: "Play", sans-serif;
-$font-saira: "Saira Condensed", sans-serif;
-$font-dosis: "Dosis", sans-serif;
+$font-play: "Play",
+sans-serif;
+$font-saira: "Saira Condensed",
+sans-serif;
+$font-dosis: "Dosis",
+sans-serif;
 
 .bodybox {
     background-image: url("/assets/Backgrounds/background-gaming.jpg");
@@ -49,11 +52,9 @@ $font-dosis: "Dosis", sans-serif;
 
                     .nowinstock {
                         background: rgb(31, 31, 31);
-                        background: radial-gradient(
-                            circle,
-                            rgba(31, 31, 31, 0.6965161064425771) 0%,
-                            rgba(0, 0, 0, 0.6965161064425771) 100%
-                        );
+                        background: radial-gradient(circle,
+                                rgba(31, 31, 31, 0.6965161064425771) 0%,
+                                rgba(0, 0, 0, 0.6965161064425771) 100%);
                         text-align: center;
                         padding: 20px;
 
@@ -104,11 +105,9 @@ $font-dosis: "Dosis", sans-serif;
                         max-width: 600px;
                         width: 100%;
                         background: rgb(31, 31, 31);
-                        background: radial-gradient(
-                            circle,
-                            rgba(31, 31, 31, 0.6965161064425771) 0%,
-                            rgba(0, 0, 0, 0.6965161064425771) 100%
-                        );
+                        background: radial-gradient(circle,
+                                rgba(31, 31, 31, 0.6965161064425771) 0%,
+                                rgba(0, 0, 0, 0.6965161064425771) 100%);
                         padding: 20px;
 
                         .arctis-p {
@@ -406,6 +405,7 @@ $font-dosis: "Dosis", sans-serif;
         flex-direction: column;
 
         .intro-grid {
+            line-height: 35px;
             letter-spacing: 3px;
             font-size: 36px;
             color: white;
@@ -550,7 +550,7 @@ $font-dosis: "Dosis", sans-serif;
                     .specs {
                         border-bottom: 1px solid blue;
                         text-align: center;
-                        padding-bottom: 5px;
+                        padding-bottom: 10px;
                         letter-spacing: 1px;
                         font-size: 20px;
                         font-weight: bold;
@@ -618,7 +618,7 @@ $font-dosis: "Dosis", sans-serif;
                 .specs-rx {
                     border-bottom: 1px solid yellow;
                     text-align: center;
-                    padding-bottom: 5px;
+                    padding-bottom: 10px;
                     letter-spacing: 1px;
                     font-size: 20px;
                     font-weight: bold;
@@ -648,7 +648,9 @@ $font-dosis: "Dosis", sans-serif;
                 margin: 100px 0px 50px 0px;
                 font-size: 44px;
                 font-family: $font-dosis;
+                line-height: 45px;
                 letter-spacing: 2px;
+                word-wrap: break-word;
                 color: white;
             }
 
@@ -704,9 +706,12 @@ $font-dosis: "Dosis", sans-serif;
 }
 
 @media (max-width: 1115px) {
+    .pc-grid {
+        border-radius: 2px !important;
+    }
+
     .pc-gridbox {
         grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
-        width: fit-content;
         margin-left: auto;
         margin-right: auto;
         max-width: 600px;
@@ -720,6 +725,11 @@ $font-dosis: "Dosis", sans-serif;
             margin-top: 60px;
         }
     }
+
+    .smallgrid {
+        padding-bottom: 5px !important;
+        border-radius: 2px !important;
+    }
 }
 
 @media (max-width: 1054px) {
@@ -732,7 +742,7 @@ $font-dosis: "Dosis", sans-serif;
         text-align: center;
         line-height: 35px;
     }
-} 
+}
 
 @media (max-width: 943px) {
 
@@ -824,7 +834,7 @@ $font-dosis: "Dosis", sans-serif;
 }
 
 @media (max-width: 555px) {
-    
+
     .newmanufacturers-h {
         line-height: 40px;
     }
@@ -866,6 +876,7 @@ $font-dosis: "Dosis", sans-serif;
 }
 
 @media (max-width: 493px) {
+
     .pc-grid,
     .smallgrid {
         flex-direction: column;
@@ -874,14 +885,16 @@ $font-dosis: "Dosis", sans-serif;
             margin-top: 10px;
         }
 
-        .pc-image-extreme, .pc-image-highend, .pc-image-budget {
+        .pc-image-extreme,
+        .pc-image-highend,
+        .pc-image-budget {
             width: 100% !important;
         }
 
         .specsbox {
             margin: 0 !important;
             margin-top: 50px !important;
-            
+
             .detailsbox {
                 padding: 0px 50px 0px 50px;
             }
@@ -907,7 +920,8 @@ $font-dosis: "Dosis", sans-serif;
             width: 100%;
             margin-top: 25px;
 
-            .pc-button, .pc-rx-button {
+            .pc-button,
+            .pc-rx-button {
                 margin: 0 !important;
             }
         }
@@ -936,11 +950,5 @@ $font-dosis: "Dosis", sans-serif;
 
     .bigboxgrid {
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    }
-}
-
-@media (max-width: 344px) {
-    .build-h2 {
-        line-height: 45px;
     }
 }

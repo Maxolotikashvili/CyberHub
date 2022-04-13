@@ -1,35 +1,34 @@
 <section>
 
-    <!-- Parts -->
-    <div class="bigbox">
+  <!-- Parts -->
+  <div class="bigbox">
 
-        <div class="biglistbox">
+    <div class="biglistbox">
 
-            <!-- Category -->
-            <div class="categoriesbox">
-                <h3 class="categories-h">Categories</h3>
+      <!-- Category -->
+      <div class="categoriesbox">
+        <h3 class="categories-h">Categories</h3>
 
-                <a class="listbox" *ngFor="let item of partslist" [routerLink]="item.routerName"
-                    routerLinkActive="active">
-                    {{item.name}}
-                </a>
-            </div>
-
-
-            <!-- Accessories -->
-            <div class="accessoriesbox">
-                <h3 class="accessories-h">Accessories</h3>
-
-                <a class="accessorieslink" routerLink="keyboards" routerLinkActive="active">Keyboard</a>
-                <a class="accessorieslink" routerLink="headsets" routerLinkActive="active">Headset</a>
-            </div>
-
-        </div>
+        <a class="listbox" *ngFor="let item of partslist" [routerLink]="item.routerName" routerLinkActive="active">
+          {{item.name}}
+        </a>
+      </div>
 
 
-        <!-- Parts -->
-        <router-outlet></router-outlet>
+      <!-- Accessories -->
+      <div class="accessoriesbox">
+        <h3 class="accessories-h">Accessories</h3>
+
+        <a class="accessorieslink" routerLink="keyboards" routerLinkActive="active">Keyboard</a>
+        <a class="accessorieslink" routerLink="headsets" routerLinkActive="active">Headset</a>
+      </div>
 
     </div>
+
+
+    <!-- Parts -->
+    <router-outlet></router-outlet>
+
+  </div>
 
 </section>

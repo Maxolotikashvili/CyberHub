@@ -6,7 +6,6 @@ import { WishlistService } from './Services/Wishlist/wishlist.service';
 import { MatDialog } from '@angular/material/dialog'
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { SignService } from './Services/sign.service';
 
 @Component({
   selector: 'app-root',
@@ -36,7 +35,6 @@ export class AppComponent implements OnInit {
   constructor(
     private cartitemservice: CartItemService,
     private wishlistservice: WishlistService,
-    private signservice: SignService,
     private dialog: MatDialog
   ) { }
 

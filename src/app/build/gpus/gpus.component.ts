@@ -19,29 +19,29 @@ export class GpusComponent implements OnInit {
 
   // Spinner
   spinnerboxshow = "spinnerboxshow";
-  blur = "blur"; 
+  blur = "blur";
 
   constructor(
     private gpusservice: GpusService,
     private wishlistservice: WishlistService,
     private cartitemservice: CartItemService,
     private snack: MatSnackBar
-    ) { }
+  ) { }
 
   ngOnInit(): void {
-    
-     // Spinner Timeout
-     this.spinnerboxshow = "spinnerboxshow";
 
-     setTimeout(() => {
-       this.spinnerboxshow = "spinnerboxhide";
-       this.blur = "";
-     }, 1500);
-    
+    // Spinner Timeout
+    this.spinnerboxshow = "spinnerboxshow";
+
+    setTimeout(() => {
+      this.spinnerboxshow = "spinnerboxhide";
+      this.blur = "";
+    }, 1500);
+
     // Get Gpus 
     this.gpusservice.getGpus().subscribe((data: gpusType[]) => {
-        this.gpus = data;
-      })
+      this.gpus = data;
+    })
 
   }
 
@@ -54,11 +54,11 @@ export class GpusComponent implements OnInit {
   }
 
   snackDisplay(message: string, action: any) {
-    this.snack.open(message, action, {duration: 3000})
+    this.snack.open(message, action, { duration: 3000 })
   }
 
   wishSnackDisplay(message: string, action: any) {
-    this.snack.open(message, action, {duration: 3000})
+    this.snack.open(message, action, { duration: 3000 })
   }
 
 }

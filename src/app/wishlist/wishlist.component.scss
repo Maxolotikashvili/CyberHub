@@ -1,4 +1,5 @@
-$font-play: "Play", sans-serif;
+$font-play: "Play",
+sans-serif;
 
 .bigbox {
     display: flex;
@@ -172,6 +173,7 @@ $font-play: "Play", sans-serif;
             margin-right: auto !important;
         }
     }
+
     .removebox {
         justify-content: space-evenly !important;
 
