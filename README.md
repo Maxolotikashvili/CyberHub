@@ -1,2 +1,2 @@
 # CyberHub
-E-Commerce type project done with Angular 13 ( Material )
+E-Commerce type project built with Angular 13 ( Material )
