@@ -10,8 +10,6 @@ import { CartItemService } from '../Services/Cart/cart-item.service';
 export class CartComponent implements OnInit {
   items!: any[];
 
-  total: number = 0;
-
   // Fontawesome
   xmark = faXmark;
   cart = faCartShopping;
@@ -54,6 +52,16 @@ export class CartComponent implements OnInit {
 
   clearCart() {
     this.items.splice(0, this.items.length);
+  }
+
+  totalCost() {
+    let total: number = 0;
+
+    this.items.forEach(element => {
+      total += element.price * element.quantity;  
+    });
+
+    return total;
   }
 
 }

@@ -65,7 +65,7 @@
         <h5 class="tax-h5">Tax: 10% Per Item,</h5>
         <h5 class="time-h5">Estimated Arrival Time: 25 - 30 Days</h5>
         <mat-divider></mat-divider>
-        <h4 class="total-h4">Total: <span *ngFor="let item of items">{{total}}$</span></h4>
+        <h4 class="total-h4">Total: {{totalCost()}}$</h4>
         <div class="checkoutbutton">
           <button mat-flat-button color="primary">Proceed To Checkout</button>
         </div>
