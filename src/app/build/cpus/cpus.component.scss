@@ -6,6 +6,35 @@ $font-roboto: 'Roboto',
 sans-serif;
 $silver: silver;
 
+.filterbox {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    box-shadow: -3px 3px 10px silver;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    .sliderbox {
+        display: flex;
+        align-items: center;
+
+        .price-div {
+            width: 80px;
+            font-family: $font-play;
+            color: gray;
+        }
+
+        .price-button {
+            margin-left: 10px;
+        }
+    }
+
+    .panelcontent {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 .gridbox {
     display: grid;
     grid-gap: 20px;

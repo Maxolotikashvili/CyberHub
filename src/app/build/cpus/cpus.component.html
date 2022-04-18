@@ -1,21 +1,51 @@
- <div class="gridbox" [class]="blur">
+<div class="filterbox">
+  <div class="sliderbox">
+    <mat-slider color="primary" [min]="min" [max]="max" thumbLabel style="margin-right: 10px;" #slider></mat-slider>
+    <div class="price-div">0 - {{slider.value}}$</div>
 
-   <div class="gridlist" *ngFor="let item of cpus">
-     <div class="iconbox">
-       <fa-icon [icon]="eye" class="icon"></fa-icon>
-       <fa-icon [icon]="heart" class="icon" (click)="addWishlist(item)"
-         (click)="wishSnackDisplay('Item Added To Wishlist', 'Dismiss')"></fa-icon>
-     </div>
-     <img class="cpu-image" [src]="item.imageUrl" alt="image">
-     <span class="cpu-name">{{item.name}}</span>
-     <span class="cpu-price">{{item.price}}$</span>
-     <button mat-button class="cpu-buy" (click)="sendToCart(item)"
-       (click)="snackDisplay('Item Added To Cart', 'Dismiss')">Add To Cart</button>
-   </div>
+    <button color="primary" mat-flat-button (click)="sliderValue(slider)"
+      [disabled]="slider.value === slider.min">Apply</button>
+    <button color="warn" mat-flat-button (click)="resetValue()" class="price-button">Reset</button>
+  </div>
 
- </div>
+  <button mat-button [matMenuTriggerFor]="menu">Manufacturer</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="filterIntel()">Intel</button>
+    <button mat-menu-item (click)="filterAmd()">AMD</button>
+  </mat-menu>
 
- <!-- Spinner -->
- <div [class]="spinnerboxshow">
-   <mat-spinner></mat-spinner>
- </div>
+  <button mat-button [matMenuTriggerFor]="sort">Sort By</button>
+  <mat-menu #sort="matMenu">
+    <button mat-menu-item (click)="nameAscend()">Ascending Name</button>
+    <button mat-menu-item (click)="nameDescend()">Descending Name</button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="order">Price Order</button>
+  <mat-menu #order="matMenu">
+    <button mat-menu-item (click)="priceHigh()">High To Low</button>
+    <button mat-menu-item (click)="priceLow()">Low To High</button>
+  </mat-menu>
+</div>
+
+
+<div class="gridbox" [class]="blur">
+
+  <div class="gridlist" *ngFor="let item of cpus">
+    <div class="iconbox">
+      <fa-icon [icon]="eye" class="icon"></fa-icon>
+      <fa-icon [icon]="heart" class="icon" (click)="addWishlist(item)"
+        (click)="wishSnackDisplay('Item Added To Wishlist', 'Dismiss')"></fa-icon>
+    </div>
+    <img class="cpu-image" [src]="item.imageUrl" alt="image">
+    <span class="cpu-name">{{item.name}}</span>
+    <span class="cpu-price">{{item.price}}$</span>
+    <button mat-button class="cpu-buy" (click)="sendToCart(item)"
+      (click)="snackDisplay('Item Added To Cart', 'Dismiss')">Add To Cart</button>
+  </div>
+
+</div>
+
+<!-- Spinner -->
+<div [class]="spinnerboxshow">
+  <mat-spinner></mat-spinner>
+</div>

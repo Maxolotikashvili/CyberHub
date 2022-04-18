@@ -1,3 +1,37 @@
+<div class="filterbox">
+  <div class="sliderbox">
+    <mat-slider color="primary" [min]="min" [max]="max" thumbLabel style="margin-right: 10px;" #slider></mat-slider>
+    <div class="price-div">0 - {{slider.value}}$</div>
+
+    <button color="primary" mat-flat-button (click)="sliderValue(slider)"
+      [disabled]="slider.value === slider.min">Apply</button>
+    <button color="warn" mat-flat-button (click)="resetValue()" class="price-button">Reset</button>
+  </div>
+
+  <button mat-button [matMenuTriggerFor]="menu">Manufacturer</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="filterName(some)" #some>Thermaltake</button>
+    <button mat-menu-item (click)="filterAmd()">Corsair</button>
+    <button mat-menu-item (click)="filterAmd()">Asus</button>
+    <button mat-menu-item (click)="filterAmd()">Anidees</button>
+    <button mat-menu-item (click)="filterAmd()">Genesis</button>
+    <button mat-menu-item (click)="filterAmd()">Gamemax</button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="sort">Sort By</button>
+  <mat-menu #sort="matMenu">
+    <button mat-menu-item (click)="nameAscend()">Ascending Name</button>
+    <button mat-menu-item (click)="nameDescend()">Descending Name</button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="order">Price Order</button>
+  <mat-menu #order="matMenu">
+    <button mat-menu-item (click)="priceHigh()">High To Low</button>
+    <button mat-menu-item (click)="priceLow()">Low To High</button>
+  </mat-menu>
+</div>
+
+
 <div class="gridbox" [class]="blur">
 
   <div class="gridlist" *ngFor="let item of cases">

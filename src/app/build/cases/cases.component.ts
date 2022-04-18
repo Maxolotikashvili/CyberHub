@@ -13,6 +13,14 @@ import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 export class CasesComponent implements OnInit {
   cases!: casesType[];
 
+  // For Filters
+  defaultCases!: casesType[];
+
+   // Variables For Filtering Price
+   max!: number;
+   min!: number;
+   minArray: number[] = [];
+
   // Fontawesome
   eye = faEye;
   heart = faHeart;
@@ -29,6 +37,7 @@ export class CasesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
     // Spinner Timeout
     this.spinnerboxshow = "spinnerboxshow";
 
@@ -39,7 +48,18 @@ export class CasesComponent implements OnInit {
 
     this.casesservice.getCases().subscribe((data) => {
       this.cases = data;
-    })
+      this.defaultCases = data;
+    });
+
+
+    // Min Price For Slider
+    this.cases.forEach(element => {
+      this.minArray.push(element.price);
+    });
+    this.min = Math.min(...this.minArray);
+
+    // Max Price For Slider
+    this.max = Math.max(...this.minArray);
   }
 
   addWishlist(item: any) {
@@ -56,6 +76,72 @@ export class CasesComponent implements OnInit {
 
   wishSnackDisplay(message: string, action: any) {
     this.snack.open(message, action, { duration: 3000 })
+  }
+
+
+  // Filters
+
+
+  // Sort Products By Name Ascending
+  nameAscend() {
+    this.cases.sort((a, b) => {
+      if (a.name < b.name) {
+        return -1
+      } else if (a.name > b.name) {
+        return 1
+      }
+      return 0
+    });
+  }
+
+  // Sort Products By Name Descending
+  nameDescend() {
+    this.cases.sort((a, b) => {
+      if (a.name > b.name) {
+        return -1
+      } else if (a.name < b.name) {
+        return 1
+      }
+      return 0
+    })
+  }
+
+  // Price Slider
+  sliderValue(slider: any) {
+    this.resetValue();
+    this.cases = this.cases.filter((element) => element.price <= slider.value);
+  }
+
+  // Reset Filters
+  resetValue() {
+    this.cases = this.defaultCases;
+  }
+
+  // Filter Intel Manufacturers
+  filterIntel() {
+    this.resetValue();
+    this.cases = this.cases.filter((element) => element.manufacturer === "Intel");
+  }
+
+  filterName(some: any) {
+    console.log(some)
+  }
+
+
+  // Filter AMD Manufacturers
+  filterAmd() {
+    this.resetValue();
+    this.cases = this.cases.filter((element) => element.manufacturer === "AMD")
+  }
+
+  // Order Products From High To Low Prices
+  priceHigh() {
+    this.cases.sort((a, b) => { return b.price - a.price })
+  }
+
+  // Order Products From Low To High Prices
+  priceLow() {
+    this.cases.sort((a, b) => { return a.price - b.price })
   }
 
 }
