@@ -7,6 +7,7 @@ export interface headsetsType {
   manufacturer: string,
   imageUrl: string,
   name: string,
+  wireless: boolean,
   quantity: number,
   price: number
 }
@@ -22,6 +23,7 @@ export class HeadsetsService {
       manufacturer: "Steelseries",
       imageUrl: "/assets/PcParts/Headsets/steelseriesarctispro.png",
       name: "Steelseries Arctis Pro",
+      wireless: false,
       quantity: 1,
       price: 559
     },
@@ -32,6 +34,7 @@ export class HeadsetsService {
       manufacturer: "Steelseries",
       imageUrl: "/assets/PcParts/Headsets/arctis9.png",
       name: "Steelseries Arctis 9",
+      wireless: true,
       quantity: 1,
       price: 479
     },
@@ -42,6 +45,7 @@ export class HeadsetsService {
       manufacturer: "Steelseries",
       imageUrl: "/assets/PcParts/Headsets/steelseriesarctis7.png",
       name: "Steelseries Arctis 7",
+      wireless: true,
       quantity: 1,
       price: 429
     },
@@ -52,6 +56,7 @@ export class HeadsetsService {
       manufacturer: "Razer",
       imageUrl: "/assets/PcParts/Headsets/razer-nari.png",
       name: "Razer Nari",
+      wireless: true,
       quantity: 1,
       price: 389
     },
@@ -62,6 +67,7 @@ export class HeadsetsService {
       manufacturer: "Asus",
       imageUrl: "/assets/PcParts/Headsets/rog-deltargb.png",
       name: "Asus Rog Delta RGB",
+      wireless: false,
       quantity: 1,
       price: 359
     },
@@ -72,6 +78,7 @@ export class HeadsetsService {
       manufacturer: "HyperX",
       imageUrl: "/assets/PcParts/Headsets/Cloud-orbits.png",
       name: "HyperX Cloud Orbit S",
+      wireless: true,
       quantity: 1,
       price: 309
     },
@@ -82,6 +89,7 @@ export class HeadsetsService {
       manufacturer: "HyperX",
       imageUrl: "/assets/PcParts/Headsets/cloud2-wired.png",
       name: "HyperX Cloud 2",
+      wireless: false,
       quantity: 1,
       price: 179
     },
@@ -92,6 +100,7 @@ export class HeadsetsService {
       manufacturer: "HyperX",
       imageUrl: "/assets/PcParts/Headsets/cloudii-71.png",
       name: "HyperX Cloud Orbit 71",
+      wireless: false,
       quantity: 1,
       price: 139
     },

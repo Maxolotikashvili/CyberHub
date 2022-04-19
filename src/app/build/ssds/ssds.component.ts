@@ -13,50 +13,146 @@ import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 export class SsdsComponent implements OnInit {
   ssds!: ssdsType[];
 
+  // For Filters
+  defaultSsds!: ssdsType[];
+
+  // Filter Variables
+  max!: number;
+  min!: number;
+  minArray: number[] = [];
+
   // Fontawesome
   eye = faEye;
   heart = faHeart;
 
   // Spinner
   spinnerboxshow = "spinnerboxshow";
-  blur = "blur"; 
+  blur = "blur";
 
   constructor(
-    private ssdsservice: SsdsService, 
+    private ssdsservice: SsdsService,
     private wishlistservice: WishlistService,
     private cartitemservice: CartItemService,
     private snack: MatSnackBar
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.ssdsservice.getSsds().subscribe((data) => {
       this.ssds = data;
-    })
+      this.defaultSsds = data;
+    });
 
-     // Spinner Timeout
-     this.spinnerboxshow = "spinnerboxshow";
+    // Min Price For Slider
+    this.ssds.forEach(element => {
+      this.minArray.push(element.price);
+    });
+    this.min = Math.min(...this.minArray);
 
-     setTimeout(() => {
-       this.spinnerboxshow = "spinnerboxhide";
-       this.blur = "";
-     }, 1500);
-     
+    // Max Price For Slider
+    this.max = Math.max(...this.minArray);
+
+    // Spinner Timeout
+    this.spinnerboxshow = "spinnerboxshow";
+
+    setTimeout(() => {
+      this.spinnerboxshow = "spinnerboxhide";
+      this.blur = "";
+    }, 1500);
+
   }
 
+  // Send Clicked Items To Wishlist
   addWishlist(item: any) {
     this.wishlistservice.getItems(item);
   }
 
+  // Send Clicked Items To Cart
   sendToCart(item: ssdsType) {
     this.cartitemservice.getItems(item)
   }
 
+  // SnackBar
   snackDisplay(message: string, action: any) {
-    this.snack.open(message, action, {duration: 3000})
+    this.snack.open(message, action, { duration: 3000 })
   }
 
   wishSnackDisplay(message: string, action: any) {
-    this.snack.open(message, action, {duration: 3000})
+    this.snack.open(message, action, { duration: 3000 })
   }
 
+
+  // Filters
+
+
+  // Order By Alphabet
+  nameSort(sort: boolean) {
+    if (sort === true) {
+      this.ssds.sort((a, b) => {
+        if (a.name < b.name) {
+          return -1
+        } else if (a.name > b.name) {
+          return 1
+        }
+        return 0
+      });
+
+    } else if (sort === false) {
+      this.ssds.sort((a, b) => {
+        if (a.name > b.name) {
+          return -1
+        } else if (a.name < b.name) {
+          return 1
+        }
+        return 0
+      })
+    }
+  }
+
+  // Price Slider
+  sliderValue(slider: any) {
+    this.resetValue();
+    this.ssds = this.ssds.filter((element) => element.price <= slider.value);
+  }
+
+  // Order By Manufacturer
+  filterName(index: number) {
+    this.resetValue();
+
+    if (index === 1) {
+      this.ssds = this.ssds.filter((element) => element.manufacturer === "Seagate");
+    } else if (index === 2) {
+      this.ssds = this.ssds.filter((element) => element.manufacturer === "Samsung");
+    } else if (index === 3) {
+      this.ssds = this.ssds.filter((element) => element.manufacturer === "Western Digital");
+    };
+  };
+
+  // Order By Price
+  priceHigh(price: boolean) {
+    if (price === true) {
+      this.ssds.sort((a, b) => { return b.price - a.price });
+    } else if (price === false) {
+      this.ssds.sort((a, b) => { return a.price - b.price });
+    }
+  };
+
+  // Order By Memory
+  memoryFilter(index: number) {
+    this.resetValue();
+
+    if (index === 1) {
+      this.ssds = this.ssds.filter((element) => element.memory === "2 TB");
+    } else if (index === 2) {
+      this.ssds = this.ssds.filter((element) => element.memory === "1 TB");
+    } else if (index === 3) {
+      this.ssds = this.ssds.filter((element) => element.memory === "500 GB");
+    } else if (index === 4) {
+      this.ssds = this.ssds.filter((element) => element.memory === "250 GB");
+    }
+  }
+
+  // Reset Filters
+  resetValue() {
+    this.ssds = this.defaultSsds;
+  }
 }

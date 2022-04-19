@@ -1,52 +1,115 @@
-<div class="filterbox">
-  <div class="sliderbox">
-    <mat-slider color="primary" [min]="min" [max]="max" thumbLabel style="margin-right: 10px;" #slider></mat-slider>
-    <div class="price-div">0 - {{slider.value}}$</div>
+<!-- Filter -->
+<div [class]="blur">
+  <!-- Filter -->
+  <div class="filterbox">
+    <div class="firstfilterfield">
+      <div class="sliderbox">
+        <span class="price-range">Price Range:</span>
+        <!-- Slider -->
+        <mat-slider
+          color="primary"
+          [min]="min"
+          [max]="max"
+          thumbLabel
+          class="slider"
+          #slider
+        ></mat-slider>
+        <div class="price-div">0 - {{ slider.value }}$</div>
 
-    <button color="primary" mat-flat-button (click)="sliderValue(slider)"
-      [disabled]="slider.value === slider.min">Apply</button>
-    <button color="warn" mat-flat-button (click)="resetValue()" class="price-button">Reset</button>
-  </div>
+        <button
+          color="primary"
+          mat-flat-button
+          (click)="sliderValue(slider)"
+          [disabled]="slider.value === slider.min"
+          class="apply-button"
+        >
+          Apply
+        </button>
+      </div>
 
-  <button mat-button [matMenuTriggerFor]="menu">Manufacturer</button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="filterName(some)" #some>Thermaltake</button>
-    <button mat-menu-item (click)="filterAmd()">Corsair</button>
-    <button mat-menu-item (click)="filterAmd()">Asus</button>
-    <button mat-menu-item (click)="filterAmd()">Anidees</button>
-    <button mat-menu-item (click)="filterAmd()">Genesis</button>
-    <button mat-menu-item (click)="filterAmd()">Gamemax</button>
-  </mat-menu>
+      <!-- Price -->
+      <button
+        mat-flat-button
+        [matMenuTriggerFor]="price"
+        class="filter-buttons"
+      >
+        Price Order
+      </button>
+      <mat-menu #price="matMenu">
+        <button mat-menu-item (click)="priceFilter(true)">High To Low</button>
+        <button mat-menu-item (click)="priceFilter(false)">Low To High</button>
+      </mat-menu>
 
-  <button mat-button [matMenuTriggerFor]="sort">Sort By</button>
-  <mat-menu #sort="matMenu">
-    <button mat-menu-item (click)="nameAscend()">Ascending Name</button>
-    <button mat-menu-item (click)="nameDescend()">Descending Name</button>
-  </mat-menu>
-
-  <button mat-button [matMenuTriggerFor]="order">Price Order</button>
-  <mat-menu #order="matMenu">
-    <button mat-menu-item (click)="priceHigh()">High To Low</button>
-    <button mat-menu-item (click)="priceLow()">Low To High</button>
-  </mat-menu>
-</div>
-
-
-<div class="gridbox" [class]="blur">
-
-  <div class="gridlist" *ngFor="let item of cases">
-    <div class="iconbox">
-      <fa-icon [icon]="eye" class="icon"></fa-icon>
-      <fa-icon [icon]="heart" class="icon" (click)="addWishlist(item)"
-        (click)="wishSnackDisplay('Item Added To Wishlist', 'Dismiss')"></fa-icon>
+      <!-- Name -->
+      <button mat-flat-button [matMenuTriggerFor]="name" class="filter-buttons">
+        Sort By
+      </button>
+      <mat-menu #name="matMenu">
+        <button mat-menu-item (click)="nameSort(true)">Ascending Name</button>
+        <button mat-menu-item (click)="nameSort(false)">Descending Name</button>
+      </mat-menu>
     </div>
-    <img class="case-image" [src]="item.imageUrl" alt="image">
-    <span class="case-name">{{item.name}}</span>
-    <span class="case-price">{{item.price}}$</span>
-    <button mat-button class="case-buy" (click)="sendItem(item)"
-      (click)="snackDisplay('Item Added To Cart', 'Dismiss')">Add To Cart</button>
+
+    <!-- Second Filter Field -->
+
+    <div class="secondfilterfield">
+      <button
+        mat-flat-button
+        [matMenuTriggerFor]="manufacturer"
+        class="filter-buttons"
+      >
+        Manufacturer
+      </button>
+      <mat-menu #manufacturer="matMenu">
+        <button mat-menu-item (click)="nameFilter(1)">Thermaltake</button>
+        <button mat-menu-item (click)="nameFilter(2)">Corsair</button>
+        <button mat-menu-item (click)="nameFilter(3)">Asus</button>
+        <button mat-menu-item (click)="nameFilter(4)">Anidees</button>
+        <button mat-menu-item (click)="nameFilter(5)">Genesis</button>
+        <button mat-menu-item (click)="nameFilter(6)">Gamemax</button>
+      </mat-menu>
+
+      <!-- In Stock -->
+      <mat-checkbox color="primary" class="checkbox">In Stock</mat-checkbox>
+
+      <!-- Reset -->
+      <button
+        color="warn"
+        mat-flat-button
+        (click)="resetValue()"
+        class="reset-button"
+      >
+        Reset Filters
+      </button>
+    </div>
   </div>
 
+  <!-- Grid -->
+
+  <div class="gridbox" [class]="blur">
+    <div class="gridlist" *ngFor="let item of cases">
+      <div class="iconbox">
+        <fa-icon [icon]="eye" class="icon"></fa-icon>
+        <fa-icon
+          [icon]="heart"
+          class="icon"
+          (click)="addWishlist(item)"
+          (click)="wishSnackDisplay('Item Added To Wishlist', 'Dismiss')"
+        ></fa-icon>
+      </div>
+      <img class="case-image" [src]="item.imageUrl" alt="image" />
+      <span class="case-name">{{ item.name }}</span>
+      <span class="case-price">{{ item.price }}$</span>
+      <button
+        mat-button
+        class="case-buy"
+        (click)="sendItem(item)"
+        (click)="snackDisplay('Item Added To Cart', 'Dismiss')"
+      >
+        Add To Cart
+      </button>
+    </div>
+  </div>
 </div>
 
 <!-- Spinner -->

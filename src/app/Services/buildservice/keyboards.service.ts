@@ -7,6 +7,7 @@ export interface keyboardsType {
   manufacturer: string,
   imageUrl: string,
   name: string,
+  switch: string,
   quantity: number,
   price: number
 }
@@ -22,6 +23,7 @@ export class KeyboardsService {
       manufacturer: "HyperX",
       imageUrl: "/assets/PcParts/Keyboards/elite2.png",
       name: "HyperX Alloy Elite 2",
+      switch: "MX Cherry Red",
       quantity: 1,
       price: 279
     },
@@ -32,6 +34,7 @@ export class KeyboardsService {
       manufacturer: "HyperX",
       imageUrl: "/assets/PcParts/Keyboards/fps.png",
       name: "HyperX Alloy FPS",
+      switch: "Kalih Silver",
       quantity: 1,
       price: 189
     },
@@ -42,6 +45,7 @@ export class KeyboardsService {
       manufacturer: "HyperX",
       imageUrl: "/assets/PcParts/Keyboards/origins.png",
       name: "HyperX Alloy Origins",
+      switch: "MX Cherry Red",
       quantity: 1,
       price: 109
     },
@@ -52,6 +56,7 @@ export class KeyboardsService {
       manufacturer: "Razer",
       imageUrl: "/assets/PcParts/Keyboards/razer-blackwidowv3green.png",
       name: "Razer Blackwidow 3",
+      switch: "Kalih Silver",
       quantity: 1,
       price: 189
     },
@@ -62,6 +67,7 @@ export class KeyboardsService {
       manufacturer: "Asus",
       imageUrl: "/assets/PcParts/Keyboards/Rog-claymore.png",
       name: "Asus Rog Claymore",
+      switch: "Blue",
       quantity: 1,
       price: 219
     },

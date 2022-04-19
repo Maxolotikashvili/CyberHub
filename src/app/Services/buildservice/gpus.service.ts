@@ -53,7 +53,7 @@ export class GpusService {
       imageUrl: "/assets/PcParts/Gpus/Aorus-6700xt.png",
       name: "Aorus Radeon 6700 XT",
       quantity: 1,
-      price: 1199.99
+      price: 1199
     },
 
     {

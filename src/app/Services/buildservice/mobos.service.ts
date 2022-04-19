@@ -7,6 +7,7 @@ export interface mobosType {
   manufacturer: String,
   imageUrl: string,
   name: string,
+  socket: string,
   quantity: number,
   price: number
 }
@@ -23,6 +24,7 @@ export class MobosService {
       manufacturer: "MSI",
       imageUrl:  "assets/PcParts/MOBOs/Msi-meggodlike.png",
       name: "MSI MEG Godlike",
+      socket: "LGA 1700",
       quantity: 1,
       price: 1799
     },
@@ -32,7 +34,8 @@ export class MobosService {
       moboId: 2,
       manufacturer: "MSI",
       imageUrl: "assets/PcParts/MOBOs/Msi-megace.png",
-      name: "MSI Meg Ace",
+      name: "MSI Meg Z490 Ace",
+      socket: "LGA 1200",
       quantity: 1,
       price: 1199
     },
@@ -43,6 +46,7 @@ export class MobosService {
       manufacturer: "Asus",
       imageUrl: "/assets/PcParts/MOBOs/rog-maximus12hero.png",
       name: "Asus ROG Maximus 12 Hero",
+      socket: "LGA 1700",
       quantity: 1,
       price: 1099
     },
@@ -53,6 +57,7 @@ export class MobosService {
       manufacturer: "Asus",
       imageUrl: "/assets/PcParts/MOBOs/rog-maximus11wifi.png",
       name: "Asus ROG Maximus 11 Hero",
+      socket: "LGA 1151",
       quantity: 1,
       price: 899
     },
@@ -63,6 +68,7 @@ export class MobosService {
       manufacturer: "Asus",
       imageUrl: "assets/PcParts/MOBOs/Strix-z490egaming.png",
       name: "Asus ROG Z490 - E Gaming",
+      socket: "LGA 1200",
       quantity: 1,
       price: 599
     },
@@ -73,6 +79,7 @@ export class MobosService {
       manufacturer: "Asus",
       imageUrl: "assets/PcParts/MOBOs/strix-z490hgaming.png",
       name: "Asus ROG Z490 - H Gaming",
+      socket: "LGA 1200",
       quantity: 1,
       price: 369
     },
@@ -83,6 +90,7 @@ export class MobosService {
       manufacturer: "Gigabyte",
       imageUrl: "assets/PcParts/MOBOs/Gigabyte-z690master.png",
       name: "Gigabyte Z690 Aorus Master",
+      socket: "LGA 1700",
       quantity: 1,
       price: 479
     },
@@ -93,6 +101,7 @@ export class MobosService {
       manufacturer: "Gigabyte",
       imageUrl: "assets/PcParts/MOBOs/z590aoruselite.png",
       name: "Gigabyte Z590 Aorus Elite",
+      socket: "LGA 1200",
       quantity: 1,
       price: 499
     },
@@ -103,6 +112,7 @@ export class MobosService {
       manufacturer: "Gigabyte",
       imageUrl: "assets/PcParts/MOBOs/z390aorusprowifi.png",
       name: "Gigabyte Z390 Aorus Pro",
+      socket: "LGA 1151",
       quantity: 1,
       price: 399
     }

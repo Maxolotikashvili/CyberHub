@@ -16,10 +16,10 @@ export class CasesComponent implements OnInit {
   // For Filters
   defaultCases!: casesType[];
 
-   // Variables For Filtering Price
-   max!: number;
-   min!: number;
-   minArray: number[] = [];
+  // Variables For Filtering Price
+  max!: number;
+  min!: number;
+  minArray: number[] = [];
 
   // Fontawesome
   eye = faEye;
@@ -82,66 +82,65 @@ export class CasesComponent implements OnInit {
   // Filters
 
 
-  // Sort Products By Name Ascending
-  nameAscend() {
-    this.cases.sort((a, b) => {
-      if (a.name < b.name) {
-        return -1
-      } else if (a.name > b.name) {
-        return 1
-      }
-      return 0
-    });
-  }
-
-  // Sort Products By Name Descending
-  nameDescend() {
-    this.cases.sort((a, b) => {
-      if (a.name > b.name) {
-        return -1
-      } else if (a.name < b.name) {
-        return 1
-      }
-      return 0
-    })
-  }
-
   // Price Slider
   sliderValue(slider: any) {
     this.resetValue();
     this.cases = this.cases.filter((element) => element.price <= slider.value);
+  };
+
+  // Order By Price
+  priceFilter(price: boolean) {
+    if (price === true) {
+      this.cases.sort((a, b) => { return b.price - a.price });
+    } else if (price === false) {
+      this.cases.sort((a, b) => { return a.price - b.price });
+    };
+  };
+
+  // Order By Name
+  nameSort(sort: boolean) {
+    if (sort === true) {
+      this.cases.sort((a, b) => {
+        if (a.name < b.name) {
+          return -1
+        } else if (a.name > b.name) {
+          return 1
+        }
+        return 0
+      });
+    } else if (sort === false) {
+      this.cases.sort((a, b) => {
+        if (a.name > b.name) {
+          return -1
+        } else if (a.name < b.name) {
+          return 1
+        }
+        return 0
+      })
+    }
   }
+
+  // Order By Manufacturer
+  nameFilter(index: number) {
+    this.resetValue();
+    if (index === 1) {
+      this.cases = this.cases.filter((element) => element.manufacturer === "Thermaltake");
+    } else if (index === 2) {
+      this.cases = this.cases.filter((element) => element.manufacturer === "Corsair");
+    } else if (index === 3) {
+      this.cases = this.cases.filter((element) => element.manufacturer === "Asus");
+    } else if (index === 4) {
+      this.cases = this.cases.filter((element) => element.manufacturer === "Anidees");
+    } else if (index === 5) {
+      this.cases = this.cases.filter((element) => element.manufacturer === "Genesis");
+    } else if (index === 6) {
+      this.cases = this.cases.filter((element) => element.manufacturer === "Gamemax");
+    };
+  };
 
   // Reset Filters
   resetValue() {
     this.cases = this.defaultCases;
-  }
-
-  // Filter Intel Manufacturers
-  filterIntel() {
-    this.resetValue();
-    this.cases = this.cases.filter((element) => element.manufacturer === "Intel");
-  }
-
-  filterName(some: any) {
-    console.log(some)
-  }
-
-
-  // Filter AMD Manufacturers
-  filterAmd() {
-    this.resetValue();
-    this.cases = this.cases.filter((element) => element.manufacturer === "AMD")
-  }
-
-  // Order Products From High To Low Prices
-  priceHigh() {
-    this.cases.sort((a, b) => { return b.price - a.price })
-  }
-
-  // Order Products From Low To High Prices
-  priceLow() {
-    this.cases.sort((a, b) => { return a.price - b.price })
-  }
+  };
 
 }

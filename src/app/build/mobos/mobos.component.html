@@ -1,18 +1,118 @@
-<div class="gridbox" [class]="blur">
+<div [class]="blur">
+  <!-- Filter -->
+  <div class="filterbox">
+    <div class="firstfilterfield">
+      <div class="sliderbox">
+        <span class="price-range">Price Range: </span>
+        <mat-slider
+          color="primary"
+          [min]="min"
+          [max]="max"
+          thumbLabel
+          #slider
+          class="slider"
+        ></mat-slider>
+        <div class="price-div">0 - {{ slider.value }}$</div>
 
-  <div class="gridlist" *ngFor="let item of mobos">
-    <div class="iconbox">
-      <fa-icon [icon]="eye" class="icon"></fa-icon>
-      <fa-icon [icon]="heart" class="icon" (click)="addWishlist(item)"
-        (click)="wishSnackDisplay('Item Added To Wishlist', 'Dismiss')"></fa-icon>
+        <button
+          color="primary"
+          mat-flat-button
+          (click)="sliderValue(slider)"
+          [disabled]="slider.value === slider.min"
+          class="apply-button"
+        >
+          Apply
+        </button>
+      </div>
+
+      <button
+        mat-flat-button
+        [matMenuTriggerFor]="order"
+        class="filter-buttons"
+      >
+        Price Order
+      </button>
+      <mat-menu #order="matMenu">
+        <button mat-menu-item (click)="priceHigh(true)" #high>
+          High To Low
+        </button>
+        <button mat-menu-item (click)="priceHigh(false)">Low To High</button>
+      </mat-menu>
+
+      <button mat-flat-button [matMenuTriggerFor]="sort" class="filter-buttons">
+        Sort By
+      </button>
+
+      <mat-menu #sort="matMenu">
+        <button mat-menu-item (click)="nameSort(true)">Name (A - Z)</button>
+        <button mat-menu-item (click)="nameSort(false)">Name (Z - A)</button>
+      </mat-menu>
     </div>
-    <img class="mobo-image" [src]="item.imageUrl" alt="image">
-    <span class="mobo-name">{{item.name}}</span>
-    <span class="mobo-price">{{item.price}}$</span>
-    <button mat-button class="mobo-buy" (click)="sendToCart(item)"
-      (click)="snackDisplay('Item Added To Cart', 'Dismiss')">Add To Cart</button>
+
+    <!-- Second Field -->
+
+    <div class="secondfilterfield">
+      <button mat-flat-button [matMenuTriggerFor]="menu" class="filter-buttons">
+        Manufacturer
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="filterName(1)">MSI</button>
+        <button mat-menu-item (click)="filterName(2)">Asus</button>
+        <button mat-menu-item (click)="filterName(3)">Gigabyte</button>
+      </mat-menu>
+
+      <button
+        mat-flat-button
+        [matMenuTriggerFor]="switch"
+        class="filter-buttons"
+      >
+        Socket
+      </button>
+      <mat-menu #switch="matMenu">
+        <button mat-menu-item (click)="socketFilter(1)">LGA 1700</button>
+        <button mat-menu-item (click)="socketFilter(2)">LGA 1200</button>
+        <button mat-menu-item (click)="socketFilter(3)">LGA 1151</button>
+      </mat-menu>
+
+      <mat-checkbox color="primary" class="checkbox">In Stock</mat-checkbox>
+
+      <button
+        color="warn"
+        mat-flat-button
+        (click)="resetValue()"
+        class="reset-button"
+      >
+        Reset Filters
+      </button>
+    </div>
   </div>
 
+  <!-- Grid -->
+
+  <div class="gridbox" [class]="blur">
+    <div class="gridlist" *ngFor="let item of mobos">
+      <div class="iconbox">
+        <fa-icon [icon]="eye" class="icon"></fa-icon>
+        <fa-icon
+          [icon]="heart"
+          class="icon"
+          (click)="addWishlist(item)"
+          (click)="wishSnackDisplay('Item Added To Wishlist', 'Dismiss')"
+        ></fa-icon>
+      </div>
+      <img class="mobo-image" [src]="item.imageUrl" alt="image" />
+      <span class="mobo-name">{{ item.name }}</span>
+      <span class="mobo-price">{{ item.price }}$</span>
+      <button
+        mat-button
+        class="mobo-buy"
+        (click)="sendToCart(item)"
+        (click)="snackDisplay('Item Added To Cart', 'Dismiss')"
+      >
+        Add To Cart
+      </button>
+    </div>
+  </div>
 </div>
 
 <!-- Spinner -->

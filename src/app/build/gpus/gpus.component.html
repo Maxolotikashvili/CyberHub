@@ -1,18 +1,111 @@
-<div class="gridbox" [class]="blur">
+<div [class]="blur">
+  <!-- Filter -->
+  <div class="filterbox">
+    <div class="firstfilterfield">
+      <div class="sliderbox">
+        <span class="price-range">Price Range: </span>
+        <!-- Slider -->
+        <mat-slider
+          color="primary"
+          [min]="min"
+          [max]="max"
+          thumbLabel
+          #slider
+          class="slider"
+        ></mat-slider>
+        <div class="price-div">0 - {{ slider.value }}$</div>
 
-  <div class="gridlist" *ngFor="let item of gpus">
-    <div class="iconbox">
-      <fa-icon [icon]="eye" class="icon"></fa-icon>
-      <fa-icon [icon]="heart" class="icon" (click)="addWishlist(item)"
-        (click)="wishSnackDisplay('Item Added To Wishlist', 'Dismiss')"></fa-icon>
+        <button
+          color="primary"
+          mat-flat-button
+          (click)="sliderValue(slider)"
+          [disabled]="slider.value === slider.min"
+          class="apply-button"
+        >
+          Apply
+        </button>
+      </div>
+
+      <!-- Price -->
+      <button
+        mat-flat-button
+        [matMenuTriggerFor]="order"
+        class="filter-buttons"
+      >
+        Price Order
+      </button>
+      <mat-menu #order="matMenu">
+        <button mat-menu-item (click)="priceHigh(true)" #high>
+          High To Low
+        </button>
+        <button mat-menu-item (click)="priceHigh(false)">Low To High</button>
+      </mat-menu>
+
+      <!-- Name -->
+      <button mat-flat-button [matMenuTriggerFor]="sort" class="filter-buttons">
+        Sort By
+      </button>
+      <mat-menu #sort="matMenu">
+        <button mat-menu-item (click)="nameSort(true)">Name (A - Z)</button>
+        <button mat-menu-item (click)="nameSort(false)">Name (Z - A)</button>
+      </mat-menu>
     </div>
-    <img class="gpu-image" [src]="item.imageUrl">
-    <span class="gpu-name">{{item.name}}</span>
-    <span class="gpu-price">{{item.price}}$</span>
-    <button mat-button class="gpu-buy" (click)="sendToCart(item)"
-      (click)="snackDisplay('Item Added To Cart', 'Dismiss')">Add To Cart</button>
+
+    <!-- Second Field -->
+
+    <div class="secondfilterfield">
+      <!-- Manufacturer -->
+      <button mat-flat-button [matMenuTriggerFor]="menu" class="filter-buttons">
+        Manufacturer
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="filterName(1)">Asus</button>
+        <button mat-menu-item (click)="filterName(2)">Gigabyte</button>
+        <button mat-menu-item (click)="filterName(3)">MSI</button>
+        <button mat-menu-item (click)="filterName(4)">Nvidia</button>
+      </mat-menu>
+
+      <!-- In Stock -->
+      <mat-checkbox color="primary" class="checkbox">In Stock</mat-checkbox>
+
+      <!-- Reset Filters -->
+      <button
+        color="warn"
+        mat-flat-button
+        (click)="resetValue()"
+        class="reset-button"
+      >
+        Reset Filters
+      </button>
+    </div>
   </div>
 
+  <!-- Grid -->
+
+  <div class="gridbox" [class]="blur">
+    <div class="gridlist" *ngFor="let item of gpus">
+      <div class="iconbox">
+        <fa-icon [icon]="eye" class="icon"></fa-icon>
+        <fa-icon
+          [icon]="heart"
+          class="icon"
+          (click)="addWishlist(item)"
+          (click)="wishSnackDisplay('Item Added To Wishlist', 'Dismiss')"
+        ></fa-icon>
+      </div>
+      <img class="gpu-image" [src]="item.imageUrl" />
+      <span class="gpu-name">{{ item.name }}</span>
+      <span class="gpu-price">{{ item.price }}$</span>
+      <button
+        mat-button
+        class="gpu-buy"
+        (click)="sendToCart(item)"
+        (click)="snackDisplay('Item Added To Cart', 'Dismiss')"
+      >
+        Add To Cart
+      </button>
+    </div>
+  </div>
 </div>
 
 <!-- Spinner -->

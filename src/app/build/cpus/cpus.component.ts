@@ -85,7 +85,6 @@ export class CpusComponent implements OnInit {
   // Filters
 
 
-
   // Sort Products By Name Ascending
   nameAscend() {
     this.cpus.sort((a, b) => {
@@ -121,16 +120,14 @@ export class CpusComponent implements OnInit {
     this.cpus = this.defaultCpus;
   }
 
-  // Filter Intel Manufacturers
-  filterIntel() {
+  filterName(index: number) {
     this.resetValue();
-    this.cpus = this.cpus.filter((element) => element.manufacturer === "Intel");
-  }
 
-  // Filter AMD Manufacturers
-  filterAmd() {
-    this.resetValue();
-    this.cpus = this.cpus.filter((element) => element.manufacturer === "AMD")
+    if (index === 1) {
+      this.cpus = this.cpus.filter((element) => element.manufacturer === "Intel");
+    } else if (index === 2) {
+      this.cpus = this.cpus.filter((element) => element.manufacturer === "AMD");
+    }
   }
 
   // Order Products From High To Low Prices
@@ -143,4 +140,8 @@ export class CpusComponent implements OnInit {
     this.cpus.sort((a, b) => { return a.price - b.price })
   }
 
+  resetFilter() {
+    this.cpus = this.defaultCpus;
+    this.cpus.sort();
+  }
 }

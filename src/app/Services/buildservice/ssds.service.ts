@@ -133,7 +133,7 @@ export class SsdsService {
       type: "SSD",
       imageUrl: "/assets/PcParts/SSDs/wd-greenssd-240gb.png",
       name: "Western Digital Green",
-      memory: "240 GB",
+      memory: "250 GB",
       quantity: 1,
       price: 89
     }
