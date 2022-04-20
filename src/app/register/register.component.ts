@@ -64,10 +64,12 @@ export class RegisterComponent implements OnInit {
 
   }
 
+  // Close Window
   dialogClose() {
     this.dialog.closeAll();
   }
 
+  // Save User Data
   sendData() {
     this.userData = {
       email: this.Email.value,

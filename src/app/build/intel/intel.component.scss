@@ -17,13 +17,15 @@ $silver: silver;
         border-radius: 5px;
 
         .pc-image {
-            height: 250px;
+            max-height: 250px;
+            height: 100%;
             padding: 10px;
             object-fit: contain;
             margin-bottom: 30px;
         }
 
         .pc-details {
+            padding: 0px 10px 0px 10px;
             font-family: $font-play;
             font-size: 14px;
             letter-spacing: 1px;
@@ -84,7 +86,7 @@ $silver: silver;
 
 @media (min-width: 1800px) {
     .gridbox {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
+        grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
     }
 }
 

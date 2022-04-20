@@ -2,17 +2,20 @@
   <!-- Filter -->
   <div class="filterbox">
     <div class="firstfilterfield">
-      <div class="sliderbox">
-        <span class="price-range">Price Range: </span>
-        <mat-slider
-          color="primary"
-          [min]="min"
-          [max]="max"
-          thumbLabel
-          #slider
-          class="slider"
-        ></mat-slider>
-        <div class="price-div">0 - {{ slider.value }}$</div>
+      <div class="sliderbigbox">
+        <div class="sliderbox">
+          <span class="price-range">Price Range:</span>
+          <!-- Slider -->
+          <mat-slider
+            color="primary"
+            [min]="min"
+            [max]="max"
+            thumbLabel
+            class="slider"
+            #slider
+          ></mat-slider>
+          <div class="price-div">0 - {{ slider.value }}$</div>
+        </div>
 
         <button
           color="primary"
@@ -25,62 +28,84 @@
         </button>
       </div>
 
-      <button
-        mat-flat-button
-        [matMenuTriggerFor]="order"
-        class="filter-buttons"
-      >
-        Price Order
-      </button>
-      <mat-menu #order="matMenu">
-        <button mat-menu-item (click)="priceHigh(true)" #high>
-          High To Low
+      <div class="sortbox">
+        <br />
+        <!-- Price -->
+        <button
+          mat-flat-button
+          [matMenuTriggerFor]="price"
+          class="filter-buttons price-button"
+        >
+          Price Order
         </button>
-        <button mat-menu-item (click)="priceHigh(false)">Low To High</button>
-      </mat-menu>
+        <mat-menu #price="matMenu">
+          <button mat-menu-item (click)="priceHigh(true)">High To Low</button>
+          <button mat-menu-item (click)="priceHigh(false)">Low To High</button>
+        </mat-menu>
 
-      <button mat-flat-button [matMenuTriggerFor]="sort" class="filter-buttons">
-        Sort By
-      </button>
-
-      <mat-menu #sort="matMenu">
-        <button mat-menu-item (click)="nameSort(true)">Name (A - Z)</button>
-        <button mat-menu-item (click)="nameSort(false)">Name (Z - A)</button>
-      </mat-menu>
+        <!-- Name -->
+        <button
+          mat-flat-button
+          [matMenuTriggerFor]="name"
+          class="filter-buttons"
+        >
+          Sort By
+        </button>
+        <mat-menu #name="matMenu">
+          <button mat-menu-item (click)="nameSort(true)">Name (A - Z)</button>
+          <button mat-menu-item (click)="nameSort(false)">Name (Z - A)</button>
+        </mat-menu>
+      </div>
     </div>
 
-    <!-- Second Field -->
+    <!-- Second Filter Field -->
 
     <div class="secondfilterfield">
-      <button mat-flat-button [matMenuTriggerFor]="menu" class="filter-buttons">
-        Manufacturer
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="filterName(1)">Be Quet!</button>
-        <button mat-menu-item (click)="filterName(2)">Evga</button>
-        <button mat-menu-item (click)="filterName(3)">Thermaltake</button>
-        <button mat-menu-item (click)="filterName(4)">DeepCool</button>
-      </mat-menu>
+      <div class="manufacturerbox">
+        <!-- Manufacturer -->
+        <button
+          mat-flat-button
+          [matMenuTriggerFor]="manufacturer"
+          class="filter-buttons"
+        >
+          Manufacturer
+        </button>
+        <mat-menu #manufacturer="matMenu">
+          <button mat-menu-item (click)="nameFilter(1)">Be Quet!</button>
+          <button mat-menu-item (click)="nameFilter(2)">Evga</button>
+          <button mat-menu-item (click)="nameFilter(3)">Thermaltake</button>
+          <button mat-menu-item (click)="nameFilter(4)">DeepCool</button>
+        </mat-menu>
 
-      <button mat-button class="filter-buttons" [matMenuTriggerFor]="memory">
-        Memory
-      </button>
-      <mat-menu #memory="matMenu">
-        <button mat-menu-item (click)="memoryFilter(1)">16 GB</button>
-        <button mat-menu-item (click)="memoryFilter(2)">32 GB</button>
-        <button mat-menu-item (click)="memoryFilter(3)">64 GB</button>
-      </mat-menu>
+        <!-- Memory -->
+        <button
+          mat-button
+          [matMenuTriggerFor]="memory"
+          class="filter-buttons memory-button"
+        >
+          Memory
+        </button>
+        <mat-menu #memory="matMenu">
+          <button mat-menu-item (click)="memoryFilter(1)">16 GB</button>
+          <button mat-menu-item (click)="memoryFilter(2)">32 GB</button>
+          <button mat-menu-item (click)="memoryFilter(3)">64 GB</button>
+        </mat-menu>
 
-      <mat-checkbox color="primary" class="checkbox">In Stock</mat-checkbox>
+        <!-- In Stock -->
+        <mat-checkbox color="primary" class="checkbox">In Stock</mat-checkbox>
+      </div>
 
-      <button
-        color="warn"
-        mat-flat-button
-        (click)="resetValue()"
-        class="reset-button"
-      >
-        Reset Filters
-      </button>
+      <!-- Reset -->
+      <div class="resetbutton">
+        <button
+          color="warn"
+          mat-flat-button
+          (click)="resetFilter()"
+          class="reset-button"
+        >
+          Reset Filters
+        </button>
+      </div>
     </div>
   </div>
 

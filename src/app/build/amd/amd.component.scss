@@ -85,7 +85,7 @@ $silver: silver;
 
 @media (min-width: 1800px) {
     .gridbox {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
+        grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
     }
 }
 

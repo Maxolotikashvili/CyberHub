@@ -1,21 +1,28 @@
 <section>
   <div class="bigbox" [class]="blur">
     <h2 class="cart-h2">
-      Wishlist <span class="empty-span" *ngIf="items.length == 0">is empty</span>
+      Wishlist
+      <span class="empty-span" *ngIf="items.length == 0">is empty</span>
     </h2>
 
     <!-- Empty -->
     <div class="emptybox" *ngIf="items.length == 0">
       <fa-icon [icon]="heart"></fa-icon>
       <h4 class="fill-h4">Add Items To Your Wishlist From Shopping Section</h4>
-      <button mat-flat-button class="goshopping" color="accent" routerLink="../build/buildhome">Go
-        Shopping</button>
+      <button
+        mat-flat-button
+        class="goshopping"
+        color="accent"
+        routerLink="../build/buildhome"
+      >
+        Go Shopping
+      </button>
     </div>
 
     <div class="smallbox" *ngIf="items.length !== 0">
       <div class="wishlistbox">
         <div class="titlebox">
-          <br>
+          <br />
           <h4 class="id margin">ID</h4>
           <h4 class="manufacturer margin">Manufacturer</h4>
           <h4 class="name margin">Name</h4>
@@ -25,33 +32,54 @@
         <div class="itembox">
           <div class="item" *ngFor="let item of items">
             <img class="item-img" [src]="item.imageUrl" />
-            <span class="item-text">{{item.id}}</span>
+            <span class="item-text">{{ item.id }}</span>
             <span class="item-text">{{ item.manufacturer }}</span>
             <span class="item-text">{{ item.name }}</span>
             <span class="item-text">{{ item.price }}$</span>
 
             <div class="removebox">
-              <button mat-mini-fab color="primary" class="cartbutton" (click)="sendItems(item)"
-                (click)="snackDisplay('Item Added To Cart', 'Dismiss')">
+              <button
+                mat-mini-fab
+                color="primary"
+                class="cartbutton"
+                (click)="sendItems(item)"
+                (click)="snackDisplay('Item Added To Cart', 'Dismiss')"
+              >
                 <fa-icon class="cart" [icon]="cart"></fa-icon>
               </button>
-              <button mat-mini-fab color="warn" class="mat-fab" (click)="removeItem(item)">
+              <button
+                mat-mini-fab
+                color="warn"
+                class="mat-fab"
+                (click)="removeItem(item)"
+              >
                 <fa-icon [icon]="xmark"></fa-icon>
               </button>
             </div>
           </div>
 
           <div class="buttonbox">
-            <br>
-            <button mat-flat-button color="warn" class="clearbutton" (click)="clearCart()">Clear
-              Wishlist</button>
-            <button mat-flat-button color="accent" class="gobutton" routerLink="../build">Go
-              Shopping</button>
-            <br>
+            <br />
+            <button
+              mat-flat-button
+              color="warn"
+              class="clearbutton"
+              (click)="clearCart()"
+            >
+              Clear Wishlist
+            </button>
+            <button
+              mat-flat-button
+              color="accent"
+              class="gobutton"
+              routerLink="../build"
+            >
+              Go Shopping
+            </button>
+            <br />
           </div>
         </div>
       </div>
-
     </div>
   </div>
 

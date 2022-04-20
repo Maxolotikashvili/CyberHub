@@ -12,7 +12,7 @@ import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 })
 export class KeyboardsComponent implements OnInit {
   keyboards!: keyboardsType[];
-  
+
   // For Filters
   defaultKeyboards!: keyboardsType[];
 
@@ -38,6 +38,9 @@ export class KeyboardsComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Scroll Up
+    window.scrollTo(0, 0);
+
     // Spinner Timeout
     this.spinnerboxshow = "spinnerboxshow";
 
@@ -46,6 +49,7 @@ export class KeyboardsComponent implements OnInit {
       this.blur = "";
     }, 1500);
 
+    // Get Items
     this.keyboardsservice.getKeyboards().subscribe((data) => {
       this.keyboards = data;
       this.defaultKeyboards = data;
@@ -84,7 +88,22 @@ export class KeyboardsComponent implements OnInit {
   // Filters
 
 
-  // Order By Alphabet
+  // Price Slider
+  sliderValue(slider: any) {
+    this.resetFilter();
+    this.keyboards = this.keyboards.filter((element) => element.price <= slider.value);
+  };
+
+  // Order By Price
+  priceFilter(price: boolean) {
+    if (price === true) {
+      this.keyboards.sort((a, b) => { return b.price - a.price });
+    } else if (price === false) {
+      this.keyboards.sort((a, b) => { return a.price - b.price });
+    };
+  };
+
+  // Order By Name
   nameSort(sort: boolean) {
     if (sort === true) {
       this.keyboards.sort((a, b) => {
@@ -104,19 +123,13 @@ export class KeyboardsComponent implements OnInit {
           return 1
         }
         return 0
-      })
-    }
-  }
-
-  // Price Slider
-  sliderValue(slider: any) {
-    this.resetValue();
-    this.keyboards = this.keyboards.filter((element) => element.price <= slider.value);
-  }
+      });
+    };
+  };
 
   // Order By Manufacturer
-  filterName(index: number) {
-    this.resetValue();
+  nameFilter(index: number) {
+    this.resetFilter();
 
     if (index === 1) {
       this.keyboards = this.keyboards.filter((element) => element.manufacturer === "Steelseries");
@@ -129,17 +142,9 @@ export class KeyboardsComponent implements OnInit {
     };
   };
 
-  // Order By Price
-  priceHigh(price: boolean) {
-    if (price === true) {
-      this.keyboards.sort((a, b) => { return b.price - a.price });
-    } else if (price === false) {
-      this.keyboards.sort((a, b) => { return a.price - b.price });
-    }
-  }
-
+  // Order By Type
   switchFilter(type: number) {
-    this.resetValue();
+    this.resetFilter();
 
     if (type === 1) {
       this.keyboards = this.keyboards.filter((element) => element.switch === "Kalih Silver");
@@ -151,7 +156,7 @@ export class KeyboardsComponent implements OnInit {
   };
 
   // Reset Filters
-  resetValue() {
+  resetFilter() {
     this.keyboards = this.defaultKeyboards;
-  }  
+  }
 }

@@ -2,18 +2,20 @@
   <!-- Filter -->
   <div class="filterbox">
     <div class="firstfilterfield">
-      <div class="sliderbox">
-        <span class="price-range">Price Range:</span>
-        <!-- Slider -->
-        <mat-slider
-          color="primary"
-          [min]="min"
-          [max]="max"
-          thumbLabel
-          class="slider"
-          #slider
-        ></mat-slider>
-        <div class="price-div">0 - {{ slider.value }}$</div>
+      <div class="sliderbigbox">
+        <div class="sliderbox">
+          <span class="price-range">Price Range:</span>
+          <!-- Slider -->
+          <mat-slider
+            color="primary"
+            [min]="min"
+            [max]="max"
+            thumbLabel
+            class="slider"
+            #slider
+          ></mat-slider>
+          <div class="price-div">0 - {{ slider.value }}$</div>
+        </div>
 
         <button
           color="primary"
@@ -26,73 +28,90 @@
         </button>
       </div>
 
-      <!-- Price -->
-      <button
-        mat-flat-button
-        [matMenuTriggerFor]="price"
-        class="filter-buttons"
-      >
-        Price Order
-      </button>
-      <mat-menu #price="matMenu">
-        <button mat-menu-item (click)="priceFilter(true)" #high>
-          High To Low
+      <div class="sortbox">
+        <br />
+        <!-- Price -->
+        <button
+          mat-flat-button
+          [matMenuTriggerFor]="price"
+          class="filter-buttons price-button"
+        >
+          Price Order
         </button>
-        <button mat-menu-item (click)="priceFilter(false)">Low To High</button>
-      </mat-menu>
+        <mat-menu #price="matMenu">
+          <button mat-menu-item (click)="priceFilter(true)">High To Low</button>
+          <button mat-menu-item (click)="priceFilter(false)">
+            Low To High
+          </button>
+        </mat-menu>
 
-      <!-- Name -->
-      <button mat-flat-button [matMenuTriggerFor]="name" class="filter-buttons">
-        Sort By
-      </button>
-      <mat-menu #name="matMenu">
-        <button mat-menu-item (click)="nameSort(true)">Name (A - Z)</button>
-        <button mat-menu-item (click)="nameSort(false)">Name (Z - A)</button>
-      </mat-menu>
+        <!-- Name -->
+        <button
+          mat-flat-button
+          [matMenuTriggerFor]="name"
+          class="filter-buttons"
+        >
+          Sort By
+        </button>
+        <mat-menu #name="matMenu">
+          <button mat-menu-item (click)="nameSort(true)">Name (A - Z)</button>
+          <button mat-menu-item (click)="nameSort(false)">Name (Z - A)</button>
+        </mat-menu>
+      </div>
     </div>
 
-    <!-- Second Field -->
+    <!-- Second Filter Field -->
 
     <div class="secondfilterfield">
-      <!-- Manufacturer -->
-      <button
-        mat-flat-button
-        [matMenuTriggerFor]="manufacturer"
-        class="filter-buttons"
-      >
-        Manufacturer
-      </button>
-      <mat-menu #manufacturer="matMenu">
-        <button mat-menu-item (click)="nameFilter(1)">Corsair</button>
-        <button mat-menu-item (click)="nameFilter(2)">NZXT</button>
-        <button mat-menu-item (click)="nameFilter(3)">Asus</button>
-        <button mat-menu-item (click)="nameFilter(4)">Deepcool</button>
-        <button mat-menu-item (click)="nameFilter(5)">Thermaltake</button>
-        <button mat-menu-item (click)="nameFilter(6)">Cooler Master</button>
-        <button mat-menu-item (click)="nameFilter(7)">Zalman</button>
-      </mat-menu>
+      <div class="manufacturerbox">
+        <!-- Manufacturer -->
+        <button
+          mat-flat-button
+          [matMenuTriggerFor]="manufacturer"
+          class="filter-buttons manufacturer-button"
+        >
+          Manufacturer
+        </button>
+        <mat-menu #manufacturer="matMenu">
+          <button mat-menu-item (click)="nameFilter(1)">Corsair</button>
+          <button mat-menu-item (click)="nameFilter(2)">NZXT</button>
+          <button mat-menu-item (click)="nameFilter(3)">Asus</button>
+          <button mat-menu-item (click)="nameFilter(4)">Deepcool</button>
+          <button mat-menu-item (click)="nameFilter(5)">Thermaltake</button>
+          <button mat-menu-item (click)="nameFilter(6)">Cooler Master</button>
+          <button mat-menu-item (click)="nameFilter(7)">Zalman</button>
+        </mat-menu>
 
-      <!-- Type -->
-      <button mat-flat-button [matMenuTriggerFor]="type" class="filter-buttons">
-        Type
-      </button>
-      <mat-menu #type="matMenu">
-        <button mat-menu-item (click)="typeFilter(true)">Liquid Cooler</button>
-        <button mat-menu-item (click)="typeFilter(false)">Wind Cooler</button>
-      </mat-menu>
+        <!-- Type -->
+        <button
+          mat-flat-button
+          [matMenuTriggerFor]="type"
+          class="filter-buttons"
+        >
+          Type
+        </button>
+        <mat-menu #type="matMenu">
+          <button mat-menu-item (click)="typeFilter(true)">
+            Liquid Cooler
+          </button>
+          <button mat-menu-item (click)="typeFilter(false)">Wind Cooler</button>
+        </mat-menu>
 
-      <!-- In Stock -->
-      <mat-checkbox color="primary" class="checkbox">In Stock</mat-checkbox>
+        <!-- In Stock -->
+        <mat-checkbox color="primary" class="checkbox">In Stock</mat-checkbox>
+      </div>
 
       <!-- Reset -->
-      <button
-        color="warn"
-        mat-flat-button
-        (click)="resetValue()"
-        class="reset-button"
-      >
-        Reset Filters
-      </button>
+      <div class="resetbutton">
+        <button
+          color="warn"
+          mat-flat-button
+          (click)="resetFilter()"
+          class="reset-button"
+        >
+          Reset Filters
+        </button>
+      </div>
     </div>
   </div>
 
@@ -122,9 +141,9 @@
       </button>
     </div>
   </div>
-</div>
 
-<!-- Spinner -->
-<div [class]="spinnerboxshow">
-  <mat-spinner></mat-spinner>
+  <!-- Spinner -->
+  <div [class]="spinnerboxshow">
+    <mat-spinner></mat-spinner>
+  </div>
 </div>

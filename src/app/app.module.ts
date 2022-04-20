@@ -12,6 +12,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Page404Component } from './page404/page404.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     WishlistComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,

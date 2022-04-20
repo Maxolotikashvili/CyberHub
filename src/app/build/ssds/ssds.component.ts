@@ -37,6 +37,19 @@ export class SsdsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    // Scroll Up
+    window.scrollTo(0, 0);
+
+    // Spinner Timeout
+    this.spinnerboxshow = "spinnerboxshow";
+
+    setTimeout(() => {
+      this.spinnerboxshow = "spinnerboxhide";
+      this.blur = "";
+    }, 1500);
+
+    // Get Items
     this.ssdsservice.getSsds().subscribe((data) => {
       this.ssds = data;
       this.defaultSsds = data;
@@ -50,41 +63,47 @@ export class SsdsComponent implements OnInit {
 
     // Max Price For Slider
     this.max = Math.max(...this.minArray);
-
-    // Spinner Timeout
-    this.spinnerboxshow = "spinnerboxshow";
-
-    setTimeout(() => {
-      this.spinnerboxshow = "spinnerboxhide";
-      this.blur = "";
-    }, 1500);
-
   }
 
   // Send Clicked Items To Wishlist
   addWishlist(item: any) {
     this.wishlistservice.getItems(item);
-  }
+  };
 
   // Send Clicked Items To Cart
   sendToCart(item: ssdsType) {
     this.cartitemservice.getItems(item)
-  }
+  };
 
   // SnackBar
   snackDisplay(message: string, action: any) {
     this.snack.open(message, action, { duration: 3000 })
-  }
+  };
 
   wishSnackDisplay(message: string, action: any) {
     this.snack.open(message, action, { duration: 3000 })
-  }
+  };
 
 
   // Filters
 
 
-  // Order By Alphabet
+  // Price Slider
+  sliderValue(slider: any) {
+    this.resetFilter();
+    this.ssds = this.ssds.filter((element) => element.price <= slider.value);
+  };
+
+  // Order By Price
+  priceFilter(price: boolean) {
+    if (price === true) {
+      this.ssds.sort((a, b) => { return b.price - a.price });
+    } else if (price === false) {
+      this.ssds.sort((a, b) => { return a.price - b.price });
+    };
+  };
+
+  // Order By Name
   nameSort(sort: boolean) {
     if (sort === true) {
       this.ssds.sort((a, b) => {
@@ -104,19 +123,13 @@ export class SsdsComponent implements OnInit {
           return 1
         }
         return 0
-      })
-    }
-  }
-
-  // Price Slider
-  sliderValue(slider: any) {
-    this.resetValue();
-    this.ssds = this.ssds.filter((element) => element.price <= slider.value);
-  }
+      });
+    };
+  };
 
   // Order By Manufacturer
-  filterName(index: number) {
-    this.resetValue();
+  nameFilter(index: number) {
+    this.resetFilter();
 
     if (index === 1) {
       this.ssds = this.ssds.filter((element) => element.manufacturer === "Seagate");
@@ -127,18 +140,9 @@ export class SsdsComponent implements OnInit {
     };
   };
 
-  // Order By Price
-  priceHigh(price: boolean) {
-    if (price === true) {
-      this.ssds.sort((a, b) => { return b.price - a.price });
-    } else if (price === false) {
-      this.ssds.sort((a, b) => { return a.price - b.price });
-    }
-  };
-
   // Order By Memory
   memoryFilter(index: number) {
-    this.resetValue();
+    this.resetFilter();
 
     if (index === 1) {
       this.ssds = this.ssds.filter((element) => element.memory === "2 TB");
@@ -148,11 +152,11 @@ export class SsdsComponent implements OnInit {
       this.ssds = this.ssds.filter((element) => element.memory === "500 GB");
     } else if (index === 4) {
       this.ssds = this.ssds.filter((element) => element.memory === "250 GB");
-    }
-  }
+    };
+  };
 
   // Reset Filters
-  resetValue() {
+  resetFilter() {
     this.ssds = this.defaultSsds;
-  }
+  };
 }

@@ -38,6 +38,9 @@ export class CasesComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Scroll Up
+    window.scrollTo(0, 0);
+
     // Spinner Timeout
     this.spinnerboxshow = "spinnerboxshow";
 
@@ -46,11 +49,11 @@ export class CasesComponent implements OnInit {
       this.blur = "";
     }, 1500);
 
+    // Get Items
     this.casesservice.getCases().subscribe((data) => {
       this.cases = data;
       this.defaultCases = data;
     });
-
 
     // Min Price For Slider
     this.cases.forEach(element => {
@@ -84,7 +87,7 @@ export class CasesComponent implements OnInit {
 
   // Price Slider
   sliderValue(slider: any) {
-    this.resetValue();
+    this.resetFilter();
     this.cases = this.cases.filter((element) => element.price <= slider.value);
   };
 
@@ -122,7 +125,7 @@ export class CasesComponent implements OnInit {
 
   // Order By Manufacturer
   nameFilter(index: number) {
-    this.resetValue();
+    this.resetFilter();
     if (index === 1) {
       this.cases = this.cases.filter((element) => element.manufacturer === "Thermaltake");
     } else if (index === 2) {
@@ -139,7 +142,7 @@ export class CasesComponent implements OnInit {
   };
 
   // Reset Filters
-  resetValue() {
+  resetFilter() {
     this.cases = this.defaultCases;
   };
 

@@ -38,6 +38,9 @@ export class PsusComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Scroll Up
+    window.scrollTo(0, 0);
+
     // Spinner Timeout
     this.spinnerboxshow = "spinnerboxshow";
 
@@ -46,6 +49,7 @@ export class PsusComponent implements OnInit {
       this.blur = "";
     }, 1500);
 
+    // Get Items
     this.psuservice.getPsus().subscribe((data) => {
       this.psus = data;
       this.defaultPsus = data;
@@ -83,8 +87,22 @@ export class PsusComponent implements OnInit {
 
   // Filters
 
+  // Price Slider
+  sliderValue(slider: any) {
+    this.resetFilter();
+    this.psus = this.psus.filter((element) => element.price <= slider.value);
+  };
 
-  // Order By Alphabet
+  // Order By Price
+  priceFilter(price: boolean) {
+    if (price === true) {
+      this.psus.sort((a, b) => { return b.price - a.price });
+    } else if (price === false) {
+      this.psus.sort((a, b) => { return a.price - b.price });
+    };
+  };
+
+  // Order By Name
   nameSort(sort: boolean) {
     if (sort === true) {
       this.psus.sort((a, b) => {
@@ -104,19 +122,13 @@ export class PsusComponent implements OnInit {
           return 1
         }
         return 0
-      })
-    }
-  }
-
-  // Price Slider
-  sliderValue(slider: any) {
-    this.resetValue();
-    this.psus = this.psus.filter((element) => element.price <= slider.value);
-  }
+      });
+    };
+  };
 
   // Order By Manufacturer
-  filterName(index: number) {
-    this.resetValue();
+  nameFilter(index: number) {
+    this.resetFilter();
 
     if (index === 1) {
       this.psus = this.psus.filter((element) => element.manufacturer === "Be Quet!");
@@ -129,18 +141,9 @@ export class PsusComponent implements OnInit {
     };
   };
 
-  // Order By Price
-  priceHigh(price: boolean) {
-    if (price === true) {
-      this.psus.sort((a, b) => { return b.price - a.price });
-    } else if (price === false) {
-      this.psus.sort((a, b) => { return a.price - b.price });
-    }
-  };
-
   // Filter By Power
   powerFilter(index: number) {
-    this.resetValue();
+    this.resetFilter();
 
     if (index === 1) {
       this.psus = this.psus.filter((element) => element.power <= 500);
@@ -155,7 +158,7 @@ export class PsusComponent implements OnInit {
 
   // Filter By Efficiency
   efficiencyFilter(efficiency: number) {
-    this.resetValue();
+    this.resetFilter();
 
     if (efficiency === 1) {
       this.psus = this.psus.filter((element) => element.efficiency === "80+ Titanium");
@@ -169,7 +172,7 @@ export class PsusComponent implements OnInit {
   };
 
   // Reset Filters
-  resetValue() {
+  resetFilter() {
     this.psus = this.defaultPsus;
   }
 }

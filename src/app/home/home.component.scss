@@ -1,9 +1,6 @@
-$font-play: "Play",
-sans-serif;
-$font-saira: "Saira Condensed",
-sans-serif;
-$font-dosis: "Dosis",
-sans-serif;
+$font-play: "Play", sans-serif;
+$font-saira: "Saira Condensed", sans-serif;
+$font-dosis: "Dosis", sans-serif;
 
 .bodybox {
     background-image: url("/assets/Backgrounds/background-gaming.jpg");
@@ -52,9 +49,11 @@ sans-serif;
 
                     .nowinstock {
                         background: rgb(31, 31, 31);
-                        background: radial-gradient(circle,
-                                rgba(31, 31, 31, 0.6965161064425771) 0%,
-                                rgba(0, 0, 0, 0.6965161064425771) 100%);
+                        background: radial-gradient(
+                            circle,
+                            rgba(31, 31, 31, 0.6965161064425771) 0%,
+                            rgba(0, 0, 0, 0.6965161064425771) 100%
+                        );
                         text-align: center;
                         padding: 20px;
 
@@ -105,9 +104,11 @@ sans-serif;
                         max-width: 600px;
                         width: 100%;
                         background: rgb(31, 31, 31);
-                        background: radial-gradient(circle,
-                                rgba(31, 31, 31, 0.6965161064425771) 0%,
-                                rgba(0, 0, 0, 0.6965161064425771) 100%);
+                        background: radial-gradient(
+                            circle,
+                            rgba(31, 31, 31, 0.6965161064425771) 0%,
+                            rgba(0, 0, 0, 0.6965161064425771) 100%
+                        );
                         padding: 20px;
 
                         .arctis-p {
@@ -733,7 +734,6 @@ sans-serif;
 }
 
 @media (max-width: 1054px) {
-
     .pumptextbox {
         padding: 0 !important;
     }
@@ -745,7 +745,6 @@ sans-serif;
 }
 
 @media (max-width: 943px) {
-
     .pump {
         max-width: 300px !important;
         width: 100%;
@@ -777,7 +776,6 @@ sans-serif;
 }
 
 @media (max-width: 736px) {
-
     .pumpbox {
         flex-direction: column;
         padding: 0px 5px 0px 5px;
@@ -834,7 +832,6 @@ sans-serif;
 }
 
 @media (max-width: 555px) {
-
     .newmanufacturers-h {
         line-height: 40px;
     }
@@ -850,7 +847,6 @@ sans-serif;
 }
 
 @media (max-width: 548px) {
-
     .extreme {
         text-align: center !important;
     }
@@ -876,7 +872,6 @@ sans-serif;
 }
 
 @media (max-width: 493px) {
-
     .pc-grid,
     .smallgrid {
         flex-direction: column;

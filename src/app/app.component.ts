@@ -40,25 +40,28 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // Wishlist Items
+    // Get Wishlist Items
     this.wishlistservice.sendItems().subscribe((data) => {
       this.wishes = data;
     })
 
-    // Cart Items
+    // Get Cart Items
     this.cartitemservice.sendItems().subscribe((data) => {
       this.items = data;
     })
   }
 
+  // Open Login Component
   openLogin() {
     this.dialog.open(LoginComponent);
   }
 
+  // Open Register Component
   openRegister() {
     this.dialog.open(RegisterComponent);
   }
 
+  // Burger Bar
   openMenu() {
     this.show = !this.show;
   }

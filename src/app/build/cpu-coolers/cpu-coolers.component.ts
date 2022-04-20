@@ -38,6 +38,9 @@ export class CpuCoolersComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Scroll Up
+    window.scrollTo(0, 0);
+
     // Spinner Timeout
     this.spinnerboxshow = "spinnerboxshow";
 
@@ -46,6 +49,7 @@ export class CpuCoolersComponent implements OnInit {
       this.blur = "";
     }, 1500);
 
+    // Get Items
     this.coolersservice.getCoolers().subscribe((data) => {
       this.coolers = data;
       this.defaultCoolers = data;
@@ -83,6 +87,22 @@ export class CpuCoolersComponent implements OnInit {
 
   // Filter
 
+  // Price Slider
+  sliderValue(slider: any) {
+    this.resetFilter();
+
+    this.coolers = this.coolers.filter((element) => element.price <= slider.value);
+  };
+
+  // Order By Price
+  priceFilter(price: boolean) {
+    if (price === true) {
+      this.coolers.sort((a, b) => { return b.price - a.price });
+    } else if (price === false) {
+      this.coolers.sort((a, b) => { return a.price - b.price });
+    };
+  };
+
 
   // Order By Alphabet
   nameSort(sort: boolean) {
@@ -104,20 +124,13 @@ export class CpuCoolersComponent implements OnInit {
           return 1
         }
         return 0
-      })
-    }
-  }
-
-  // Price Slider
-  sliderValue(slider: any) {
-    this.resetValue();
-    
-    this.coolers = this.coolers.filter((element) => element.price <= slider.value);
-  }
+      });
+    };
+  };
 
   // Order By Manufacturer
   nameFilter(index: number) {
-    this.resetValue();
+    this.resetFilter();
 
     if (index === 1) {
       this.coolers = this.coolers.filter((element) => element.manufacturer === "Corsair");
@@ -136,28 +149,19 @@ export class CpuCoolersComponent implements OnInit {
     };
   };
 
-  // Order By Price
-  priceFilter(price: boolean) {
-    if (price === true) {
-      this.coolers.sort((a, b) => { return b.price - a.price });
-    } else if (price === false) {
-      this.coolers.sort((a, b) => { return a.price - b.price });
-    }
-  }
-
   // Order By Type
   typeFilter(type: boolean) {
-    this.resetValue();
+    this.resetFilter();
 
     if (type === true) {
       this.coolers = this.coolers.filter((element) => element.type === "Liquid");
     } else if (type === false) {
       this.coolers = this.coolers.filter((element) => element.type === "Wind");
-    }
-  }
+    };
+  };
 
   // Reset Filters
-  resetValue() {
+  resetFilter() {
     this.coolers = this.defaultCoolers;
-  }
+  };
 }

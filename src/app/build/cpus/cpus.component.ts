@@ -13,10 +13,10 @@ import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 export class CpusComponent implements OnInit {
   cpus!: cpusType[];
 
-  // Default Value Of Products For Filters
+  // For Filters
   defaultCpus!: cpusType[];
 
-  // Variables For Filtering Price
+  // Filter Variables
   max!: number;
   min!: number;
   minArray: number[] = [];
@@ -38,6 +38,9 @@ export class CpusComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Scroll Up
+    window.scrollTo(0, 0);
+
     // Spinner Timeout
     this.spinnerboxshow = "spinnerboxshow";
 
@@ -46,7 +49,7 @@ export class CpusComponent implements OnInit {
       this.blur = "";
     }, 1500);
 
-    // Get CPU-s
+    // Get Items
     this.cpusservice.getCpus().subscribe((data) => {
       this.cpus = data;
       this.defaultCpus = data;
@@ -81,67 +84,62 @@ export class CpusComponent implements OnInit {
     this.snack.open(message, action, { duration: 3000 })
   }
 
-  
+
   // Filters
 
 
-  // Sort Products By Name Ascending
-  nameAscend() {
-    this.cpus.sort((a, b) => {
-      if (a.name < b.name) {
-        return -1
-      } else if (a.name > b.name) {
-        return 1
-      }
-      return 0
-    });
-  }
-
-  // Sort Products By Name Descending
-  nameDescend() {
-    this.cpus.sort((a, b) => {
-      if (a.name > b.name) {
-        return -1
-      } else if (a.name < b.name) {
-        return 1
-      }
-      return 0
-    })
-  }
-
   // Price Slider
   sliderValue(slider: any) {
-    this.resetValue();
+    this.resetFilter();
     this.cpus = this.cpus.filter((element) => element.price <= slider.value);
-  }
+  };
 
-  // Reset Filters
-  resetValue() {
-    this.cpus = this.defaultCpus;
-  }
+  // Order By Price
+  priceFilter(price: boolean) {
+    if (price === true) {
+      this.cpus.sort((a, b) => { return b.price - a.price });
+    } else if (price === false) {
+      this.cpus.sort((a, b) => { return a.price - b.price });
+    };
+  };
 
-  filterName(index: number) {
-    this.resetValue();
+  // Order By Name
+  nameSort(name: boolean) {
+    if (name === true) {
+      this.cpus.sort((a, b) => {
+        if (a.name < b.name) {
+          return -1
+        } else if (a.name > b.name) {
+          return 1
+        }
+        return 0
+      });
+    } else if (name === false) {
+      this.cpus.sort((a, b) => {
+        if (a.name > b.name) {
+          return -1
+        } else if (a.name < b.name) {
+          return 1
+        }
+        return 0
+      });
+    };
+  };
+
+  // Order By Manufacturer
+  nameFilter(index: number) {
+    this.resetFilter();
 
     if (index === 1) {
       this.cpus = this.cpus.filter((element) => element.manufacturer === "Intel");
     } else if (index === 2) {
       this.cpus = this.cpus.filter((element) => element.manufacturer === "AMD");
-    }
-  }
+    };
+  };
 
-  // Order Products From High To Low Prices
-  priceHigh() {
-    this.cpus.sort((a, b) => { return b.price - a.price })
-  }
-
-  // Order Products From Low To High Prices
-  priceLow() {
-    this.cpus.sort((a, b) => { return a.price - b.price })
-  }
-
+  // Reset Filters
   resetFilter() {
     this.cpus = this.defaultCpus;
-    this.cpus.sort();
-  }
+  };
+
 }

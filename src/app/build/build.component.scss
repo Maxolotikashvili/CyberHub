@@ -12,6 +12,7 @@ $background: radial-gradient(circle, rgb(5, 0, 94) 0%, rgba(6, 6, 80, 1) 50%, rg
     background-color: white;
     display: flex;
     padding: 50px 0px 100px 10px;
+    overflow-x: hidden;
 
     .categoriesbox {
         margin-right: 40px;

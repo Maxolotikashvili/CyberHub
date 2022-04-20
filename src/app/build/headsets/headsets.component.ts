@@ -38,6 +38,9 @@ export class HeadsetsComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Scroll Up
+    window.scrollTo(0, 0);
+
     // Spinner Timeout
     this.spinnerboxshow = "spinnerboxshow";
 
@@ -46,6 +49,7 @@ export class HeadsetsComponent implements OnInit {
       this.blur = "";
     }, 1500);
 
+    // Get Items
     this.headsetsservice.getHeadsets().subscribe((data) => {
       this.headsets = data;
       this.defaultHeadsets = data;
@@ -110,13 +114,22 @@ export class HeadsetsComponent implements OnInit {
 
   // Price Slider
   sliderValue(slider: any) {
-    this.resetValue();
+    this.resetFilter();
     this.headsets = this.headsets.filter((element) => element.price <= slider.value);
   }
 
+  // Order By Price
+  priceFilter(price: boolean) {
+    if (price === true) {
+      this.headsets.sort((a, b) => { return b.price - a.price });
+    } else if (price === false) {
+      this.headsets.sort((a, b) => { return a.price - b.price });
+    };
+  };
+
   // Order By Manufacturer
-  filterName(index: number) {
-    this.resetValue();
+  nameFilter(index: number) {
+    this.resetFilter();
 
     if (index === 1) {
       this.headsets = this.headsets.filter((element) => element.manufacturer === "Steelseries");
@@ -129,27 +142,19 @@ export class HeadsetsComponent implements OnInit {
     };
   };
 
-  // Order By Price
-  priceHigh(price: boolean) {
-    if (price === true) {
-      this.headsets.sort((a, b) => { return b.price - a.price });
-    } else if (price === false) {
-      this.headsets.sort((a, b) => { return a.price - b.price });
-    }
-  }
-
+  // Order By Type
   typeFilter(wireless: boolean) {
-    this.resetValue();
+    this.resetFilter();
 
     if (wireless === true) {
       this.headsets = this.headsets.filter((element) => element.wireless === true);
     } else if (wireless === false) {
       this.headsets = this.headsets.filter((element) => element.wireless === false);
-    }
-  }
+    };
+  };
 
   // Reset Filters
-  resetValue() {
+  resetFilter() {
     this.headsets = this.defaultHeadsets;
-  }  
+  };
 }

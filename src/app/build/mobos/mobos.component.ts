@@ -38,6 +38,9 @@ export class MobosComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Scroll Up
+    window.scrollTo(0, 0);
+
     // Spinner Timeout
     this.spinnerboxshow = "spinnerboxshow";
 
@@ -46,7 +49,7 @@ export class MobosComponent implements OnInit {
       this.blur = "";
     }, 1500);
 
-    // Get MOBO-s
+    // Get Items
     this.mobosservice.getMobos().subscribe((data) => {
       this.mobos = data;
       this.defaultMobos = data;
@@ -85,7 +88,22 @@ export class MobosComponent implements OnInit {
   // Filters
 
 
-  // Order By Alphabet
+  // Price Slider
+  sliderValue(slider: any) {
+    this.resetFilter();
+    this.mobos = this.mobos.filter((element) => element.price <= slider.value);
+  };
+
+  // Order By Price
+  priceFilter(price: boolean) {
+    if (price === true) {
+      this.mobos.sort((a, b) => { return b.price - a.price });
+    } else if (price === false) {
+      this.mobos.sort((a, b) => { return a.price - b.price });
+    };
+  };
+
+  // Order By Name
   nameSort(sort: boolean) {
     if (sort === true) {
       this.mobos.sort((a, b) => {
@@ -105,19 +123,13 @@ export class MobosComponent implements OnInit {
           return 1
         }
         return 0
-      })
-    }
-  }
-
-  // Price Slider
-  sliderValue(slider: any) {
-    this.resetValue();
-    this.mobos = this.mobos.filter((element) => element.price <= slider.value);
-  }
+      });
+    };
+  };
 
   // Order By Manufacturer
   filterName(index: number) {
-    this.resetValue();
+    this.resetFilter();
 
     if (index === 1) {
       this.mobos = this.mobos.filter((element) => element.manufacturer === "MSI");
@@ -128,18 +140,9 @@ export class MobosComponent implements OnInit {
     };
   };
 
-  // Order By Price
-  priceHigh(price: boolean) {
-    if (price === true) {
-      this.mobos.sort((a, b) => { return b.price - a.price });
-    } else if (price === false) {
-      this.mobos.sort((a, b) => { return a.price - b.price });
-    }
-  }
-
   // Filter By Socket
   socketFilter(socket: number) {
-    this.resetValue();
+    this.resetFilter();
 
     if (socket === 1) {
       this.mobos = this.mobos.filter((element) => element.socket === "LGA 1700");
@@ -151,7 +154,7 @@ export class MobosComponent implements OnInit {
   };
 
   // Reset Filters
-  resetValue() {
+  resetFilter() {
     this.mobos = this.defaultMobos;
-  }  
+  }
 }

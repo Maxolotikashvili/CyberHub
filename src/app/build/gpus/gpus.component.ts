@@ -38,6 +38,9 @@ export class GpusComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Scroll Up
+    window.scrollTo(0, 0);
+
     // Spinner Timeout
     this.spinnerboxshow = "spinnerboxshow";
 
@@ -66,27 +69,43 @@ export class GpusComponent implements OnInit {
   // Send Clicked Item To Wishlist
   addWishlist(item: any) {
     this.wishlistservice.getItems(item);
-  }
+  };
 
   // Send Clicked Item To Cart
   sendToCart(item: gpusType) {
     this.cartitemservice.getItems(item)
-  }
+  };
 
   // SnackBar
   snackDisplay(message: string, action: any) {
     this.snack.open(message, action, { duration: 3000 })
-  }
+  };
 
   wishSnackDisplay(message: string, action: any) {
     this.snack.open(message, action, { duration: 3000 })
-  }
+  };
 
 
   // Filter
 
 
-  // Order By Alphabet
+  // Price Slider
+  sliderValue(slider: any) {
+    this.resetFilter();
+    
+    this.gpus = this.gpus.filter((element) => element.price <= slider.value);
+  };
+
+  // Order By Price
+  priceFilter(price: boolean) {
+    if (price === true) {
+      this.gpus.sort((a, b) => { return b.price - a.price });
+    } else if (price === false) {
+      this.gpus.sort((a, b) => { return a.price - b.price });
+    };
+  };
+
+  // Order By Name
   nameSort(sort: boolean) {
     if (sort === true) {
       this.gpus.sort((a, b) => {
@@ -106,19 +125,13 @@ export class GpusComponent implements OnInit {
           return 1
         }
         return 0
-      })
-    }
-  }
-
-  // Price Slider
-  sliderValue(slider: any) {
-    this.resetValue();
-    this.gpus = this.gpus.filter((element) => element.price <= slider.value);
-  }
+      });
+    };
+  };
 
   // Order By Manufacturer
   filterName(index: number) {
-    this.resetValue();
+    this.resetFilter();
 
     if (index === 1) {
       this.gpus = this.gpus.filter((element) => element.manufacturer === "Asus");
@@ -131,17 +144,8 @@ export class GpusComponent implements OnInit {
     };
   };
 
-  // Order By Price
-  priceHigh(price: boolean) {
-    if (price === true) {
-      this.gpus.sort((a, b) => { return b.price - a.price });
-    } else if (price === false) {
-      this.gpus.sort((a, b) => { return a.price - b.price });
-    }
-  }
-
   // Reset Filters
-  resetValue() {
+  resetFilter() {
     this.gpus = this.defaultGpus;
-  }
+  };
 }

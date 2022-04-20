@@ -22,6 +22,9 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Scroll Up
+    window.scrollTo(0, 0);
+
     // Spinner Timeout
     this.spinnerboxshow = "spinnerboxshow";
 
@@ -30,35 +33,38 @@ export class CartComponent implements OnInit {
       this.blur = "";
     }, 1400);
 
-    // Receive Items
+    // Get Items
     this.cartitemservice.sendItems().subscribe((data) => {
       this.items = data;
     });
   }
 
-  increaseQuantity(element: any) {
-    element.quantity++
-  }
+  changeQuantity(element: any, index: number) {
+    if (index === 1) {
+      if (element.quantity > 0) {
+        element.quantity--
+      }
+    } else if (index === 2) {
+      element.quantity++;
+    };
+  };
 
-  reduceQuantity(element: any) {
-    if (element.quantity > 0) {
-      element.quantity--
-    }
-  }
-
+  // Remove Items
   removeItem(item: any) {
     this.items.splice(this.items.indexOf(item), 1)
   }
 
+  // Clear Cart
   clearCart() {
     this.items.splice(0, this.items.length);
   }
 
+  // Total Cost
   totalCost() {
     let total: number = 0;
 
     this.items.forEach(element => {
-      total += element.price * element.quantity;  
+      total += element.price * element.quantity;
     });
 
     return total;

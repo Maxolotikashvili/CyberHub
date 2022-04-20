@@ -1,5 +1,4 @@
-$font-play: "Play",
-sans-serif;
+$font-play: "Play", sans-serif;
 
 .header {
   background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(6, 6, 80, 1) 50%, rgba(0, 20, 83, 1) 100%);
@@ -37,7 +36,6 @@ sans-serif;
         padding: 0px 0px 1px 13px;
       }
     }
-
   }
 
   .bars {
@@ -327,5 +325,4 @@ sans-serif;
   .responsivebox {
     display: none;
   }
-
 }

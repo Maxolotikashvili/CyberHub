@@ -1,7 +1,6 @@
 <div class="bigbox">
-
   <div class="iconbox">
-    <br>
+    <br />
     <h3 class="login">Log in</h3>
     <fa-icon [icon]="xmark" class="xmark" (click)="closeDialog()"></fa-icon>
   </div>
@@ -9,24 +8,44 @@
   <form class="form" [formGroup]="userForm">
     <mat-form-field appearance="outline" class="input">
       <mat-label>Email</mat-label>
-      <input matInput type="text" formControlName="email" class="matinput">
+      <input matInput type="text" formControlName="email" class="matinput" />
     </mat-form-field>
-    <strong *ngIf="userForm.status === 'INVALID' && userForm.touched" class="strong">Please Enter an Existing
-      Email</strong>
+    <strong
+      *ngIf="userForm.status === 'INVALID' && userForm.touched"
+      class="strong"
+      >Please Enter an Existing Email</strong
+    >
 
     <form formGroupName="passwords" class="passwordform">
       <mat-form-field appearance="outline" class="input">
         <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="password" class="matinput">
+        <input
+          matInput
+          type="password"
+          formControlName="password"
+          class="matinput"
+        />
       </mat-form-field>
-      <strong *ngIf="Passwords.status === 'INVALID' && Password.touched" class="strong">Enter a Correct
-        Password</strong>
+      <strong
+        *ngIf="Passwords.status === 'INVALID' && Password.touched"
+        class="strong"
+        >Enter a Correct Password</strong
+      >
     </form>
 
-    <button mat-flat-button type="submit" color="primary" class="button" [disabled]="userForm.status === 'INVALID'"
-      (click)="loginFunction()">Login</button>
+    <button
+      mat-flat-button
+      type="submit"
+      color="primary"
+      class="button"
+      [disabled]="userForm.status === 'INVALID'"
+      (click)="loginFunction()"
+    >
+      Login
+    </button>
 
-    <button mat-flat-button class="create" (click)="openDialog()">Create New</button>
-
+    <button mat-flat-button class="create" (click)="openDialog()">
+      Create New
+    </button>
   </form>
 </div>

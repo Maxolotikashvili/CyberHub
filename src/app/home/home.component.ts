@@ -14,6 +14,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Scroll Up
+    window.scrollTo(0, 0);
+
     // Get News
     this.newsservice.getNews().subscribe((data) => {
       this.news = data

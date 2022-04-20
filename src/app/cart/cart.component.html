@@ -6,14 +6,23 @@
 
     <div class="emptybox" *ngIf="items.length == 0">
       <fa-icon [icon]="cart"></fa-icon>
-      <h4 class="fill-h4">You Should Fill Your Cart By Navigating To Shopping Section</h4>
-      <button mat-flat-button class="goshopping" color="primary" routerLink="../build/buildhome">Go Shopping</button>
+      <h4 class="fill-h4">
+        You Should Fill Your Cart By Navigating To Shopping Section
+      </h4>
+      <button
+        mat-flat-button
+        class="goshopping"
+        color="primary"
+        routerLink="../build/buildhome"
+      >
+        Go Shopping
+      </button>
     </div>
 
     <div class="smallbox" *ngIf="items.length !== 0">
       <div class="cartbox">
         <div class="titlebox">
-          <br>
+          <br />
           <h4 class="name margin">Name</h4>
           <h4 class="price margin">Price</h4>
           <h4 class="quantity margin">Quantity</h4>
@@ -27,28 +36,57 @@
             <span class="item-price">{{ item.price }}$</span>
 
             <div class="item-quantity-box margin">
-              <button mat-icon-button class="icon-button" (click)="reduceQuantity(item)">
+              <button
+                mat-icon-button
+                class="icon-button"
+                (click)="changeQuantity(item, 1)"
+              >
                 -
               </button>
               <span class="item-quantity margin-auto">{{ item.quantity }}</span>
-              <button mat-icon-button class="icon-button" (click)="increaseQuantity(item)">
+              <button
+                mat-icon-button
+                class="icon-button"
+                (click)="changeQuantity(item, 2)"
+              >
                 +
               </button>
             </div>
 
-            <span class="item-overall margin-auto">{{ item.quantity * item.price }}$</span>
+            <span class="item-overall margin-auto"
+              >{{ item.quantity * item.price }}$</span
+            >
             <div class="removebox">
-              <button mat-mini-fab color="warn" class="mat-fab" (click)="removeItem(item)">
+              <button
+                mat-mini-fab
+                color="warn"
+                class="mat-fab"
+                (click)="removeItem(item)"
+              >
                 <fa-icon [icon]="xmark"></fa-icon>
               </button>
             </div>
           </div>
 
           <div class="buttonbox">
-            <br>
-            <button mat-flat-button color="warn" class="clearbutton" (click)="clearCart()">Clear Cart</button>
-            <button mat-flat-button color="primary" class="gobutton" routerLink="../build">Continue Shopping</button>
-            <br>
+            <br />
+            <button
+              mat-flat-button
+              color="warn"
+              class="clearbutton"
+              (click)="clearCart()"
+            >
+              Clear Cart
+            </button>
+            <button
+              mat-flat-button
+              color="primary"
+              class="gobutton"
+              routerLink="../build"
+            >
+              Continue Shopping
+            </button>
+            <br />
           </div>
         </div>
       </div>
@@ -57,22 +95,21 @@
         <h3 class="summary-h3">Summary</h3>
         <h5 class="selected-h5">Selected Items:</h5>
         <div class="item-namebox" *ngFor="let names of items">
-          <span class="item-names">{{names.name}}</span>
+          <span class="item-names">{{ names.name }}</span>
         </div>
         <mat-divider></mat-divider>
-        <h5 class="quantity-h5">Items Quantity: {{items.length}},</h5>
+        <h5 class="quantity-h5">Items Quantity: {{ items.length }},</h5>
         <h5 class="shipping-h5">Shipping Fee: 0$,</h5>
         <h5 class="tax-h5">Tax: 10% Per Item,</h5>
         <h5 class="time-h5">Estimated Arrival Time: 25 - 30 Days</h5>
         <mat-divider></mat-divider>
-        <h4 class="total-h4">Total: {{totalCost()}}$</h4>
+        <h4 class="total-h4">Total: {{ totalCost() }}$</h4>
         <div class="checkoutbutton">
           <button mat-flat-button color="primary">Proceed To Checkout</button>
         </div>
       </div>
     </div>
   </div>
-
 
   <!-- Spinner -->
   <div [class]="spinnerboxshow">

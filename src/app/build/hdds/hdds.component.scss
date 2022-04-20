@@ -1,11 +1,7 @@
-$font-play: 'Play',
-sans-serif;
-$font-saira: 'Saira Condensed',
-sans-serif;
-$font-roboto: 'Roboto',
-sans-serif;
+$font-play: "Play", sans-serif;
+$font-saira: "Saira Condensed", sans-serif;
+$font-roboto: "Roboto", sans-serif;
 $silver: silver;
-
 
 // Filter
 .filterbox {
@@ -21,52 +17,74 @@ $silver: silver;
     .firstfilterfield {
         display: flex;
         justify-content: space-between;
-    }
 
-    .sliderbox {
-        display: flex;
-        align-items: center;
+        .sliderbigbox {
+            display: flex;
+            align-items: center;
 
-        .slider {
-            width: 300px;
-            margin-right: 10px;
+            .sliderbox {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .price-range {
+                    width: 80px;
+                    margin-right: 5px;
+                    font-family: $font-play;
+                    color: gray;
+                }
+
+                .slider {
+                    width: 300px;
+                    margin-right: 10px;
+                }
+
+                .price-div {
+                    width: 80px;
+                    text-align: center;
+                    font-family: $font-play;
+                    color: gray;
+                }
+            }
+
+            .apply-button {
+                width: 100px;
+                padding: 5px;
+                color: white;
+                font-family: $font-play;
+            }
         }
 
-        .price-range {
-            margin-right: 5px;
-            font-family: $font-play;
-            color: gray;
+        .sortbox {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
         }
-
-        .price-div {
-            width: 80px;
-            font-family: $font-play;
-            color: gray;
-        }
-
-        .apply-button {
-            width: 100px;
-            padding: 5px;
-            color: white;
-            font-family: $font-play;
-        }
-    }
-
-    .panelcontent {
-        display: flex;
-        flex-direction: column;
     }
 
     // Second Filter Field
     .secondfilterfield {
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
         margin-top: 20px;
+
+        .manufacturerbox {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
         .checkbox {
             font-family: $font-play;
         }
+    }
+
+    .resetbutton {
+        width: 85%;
+        display: flex;
+        justify-content: flex-end;
     }
 
     .filter-buttons {
@@ -178,13 +196,11 @@ $silver: silver;
     filter: blur(10px);
 }
 
-
-
 // Responsive
 
 @media (min-width: 1800px) {
     .gridbox {
-        grid-template-columns: repeat(7, minmax(0, 1fr));
+        grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
     }
 }
 
@@ -206,25 +222,133 @@ $silver: silver;
     }
 }
 
+@media (max-width: 1090px) {
+    .filterbox {
+        .slider {
+            width: 100px !important;
+        }
+    }
+}
+
 @media (max-width: 1000px) {
     .gridbox {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
+@media (max-width: 930px) {
+    .firstfilterfield {
+        flex-direction: column;
+
+        .sliderbigbox {
+            justify-content: center;
+        }
+
+        .sortbox {
+            justify-content: center !important;
+            margin-top: 15px;
+
+            .price-button {
+                margin-right: 40px;
+            }
+        }
+    }
+}
+
 @media (max-width: 800px) {
+    .secondfilterfield {
+        flex-direction: column;
+
+        .manufacturerbox {
+            justify-content: space-around !important;
+        }
+
+        .resetbutton {
+            width: 100% !important;
+            justify-content: center;
+            margin-top: 15px;
+        }
+    }
+
     .gridbox {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
+@media (max-width: 715px) {
+    .sliderbigbox {
+        flex-direction: column;
+    }
+
+    .resetbutton {
+        width: 60% !important;
+    }
+}
+
 @media (max-width: 650px) {
+    .filterbox {
+        padding-right: 0 !important;
+    }
+
     .gridbox {
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 }
 
+@media (max-width: 595px) {
+    .filterbox {
+        padding: 0 !important;
+        padding-bottom: 15px !important;
+
+        .sliderbox {
+            flex-direction: column;
+
+            .price-range {
+                display: none;
+            }
+
+            .slider {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            .price-div {
+                margin-bottom: 10px;
+            }
+        }
+
+        .sortbox {
+            flex-direction: column;
+            align-items: center;
+
+            .price-button {
+                margin: 0 !important;
+                margin-bottom: 10px !important;
+            }
+        }
+
+        .manufacturerbox {
+            flex-direction: column;
+
+            .manufacturer-button {
+                margin-bottom: 10px;
+            }
+
+            .memory-button {
+                margin-top: 10px;
+            }
+
+            .checkbox {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
 @media (max-width: 490px) {
+    .filterbox {
+        margin: 0px 50px 50px 60px;
+    }
     .gridbox {
         margin: 0px 50px 0px 60px;
     }

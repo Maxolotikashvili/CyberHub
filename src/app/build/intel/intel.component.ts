@@ -18,6 +18,9 @@ export class IntelComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Scroll Up
+    window.scrollTo(0, 0);
+
     // Spinner Timeout
     this.spinnerboxshow = "spinnerboxshow";
 
@@ -26,6 +29,7 @@ export class IntelComponent implements OnInit {
       this.blur = "";
     }, 1500);
 
+    // Get Items
     this.pcsservice.getIntel().subscribe((data) => {
       this.intelpcs = data;
     })

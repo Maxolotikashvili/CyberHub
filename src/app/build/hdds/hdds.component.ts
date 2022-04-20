@@ -38,6 +38,9 @@ export class HddsComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Scroll Up
+    window.scrollTo(0, 0);
+
     // Spinner Timeout
     this.spinnerboxshow = "spinnerboxshow";
 
@@ -46,6 +49,7 @@ export class HddsComponent implements OnInit {
       this.blur = "";
     }, 1500);
 
+    // Get Items
     this.hddservice.getHdds().subscribe((data) => {
       this.hdds = data;
       this.defaultHdds = data;
@@ -86,12 +90,12 @@ export class HddsComponent implements OnInit {
   
   // Price Slider
   sliderValue(slider: any) {
-    this.resetValue();
+    this.resetFilter();
     this.hdds = this.hdds.filter((element) => element.price <= slider.value);
   };
 
   // Order By Price
-  priceHigh(price: boolean) {
+  priceFilter(price: boolean) {
     if (price === true) {
       this.hdds.sort((a, b) => { return b.price - a.price });
     } else if (price === false) {
@@ -119,13 +123,13 @@ export class HddsComponent implements OnInit {
           return 1
         }
         return 0
-      })
-    }
+      });
+    };
   };
 
   // Order By Manufacturer
   nameFilter(index: number) {
-    this.resetValue();
+    this.resetFilter();
 
     if (index === 1) {
       this.hdds = this.hdds.filter((element) => element.manufacturer === "Seagate");
@@ -136,7 +140,7 @@ export class HddsComponent implements OnInit {
 
   // Order By Memory
   memoryFilter(index: number) {
-    this.resetValue();
+    this.resetFilter();
 
     if (index === 1) {
       this.hdds = this.hdds.filter((element) => element.memory === "6 TB");
@@ -148,7 +152,7 @@ export class HddsComponent implements OnInit {
   };
 
   // Reset Filters
-  resetValue() {
+  resetFilter() {
     this.hdds = this.defaultHdds;
   };
 }

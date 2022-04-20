@@ -38,6 +38,9 @@ export class RamsComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Scroll Up
+    window.scrollTo(0, 0);
+
     // Spinner Timeout
     this.spinnerboxshow = "spinnerboxshow";
 
@@ -81,11 +84,27 @@ export class RamsComponent implements OnInit {
     this.snack.open(message, action, { duration: 3000 })
   }
 
+  
   // Filters
 
 
-   // Order By Alphabet
-   nameSort(sort: boolean) {
+  // Price Slider
+  sliderValue(slider: any) {
+    this.resetFilter();
+    this.rams = this.rams.filter((element) => element.price <= slider.value);
+  };
+
+   // Order By Price
+   priceHigh(price: boolean) {
+    if (price === true) {
+      this.rams.sort((a, b) => { return b.price - a.price });
+    } else if (price === false) {
+      this.rams.sort((a, b) => { return a.price - b.price });
+    };
+  };
+
+  // Order By Name
+  nameSort(sort: boolean) {
     if (sort === true) {
       this.rams.sort((a, b) => {
         if (a.name < b.name) {
@@ -104,19 +123,13 @@ export class RamsComponent implements OnInit {
           return 1
         }
         return 0
-      })
-    }
-  }
-
-  // Price Slider
-  sliderValue(slider: any) {
-    this.resetValue();
-    this.rams = this.rams.filter((element) => element.price <= slider.value);
-  }
+      });
+    };
+  };
 
   // Order By Manufacturer
-  filterName(index: number) {
-    this.resetValue();
+  nameFilter(index: number) {
+    this.resetFilter();
 
     if (index === 1) {
       this.rams = this.rams.filter((element) => element.manufacturer === "Corsair");
@@ -129,18 +142,9 @@ export class RamsComponent implements OnInit {
     };
   };
 
-  // Order By Price
-  priceHigh(price: boolean) {
-    if (price === true) {
-      this.rams.sort((a, b) => { return b.price - a.price });
-    } else if (price === false) {
-      this.rams.sort((a, b) => { return a.price - b.price });
-    }
-  };
-
   // Order By Memory
   memoryFilter(index: number) {
-    this.resetValue();
+    this.resetFilter();
 
     if (index === 1) {
       this.rams = this.rams.filter((element) => element.memory === "16 GB");
@@ -148,11 +152,11 @@ export class RamsComponent implements OnInit {
       this.rams = this.rams.filter((element) => element.memory === "32 GB");
     } else if (index === 3) {
       this.rams = this.rams.filter((element) => element.memory === "64 GB");
-    }
-  }
+    };
+  };
 
   // Reset Filters
-  resetValue() {
+  resetFilter() {
     this.rams = this.defaultRams;
-  }
+  };
 }
