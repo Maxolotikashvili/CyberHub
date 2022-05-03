@@ -126,10 +126,11 @@ $silver: silver;
             justify-content: space-between;
             padding: 10px;
             font-size: 20px;
-            visibility: hidden;
 
             .icon {
+                font-size: 0px;
                 cursor: pointer;
+                transition: all 0.25s linear;
             }
         }
 
@@ -173,7 +174,9 @@ $silver: silver;
 
     .gridlist:hover {
         .iconbox {
-            visibility: visible;
+            .icon {
+                font-size: 18px;
+            }
         }
     }
 }
