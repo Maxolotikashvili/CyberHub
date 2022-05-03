@@ -30,7 +30,7 @@ export class CasesService {
       id: 2,
       caseId: 2,
       manufacturer: "Thermaltake",
-      imageUrl: "/assets/PcParts/Cases/Thermaltake-ah-t600white.png",
+      imageUrl: "assets/PcParts/Cases/Thermaltake-ah-t600white.png",
       name: "Thermaltake AH-T 600 White",
       quantity: 1,
       price: 469
@@ -100,7 +100,7 @@ export class CasesService {
       id: 9,
       caseId: 9,
       manufacturer: "Corsair",
-      imageUrl: "/assets/PcParts/Cases/icue5000x.png",
+      imageUrl: "assets/PcParts/Cases/icue5000x.png",
       name: "Corsair iCue 5000X",
       quantity: 1,
       price: 199

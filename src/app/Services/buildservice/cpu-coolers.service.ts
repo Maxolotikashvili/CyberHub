@@ -230,7 +230,7 @@ export class CpuCoolersService {
     {
       id: 34,
       coolerId: 19,
-      imageUrl: "/assets/PcParts/Cpu-Coolers/gammax-gte.png",
+      imageUrl: "assets/PcParts/Cpu-Coolers/gammax-gte.png",
       manufacturer: "DeepCool",
       name: "DeepCool Gammaxx GTE",
       type: "Wind",
