@@ -23,7 +23,7 @@ export class PcsService {
     {
       id: 122,
       type: "Intel",
-      imageUrl: "../../../assets/PcParts/PCs/3090-pc.png",
+      imageUrl: "assets/PcParts/PCs/3090-pc.png",
       mobo: "MSI MEG Godlike",
       gpu: "RTX 3090 Strix",
       cpu: "i9 12900K",
@@ -36,7 +36,7 @@ export class PcsService {
     {
       id: 123,
       type: "Intel",
-      imageUrl: "../../../assets/PcParts/PCs/3080ti-pc.png",
+      imageUrl: "assets/PcParts/PCs/3080ti-pc.png",
       mobo: "Z590 - E Gaming",
       gpu: "RTX 3080 Ti Aorus",
       cpu: "i9 10900KF",
@@ -49,7 +49,7 @@ export class PcsService {
     {
       id: 124,
       type: "Intel",
-      imageUrl: "../../../assets/PcParts/PCs/3080-pc.png",
+      imageUrl: "assets/PcParts/PCs/3080-pc.png",
       mobo: "Z590 - H Gaming",
       gpu: "RTX 3080 FE",
       cpu: "i7 11700K",
@@ -62,7 +62,7 @@ export class PcsService {
     {
       id: 125,
       type: "Intel",
-      imageUrl: "../../../assets/PcParts/PCs/3070ti-pc.png",
+      imageUrl: "assets/PcParts/PCs/3070ti-pc.png",
       mobo: "Z490 - A Gaming",
       gpu: "RTX 3070 Ti Vision",
       cpu: "i5 11500KF",
@@ -75,7 +75,7 @@ export class PcsService {
     {
       id: 126,
       type: "Intel",
-      imageUrl: "../../../assets/PcParts/PCs/3060-pc.png",
+      imageUrl: "assets/PcParts/PCs/3060-pc.png",
       mobo: "Z390 - A Gaming",
       gpu: "RTX 3060 MSI",
       cpu: "i5 10500F",
@@ -97,7 +97,7 @@ export class PcsService {
     {
       id: 127,
       type: "AMD",
-      imageUrl: "../../../assets/PcParts/PCs/6900xt-pc.png",
+      imageUrl: "assets/PcParts/PCs/6900xt-pc.png",
       mobo: "MSI MEG Ace",
       gpu: "Radeon 6900XT",
       cpu: "Ryzen Theadripper 3990X",
@@ -110,7 +110,7 @@ export class PcsService {
     {
       id: 128,
       type: "AMD",
-      imageUrl: "../../../assets/PcParts/PCs/6800xt-pc.png",
+      imageUrl: "assets/PcParts/PCs/6800xt-pc.png",
       mobo: "Z590 - H Gaming",
       gpu: "Radeon 6800XT",
       cpu: "Ryzen 9 5900X",
@@ -123,7 +123,7 @@ export class PcsService {
     {
       id: 129,
       type: "AMD",
-      imageUrl: "../../../assets/PcParts/PCs/6700xt-pc.png",
+      imageUrl: "assets/PcParts/PCs/6700xt-pc.png",
       mobo: "Z490 - E Gaming",
       gpu: "Radeon 6700XT",
       cpu: "Ryzen 7 5800X",
@@ -136,7 +136,7 @@ export class PcsService {
     {
       id: 130,
       type: "AMD",
-      imageUrl: "../../../assets/PcParts/PCs/6600xt-pc.png",
+      imageUrl: "assets/PcParts/PCs/6600xt-pc.png",
       mobo: "Z490 - A Gaming",
       gpu: "Radeon 6600XT",
       cpu: "Ryzen 5 5500X",
@@ -149,7 +149,7 @@ export class PcsService {
     {
       id: 131,
       type: "AMD",
-      imageUrl: "../../../assets/PcParts/PCs/rx580-pc.png",
+      imageUrl: "assets/PcParts/PCs/rx580-pc.png",
       mobo: "B550 - A Pro",
       gpu: "RX 580 8GB",
       cpu: "Ryzen 5 3600",
