@@ -40,7 +40,7 @@ export class WishlistComponent implements OnInit {
 
     //  Wishlist
     this.wishlistservice.sendItems().subscribe((data) => {
-      this.items = data;
+      this.items = data
     });
   }
 

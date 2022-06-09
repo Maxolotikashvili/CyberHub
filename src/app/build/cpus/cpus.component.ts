@@ -72,7 +72,7 @@ export class CpusComponent implements OnInit {
 
   // Send Clicked Item To Cart
   sendToCart(item: cpusType) {
-    this.cartItemService.getItems(item)
+    this.cartItemService.getItems(item);
   }
 
   // SnackBar

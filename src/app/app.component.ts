@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { faFacebook, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faCartShopping, faCopyright, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { CartItemService } from './Services/Cart/cart-item.service';
@@ -16,8 +16,8 @@ export class AppComponent implements OnInit {
   title = 'Cyberhub';
 
   // Cart & Wishlist
-  items!: any[];
   wishes!: any[];
+  items!: any[];
 
   // Fontawesome
   facebook = faFacebook;
@@ -38,6 +38,7 @@ export class AppComponent implements OnInit {
     private dialog: MatDialog
   ) { }
 
+
   ngOnInit(): void {
 
     // Get Wishlist Items
@@ -47,8 +48,18 @@ export class AppComponent implements OnInit {
 
     // Get Cart Items
     this.cartitemservice.sendItems().subscribe((data) => {
-      this.items = data;
+      this.items = data
     })
+  }
+
+  badgeDisplay() {
+    let total: number = 0;
+
+    this.items.forEach(element => {
+      total += element.quantity  
+    })
+
+    return total
   }
 
   // Open Login Component
@@ -65,4 +76,5 @@ export class AppComponent implements OnInit {
   openMenu() {
     this.show = !this.show;
   }
+
 }

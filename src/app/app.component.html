@@ -40,10 +40,10 @@
 
       <div
         class="badgebox"
-        [matBadge]="items.length"
+        [matBadge]="badgeDisplay()"
         [matBadgeHidden]="items.length === 0"
         matBadgeOverlap="false"
-      >
+        >
         <fa-icon [icon]="cart" class="cart" routerLink="/cart"></fa-icon>
       </div>
     </div>
@@ -175,10 +175,10 @@
 
       <div
         class="responsive-badgebox"
-        [matBadge]="items.length"
-        [matBadgeHidden]="items.length === 0"
+        [matBadge]="items?.length"
+        [matBadgeHidden]="items?.length === 0"
         matBadgeOverlap="false"
-      >
+        >
         <fa-icon [icon]="cart" class="cart" routerLink="/cart"></fa-icon>
       </div>
     </div>

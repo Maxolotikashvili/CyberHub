@@ -9,6 +9,7 @@ import { CartItemService } from '../Services/Cart/cart-item.service';
 })
 export class CartComponent implements OnInit {
   items!: any[];
+  filteredItems!: any;
 
   // Fontawesome
   xmark = faXmark;
@@ -35,8 +36,9 @@ export class CartComponent implements OnInit {
 
     // Get Items
     this.cartitemservice.sendItems().subscribe((data) => {
-      this.items = data;
-    });
+      this.items = data.filter((element, index) => data.indexOf(element) === index);
+    })
+
   }
 
   changeQuantity(element: any, index: number) {
