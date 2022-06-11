@@ -1,5 +1,7 @@
 <section>
   <div class="bigbox" [class]="blur">
+
+    <!-- Empty Cart -->
     <h2 class="cart-h2">
       Cart <span class="empty-span" *ngIf="items.length == 0">is empty</span>
     </h2>
@@ -7,7 +9,7 @@
     <div class="emptybox" *ngIf="items.length == 0">
       <fa-icon [icon]="cart"></fa-icon>
       <h4 class="fill-h4">
-        You Should Fill Your Cart By Navigating To Shopping Section
+        You Can Fill Your Cart By Navigating To Shopping Section
       </h4>
       <button
         mat-flat-button
@@ -19,13 +21,15 @@
       </button>
     </div>
 
+
+    <!-- Filled Cart -->
     <div class="smallbox" *ngIf="items.length !== 0">
       <div class="cartbox">
         <div class="titlebox">
           <br />
-          <h4 class="name margin">Name</h4>
-          <h4 class="price margin">Price</h4>
-          <h4 class="quantity margin">Quantity</h4>
+          <h4 class="name">Name</h4>
+          <h4 class="price">Price</h4>
+          <h4 class="quantity">Quantity</h4>
           <h4 class="total">Total Cost</h4>
         </div>
 
@@ -35,7 +39,7 @@
             <span class="item-span">{{ item.name }}</span>
             <span class="item-price">{{ item.price }}$</span>
 
-            <div class="item-quantity-box margin">
+            <div class="item-quantity-box">
               <button
                 mat-icon-button
                 class="icon-button"
@@ -43,7 +47,7 @@
               >
                 -
               </button>
-              <span class="item-quantity margin-auto">{{ item.quantity }}</span>
+              <span class="item-quantity">{{ item.quantity }}</span>
               <button
                 mat-icon-button
                 class="icon-button"
@@ -53,9 +57,7 @@
               </button>
             </div>
 
-            <span class="item-overall margin-auto"
-              >{{ item.quantity * item.price }}$</span
-            >
+            <span class="item-overall">{{ item.quantity * item.price }}$</span>
             <div class="removebox">
               <button
                 mat-mini-fab
@@ -67,6 +69,8 @@
               </button>
             </div>
           </div>
+
+          <h5 class="quantity-h5">Items Quantity: {{ totalItems() }}</h5>
 
           <div class="buttonbox">
             <br />
@@ -95,17 +99,14 @@
         <h3 class="summary-h3">Summary</h3>
         <h5 class="selected-h5">Selected Items:</h5>
         <div class="item-namebox" *ngFor="let names of items">
-          <span class="item-names">{{ names.name }}</span>
+          <span class="item-names" *ngIf="names.quantity !== 0">{{names.name}}
+            <span *ngIf="items.indexOf(names) !== items.length-1">,</span>
+          </span>
         </div>
         <mat-divider></mat-divider>
-        <h5 class="quantity-h5">Items Quantity: {{ items.length }},</h5>
-        <h5 class="shipping-h5">Shipping Fee: 0$,</h5>
-        <h5 class="tax-h5">Tax: 10% Per Item,</h5>
-        <h5 class="time-h5">Estimated Arrival Time: 25 - 30 Days</h5>
-        <mat-divider></mat-divider>
-        <h4 class="total-h4">Total: {{ totalCost() }}$</h4>
-        <div class="checkoutbutton">
-          <button mat-flat-button color="primary">Proceed To Checkout</button>
+        <h4 class="total-h4">Total: <span class="dollar">{{ totalCost() }}$</span></h4>
+        <div class="checkoutbuttonbox">
+          <button mat-button color="primary" class="checkoutbutton">To Checkout</button>
         </div>
       </div>
     </div>

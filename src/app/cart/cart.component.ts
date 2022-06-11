@@ -9,7 +9,8 @@ import { CartItemService } from '../Services/Cart/cart-item.service';
 })
 export class CartComponent implements OnInit {
   items!: any[];
-  filteredItems!: any;
+  filteredItems!: any[];
+  itemQuantity!: any;
 
   // Fontawesome
   xmark = faXmark;
@@ -36,7 +37,7 @@ export class CartComponent implements OnInit {
 
     // Get Items
     this.cartitemservice.sendItems().subscribe((data) => {
-      this.items = data.filter((element, index) => data.indexOf(element) === index);
+      this.items = data;
     })
 
   }
@@ -53,12 +54,26 @@ export class CartComponent implements OnInit {
 
   // Remove Items
   removeItem(item: any) {
-    this.items.splice(this.items.indexOf(item), 1)
+    this.items[this.items.indexOf(item)].quantity = 1;
+    this.items.splice(this.items.indexOf(item), 1);
   }
 
   // Clear Cart
   clearCart() {
+    this.items.forEach(element => {
+      element.quantity = 1;
+    });
     this.items.splice(0, this.items.length);
+  }
+
+  // Total Items
+  totalItems() {
+    let total: number = 0;
+    this.items.forEach(element => {
+      total += element.quantity
+    });
+
+    return total
   }
 
   // Total Cost

@@ -11,12 +11,38 @@ $font-dosis: "Dosis", sans-serif;
         padding-top: 200px;
         margin-bottom: 200px;
 
-        .h1 {
-            font-size: 32px;
+        h1 {
+            font-size: 36px;
+            line-height: 50px;
             text-align: center;
-            margin: 100px 0px 400px 0px;
+            margin-top: 100px;
             font-family: $font-play;
             color: white;
+        }
+
+        .shopbutton-box {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0px 400px 0px;   
+
+            .shop-button {
+                padding: 20px 50px 20px 50px;
+                background-color: transparent;
+                color: rgb(230, 230, 230);
+                font-weight: bold;
+                font-size: 16px;
+                letter-spacing: 1px;
+                font-family: $font-play;
+                border: 3px solid blue;
+                border-radius: 30px; 
+                transition: all 0.2s linear;
+                cursor: pointer;
+            }
+
+            .shop-button:hover {
+                background-color: blue;
+                color: white;
+            }
         }
 
         .bigbox {
@@ -162,11 +188,6 @@ $font-dosis: "Dosis", sans-serif;
         }
 
         .manufacturersbox {
-            // background-image: url("/assets/Backgrounds/nzxt-wallpaper.png");
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
             padding-top: 100px;
             display: flex;
             flex-direction: column;
@@ -199,7 +220,7 @@ $font-dosis: "Dosis", sans-serif;
                 background-color: rgba(192, 192, 192, 0.705);
 
                 .pump {
-                    max-width: 500px;
+                    max-width: 400px;
                     width: 100%;
                 }
 
@@ -212,6 +233,8 @@ $font-dosis: "Dosis", sans-serif;
                         margin-bottom: 15px;
                         font-size: 36px;
                         letter-spacing: 1px;
+                        font-family: $font-saira;
+                        font-weight: bold;
                     }
 
                     .pump-p {
@@ -246,11 +269,14 @@ $font-dosis: "Dosis", sans-serif;
                         font-size: 36px;
                         letter-spacing: 2px;
                         margin-bottom: 15px;
+                        font-family: $font-saira;
+                        font-weight: bold;
                     }
 
                     .nzxt-rgb-p {
                         font-size: 20px;
                         letter-spacing: 1px;
+                        line-height: 27px;
                         font-weight: bold;
                     }
                 }

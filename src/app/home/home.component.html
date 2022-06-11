@@ -5,11 +5,15 @@
   }"
 >
   <section class="section1">
-    <h1 class="h1">
+    <h1>
       Premium PC Shop For Ultimate <span style="color: blue">Gaming</span>
     </h1>
 
+    <div class="shopbutton-box">
+      <button class="shop-button" routerLink="/build">Shop Now</button>
+    </div>
     <div class="bigbox">
+
       <!-- Commerce -->
       <h3 class="stock-h">Now In Stock</h3>
 
@@ -106,8 +110,8 @@
 
     <!-- News -->
 
-    <div class="newsbox" id="News">
-      <h3 class="news-h">News</h3>
+    <div class="newsbox">
+      <h3 class="news-h" id="News">News</h3>
 
       <div class="ngfor-news" *ngFor="let item of news">
         <img class="news-images" [src]="item.photoUrl" alt="image" />
@@ -122,8 +126,8 @@
 
   <!-- Section II ( Build ) -->
 
-  <section class="section2" id="Accessories">
-    <h2 class="intro-grid">Browse Game - Ready PC-s</h2>
+  <section class="section2">
+    <h2 class="intro-grid" id="Build">Browse Game - Ready PC-s</h2>
 
     <!-- Grid -->
 

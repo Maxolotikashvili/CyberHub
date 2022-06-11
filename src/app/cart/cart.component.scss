@@ -44,6 +44,7 @@ sans-serif;
 
     .smallbox {
         display: flex;
+        align-items: flex-start;
         margin-top: 100px;
 
         .cartbox {
@@ -76,6 +77,10 @@ sans-serif;
                     font-family: $font-play;
                     font-weight: bolder;
                 }
+            }
+
+            .itembox {
+                width: fit-content;
             }
 
             .item {
@@ -129,6 +134,7 @@ sans-serif;
                         font-size: 17px;
                         color: gray;
                         border: none;
+                        font-family: $font-play;
                     }
                 }
 
@@ -161,6 +167,16 @@ sans-serif;
                 }
             }
 
+            .quantity-h5 {
+                font-size: 21px;
+                color: gray;
+                margin-top: 50px;
+                letter-spacing: 1px;
+                font-weight: bold;
+                text-align: center;
+                font-family: $font-play;
+            }
+
             .buttonbox {
                 display: flex;
                 justify-content: space-around;
@@ -169,20 +185,27 @@ sans-serif;
                 .clearbutton {
                     width: 200px;
                     height: 50px;
+                    font-size: 16px;
+                    font-family: $font-play;
                 }
 
                 .gobutton {
                     width: 200px;
                     height: 50px;
+                    font-family: $font-play;
+                    font-size: 16px;
                 }
             }
         }
 
         .summarybox {
-            background-color: rgba(128, 128, 128, 0.411);
-            margin: 0px 20px 0px 20px;
+            width: 350px;
+            position: sticky;
+            top: 5px;
+            background-color: rgba(194, 194, 194, 0.411);
+            margin: 58px 20px 0px 20px;
             padding: 10px 40px 10px 40px;
-            border-radius: 10px;
+            border-radius: 5px;
 
             .summary-h3 {
                 text-align: center;
@@ -196,6 +219,7 @@ sans-serif;
                 margin-top: 50px;
                 font-size: 14px;
                 text-align: center;
+                font-family: $font-play;
             }
 
             .item-namebox {
@@ -208,24 +232,8 @@ sans-serif;
                 .item-names {
                     text-align: center;
                     font-weight: bold;
+                    font-family: $font-play;
                 }
-            }
-
-            .quantity-h5 {
-                margin-top: 20px;
-                font-size: 14px;
-            }
-
-            .shipping-h5 {
-                font-size: 14px;
-            }
-
-            .tax-h5 {
-                font-size: 14px;
-            }
-
-            .time-h5 {
-                font-size: 14px;
             }
 
             .total-h4 {
@@ -233,12 +241,32 @@ sans-serif;
                 font-size: 18px;
                 font-weight: bold;
                 text-align: end;
+                font-family: $font-play;
+
+                .dollar {
+                    color: blue;
+                }
             }
 
-            .checkoutbutton {
+            .checkoutbuttonbox {
                 display: flex;
                 justify-content: center;
                 margin-top: 30px;
+
+                .checkoutbutton {
+                    padding: 0px 30px 0px 30px;
+                    border: 1px solid blue;
+                    border-radius: 5px;
+                    font-family: $font-play;
+                    font-weight: bolder;
+                    transition: all, 0.2s linear;
+                }
+
+                .checkoutbutton:hover {
+                    border-color: rgb(0, 81, 255);
+                    background-color: rgb(0, 81, 255);
+                    color: white;
+                }
             }
         }
     }
@@ -285,7 +313,7 @@ sans-serif;
     }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 520px) {
     .titlebox {
         display: none !important;
     }
@@ -303,5 +331,11 @@ sans-serif;
         .gobutton {
             margin-top: 15px;
         }
+    }
+}
+
+@media (max-width: 370px) {
+    .summarybox {
+        width: 270px !important;
     }
 }

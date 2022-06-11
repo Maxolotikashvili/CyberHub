@@ -11,10 +11,10 @@
     <nav class="navigation">
       <ul class="list">
         <li>
-          <a class="link" href="#">News</a>
+          <a class="link" href="#News">News</a>
         </li>
         <li>
-          <a class="link" href="#">Contact</a>
+          <a class="link" href="#Build">Build</a>
         </li>
         <li>
           <a
@@ -175,8 +175,8 @@
 
       <div
         class="responsive-badgebox"
-        [matBadge]="items?.length"
-        [matBadgeHidden]="items?.length === 0"
+        [matBadge]="badgeDisplay()"
+        [matBadgeHidden]="items.length === 0"
         matBadgeOverlap="false"
         >
         <fa-icon [icon]="cart" class="cart" routerLink="/cart"></fa-icon>
@@ -188,10 +188,10 @@
     <nav class="responsive-navigation">
       <ul class="responsive-list">
         <li>
-          <a class="responsive-link" href="#News">News</a>
+          <a class="responsive-link" href="#news">News</a>
         </li>
         <li>
-          <a class="responsive-link" href="#Accessories">PC</a>
+          <a class="responsive-link" href="#Build">Build</a>
         </li>
         <li>
           <a

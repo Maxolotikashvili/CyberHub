@@ -14,6 +14,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 })
 export class LoginComponent implements OnInit {
   user!: userType;
+  signedIn:boolean = false
 
   // Fontawesome
   xmark = faXmark;
@@ -65,7 +66,7 @@ export class LoginComponent implements OnInit {
 
   loginFunction() {
     alert('You are now logged in');
-    this.dialog.closeAll()
+    this.dialog.closeAll();
   }
 
 }

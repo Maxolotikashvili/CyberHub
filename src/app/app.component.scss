@@ -23,7 +23,8 @@ $font-play: "Play", sans-serif;
       letter-spacing: 14px;
       font-weight: bold;
       font-size: 26px;
-      color: rgb(233, 233, 233);
+      color: black;
+      transition: all 0.13s linear;
 
       .letter-c {
         color: blue;
@@ -31,10 +32,21 @@ $font-play: "Play", sans-serif;
 
       .hub {
         border-radius: 3px;
-        background-color: rgb(235, 235, 235);
+        background-color: black;
         color: blue;
         padding: 0px 0px 1px 13px;
+        transition: all 0.13s linear;
       }
+    }
+  }
+
+  .logobox:hover {
+    .logo {
+      color: rgb(233, 233, 233);
+    }
+
+    .hub {
+      background-color: rgb(235, 235, 235) !important;
     }
   }
 
@@ -129,6 +141,7 @@ $font-play: "Play", sans-serif;
     box-shadow: 0px -1px inset;
   }
 }
+
 
 // Responsive
 

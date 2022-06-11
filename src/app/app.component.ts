@@ -6,6 +6,7 @@ import { WishlistService } from './Services/Wishlist/wishlist.service';
 import { MatDialog } from '@angular/material/dialog'
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { SignService } from './Services/sign.service';
 
 @Component({
   selector: 'app-root',
@@ -35,6 +36,7 @@ export class AppComponent implements OnInit {
   constructor(
     private cartitemservice: CartItemService,
     private wishlistservice: WishlistService,
+    private signservice: SignService,
     private dialog: MatDialog
   ) { }
 
@@ -44,19 +46,20 @@ export class AppComponent implements OnInit {
     // Get Wishlist Items
     this.wishlistservice.sendItems().subscribe((data) => {
       this.wishes = data;
-    })
+    });
 
     // Get Cart Items
     this.cartitemservice.sendItems().subscribe((data) => {
-      this.items = data
-    })
+      this.items = data;
+    });
+
   }
 
   badgeDisplay() {
     let total: number = 0;
 
     this.items.forEach(element => {
-      total += element.quantity  
+      total += element.quantity;
     })
 
     return total
