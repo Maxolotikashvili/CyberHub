@@ -1,0 +1,223 @@
+<section>
+  <mat-stepper>
+    <mat-step label="Shipping Adress" completed="false">
+      <h2>Shipping Details</h2>
+
+      <form class="form" [formGroup]="shippingForms">
+        <div class="formbox">
+          <div class="flexbox">
+            <!-- First Name -->
+            <mat-form-field appearance="outline" style="margin-right: 10px">
+              <mat-label>First Name</mat-label>
+              <input
+                type="text"
+                matInput
+                required
+                formControlName="firstName"
+              />
+              <mat-error *ngIf="FirstName?.errors?.['required']"
+                >Input Mandatory</mat-error
+              >
+            </mat-form-field>
+
+            <!-- Last Name -->
+            <mat-form-field appearance="outline">
+              <mat-label>Last Name</mat-label>
+              <input type="text" matInput required formControlName="lastName" />
+              <mat-error *ngIf="LastName?.errors?.['required']"
+                >Input Mandatory</mat-error
+              >
+            </mat-form-field>
+          </div>
+
+          <!-- Country -->
+          <mat-form-field appearance="outline">
+            <mat-label>Country / Region</mat-label>
+            <input type="text" matInput required formControlName="country" />
+            <mat-error *ngIf="Country?.errors?.['required']"
+              >Input Mandatory</mat-error
+            >
+          </mat-form-field>
+
+          <!-- City -->
+          <mat-form-field appearance="outline">
+            <mat-label>City</mat-label>
+            <input type="text" matInput required formControlName="city" />
+            <mat-error *ngIf="City?.errors?.['required']"
+              >Input Mandatory</mat-error
+            >
+          </mat-form-field>
+
+          <!-- Street -->
+          <mat-form-field appearance="outline">
+            <mat-label>Street</mat-label>
+            <input type="text" matInput required formControlName="street" />
+            <mat-error *ngIf="Street?.errors?.['required']"
+              >Input Mandatory</mat-error
+            >
+          </mat-form-field>
+
+          <div class="flexbox">
+            <!-- APT / Suite -->
+            <mat-form-field appearance="outline" style="margin-right: 10px">
+              <mat-label>APT / Suite ( Optional )</mat-label>
+              <input type="text" matInput formControlName="apartament" />
+            </mat-form-field>
+
+            <!-- Postal Code -->
+            <mat-form-field appearance="outline">
+              <mat-label>Postal Code</mat-label>
+              <input type="number" matInput required formControlName="postal" />
+              <mat-error *ngIf="Postal?.errors?.['required']">Input Mandatory</mat-error>
+              <mat-error *ngIf="Postal?.errors?.['min']">Please Enter a Valid 3 Digit Postal Code</mat-error>
+              <mat-error *ngIf="Postal?.errors?.['max']">Please Enter a Valid 3 Digit Postal Code</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="buttonbox">
+          <button
+            mat-flat-button
+            matStepperNext
+            [disabled]="shippingForms.status !== 'VALID'"
+          >
+            Proceed
+          </button>
+        </div>
+      </form>
+    </mat-step>
+
+
+    <!-- Billing Adress -->
+
+
+    <mat-step
+      label="Billing Details"
+      [completed]="shippingForms.status === 'VALID'"
+      #billing>
+
+      <div class="bigpaymentbox">
+        <h3>Payment Method</h3>
+
+        <div class="paymentbox">
+          <div [class]="expressCardBox" (click)="changeClass(true)">
+            <fa-icon [icon]="expressCard" class="express"></fa-icon>
+            <span class="express-span">Express Card</span>
+          </div>
+          
+          <div [class]="visaCardBox" (click)="changeClass(false)">
+            <fa-icon [icon]="visa" class="visa"></fa-icon>
+            <span class="visa-span">Visa Card</span>
+          </div>
+
+        </div>
+      </div>
+
+      <h2 class="billing-h2">Billing Information</h2>
+
+      <form [formGroup]="billingForms" class="form">
+        <div class="formbox">
+          <mat-form-field appearance="outline">
+            <mat-label>Credit Card Number</mat-label>
+            <input
+              type="number"
+              matInput
+              required
+              placeholder="XXXXXXXXXXXXXXXX"
+              formControlName="creditCard"
+              #creditcard
+            />
+            <span matSuffix class="suffix"
+              >{{ creditcard.value.length }} / 12</span
+            >
+            <mat-error *ngIf="CreditCard?.errors?.['required']">Input Mandatory</mat-error>
+            <mat-error *ngIf="CreditCard?.errors?.['min']">Please Enter a Valid Card Expiration Date</mat-error>
+            <mat-error *ngIf="CreditCard?.errors?.['max']">Please Enter a Valid Card Expiration Date</mat-error>
+          </mat-form-field>
+
+          <div class="flexbox">
+            <mat-form-field appearance="outline" style="margin-right: 10px">
+              <mat-label>Exp Month</mat-label>
+              <input type="number" matInput required formControlName="expMonth" />
+              <mat-error *ngIf="ExpMonth?.errors?.['required']">Input Mandatory</mat-error>
+              <mat-error *ngIf="ExpMonth?.errors?.['min']">Please Enter a Valid Card Expiration Month From 1 to 12</mat-error>
+              <mat-error *ngIf="ExpMonth?.errors?.['max']">Please Enter a Valid Card Expiration Month From 1 to 12</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Exp Year</mat-label>
+              <input type="number" matInput required formControlName="expYear" />
+              <mat-error *ngIf="ExpYear?.errors?.['required']">Input Mandatory</mat-error>
+              <mat-error *ngIf="ExpYear?.errors?.['min']">Please Enter a Valid Card Expiration Year</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="checkbox">
+            <mat-checkbox color="primary" formControlName="policy" required>I Agree With Privacy Policy</mat-checkbox>
+          </div>
+
+        </div>
+        <div class="buttonbox">
+          <button mat-flat-button
+          matStepperNext
+          [disabled]="billingForms.status !== 'VALID'">Place Order</button>
+        </div>
+      </form>
+    </mat-step>
+
+
+    <!-- Place Order -->
+
+
+    <mat-step label="Place Order">
+      <div class="bigbox">
+
+        <div class="billing-details-box">
+          <h3>Billing Summary</h3>
+
+          <div class="textbox">
+            <span>Name: <span class="info">Maxo Lotikashvili</span></span>
+            <span>Location: <span class="info">Georgia, Tbilisi</span></span>
+            <span>Postal / Zip Code: <span class="info">123</span></span>
+            <mat-divider style="margin-right: 100px;"></mat-divider>
+            <span class="credit-number">Credit Card Number:<span class="info"> 123 123 123 123</span></span>
+          </div>
+        </div>
+
+        <div class="your-order-box">
+          <h3>Your Order</h3>
+
+          <div class="itembox">
+            <span class="item">thing <span class="quantity">x 3</span></span>
+            <span class="item-strong">199 $</span>
+            <br>
+          </div>
+
+          <mat-divider></mat-divider>
+
+          <div class="itembox">
+            <span class="item-strong" style="margin-bottom: 20px;">Subtotal:</span>
+            <span class="item-strong">444 $</span>
+            <br>
+          </div>
+
+          <div class="itembox">
+            <span class="item-strong">Shipping:</span>
+            <span class="item">Free Shipping</span>
+            <br>
+          </div>
+
+          <mat-divider></mat-divider>
+
+          <div class="itembox">
+            <span class="item-strong">Total:</span>
+            <span class="item-strong">444 $</span>
+            <br>
+          </div>
+
+        </div>
+      
+      </div>
+    </mat-step>
+  
+  </mat-stepper>
+</section>

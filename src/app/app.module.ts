@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Page404Component } from './page404/page404.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { Page404Component } from './page404/page404.component';
     WishlistComponent,
     LoginComponent,
     RegisterComponent,
-    Page404Component
+    Page404Component,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

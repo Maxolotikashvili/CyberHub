@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 import { HomeComponent } from './home/home.component';
 import { Page404Component } from './page404/page404.component';
 import { RegisterComponent } from './register/register.component';
@@ -27,6 +28,11 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
+  },
+
+  {
+    path: 'checkout',
+    component: CheckoutComponent
   },
 
   {
