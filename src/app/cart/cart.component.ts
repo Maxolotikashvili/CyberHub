@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faCartShopping, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { CartItemService } from '../Services/Cart/cart-item.service';
+import { CheckoutService } from '../Services/checkout.service';
 
 @Component({
   selector: 'app-cart',
@@ -20,7 +21,7 @@ export class CartComponent implements OnInit {
   spinnerboxshow = "spinnerboxshow";
   blur = "blur";
 
-  constructor(private cartitemservice: CartItemService) { }
+  constructor(private cartitemservice: CartItemService, private checkoutservice: CheckoutService) { }
 
   ngOnInit(): void {
 
@@ -85,6 +86,11 @@ export class CartComponent implements OnInit {
     });
 
     return total;
+  }
+
+  // Send Items To Checkout
+  sendToCheckout() {
+    this.checkoutservice.getItems(this.items);
   }
 
 }

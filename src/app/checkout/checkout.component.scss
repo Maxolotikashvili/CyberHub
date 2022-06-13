@@ -2,7 +2,7 @@ $font-play: "Play", sans-serif;
 
 section {
     height: 100%;
-    margin: 40px 0px 200px 0px;
+    margin: 40px 0px 400px 0px;
 
     h2 {
         width: 50%;
@@ -133,6 +133,11 @@ section {
 
     // Place Order ( III )
 
+    strong {
+        color: red;
+        margin: 30px 0px 20px 0px;
+    }
+
     .bigbox {
         display: flex;
         justify-content: baseline;
@@ -188,16 +193,16 @@ section {
                     font-size: 18px;
                     font-family: $font-play;
                     font-weight: bolder;
-
-                    .quantity {
-                        font-weight: bolder;
-                        font-size: 18px;
-                    }
                 }
 
                 .item {
                     font-size: 18px;
                     font-family: $font-play;
+
+                    .quantity {
+                        font-weight: bolder;
+                        font-size: 18px;
+                    }
                 }
             }
 
@@ -206,4 +211,35 @@ section {
             }
         }
     }
+
+    .submitbox {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 50px;
+
+        button {
+            padding: 10px 50px 10px 50px;
+            font-family: $font-play;
+            letter-spacing: 1px;
+            color: white;
+        }
+    }
+}
+
+
+// Spinner
+
+.spinnerboxhide {
+    display: none;
+}
+
+.spinnerboxshow {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+}
+
+.blur {
+    filter: blur(10px);
+    cursor: none;
 }

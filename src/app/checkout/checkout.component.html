@@ -1,4 +1,4 @@
-<section>
+<section [class]="blur">
   <mat-stepper>
     <mat-step label="Shipping Adress" completed="false">
       <h2>Shipping Details</h2>
@@ -14,35 +14,33 @@
                 matInput
                 required
                 formControlName="firstName"
+                #firstname
               />
               <mat-error *ngIf="FirstName?.errors?.['required']"
-                >Input Mandatory</mat-error
-              >
+                >Input Mandatory</mat-error>
             </mat-form-field>
 
             <!-- Last Name -->
             <mat-form-field appearance="outline">
               <mat-label>Last Name</mat-label>
-              <input type="text" matInput required formControlName="lastName" />
+              <input type="text" matInput required formControlName="lastName" #lastname />
               <mat-error *ngIf="LastName?.errors?.['required']"
-                >Input Mandatory</mat-error
-              >
+                >Input Mandatory</mat-error>
             </mat-form-field>
           </div>
 
           <!-- Country -->
           <mat-form-field appearance="outline">
             <mat-label>Country / Region</mat-label>
-            <input type="text" matInput required formControlName="country" />
+            <input type="text" matInput required formControlName="country" #country/>
             <mat-error *ngIf="Country?.errors?.['required']"
-              >Input Mandatory</mat-error
-            >
+              >Input Mandatory</mat-error>
           </mat-form-field>
 
           <!-- City -->
           <mat-form-field appearance="outline">
             <mat-label>City</mat-label>
-            <input type="text" matInput required formControlName="city" />
+            <input type="text" matInput required formControlName="city" #city />
             <mat-error *ngIf="City?.errors?.['required']"
               >Input Mandatory</mat-error
             >
@@ -53,8 +51,7 @@
             <mat-label>Street</mat-label>
             <input type="text" matInput required formControlName="street" />
             <mat-error *ngIf="Street?.errors?.['required']"
-              >Input Mandatory</mat-error
-            >
+              >Input Mandatory</mat-error>
           </mat-form-field>
 
           <div class="flexbox">
@@ -67,7 +64,7 @@
             <!-- Postal Code -->
             <mat-form-field appearance="outline">
               <mat-label>Postal Code</mat-label>
-              <input type="number" matInput required formControlName="postal" />
+              <input type="number" matInput required formControlName="postal" #zipcode />
               <mat-error *ngIf="Postal?.errors?.['required']">Input Mandatory</mat-error>
               <mat-error *ngIf="Postal?.errors?.['min']">Please Enter a Valid 3 Digit Postal Code</mat-error>
               <mat-error *ngIf="Postal?.errors?.['max']">Please Enter a Valid 3 Digit Postal Code</mat-error>
@@ -78,8 +75,7 @@
           <button
             mat-flat-button
             matStepperNext
-            [disabled]="shippingForms.status !== 'VALID'"
-          >
+            [disabled]="shippingForms.status !== 'VALID'">
             Proceed
           </button>
         </div>
@@ -92,8 +88,7 @@
 
     <mat-step
       label="Billing Details"
-      [completed]="shippingForms.status === 'VALID'"
-      #billing>
+      [completed]="shippingForms.status === 'VALID'">
 
       <div class="bigpaymentbox">
         <h3>Payment Method</h3>
@@ -124,11 +119,9 @@
               required
               placeholder="XXXXXXXXXXXXXXXX"
               formControlName="creditCard"
-              #creditcard
-            />
+              #creditcard/>
             <span matSuffix class="suffix"
-              >{{ creditcard.value.length }} / 12</span
-            >
+              >{{ creditcard.value.length }} / 12</span>
             <mat-error *ngIf="CreditCard?.errors?.['required']">Input Mandatory</mat-error>
             <mat-error *ngIf="CreditCard?.errors?.['min']">Please Enter a Valid Card Expiration Date</mat-error>
             <mat-error *ngIf="CreditCard?.errors?.['max']">Please Enter a Valid Card Expiration Date</mat-error>
@@ -159,7 +152,16 @@
         <div class="buttonbox">
           <button mat-flat-button
           matStepperNext
-          [disabled]="billingForms.status !== 'VALID'">Place Order</button>
+          [disabled]="billingForms.status !== 'VALID'" (click)="getUser(
+            {
+              name: firstname.value,
+              lastname: lastname.value,
+              country: country.value,
+              city: city.value,
+              code: zipcode.value,
+              card: creditcard.value
+            }
+          )">Place Order</button>
         </div>
       </form>
     </mat-step>
@@ -169,26 +171,30 @@
 
 
     <mat-step label="Place Order">
+      <div style="display: flex; justify-content: center;" *ngIf="deploy">
+        <strong>Some Unexpected Has Happened, Couldn't Proceed With Your Request, Try Again Later</strong>
+      </div>
       <div class="bigbox">
-
         <div class="billing-details-box">
           <h3>Billing Summary</h3>
 
           <div class="textbox">
-            <span>Name: <span class="info">Maxo Lotikashvili</span></span>
-            <span>Location: <span class="info">Georgia, Tbilisi</span></span>
-            <span>Postal / Zip Code: <span class="info">123</span></span>
+            <span>Name: <span class="info">{{user?.name}} {{user?.lastname}}</span></span>
+            <span>Location: <span class="info">{{user?.country}}, {{user?.city}}</span></span>
+            <span>Postal / Zip Code: <span class="info">{{user?.code}}</span></span>
+            
             <mat-divider style="margin-right: 100px;"></mat-divider>
-            <span class="credit-number">Credit Card Number:<span class="info"> 123 123 123 123</span></span>
+            
+            <span class="credit-number">Credit Card Number:<span class="info">{{user?.card}}</span></span>
           </div>
         </div>
 
         <div class="your-order-box">
           <h3>Your Order</h3>
 
-          <div class="itembox">
-            <span class="item">thing <span class="quantity">x 3</span></span>
-            <span class="item-strong">199 $</span>
+          <div class="itembox" *ngFor="let item of items">
+            <span class="item">{{item.name}} <span class="quantity">X {{item.quantity}}</span></span>
+            <span class="item-strong">{{item.price}} $</span>
             <br>
           </div>
 
@@ -196,7 +202,7 @@
 
           <div class="itembox">
             <span class="item-strong" style="margin-bottom: 20px;">Subtotal:</span>
-            <span class="item-strong">444 $</span>
+            <span class="item-strong">{{totalCost()}} $</span>
             <br>
           </div>
 
@@ -210,14 +216,24 @@
 
           <div class="itembox">
             <span class="item-strong">Total:</span>
-            <span class="item-strong">444 $</span>
+            <span class="item-strong">{{totalCost()}} $</span>
             <br>
           </div>
 
         </div>
       
       </div>
+
+      <div class="submitbox">
+        <button matStepperPrevious mat-flat-button color="accent" (click)="goBack()">Back</button>
+        <button mat-flat-button color="primary" (click)="purchaseItems()">Purchase</button>
+      </div>
     </mat-step>
   
   </mat-stepper>
 </section>
+
+<!-- Spinner -->
+<div [class]="spinnerboxshow">
+  <mat-spinner></mat-spinner>
+</div>

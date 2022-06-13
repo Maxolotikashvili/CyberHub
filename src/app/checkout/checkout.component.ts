@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { faCcVisa, faPaypal } from '@fortawesome/free-brands-svg-icons';
 import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
+import { CheckoutService } from '../Services/checkout.service';
 
 @Component({
   selector: 'app-checkout',
@@ -9,6 +10,11 @@ import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
+  // Items
+  items!: any[];
+  user!: any;
+  deploy: boolean = false;
+
   // FormGroups
   shippingForms!: FormGroup;
   billingForms!: FormGroup;
@@ -36,12 +42,16 @@ export class CheckoutComponent implements OnInit {
   expressCardBox = "expresscard-box";
   visaCardBox = "visacard-box";
 
-  constructor(private fb: FormBuilder) { }
+  // Spinner
+  spinnerboxshow = "spinnerboxhide";
+  blur = "";
+
+  constructor(private fb: FormBuilder, private checkoutservice: CheckoutService) { }
 
   ngOnInit(): void {
 
     // Scroll Up
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0);   
 
     // Shipping Form
     this.shippingForms = this.fb.group({
@@ -77,6 +87,10 @@ export class CheckoutComponent implements OnInit {
     this.ExpMonth = this.billingForms.get('expMonth');
     this.ExpYear = this.billingForms.get('expYear');
     this.Policy = this.billingForms.get('policy');
+
+
+    // Get Items
+      this.checkoutservice.sendItems().subscribe((data: any[]) => {this.items = data;})
   };
 
   changeClass(change: boolean) {
@@ -87,6 +101,39 @@ export class CheckoutComponent implements OnInit {
       this.expressCardBox = "expresscard-box";
       this.visaCardBox = "visacard-box-active"
     }
+  }
+
+  // Get User Details
+  getUser(details: any) {
+    this.user = details;
+  }
+
+  // Calculate Total Cost
+  totalCost() {
+    let total: number = 0;
+
+    this.items?.forEach(element => {
+      total += element.price;
+    });
+
+    return total;
+  }
+
+  purchaseItems() {
+    this.spinnerboxshow = "spinnerboxshow";
+    this.blur = "blur";
+
+    setTimeout(() => {
+      this.spinnerboxshow = "spinnerboxhide";
+      this.blur = "";
+      
+      this.deploy = true;
+      window.scrollTo(0, 100);
+    }, 1500);
+  }
+
+  goBack() {
+    this.deploy = false;
   }
 
 }
