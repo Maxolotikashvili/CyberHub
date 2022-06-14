@@ -1,7 +1,7 @@
 <section [class]="blur">
   <mat-stepper>
     <mat-step label="Shipping Adress" completed="false">
-      <h2>Shipping Details</h2>
+      <h2 class="details">Shipping Details</h2>
 
       <form class="form" [formGroup]="shippingForms">
         <div class="formbox">
@@ -71,7 +71,8 @@
             </mat-form-field>
           </div>
         </div>
-        <div class="buttonbox">
+        <div class="buttonbox-billing">
+          <button mat-flat-button style="margin-right: 10px;" color="warn" (click)="backButton()">Back</button>
           <button
             mat-flat-button
             matStepperNext
@@ -149,9 +150,12 @@
           </div>
 
         </div>
-        <div class="buttonbox">
-          <button mat-flat-button
+        <div class="buttonbox-billing">
+          <button mat-flat-button matStepperPrevious color="warn" style="margin-right: 10px;">Back</button>
+          <button 
+          mat-flat-button
           matStepperNext
+          color="primary"
           [disabled]="billingForms.status !== 'VALID'" (click)="getUser(
             {
               name: firstname.value,
@@ -180,7 +184,7 @@
 
           <div class="textbox">
             <span>Name: <span class="info">{{user?.name}} {{user?.lastname}}</span></span>
-            <span>Location: <span class="info">{{user?.country}}, {{user?.city}}</span></span>
+            <span>Location: <span class="info">{{user?.country}} <span *ngIf="user?.country">,</span> {{user?.city}}</span></span>
             <span>Postal / Zip Code: <span class="info">{{user?.code}}</span></span>
             
             <mat-divider style="margin-right: 100px;"></mat-divider>
@@ -193,7 +197,7 @@
           <h3>Your Order</h3>
 
           <div class="itembox" *ngFor="let item of items">
-            <span class="item">{{item.name}} <span class="quantity">X {{item.quantity}}</span></span>
+            <span class="item" style="padding-right: 10px;">{{item.name}} <span class="quantity">X {{item.quantity}}</span></span>
             <span class="item-strong">{{item.price}} $</span>
             <br>
           </div>

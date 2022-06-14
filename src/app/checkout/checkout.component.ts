@@ -1,6 +1,7 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { faCcVisa, faPaypal } from '@fortawesome/free-brands-svg-icons';
+import { faCcVisa } from '@fortawesome/free-brands-svg-icons';
 import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
 import { CheckoutService } from '../Services/checkout.service';
 
@@ -46,7 +47,7 @@ export class CheckoutComponent implements OnInit {
   spinnerboxshow = "spinnerboxhide";
   blur = "";
 
-  constructor(private fb: FormBuilder, private checkoutservice: CheckoutService) { }
+  constructor(private fb: FormBuilder, private checkoutservice: CheckoutService, private location: Location) { }
 
   ngOnInit(): void {
 
@@ -134,6 +135,10 @@ export class CheckoutComponent implements OnInit {
 
   goBack() {
     this.deploy = false;
+  }
+
+  backButton() {
+    this.location.back();
   }
 
 }

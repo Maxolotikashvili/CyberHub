@@ -1,231 +1,249 @@
 $font-play: "Play", sans-serif;
 
 section {
-    height: 100%;
-    margin: 40px 0px 400px 0px;
+    margin: 50px 0px 300px 0px;
+}
 
-    h2 {
+h2 {
+    width: 50%;
+    text-align: start;
+    font-family: $font-play;
+    margin: 50px auto 50px auto;
+    font-size: 26px;
+}
+
+.formbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .flexbox {
+        display: flex;
         width: 50%;
-        text-align: start;
-        font-family: $font-play;
-        margin: 50px auto 50px auto;
-        font-size: 26px;
     }
 
-    .formbox {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        .flexbox {
-            display: flex;
-            width: 50%;
-        }
-
-        mat-form-field {
-            width: 50%;
-            margin-bottom: 10px;
-
-            .suffix {
-                font-size: 12px;
-                color: gray;
-            }
-        }
-
-        .checkbox {
-            width: 50%;
-            display: flex;
-            justify-content: flex-start;
-            padding-left: 2px;
-            margin-top: 10px;
-        }
-    }
-
-    // Billing
-
-    .bigpaymentbox {
+    mat-form-field {
         width: 50%;
-        margin: 70px auto 70px auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        margin-bottom: 10px;
 
-        h3 {
-            font-size: 20px;
-            font-family: $font-play;
+        .suffix {
+            font-size: 12px;
             color: gray;
         }
-
-        .paymentbox {
-            display: flex;
-            width: 100%;
-            margin-top: 30px;
-            justify-content: space-around;
-
-            .expresscard-box,
-            .visacard-box,
-            .expresscard-box-active,
-            .visacard-box-active {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                border: 2px solid gray;
-                border-radius: 5px;
-                width: 120px;
-                height: 120px;
-                font-family: $font-play;
-                color: gray;
-                transition: all 0.1s linear;
-                cursor: pointer;
-
-                .express,
-                .visa {
-                    font-size: 32px;
-                    margin-bottom: 15px;
-                }
-            }
-
-            .expresscard-box:hover,
-            .visacard-box:hover {
-                background-color: #e2e2e2;
-                color: black;
-            }
-
-            .expresscard-box-active,
-            .visacard-box-active {
-                background-color: #e2e2e2;
-                border-color: blue;
-                color: blue;
-            }
-        }
     }
 
-    .buttonbox {
+    .checkbox {
+        width: 50%;
         display: flex;
-        justify-content: center;
-        margin-top: 40px;
+        justify-content: flex-start;
+        padding-left: 2px;
+        margin-top: 10px;
+    }
+}
 
-        button {
-            padding: 10px 90px 10px 90px;
-            background-color: blue;
-            color: white;
-            letter-spacing: 1px;
-            transition: all 0.2s linear;
-        }
+// Billing ( II )
 
-        button:disabled {
-            background-color: silver;
-        }
+.bigpaymentbox {
+    width: 50%;
+    margin: 70px auto 70px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+        font-size: 20px;
+        font-family: $font-play;
+        color: gray;
+        margin-left: 5px;
     }
 
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-
-    input[type="number"] {
-        -moz-appearance: textfield;
-    }
-
-
-    // Place Order ( III )
-
-    strong {
-        color: red;
-        margin: 30px 0px 20px 0px;
-    }
-
-    .bigbox {
+    .paymentbox {
         display: flex;
-        justify-content: baseline;
-        align-items: baseline;
-        margin-top: 50px;
-    
-        .billing-details-box {
-            width: 50%;
-            padding-left: 20px;
-
-            h3 {
-                margin-bottom: 60px;
-                font-size: 28px;
-                font-weight: bolder;
-            }
-
-            .textbox {
-                display: flex;
-                flex-direction: column;
-                
-                span {
-                    margin-bottom: 25px;
-                    font-size: 16px;
-                    font-family: $font-play;
-                }
-
-                .info {
-                    margin-left: 10px;
-                    font-weight: bolder;
-                }
-
-                .credit-number {
-                    margin-top: 15px;
-                }
-            }
-        }
-
-        // Your Order
-        .your-order-box {
-            width: 50%;
-
-            h3 {
-                margin-bottom: 60px;
-                font-size: 28px;
-                font-weight: bolder;
-            }
-
-            .itembox {
-                display: grid;
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-
-                .item-strong {
-                    font-size: 18px;
-                    font-family: $font-play;
-                    font-weight: bolder;
-                }
-
-                .item {
-                    font-size: 18px;
-                    font-family: $font-play;
-
-                    .quantity {
-                        font-weight: bolder;
-                        font-size: 18px;
-                    }
-                }
-            }
-
-            mat-divider {
-                margin-bottom: 25px;
-            }
-        }
-    }
-
-    .submitbox {
-        display: flex;
+        width: 100%;
+        margin-top: 30px;
         justify-content: space-around;
-        margin-top: 50px;
 
-        button {
-            padding: 10px 50px 10px 50px;
+        .expresscard-box,
+        .visacard-box,
+        .expresscard-box-active,
+        .visacard-box-active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid gray;
+            border-radius: 5px;
+            width: 120px;
+            height: 120px;
             font-family: $font-play;
-            letter-spacing: 1px;
-            color: white;
+            color: gray;
+            transition: all 0.1s linear;
+            cursor: pointer;
+
+            .express,
+            .visa {
+                font-size: 32px;
+                margin-bottom: 15px;
+            }
+        }
+
+        .expresscard-box:hover,
+        .visacard-box:hover {
+            background-color: #e2e2e2;
+            color: black;
+        }
+
+        .expresscard-box-active,
+        .visacard-box-active {
+            background-color: #e2e2e2;
+            border-color: blue;
+            color: blue;
         }
     }
 }
 
+.buttonbox {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+
+    button {
+        padding: 10px 90px 10px 90px;
+        background-color: blue;
+        color: white;
+        letter-spacing: 1px;
+        transition: all 0.2s linear;
+    }
+
+    button:disabled {
+        background-color: silver;
+    }
+}
+
+.buttonbox-billing {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 50px auto 20px auto;
+
+    button {
+        width: 100%;
+        padding: 10px 0px 10px 0px;
+        font-family: $font-play;
+        color: white;
+        letter-spacing: 1px;
+        transition: all 0.2s linear;
+    }
+
+    button:disabled {
+        background-color: silver;
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+// Place Order ( III )
+
+strong {
+    color: red;
+    margin: 30px 0px 20px 0px;
+}
+
+.bigbox {
+    display: flex;
+    justify-content: baseline;
+    align-items: baseline;
+    margin-top: 50px;
+
+    .billing-details-box {
+        width: 50%;
+        padding-left: 20px;
+
+        h3 {
+            margin-bottom: 60px;
+            font-size: 28px;
+            font-weight: bolder;
+        }
+
+        .textbox {
+            display: flex;
+            flex-direction: column;
+
+            span {
+                margin-bottom: 25px;
+                font-size: 16px;
+                font-family: $font-play;
+            }
+
+            .info {
+                margin-left: 10px;
+                font-weight: bolder;
+            }
+
+            .credit-number {
+                margin-top: 15px;
+            }
+        }
+    }
+
+    // Your Order
+    .your-order-box {
+        width: 50%;
+
+        h3 {
+            margin-bottom: 60px;
+            font-size: 28px;
+            font-weight: bolder;
+        }
+
+        .itembox {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            .item-strong {
+                font-size: 18px;
+                font-family: $font-play;
+                font-weight: bolder;
+            }
+
+            .item {
+                font-size: 18px;
+                font-family: $font-play;
+
+                .quantity {
+                    font-weight: bolder;
+                    font-size: 18px;
+                }
+            }
+        }
+
+        mat-divider {
+            margin-bottom: 25px;
+        }
+    }
+}
+
+.submitbox {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+
+    button {
+        padding: 10px 50px 10px 50px;
+        font-family: $font-play;
+        letter-spacing: 1px;
+        color: white;
+    }
+}
 
 // Spinner
 
@@ -242,4 +260,81 @@ section {
 .blur {
     filter: blur(10px);
     cursor: none;
+}
+
+// Responsive
+
+@media (max-width: 720px) {
+    .buttonbox-billing {
+        flex-direction: column;
+
+        button {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media (max-width: 570px) {
+    .paymentbox {
+        flex-direction: column;
+        align-items: center;
+
+        .visacard-box {
+            margin-top: 20px;
+        }
+    }
+
+    .checkbox {
+        justify-content: center !important;
+    }
+
+    .buttonbox {
+        button {
+            padding: 10px 50px 10px 50px !important;
+        }
+    }
+
+    // Place Order ( III )
+
+    .bigbox {
+        flex-direction: column;
+        align-items: center !important;
+
+        .billing-details-box {
+            width: 70% !important;
+            padding: 0 !important;
+        }
+
+        .your-order-box {
+            margin-top: 50px;
+            width: 70% !important;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+
+    // Billing ( II )
+    .bigpaymentbox {
+        width: 70% !important;
+    }
+    
+    // Place Order ( III )
+    .bigbox {
+        .billing-details-box {
+            width: 95% !important;
+        }
+
+        .your-order-box {
+            width: 95% !important;
+        }
+    }
+
+    .submitbox {
+        flex-direction: column;
+
+        button {
+            margin-bottom: 20px;
+        }
+    }
 }
