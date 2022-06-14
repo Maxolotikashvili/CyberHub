@@ -72,8 +72,9 @@
           </div>
         </div>
         <div class="buttonbox-billing">
-          <button mat-flat-button style="margin-right: 10px;" color="warn" (click)="backButton()">Back</button>
+          <button mat-flat-button color="warn" (click)="backButton()">Back</button>
           <button
+            class="billing-button" 
             mat-flat-button
             matStepperNext
             [disabled]="shippingForms.status !== 'VALID'">

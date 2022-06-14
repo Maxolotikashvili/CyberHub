@@ -136,6 +136,11 @@ h2 {
         transition: all 0.2s linear;
     }
 
+    .billing-button {
+        background-color: blue;
+        margin-left: 10px;
+    }
+
     button:disabled {
         background-color: silver;
     }
