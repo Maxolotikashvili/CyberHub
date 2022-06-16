@@ -136,9 +136,12 @@ h2 {
         transition: all 0.2s linear;
     }
 
+    .back-button {
+        margin-right: 10px;
+    }
+
     .billing-button {
         background-color: blue;
-        margin-left: 10px;
     }
 
     button:disabled {
@@ -273,6 +276,11 @@ strong {
     .buttonbox-billing {
         flex-direction: column;
 
+        .back-button {
+            margin: 0 !important;
+            margin-bottom: 10px !important;
+        }
+
         button {
             margin-bottom: 20px;
         }
@@ -284,7 +292,7 @@ strong {
         flex-direction: column;
         align-items: center;
 
-        .visacard-box {
+        .visacard-box, .visacard-box-active {
             margin-top: 20px;
         }
     }
