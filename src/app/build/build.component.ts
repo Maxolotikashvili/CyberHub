@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-build',
   templateUrl: './build.component.html',
   styleUrls: ['./build.component.scss']
 })
-export class BuildComponent implements OnInit {
+export class BuildComponent {
 
   partslist = [
     {
@@ -60,12 +60,5 @@ export class BuildComponent implements OnInit {
   ]
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  onRated() {
-
-  }
 
 }
