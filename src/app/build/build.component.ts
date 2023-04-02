@@ -9,52 +9,62 @@ export class BuildComponent {
   partslist = [
     {
       name: "Pre - Built PC-s",
-      routerName: "pctype"
+      routerName: "pctype",
+      routerId: 9
     },
 
     {
       name: "Processor (CPU)",
-      routerName: "cpus"
+      routerName: "cpus",
+      routerId: 2
     },
 
     {
       name: "Motherboard (MOBO)",
-      routerName: "mobos"
+      routerName: "mobos",
+      routerId: 0
     },
 
     {
       name: "Video Card (GPU)",
-      routerName: "gpus"
+      routerName: "gpus",
+      routerId: 1
     },
 
     {
       name: "Memory (RAM)",
-      routerName: "rams"
+      routerName: "rams",
+      routerId: 3
     },
 
     {
       name: "Power Supply (PSU)",
-      routerName: "psus"
+      routerName: "psus",
+      routerId: 4
     },
 
     {
       name: "Solid State Drive (SSD)",
-      routerName: "ssds"
+      routerName: "ssds",
+      routerId: 5
     },
 
     {
       name: "Hard Disk Drive (HDD)",
-      routerName: "hdds"
+      routerName: "hdds",
+      routerId: 6
     },
 
     {
       name: "Cpu Cooler",
-      routerName: "cpu-coolers"
+      routerName: "cpu-coolers",
+      routerId: 7
     },
 
     {
       name: "Case",
-      routerName: "cases"
+      routerName: "cases",
+      routerId: 8
     }
   ]
 

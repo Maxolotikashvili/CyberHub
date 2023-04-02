@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MobosService } from './mobos.service';
+import { PcPartsService } from './pc-parts.service';
 
-describe('MobosService', () => {
-  let service: MobosService;
+describe('PcPartsService', () => {
+  let service: PcPartsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(MobosService);
+    service = TestBed.inject(PcPartsService);
   });
 
   it('should be created', () => {

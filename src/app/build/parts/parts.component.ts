@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { WishlistService } from '../Services/Wishlist/wishlist.service';
-import { CartItemService } from '../Services/Cart/cart-item.service';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { CartItemsType } from '../model';
+import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
+import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
+import { CartItemsType } from 'src/app/model';
 
 @Component({
   selector: 'app-parts',
@@ -11,6 +11,7 @@ import { CartItemsType } from '../model';
   styleUrls: ['./parts.component.scss']
 })
 export class PartsComponent implements OnInit {
+
   @Input() pcPartName!: string;
 
   isLoading: boolean = true;

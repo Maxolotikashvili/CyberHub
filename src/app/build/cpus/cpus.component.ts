@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { CpusType } from 'src/app/model';
-import { CpusService } from 'src/app/Services/buildservice/cpus.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
+import { PcPartType } from 'src/app/model';
 
 @Component({
   selector: 'app-cpus',
@@ -12,102 +12,112 @@ import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
   styleUrls: ['./cpus.component.scss']
 })
 export class CpusComponent implements OnInit {
-  cpus!: CpusType[];
+  pcPartName!: string;
+  defaultData!: PcPartType[];
+  mutableData!: PcPartType[];
 
-  // For Filters
-  defaultCpus!: CpusType[];
+  routerId!: number;
 
   // Filter Variables
   max!: number;
   min!: number;
   minArray: number[] = [];
 
-  // Fontawesome
-  eye = faEye;
-  heart = faHeart;
-
-  // Spinner
-  spinnerboxshow = "spinnerboxshow";
-  blur = "blur";
+  fontawesome = {
+    eye: faEye,
+    heart: faHeart
+  }
 
   constructor(
-    private cpusservice: CpusService,
+    private route: ActivatedRoute,
     private wishlistservice: WishlistService,
     private cartItemService: CartItemService,
     private snack: MatSnackBar
   ) { }
 
   ngOnInit(): void {
+    this.catchRouterId();
+    this.scrollToTopOnComponentLoad();
+    this.downloadData();
+    this.setMinAndMaxPriceForSlider();
+  }
 
-    // Scroll Up
-    window.scrollTo(0, 0);
+  //
+  catchRouterId() {
+    this.routerId = +this.route.snapshot.paramMap.get('id')!;
 
-    // Spinner Timeout
-    this.spinnerboxshow = "spinnerboxshow";
+    if (this.routerId === 0) {
+      this.pcPartName = 'mobos';
+    } else if (this.routerId === 1) {
+      this.pcPartName = 'gpus'
+    } else if (this.routerId === 2) {
+      this.pcPartName = 'cpus';
+    } else if (this.routerId === 3) {
+      this.pcPartName = 'rams';
+    } else if (this.routerId === 4) {
+      this.pcPartName = 'psus';
+    } else if (this.routerId === 5) {
+      this.pcPartName = 'ssds';
+    } else if (this.routerId === 6) {
+      this.pcPartName = 'hdds';
+    } else if (this.routerId === 7) {
+      this.pcPartName = 'cpu-coolers';
+    } else if (this.routerId === 8) {
+      this.pcPartName = 'cases';
+    } else if (this.routerId === 9) {
+      this.pcPartName = 'pcs';
+    }
+  }
 
-    setTimeout(() => {
-      this.spinnerboxshow = "spinnerboxhide";
-      this.blur = "";
-    }, 1500);
+  //
+  scrollToTopOnComponentLoad() {
+    window.scrollTo(0, 0)
+  }
 
-    // Get Items
-    this.cpusservice.getCpus().subscribe((data) => {
-      this.cpus = data;
-      this.defaultCpus = data;
-    });
+  //
+  downloadData() {
+    
+  }
 
-    // Min Price For Slider
-    this.cpus.forEach(element => {
-      this.minArray.push(element.price);
-    });
+  setMinAndMaxPriceForSlider() { 
+    for (let item of this.mutableData) {
+      this.minArray.push(item.price)
+    }
+
     this.min = Math.min(...this.minArray);
-
-    // Max Price For Slider
     this.max = Math.max(...this.minArray);
   }
 
-  // Send Cliced Item To Wishlist
-  addWishlist(item: any) {
+  addWishlist(item: PcPartType) {
     this.wishlistservice.sendItems(item);
   }
 
-  // Send Clicked Item To Cart
-  sendToCart(item: CpusType) {
+  sendItemToCart(item: PcPartType) {
     this.cartItemService.sendItems(item);
   }
 
-  // SnackBar
-  snackDisplay(message: string, action: any) {
+  displayMessage(message: string, action: string) {
     this.snack.open(message, action, { duration: 3000 })
   }
-
-  wishSnackDisplay(message: string, action: any) {
-    this.snack.open(message, action, { duration: 3000 })
-  }
-
 
   // Filters
 
-
-  // Price Slider
-  sliderValue(slider: any) {
-    this.resetFilter();
-    this.cpus = this.cpus.filter((element) => element.price <= slider.value);
+  sortItemsBySliderValue(slider: any) {
+    this.resetAllFilters();
+    this.mutableData = this.mutableData.filter((element) => element.price <= slider.value);
   };
 
-  // Order By Price
-  priceFilter(price: boolean) {
+  sortItemsByPrice(price: boolean) {
     if (price === true) {
-      this.cpus.sort((a, b) => { return b.price - a.price });
+      this.mutableData.sort((a, b) => { return b.price - a.price });
     } else if (price === false) {
-      this.cpus.sort((a, b) => { return a.price - b.price });
+      this.mutableData.sort((a, b) => { return a.price - b.price });
     };
   };
 
-  // Order By Name
-  nameSort(name: boolean) {
+  sortItemsByName(name: boolean) {
     if (name === true) {
-      this.cpus.sort((a, b) => {
+      this.mutableData.sort((a: any, b: any) => {
         if (a.name < b.name) {
           return -1
         } else if (a.name > b.name) {
@@ -116,7 +126,7 @@ export class CpusComponent implements OnInit {
         return 0
       });
     } else if (name === false) {
-      this.cpus.sort((a, b) => {
+      this.mutableData.sort((a: any, b: any) => {
         if (a.name > b.name) {
           return -1
         } else if (a.name < b.name) {
@@ -127,20 +137,18 @@ export class CpusComponent implements OnInit {
     };
   };
 
-  // Order By Manufacturer
-  nameFilter(index: number) {
-    this.resetFilter();
+  sortItemsByManufacturer(index: number) {
+    this.resetAllFilters();
 
     if (index === 1) {
-      this.cpus = this.cpus.filter((element) => element.manufacturer === "Intel");
+      this.mutableData = this.mutableData.filter((element: PcPartType) => element.manufacturer === "Intel");
     } else if (index === 2) {
-      this.cpus = this.cpus.filter((element) => element.manufacturer === "AMD");
+      this.mutableData = this.mutableData.filter((element: PcPartType) => element.manufacturer === "AMD");
     };
   };
 
-  // Reset Filters
-  resetFilter() {
-    this.cpus = this.defaultCpus;
+  resetAllFilters() {
+    this.mutableData = this.defaultData;
   };
 
 }

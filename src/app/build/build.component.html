@@ -5,7 +5,7 @@
       <div class="categoriesbox">
         <h3 class="categories-h">Categories</h3>
 
-        <a class="listbox" *ngFor="let item of partslist" [routerLink]="item.routerName" routerLinkActive="active">{{ item.name }}</a>
+        <a class="listbox" *ngFor="let item of partslist" [routerLink]="[item.routerName, item.routerId]" routerLinkActive="active">{{ item.name }}</a>
       </div>
 
       <div class="accessoriesbox">

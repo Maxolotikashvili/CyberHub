@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
   //
   checkIfUserIsLoggedIn() {
     this.isUserLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn')!);
-    this.userName = JSON.parse(localStorage.getItem('userRegistrationData')!).name;
+    this.userName = JSON.parse(localStorage.getItem('userRegistrationData')!)?.name;
   } 
 
   //

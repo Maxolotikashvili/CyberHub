@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { GpusType } from 'src/app/model';
-import { GpusService } from 'src/app/Services/buildservice/gpus.service';
+import { PcPartType } from 'src/app/model';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
@@ -12,10 +11,10 @@ import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
   styleUrls: ['./gpus.component.scss']
 })
 export class GpusComponent implements OnInit {
-  gpus!: GpusType[];
+  gpus!: PcPartType[];
 
   // For Filters
-  defaultGpus!: GpusType[];
+  defaultGpus!: PcPartType[];
 
   // Filter Variables
   max!: number;
@@ -31,7 +30,6 @@ export class GpusComponent implements OnInit {
   blur = "blur";
 
   constructor(
-    private gpusservice: GpusService,
     private wishlistservice: WishlistService,
     private cartitemservice: CartItemService,
     private snack: MatSnackBar
@@ -51,10 +49,8 @@ export class GpusComponent implements OnInit {
     }, 1500);
 
     // Get Gpus 
-    this.gpusservice.getGpus().subscribe((data: GpusType[]) => {
-      this.gpus = data;
-      this.defaultGpus = data;
-    });
+      // this.gpus = data;
+      // this.defaultGpus = data;
 
     // Min Price For Slider
     this.gpus.forEach(element => {
@@ -73,7 +69,7 @@ export class GpusComponent implements OnInit {
   };
 
   // Send Clicked Item To Cart
-  sendToCart(item: GpusType) {
+  sendToCart(item: PcPartType) {
     this.cartitemservice.sendItems(item)
   };
 
@@ -109,7 +105,7 @@ export class GpusComponent implements OnInit {
   // Order By Name
   nameSort(sort: boolean) {
     if (sort === true) {
-      this.gpus.sort((a, b) => {
+      this.gpus.sort((a: any, b: any) => {
         if (a.name < b.name) {
           return -1
         } else if (a.name > b.name) {
@@ -119,7 +115,7 @@ export class GpusComponent implements OnInit {
       });
 
     } else if (sort === false) {
-      this.gpus.sort((a, b) => {
+      this.gpus.sort((a: any, b: any) => {
         if (a.name > b.name) {
           return -1
         } else if (a.name < b.name) {

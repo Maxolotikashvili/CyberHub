@@ -49,7 +49,7 @@ const routes: Routes = [
       },
 
       {
-        path: "cpus",
+        path: "cpus/:id",
         component: CpusComponent
       },
 

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { CasesType } from 'src/app/model';
-import { CasesService } from 'src/app/Services/buildservice/cases.service';
+import { PcPartType } from 'src/app/model';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
@@ -12,10 +11,10 @@ import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
   styleUrls: ['./cases.component.scss']
 })
 export class CasesComponent implements OnInit {
-  cases!: CasesType[];
+  cases!: PcPartType[];
 
   // For Filters
-  defaultCases!: CasesType[];
+  defaultCases!: PcPartType[];
 
   // Variables For Filtering Price
   max!: number;
@@ -31,7 +30,6 @@ export class CasesComponent implements OnInit {
   blur = "blur";
 
   constructor(
-    private casesservice: CasesService,
     private wishlistservice: WishlistService,
     private cartitemservice: CartItemService,
     private snack: MatSnackBar
@@ -51,10 +49,8 @@ export class CasesComponent implements OnInit {
     }, 1500);
 
     // Get Items
-    this.casesservice.getCases().subscribe((data) => {
-      this.cases = data;
-      this.defaultCases = data;
-    });
+      // this.cases = data;
+      // this.defaultCases = data;
 
     // Min Price For Slider
     this.cases.forEach(element => {
@@ -70,7 +66,7 @@ export class CasesComponent implements OnInit {
     this.wishlistservice.sendItems(item);
   }
 
-  sendItem(item: CasesType) {
+  sendItem(item: PcPartType) {
     this.cartitemservice.sendItems(item)
   }
 
@@ -104,7 +100,7 @@ export class CasesComponent implements OnInit {
   // Order By Name
   nameSort(sort: boolean) {
     if (sort === true) {
-      this.cases.sort((a, b) => {
+      this.cases.sort((a: any, b: any) => {
         if (a.name < b.name) {
           return -1
         } else if (a.name > b.name) {
@@ -113,7 +109,7 @@ export class CasesComponent implements OnInit {
         return 0
       });
     } else if (sort === false) {
-      this.cases.sort((a, b) => {
+      this.cases.sort((a: any, b: any) => {
         if (a.name > b.name) {
           return -1
         } else if (a.name < b.name) {

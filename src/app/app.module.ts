@@ -16,7 +16,6 @@ import { Page404Component } from './page404/page404.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { HeaderMenuComponent } from './header-menu/header-menu.component';
 import { LoadingComponent } from './loading/loading.component';
-import { PartsComponent } from './parts/parts.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +29,7 @@ import { PartsComponent } from './parts/parts.component';
     Page404Component,
     CheckoutComponent,
     HeaderMenuComponent,
-    LoadingComponent,
-    PartsComponent
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
