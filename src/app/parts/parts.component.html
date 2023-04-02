@@ -1,0 +1,16 @@
+<ng-template *ngIf="isLoading">
+    <app-loading></app-loading>
+</ng-template>
+
+<div class="gridbox">
+    <div class="gridlist" *ngFor="let item of pcParts">
+      <div class="iconbox">
+        <fa-icon [icon]="fontawesome.details" class="icon"></fa-icon>
+        <fa-icon [icon]="fontawesome.wishList" class="icon" (click)="addItemToWishList(item)" (click)="displaySnackText('Item Added To Wishlist', 'Dismiss')"></fa-icon>
+      </div>
+      <img class="cpu-image" [src]="item.imageUrl" alt="image" />
+      <span class="cpu-name">{{ item.name }}</span>
+      <span class="cpu-price">{{ item.price }}$</span>
+      <button mat-button class="cpu-buy" (click)="sendItemToCart(item)" (click)="displaySnackText('Item Added To Cart', 'Dismiss')">Add To Cart</button>
+    </div>
+</div>

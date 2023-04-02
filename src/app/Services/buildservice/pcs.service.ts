@@ -1,25 +1,13 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-
-export interface pcsType {
-  id: number,
-  type: string,
-  imageUrl: string,
-  mobo: string,
-  gpu: string,
-  cpu: string,
-  ram: string,
-  memory: string,
-  cooling: string,
-  price: number
-}
+import { PcsType } from 'src/app/model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PcsService {
 
-  intelpcs: pcsType[] = [
+  intelpcs: PcsType[] = [
     {
       id: 122,
       type: "Intel",
@@ -93,7 +81,7 @@ export class PcsService {
   // AMD PC
 
 
-  amdpcs: pcsType[] = [
+  amdpcs: PcsType[] = [
     {
       id: 127,
       type: "AMD",

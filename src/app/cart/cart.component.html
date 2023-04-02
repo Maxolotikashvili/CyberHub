@@ -3,10 +3,10 @@
 
     <!-- Empty Cart -->
     <h2 class="cart-h2">
-      Cart <span class="empty-span" *ngIf="items.length == 0">is empty</span>
+      Cart <span class="empty-span" *ngIf="cartItems.length == 0">is empty</span>
     </h2>
 
-    <div class="emptybox" *ngIf="items.length == 0">
+    <div class="emptybox" *ngIf="cartItems.length == 0">
       <fa-icon [icon]="cart"></fa-icon>
       <h4 class="fill-h4">
         You Can Fill Your Cart By Navigating To Shopping Section
@@ -23,7 +23,7 @@
 
 
     <!-- Filled Cart -->
-    <div class="smallbox" *ngIf="items.length !== 0">
+    <div class="smallbox" *ngIf="cartItems.length !== 0">
       <div class="cartbox">
         <div class="titlebox">
           <br />
@@ -34,7 +34,7 @@
         </div>
 
         <div class="itembox">
-          <div class="item" *ngFor="let item of items">
+          <div class="item" *ngFor="let item of cartItems">
             <img class="item-img" [src]="item.imageUrl" />
             <span class="item-span">{{ item.name }}</span>
             <span class="item-price">{{ item.price }}$</span>
@@ -98,9 +98,9 @@
       <div class="summarybox">
         <h3 class="summary-h3">Summary</h3>
         <h5 class="selected-h5">Selected Items:</h5>
-        <div class="item-namebox" *ngFor="let names of items">
+        <div class="item-namebox" *ngFor="let names of cartItems">
           <span class="item-names" *ngIf="names.quantity !== 0">{{names.name}}
-            <span *ngIf="items.indexOf(names) !== items.length-1">,</span>
+            <span *ngIf="cartItems.indexOf(names) !== cartItems.length - 1">,</span>
           </span>
         </div>
         <mat-divider></mat-divider>

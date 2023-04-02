@@ -1,12 +1,11 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { faFacebook, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { Component, OnInit } from '@angular/core';
 import { faBars, faCartShopping, faCopyright, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { CartItemService } from './Services/Cart/cart-item.service';
 import { WishlistService } from './Services/Wishlist/wishlist.service';
 import { MatDialog } from '@angular/material/dialog'
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { SignService } from './Services/sign.service';
+import { CartItemsType } from './model';
 
 @Component({
   selector: 'app-root',
@@ -16,68 +15,72 @@ import { SignService } from './Services/sign.service';
 export class AppComponent implements OnInit {
   title = 'Cyberhub';
 
-  // Cart & Wishlist
-  wishes!: any[];
-  items!: any[];
+  responsiveMode!: boolean;
+  burgerBar = 'burger-bar'
 
-  // Fontawesome
-  facebook = faFacebook;
-  twitter = faTwitter;
-  youtube = faYoutube;
-  bar = faBars;
-  cart = faCartShopping;
-  heart = faHeart;
-  copyright = faCopyright;
-  bars = faBars;
+  wishList: CartItemsType[] = [];
+  cartItems: CartItemsType[] = [];
 
-  // Responsive
-  show: boolean = true;
+  fontawesome = {
+    cart: faCartShopping,
+    wishlist: faHeart
+  }
 
-  constructor(
-    private cartitemservice: CartItemService,
-    private wishlistservice: WishlistService,
-    private signservice: SignService,
-    private dialog: MatDialog
-  ) { }
+  isUserLoggedIn!: boolean;
+  userName!: string;
 
+  constructor(private wishListService: WishlistService, private cartItemService: CartItemService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
-
-    // Get Wishlist Items
-    this.wishlistservice.sendItems().subscribe((data) => {
-      this.wishes = data;
-    });
-
-    // Get Cart Items
-    this.cartitemservice.sendItems().subscribe((data) => {
-      this.items = data;
-    });
-
+    this.checkIfUserIsLoggedIn();
+    this.getWishListtItems();
+    this.getCartItems();
   }
 
-  badgeDisplay() {
-    let total: number = 0;
+  //
+  checkIfUserIsLoggedIn() {
+    this.isUserLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn')!);
+    this.userName = JSON.parse(localStorage.getItem('userRegistrationData')!).name;
+  } 
 
-    this.items.forEach(element => {
-      total += element.quantity;
-    })
-
-    return total
+  //
+  signOutUser() {
+    localStorage.removeItem('isLoggedIn');
+    alert('Refresh the page to sign out');
   }
 
-  // Open Login Component
-  openLogin() {
+  //
+  getWishListtItems() {
+    this.wishListService.wishListFlow.subscribe((data: CartItemsType[]) => {
+      this.wishList = data;
+    });
+  }
+
+  //
+  getCartItems() {
+    this.cartItemService.cartItemsFlow.subscribe((cartItems: CartItemsType[]) => {
+      this.cartItems = cartItems;
+    });
+  }
+
+  //
+  openUserLoginComponent() {
     this.dialog.open(LoginComponent);
   }
 
-  // Open Register Component
-  openRegister() {
+  //
+  openUserRegisterComponent() {
     this.dialog.open(RegisterComponent);
   }
 
-  // Burger Bar
-  openMenu() {
-    this.show = !this.show;
+  //
+  animateBurgerBar() {
+    if (!this.responsiveMode) {
+      this.burgerBar = 'responsive-burger-bar';
+      this.responsiveMode = !this.responsiveMode;
+    } else {
+      this.burgerBar = '';
+      this.responsiveMode = !this.responsiveMode;
+    }
   }
-
 }

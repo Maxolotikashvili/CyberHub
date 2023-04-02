@@ -3,6 +3,8 @@ $font-saira: "Saira Condensed", sans-serif;
 $font-roboto: "Roboto", sans-serif;
 $silver: silver;
 
+$grid-column-width: 23rem;
+
 .filterbox {
     display: flex;
     flex-direction: column;
@@ -194,25 +196,25 @@ $silver: silver;
 
 @media (min-width: 1800px) {
     .gridbox {
-        grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+        grid-template-columns: repeat(7, minmax(0, $grid-column-width)) !important;
     }
 }
 
 @media (min-width: 1580px) {
     .gridbox {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
+        grid-template-columns: repeat(6, minmax(0, $grid-column-width));
     }
 }
 
 @media (min-width: 1471px) {
     .gridbox {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: repeat(5, minmax(0, $grid-column-width));
     }
 }
 
 @media (max-width: 1470px) {
     .gridbox {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, $grid-column-width));
     }
 }
 
@@ -226,7 +228,7 @@ $silver: silver;
 
 @media (max-width: 1000px) {
     .gridbox {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, $grid-column-width));
     }
 }
 
@@ -255,7 +257,7 @@ $silver: silver;
     }
 
     .gridbox {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, $grid-column-width));
     }
 }
 
@@ -289,7 +291,7 @@ $silver: silver;
     }
 
     .gridbox {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
+        grid-template-columns: repeat(1, minmax(0, $grid-column-width));
     }
 }
 

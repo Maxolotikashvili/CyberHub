@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { GpusService, gpusType } from 'src/app/Services/buildservice/gpus.service';
+import { GpusType } from 'src/app/model';
+import { GpusService } from 'src/app/Services/buildservice/gpus.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
@@ -11,10 +12,10 @@ import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
   styleUrls: ['./gpus.component.scss']
 })
 export class GpusComponent implements OnInit {
-  gpus!: gpusType[];
+  gpus!: GpusType[];
 
   // For Filters
-  defaultGpus!: gpusType[];
+  defaultGpus!: GpusType[];
 
   // Filter Variables
   max!: number;
@@ -50,7 +51,7 @@ export class GpusComponent implements OnInit {
     }, 1500);
 
     // Get Gpus 
-    this.gpusservice.getGpus().subscribe((data: gpusType[]) => {
+    this.gpusservice.getGpus().subscribe((data: GpusType[]) => {
       this.gpus = data;
       this.defaultGpus = data;
     });
@@ -68,12 +69,12 @@ export class GpusComponent implements OnInit {
 
   // Send Clicked Item To Wishlist
   addWishlist(item: any) {
-    this.wishlistservice.getItems(item);
+    this.wishlistservice.sendItems(item);
   };
 
   // Send Clicked Item To Cart
-  sendToCart(item: gpusType) {
-    this.cartitemservice.getItems(item)
+  sendToCart(item: GpusType) {
+    this.cartitemservice.sendItems(item)
   };
 
   // SnackBar

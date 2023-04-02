@@ -1,23 +1,13 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-
-export interface hddsType {
-  id: number,
-  hddId: number,
-  manufacturer: string,
-  imageUrl: string,
-  name: string,
-  memory: string,
-  quantity: number
-  price: number
-}
+import { HddsType } from 'src/app/model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HddsService {
 
-  hdds: hddsType[] = [
+  hdds: HddsType[] = [
     {
       id: 63,
       hddId: 1,

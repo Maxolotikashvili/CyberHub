@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { MobosService, mobosType } from 'src/app/Services/buildservice/mobos.service';
+import { MobosType } from 'src/app/model';
+import { MobosService } from 'src/app/Services/buildservice/mobos.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
@@ -11,10 +12,10 @@ import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
   styleUrls: ['./mobos.component.scss']
 })
 export class MobosComponent implements OnInit {
-  mobos!: mobosType[];
+  mobos!: MobosType[];
 
   // For Filters
-  defaultMobos!: mobosType[];
+  defaultMobos!: MobosType[];
 
   // Filter Variables
   max!: number;
@@ -67,12 +68,12 @@ export class MobosComponent implements OnInit {
 
   // Send Clicked Item To Wishlist
   addWishlist(item: any) {
-    this.wishlistservice.getItems(item);
+    this.wishlistservice.sendItems(item);
   }
 
   // Send Clicked Item To Cart
-  sendToCart(item: mobosType) {
-    this.cartitemservice.getItems(item)
+  sendToCart(item: MobosType) {
+    this.cartitemservice.sendItems(item)
   }
 
   // SnackBar

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PcsService, pcsType } from 'src/app/Services/buildservice/pcs.service';
+import { PcsService } from 'src/app/Services/buildservice/pcs.service';
+import { PcsType } from 'src/app/model';
 
 @Component({
   selector: 'app-amd',
@@ -7,7 +8,7 @@ import { PcsService, pcsType } from 'src/app/Services/buildservice/pcs.service';
   styleUrls: ['./amd.component.scss']
 })
 export class AmdComponent implements OnInit {
-  amdpcs!: pcsType[];
+  amdpcs!: PcsType[];
 
 
   // Spinner

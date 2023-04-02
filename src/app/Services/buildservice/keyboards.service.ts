@@ -1,22 +1,12 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-
-export interface keyboardsType {
-  id: number,
-  keyboardId: number,
-  manufacturer: string,
-  imageUrl: string,
-  name: string,
-  switch: string,
-  quantity: number,
-  price: number
-}
+import { KeyboardsType } from 'src/app/model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class KeyboardsService {
-  keyboards: keyboardsType[] = [
+  keyboards: KeyboardsType[] = [
     {
       id: 77,
       keyboardId: 1,

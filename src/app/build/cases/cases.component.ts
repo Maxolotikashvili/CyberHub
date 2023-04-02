@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { CasesService, casesType } from 'src/app/Services/buildservice/cases.service';
+import { CasesType } from 'src/app/model';
+import { CasesService } from 'src/app/Services/buildservice/cases.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
@@ -11,10 +12,10 @@ import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
   styleUrls: ['./cases.component.scss']
 })
 export class CasesComponent implements OnInit {
-  cases!: casesType[];
+  cases!: CasesType[];
 
   // For Filters
-  defaultCases!: casesType[];
+  defaultCases!: CasesType[];
 
   // Variables For Filtering Price
   max!: number;
@@ -66,11 +67,11 @@ export class CasesComponent implements OnInit {
   }
 
   addWishlist(item: any) {
-    this.wishlistservice.getItems(item);
+    this.wishlistservice.sendItems(item);
   }
 
-  sendItem(item: casesType) {
-    this.cartitemservice.getItems(item)
+  sendItem(item: CasesType) {
+    this.cartitemservice.sendItems(item)
   }
 
   snackDisplay(message: string, action: any) {

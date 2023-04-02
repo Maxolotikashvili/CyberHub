@@ -14,6 +14,9 @@ import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Page404Component } from './page404/page404.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { HeaderMenuComponent } from './header-menu/header-menu.component';
+import { LoadingComponent } from './loading/loading.component';
+import { PartsComponent } from './parts/parts.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { CheckoutComponent } from './checkout/checkout.component';
     LoginComponent,
     RegisterComponent,
     Page404Component,
-    CheckoutComponent
+    CheckoutComponent,
+    HeaderMenuComponent,
+    LoadingComponent,
+    PartsComponent
   ],
   imports: [
     BrowserModule,

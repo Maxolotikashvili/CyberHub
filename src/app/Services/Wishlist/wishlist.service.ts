@@ -1,25 +1,27 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+import { CartItemsType } from 'src/app/model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WishlistService {
-  items: any[] = [];
+  wishListItems: CartItemsType[] = [];
   filteredItems!: any[];
+  
+  wishListSubject = new BehaviorSubject<CartItemsType[]>(this.wishListItems);
+  wishListFlow = this.wishListSubject.asObservable();
 
   constructor() { }
 
-  getItems(item: any) {
-    this.items.push(item);
+  sendItems(item: CartItemsType) {
+    this.wishListItems.push(item);
 
-    this.filteredItems = this.items.filter((element, index) => this.items.indexOf(element) !== index);
+    this.filteredItems = this.wishListItems.filter((element, index) => this.wishListItems.indexOf(element) !== index);
     this.filteredItems.forEach(element => {
-      this.items.splice(this.items.indexOf(element), 1);
+      this.wishListItems.splice(this.wishListItems.indexOf(element), 1);
     });
-  }
 
-  sendItems() {
-    return of(this.items);
+    this.wishListSubject.next(this.wishListItems);
   }
 }

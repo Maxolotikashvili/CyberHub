@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { SsdsService, ssdsType } from 'src/app/Services/buildservice/ssds.service';
+import { SsdsType } from 'src/app/model';
+import { SsdsService } from 'src/app/Services/buildservice/ssds.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
@@ -11,10 +12,10 @@ import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
   styleUrls: ['./ssds.component.scss']
 })
 export class SsdsComponent implements OnInit {
-  ssds!: ssdsType[];
+  ssds!: SsdsType[];
 
   // For Filters
-  defaultSsds!: ssdsType[];
+  defaultSsds!: SsdsType[];
 
   // Filter Variables
   max!: number;
@@ -67,12 +68,12 @@ export class SsdsComponent implements OnInit {
 
   // Send Clicked Items To Wishlist
   addWishlist(item: any) {
-    this.wishlistservice.getItems(item);
+    this.wishlistservice.sendItems(item);
   };
 
   // Send Clicked Items To Cart
-  sendToCart(item: ssdsType) {
-    this.cartitemservice.getItems(item)
+  sendToCart(item: SsdsType) {
+    this.cartitemservice.sendItems(item)
   };
 
   // SnackBar

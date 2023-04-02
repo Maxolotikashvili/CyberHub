@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { coolersType, CpuCoolersService } from 'src/app/Services/buildservice/cpu-coolers.service';
+import { CoolersType } from 'src/app/model';
+import { CpuCoolersService } from 'src/app/Services/buildservice/cpu-coolers.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
@@ -11,10 +12,10 @@ import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
   styleUrls: ['./cpu-coolers.component.scss']
 })
 export class CpuCoolersComponent implements OnInit {
-  coolers!: coolersType[];
+  coolers!: CoolersType[];
 
   // For Filters
-  defaultCoolers!: coolersType[];
+  defaultCoolers!: CoolersType[];
 
   // Variables For Filtering Price
   max!: number;
@@ -67,12 +68,12 @@ export class CpuCoolersComponent implements OnInit {
 
   // Send Clicked Item To Wishlist
   addWishlist(item: any) {
-    this.wishlistservice.getItems(item);
+    this.wishlistservice.sendItems(item);
   }
 
   // Send Clicked Item To Cart
-  sendToCart(item: coolersType) {
-    this.cartitemservice.getItems(item)
+  sendToCart(item: CoolersType) {
+    this.cartitemservice.sendItems(item)
   }
 
   // SnackBar

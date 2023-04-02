@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService, newsType, partsType } from '../Services/news.service';
+import { NewsService } from '../Services/news.service';
+import { NewsType, PcPartsType } from '../model';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +8,8 @@ import { NewsService, newsType, partsType } from '../Services/news.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  news!: newsType[];
-  parts!: partsType[];
+  news!: NewsType[];
+  parts!: PcPartsType[];
 
   constructor(private newsservice: NewsService) { }
 

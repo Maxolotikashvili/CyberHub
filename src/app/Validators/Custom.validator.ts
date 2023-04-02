@@ -1,4 +1,4 @@
-import {AbstractControl} from "@angular/forms";
+import { AbstractControl } from "@angular/forms";
 
 export const matchValidator = (Control: AbstractControl) => {
     const Password = Control.get('password');

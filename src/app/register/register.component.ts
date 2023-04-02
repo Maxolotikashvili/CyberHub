@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import { SignService, userType } from '../Services/sign.service';
 import { matchValidator } from '../Validators/Custom.validator';
+import { UserSignInType } from '../model';
 
 @Component({
   selector: 'app-register',
@@ -11,40 +11,32 @@ import { matchValidator } from '../Validators/Custom.validator';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  // Form Variable
   userForm!: FormGroup;
 
-  // Getter Variable
-  Firstname!: any;
-  Lastname!: any;
-  Email!: any;
-  Date!: any;
-  Password!: any;
-  Confirmpassword!: any;
+  Firstname!: AbstractControl | null;
+  Lastname!: AbstractControl | null;
+  Email!: AbstractControl | null;
+  Date!: AbstractControl | null;
+  Password!: AbstractControl | null;
+  Confirmpassword!: AbstractControl | null;
 
   // Date
   minDate = new Date(1900, 1, 1);
   maxDate = new Date();
 
-  // Fontawesome
-  xmark = faXmark;
+  fontawesome = {
+    xmark: faXmark
+  }
 
-  // User Object
-  userData!: userType;
+  userData!: UserSignInType;
 
-  // Spinner
-  spinnerboxshow = "";
-  blur = "";
-
-  constructor(
-    private fb: FormBuilder,
-    private dialog: MatDialog,
-    private signservice: SignService
-  ) { }
+  constructor(private fb: FormBuilder, private dialog: MatDialog) { }
 
   ngOnInit(): void {
+   this.activateFormVaildators();
+  }
 
-    // Form
+  activateFormVaildators() {
     this.userForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
       lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
@@ -64,20 +56,21 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  // Close Window
-  dialogClose() {
+  closeDialog() {
     this.dialog.closeAll();
   }
 
   // Save User Data
-  sendData() {
+  sendUserDataToLoginComponent() {
     this.userData = {
-      email: this.Email.value,
-      password: this.Password.value
+      name: this.Firstname?.value,
+      email: this.Email?.value,
+      password: this.Password?.value
     };
 
-    this.signservice.getData(this.userData);
+    // this.signservice.getData(this.userData);
     alert('Account Has Been Created');
+    localStorage.setItem('userRegistrationData', JSON.stringify(this.userData));
     this.dialog.closeAll()
   }
 

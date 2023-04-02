@@ -1,19 +1,6 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-
-export interface newsType {
-  id: number,
-  title: string,
-  body: string,
-  photoUrl: string
-};
-
-export interface partsType {
-  id: number,
-  router: string,
-  imageUrl: string,
-  name: string
-};
+import { NewsType, PcPartsType } from '../model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +8,7 @@ export interface partsType {
 export class NewsService {
 
   // News
-  news: newsType[] = [
+  news: NewsType[] = [
     {
       id: 1,
       title: "Nvidia is set to spend at least $10B to secure its share of limited 5nm chip supply",
@@ -81,7 +68,7 @@ export class NewsService {
 
 
     // Pc Parts
-    pcParts: partsType[] = [
+    pcParts: PcPartsType[] = [
       {
         id: 1,
         router: "/build/mobos",

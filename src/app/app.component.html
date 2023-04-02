@@ -1,313 +1,49 @@
-<header class="header">
-  <div class="headerbox">
-    <div class="logobox">
-      <a class="logo" routerLink="/home">
-        <span class="letter-c">C</span>yber<span class="hub">Hub</span>
-      </a>
+<header>
+    <div class="header-block1">
+        <a routerLink="/home" class="cyberhub-anchor">
+            <span class="letter-c">C</span>yber<span class="hub">Hub</span>    
+        </a>
+
+        <div class="header-wrapper">
+            <div class="cart-wishlist-wrapper">
+
+                <div [matBadge]="wishList.length" [matBadgeHidden]="wishList.length === 0" matBadgeOverlap="false">
+                    <fa-icon [icon]="fontawesome.wishlist" routerLink="/wishlist"></fa-icon>
+                </div>
+               
+                <div [matBadge]="cartItems.length" [matBadgeHidden]="cartItems.length === 0" matBadgeOverlap="false">
+                    <fa-icon [icon]="fontawesome.cart" routerLink="/cart"></fa-icon>
+                </div>
+            </div>
+
+            <div class="column-divider"></div>
+
+            <div class="login-wrapper" *ngIf="!isUserLoggedIn">
+                <button mat-button (click)="openUserLoginComponent()">Sign In</button>
+                <div class="column-divider"></div>
+                <button mat-button (click)="openUserRegisterComponent()">Register</button>
+            </div>
+
+            <div class="userbox" *ngIf="isUserLoggedIn">
+                <img src="assets/Icons/user.png" alt="User">
+                <button mat-button [matMenuTriggerFor]="usermenu">{{userName}}</button>
+            </div>
+
+            <mat-menu #usermenu>
+                <button mat-button (click)="signOutUser()">Sign Out</button>
+            </mat-menu>
+        </div>
+
+        <div [class]="burgerBar" class="burger-bar" (click)="animateBurgerBar()">
+            <div class="childbar1"></div>
+            <div class="childbar2"></div>
+            <div class="childbar3"></div>
+        </div>
     </div>
+    
+    <div class="divider"></div>
 
-    <fa-icon [icon]="bars" class="bars" (click)="openMenu()"></fa-icon>
-
-    <nav class="navigation">
-      <ul class="list">
-        <li>
-          <a class="link" href="#News">News</a>
-        </li>
-        <li>
-          <a class="link" href="#Build">Build</a>
-        </li>
-        <li>
-          <a
-            class="link"
-            routerLink="/build/buildhome"
-            routerLinkActive="active"
-            >Shop</a
-          >
-        </li>
-      </ul>
-    </nav>
-
-    <!-- Badges -->
-    <div class="badgebigbox">
-      <div
-        class="badgebox margin"
-        [matBadge]="wishes.length"
-        [matBadgeHidden]="wishes.length === 0"
-        matBadgeOverlap="false"
-      >
-        <fa-icon class="cart" [icon]="heart" routerLink="/wishlist"></fa-icon>
-      </div>
-
-      <div
-        class="badgebox"
-        [matBadge]="badgeDisplay()"
-        [matBadgeHidden]="items.length === 0"
-        matBadgeOverlap="false"
-        >
-        <fa-icon [icon]="cart" class="cart" routerLink="/cart"></fa-icon>
-      </div>
-    </div>
-
-    <div class="signbox">
-      <button mat-button class="sign" (click)="openLogin()">Sign In</button>
-      <span>Or</span>
-      <button
-        mat-button
-        class="register"
-        color="primary"
-        (click)="openRegister()"
-      >
-        Register
-      </button>
-    </div>
-  </div>
-
-  <!-- Divider -->
-  <mat-divider class="divider"></mat-divider>
-
-  <div class="menubox">
-    <br />
-    <mat-menu #builtmenu="matMenu">
-      <button
-        mat-menu-item
-        class="menu-inside-button"
-        routerLink="/build/pctype/intel"
-      >
-        Intel PC
-      </button>
-      <button
-        mat-menu-item
-        class="menu-inside-button"
-        routerLink="/build/pctype/amd"
-      >
-        AMD PC
-      </button>
-    </mat-menu>
-    <button mat-button class="menu-button" [matMenuTriggerFor]="builtmenu">
-      Built PC - s
-    </button>
-
-    <mat-menu #partsmenu="matMenu">
-      <button
-        class="menu-inside-button"
-        mat-menu-item
-        routerLink="/build/mobos"
-      >
-        Motherboard
-      </button>
-      <button class="menu-inside-button" mat-menu-item routerLink="/build/cpus">
-        Proccessor
-      </button>
-      <button class="menu-inside-button" mat-menu-item routerLink="/build/gpus">
-        Video Card
-      </button>
-      <button class="menu-inside-button" mat-menu-item routerLink="/build/rams">
-        Memory
-      </button>
-      <button class="menu-inside-button" mat-menu-item routerLink="/build/ssds">
-        Solid State Drive
-      </button>
-      <button class="menu-inside-button" mat-menu-item routerLink="/build/hdds">
-        Hard Disk Drive
-      </button>
-      <button
-        class="menu-inside-button"
-        mat-menu-item
-        routerLink="/build/cpu-coolers"
-      >
-        Cooler
-      </button>
-      <button
-        class="menu-inside-button"
-        mat-menu-item
-        routerLink="/build/cases"
-      >
-        Case
-      </button>
-    </mat-menu>
-
-    <button mat-button class="menu-button" [matMenuTriggerFor]="partsmenu">
-      PC Parts
-    </button>
-
-    <mat-menu #accessoriesmenu="matMenu">
-      <button mat-menu-item class="menu-inside-button" routerLink="/build/keyboards">Keyboard</button>
-      <button mat-menu-item class="menu-inside-button" routerLink="/build/headsets">Headset</button>
-    </mat-menu>
-
-    <button
-      mat-button
-      class="menu-button"
-      [matMenuTriggerFor]="accessoriesmenu"
-    >
-      PC Accessories
-    </button>
-    <br />
-  </div>
-
-  <!-- Responsive -->
-  <div class="responsivebox" [class.show]="show">
-    <div class="responsive-signbox">
-      <button mat-button class="responsive-sign" (click)="openLogin()">
-        Sign In
-      </button>
-      <span>Or</span>
-      <button
-        mat-button
-        class="responsive-register"
-        color="primary"
-        (click)="openRegister()"
-      >
-        Register
-      </button>
-    </div>
-
-    <!-- Badges -->
-    <div class="responsive-badgebigbox">
-      <div
-        class="responsive-badgebox"
-        [matBadge]="wishes.length"
-        [matBadgeHidden]="wishes.length === 0"
-        matBadgeOverlap="false"
-      >
-        <fa-icon class="cart" [icon]="heart" routerLink="/wishlist"></fa-icon>
-      </div>
-
-      <div
-        class="responsive-badgebox"
-        [matBadge]="badgeDisplay()"
-        [matBadgeHidden]="items.length === 0"
-        matBadgeOverlap="false"
-        >
-        <fa-icon [icon]="cart" class="cart" routerLink="/cart"></fa-icon>
-      </div>
-    </div>
-
-    <mat-divider class="responsive-divider"></mat-divider>
-
-    <nav class="responsive-navigation">
-      <ul class="responsive-list">
-        <li>
-          <a class="responsive-link" href="#news">News</a>
-        </li>
-        <li>
-          <a class="responsive-link" href="#Build">Build</a>
-        </li>
-        <li>
-          <a
-            class="responsive-link"
-            routerLink="/build/buildhome"
-            routerLinkActive="active"
-            >Shop</a
-          >
-        </li>
-      </ul>
-    </nav>
-
-    <!-- Responsive Divider -->
-    <mat-divider class="responsive-divider"></mat-divider>
-
-    <div class="responsive-menubox">
-      <mat-menu #builtmenu="matMenu">
-        <button
-          mat-menu-item
-          class="menu-inside-button"
-          routerLink="/build/pctype/intel"
-        >
-          Intel PC
-        </button>
-        <button
-          mat-menu-item
-          class="menu-inside-button"
-          routerLink="/build/pctype/amd"
-        >
-          AMD PC
-        </button>
-      </mat-menu>
-
-      <button mat-button class="menu-button" [matMenuTriggerFor]="builtmenu">
-        Built PC - s
-      </button>
-
-      <mat-menu #partsmenu="matMenu">
-        <button
-          class="menu-inside-button"
-          mat-menu-item
-          routerLink="/build/mobos"
-        >
-          Motherboard
-        </button>
-        <button
-          class="menu-inside-button"
-          mat-menu-item
-          routerLink="/build/cpus"
-        >
-          Proccessor
-        </button>
-        <button
-          class="menu-inside-button"
-          mat-menu-item
-          routerLink="/build/gpus"
-        >
-          Video Card
-        </button>
-        <button
-          class="menu-inside-button"
-          mat-menu-item
-          routerLink="/build/rams"
-        >
-          Memory
-        </button>
-        <button
-          class="menu-inside-button"
-          mat-menu-item
-          routerLink="/build/ssds"
-        >
-          Solid State Drive
-        </button>
-        <button
-          class="menu-inside-button"
-          mat-menu-item
-          routerLink="/build/hdds"
-        >
-          Hard Disk Drive
-        </button>
-        <button
-          class="menu-inside-button"
-          mat-menu-item
-          routerLink="/build/cpu-coolers"
-        >
-          Cooler
-        </button>
-        <button
-          class="menu-inside-button"
-          mat-menu-item
-          routerLink="/build/cases"
-        >
-          Case
-        </button>
-      </mat-menu>
-
-      <button mat-button class="menu-button" [matMenuTriggerFor]="partsmenu">
-        PC Parts
-      </button>
-
-      <mat-menu #accessoriesmenu="matMenu">
-        <button mat-menu-item class="menu-inside-button">Monitor</button>
-        <button mat-menu-item class="menu-inside-button">Keyboard</button>
-        <button mat-menu-item class="menu-inside-button">Mouse</button>
-        <button mat-menu-item class="menu-inside-button">Headset</button>
-      </mat-menu>
-
-      <button
-        mat-button
-        class="menu-button"
-        [matMenuTriggerFor]="accessoriesmenu"
-      >
-        PC Accessories
-      </button>
-    </div>
-  </div>
+    <app-header-menu></app-header-menu>
 </header>
 
 <router-outlet></router-outlet>

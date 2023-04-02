@@ -1,13 +1,6 @@
-<div
-  class="bodybox"
-  [ngStyle]="{
-    'background-image': 'url(assets/Backgrounds/background-gaming.jpg)'
-  }"
->
+<div class="bodybox" [ngStyle]="{'background-image': 'url(assets/Backgrounds/background-gaming.jpg)'}">
   <section class="section1">
-    <h1>
-      Premium PC Shop For Ultimate <span style="color: blue">Gaming</span>
-    </h1>
+    <h1>Premium PC Shop For Ultimate <span style="color: blue">Gaming</span></h1>
 
     <div class="shopbutton-box">
       <button class="shop-button" routerLink="/build">Shop Now</button>
@@ -81,18 +74,14 @@
 
       <!-- NZXT Buy  -->
       <h3 class="buy-now">Buy Now</h3>
-      <h6 class="buy-white">
-        NZXT <span style="color: white">White</span> Series
-      </h6>
+      <h6 class="buy-white">NZXT<span style="color: white"> White</span> Series</h6>
 
       <div class="nzxt-buy-box">
         <div class="nzxtboxes">
           <span class="nzxt-span">Z 73 RGB</span>
           <img class="z73" src="assets/NZXT/kraken-z73.png" />
           <span class="price-span">369.99$</span>
-          <button mat-button class="span-buy" routerLink="/build/cpu-coolers">
-            Buy
-          </button>
+          <button mat-button class="span-buy" routerLink="/build/cpu-coolers">Buy</button>
         </div>
 
         <mat-divider class="responsivedivider"></mat-divider>
@@ -101,9 +90,7 @@
           <span class="nzxt-span">X 73 RGB</span>
           <img class="x73" src="assets/NZXT/kraken-x73.png" />
           <span class="price-span">189.99$</span>
-          <button mat-button class="span-buy" routerLink="/build/cpu-coolers">
-            Buy
-          </button>
+          <button mat-button class="span-buy" routerLink="/build/cpu-coolers">Buy</button>
         </div>
       </div>
     </div>
@@ -126,7 +113,7 @@
 
   <!-- Section II ( Build ) -->
 
-  <section class="section2">
+  <section class="section2" id="quick-shopping">
     <h2 class="intro-grid" id="Build">Browse Game - Ready PC-s</h2>
 
     <!-- Grid -->
@@ -135,12 +122,7 @@
       <div class="pc-grid">
         <div class="extremebox">
           <h2 class="extreme">Extreme</h2>
-          <div
-            class="pc-image-extreme"
-            [ngStyle]="{
-              'background-image': 'url(assets/PcParts/PCs/3090-pc.png)'
-            }"
-          ></div>
+          <div class="pc-image-extreme" [ngStyle]="{   'background-image': 'url(assets/PcParts/PCs/3090-pc.png)' }"></div>
         </div>
 
         <div class="specsbox">
@@ -155,15 +137,8 @@
             <span class="pc-ssd">SSD: 3TB</span>
 
             <div class="pricebox">
-              <span class="pc-price"
-                >13 000<span style="color: red">$</span></span
-              >
-              <button
-                mat-button
-                class="pc-button"
-                routerLink="../build/pctype/intel"
-              >
-                Shop Now
+              <span class="pc-price">13 000<span style="color: red">$</span></span>
+              <button mat-button class="pc-button" routerLink="../build/pctype/intel">Shop Now
               </button>
             </div>
           </div>
@@ -173,12 +148,7 @@
       <div class="smallgrid">
         <div class="highendbox">
           <h2 class="highend">High End</h2>
-          <div
-            class="pc-image-highend"
-            [ngStyle]="{
-              'background-image': 'url(assets/PcParts/PCs/3070ti-pc.png)'
-            }"
-          ></div>
+          <div class="pc-image-highend" [ngStyle]="{'background-image': 'url(assets/PcParts/PCs/3070ti-pc.png)'}"></div>
         </div>
 
         <div class="specsbox">
@@ -194,16 +164,8 @@
               <span class="pc-ssd">SSD: 1TB</span>
 
               <div class="price-buttonbox">
-                <span class="pc-price"
-                  >4 500<span style="color: blue">$</span></span
-                >
-                <button
-                  mat-button
-                  class="pc-button"
-                  routerLink="../build/pctype/intel"
-                >
-                  Shop Now
-                </button>
+                <span class="pc-price">4 500<span style="color: blue">$</span></span>
+                <button mat-button class="pc-button" routerLink="../build/pctype/intel">Shop Now</button>
               </div>
             </div>
           </div>
@@ -213,12 +175,7 @@
       <div class="smallgrid">
         <div class="highendbox">
           <h2 class="budget">Budget</h2>
-          <div
-            class="pc-image-budget"
-            [ngStyle]="{
-              'background-image': 'url(assets/PcParts/PCs/rx580-pc.png)'
-            }"
-          ></div>
+          <div class="pc-image-budget" [ngStyle]="{'background-image': 'url(assets/PcParts/PCs/rx580-pc.png)'}"></div>
         </div>
 
         <div class="specsbox">
@@ -234,17 +191,10 @@
               <span class="pc-ssd">SSD: 500GB</span>
 
               <div class="price-buttonbox">
-                <span class="pc-price"
-                  >1 500<span style="color: yellow">$</span></span
-                >
-                <button
-                  mat-button
-                  class="pc-rx-button"
-                  routerLink="../build/pctype/amd"
-                >
-                  Shop Now
-                </button>
+                <span class="pc-price">1 500<span style="color: yellow">$</span></span>
+                <button mat-button class="pc-rx-button" routerLink="../build/pctype/amd">Shop Now</button>
               </div>
+              
             </div>
           </div>
         </div>
@@ -255,16 +205,10 @@
       <h2 class="build-h2">Build Your Own</h2>
 
       <div class="bigboxgrid">
-        <button
-          mat-button
-          class="assemblebox"
-          *ngFor="let item of parts"
-          [routerLink]="item.router"
-        >
+        <button mat-button class="assemblebox" *ngFor="let item of parts" [routerLink]="item.router">
           <div class="partbox">
-            <img class="image" [src]="item.imageUrl" />
-            {{ item.name }}
-          </div>
+            <img class="image" [src]="item.imageUrl" /> 
+            {{ item.name }}</div>
         </button>
       </div>
     </div>

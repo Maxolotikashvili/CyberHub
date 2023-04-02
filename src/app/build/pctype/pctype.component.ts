@@ -10,9 +10,7 @@ export class PctypeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
-    // Scroll Up
     window.scrollTo(0, 0);
   }
-
+  
 }

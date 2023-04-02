@@ -1,22 +1,12 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-
-export interface headsetsType {
-  id: number,
-  headsetId: number,
-  manufacturer: string,
-  imageUrl: string,
-  name: string,
-  wireless: boolean,
-  quantity: number,
-  price: number
-}
+import { HeadsetsType } from 'src/app/model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeadsetsService {
-  headsets: headsetsType[] = [
+  headsets: HeadsetsType[] = [
     {
       id: 69,
       headsetId: 1,

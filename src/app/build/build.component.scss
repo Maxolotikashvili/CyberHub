@@ -1,104 +1,115 @@
-$font-play: "Play",
-sans-serif;
-$font-saira: "Saira Condensed",
-sans-serif;
-$font-roboto: "Roboto",
-sans-serif;
+$font-play: "Play", ssans-serif;
+$font-saira: "Saira Condensed", sans-serif;
+$font-roboto: "Roboto", sans-serif;
 $shadow-e2: #e2e2e2;
+
+$white: #ffffff;
 
 $background: radial-gradient(circle, rgb(5, 0, 94) 0%, rgba(6, 6, 80, 1) 50%, rgba(0, 20, 83, 1) 100%);
 
 .bigbox {
     background-color: white;
     display: flex;
-    padding: 50px 0px 100px 10px;
+    justify-content: space-between;
+    padding: 5rem 6rem 1rem 1rem;
     overflow-x: hidden;
 
-    .categoriesbox {
-        margin-right: 40px;
-        border-radius: 8px;
-        box-shadow: 3px 3px 5px $shadow-e2;
+    .biglistbox {
+        width: 18%;
 
-        .categories-h {
-            background: $background;
-            font-size: 24px;
-            font-family: $font-saira;
-            letter-spacing: 3px;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            color: white;
-        }
-
-        .listbox {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 27px 100px 27px 15px;
-            border-bottom: 1px solid $shadow-e2;
+        .categoriesbox {
+            width: 100%;
             border-radius: 8px;
-            font-weight: bold;
-            font-size: 14px;
-            letter-spacing: 1px;
-            color: rgb(109, 109, 109);
-            transition: all 0.1s linear;
+            box-shadow: 3px 3px 5px $shadow-e2;
+
+            .categories-h {
+                background: $background;
+                font-size: 2.4rem;
+                font-family: $font-saira;
+                letter-spacing: 3px;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                padding: 20px;
+                text-align: center;
+                color: $white;
+            }
+
+            .listbox {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 2.7rem 0 1.5rem 1.5rem;
+                // padding: 27px 100px 27px 15px;
+                border-bottom: 1px solid $shadow-e2;
+                border-radius: 8px;
+                font-weight: bold;
+                font-size: 1.4rem;
+                letter-spacing: 1px;
+                color: rgb(109, 109, 109);
+                transition: all 0.1s linear;
+            }
+
+            .listbox:hover {
+                box-shadow: 4px 4px 1px $shadow-e2;
+            }
+
+            .active {
+                box-shadow: 4px 4px 1px $shadow-e2;
+                color: black;
+            }
         }
 
-        .listbox:hover {
-            box-shadow: 4px 4px 1px $shadow-e2;
-        }
+        // Accessories
 
-        .active {
-            box-shadow: 4px 4px 1px $shadow-e2;
-            color: black;
+        .accessoriesbox {
+            // margin: 50px 40px 0px 0px;
+            margin: 5rem 0;
+            border-radius: 8px;
+            border-radius: 8px;
+            box-shadow: 3px 3px 5px $shadow-e2;
+
+            .accessories-h {
+                background: $background;
+                font-size: 2.4rem;
+                font-family: $font-saira;
+                letter-spacing: 3px;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                padding: 20px;
+                text-align: center;
+                color: white;
+            }
+
+            .accessorieslink {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 2.7rem 0 1.5rem 1.5rem;
+                // padding: 27px 100px 27px 15px;
+                border-bottom: 1px solid $shadow-e2;
+                border-radius: 8px;
+                font-weight: bold;
+                font-size: 14px;
+                letter-spacing: 1px;
+                color: rgb(109, 109, 109);
+                transition: all 0.1s linear;
+            }
+
+            .accessorieslink:hover {
+                border-radius: 8px;
+                box-shadow: 3px 3px 5px $shadow-e2;
+            }
+
+            .active {
+                border-radius: 8px;
+                box-shadow: 3px 3px 5px $shadow-e2;
+                color: black;
+            }
         }
     }
 
-    // Accessories
-
-    .accessoriesbox {
-        margin: 50px 40px 0px 0px;
-        border-radius: 8px;
-        border-radius: 8px;
-        box-shadow: 3px 3px 5px $shadow-e2;
-
-        .accessories-h {
-            background: $background;
-            font-size: 24px;
-            font-family: $font-saira;
-            letter-spacing: 3px;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            color: white;
-        }
-
-        .accessorieslink {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 27px 100px 27px 15px;
-            border-bottom: 1px solid $shadow-e2;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 14px;
-            letter-spacing: 1px;
-            color: rgb(109, 109, 109);
-            transition: all 0.1s linear;
-        }
-
-        .accessorieslink:hover {
-            border-radius: 8px;
-            box-shadow: 3px 3px 5px $shadow-e2;
-        }
-
-        .active {
-            border-radius: 8px;
-            box-shadow: 3px 3px 5px $shadow-e2;
-            color: black;
-        }
+    .router-link-wrapper {
+        // width: 10%;
     }
 }
 

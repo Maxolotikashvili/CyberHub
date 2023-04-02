@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { HddsService, hddsType } from 'src/app/Services/buildservice/hdds.service';
+import { HddsType } from 'src/app/model';
+import { HddsService } from 'src/app/Services/buildservice/hdds.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
@@ -11,10 +12,10 @@ import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
   styleUrls: ['./hdds.component.scss']
 })
 export class HddsComponent implements OnInit {
-  hdds!: hddsType[];
+  hdds!: HddsType[];
 
   // For Filters
-  defaultHdds!: hddsType[];
+  defaultHdds!: HddsType[];
 
   // Filter Variables
   max!: number;
@@ -67,12 +68,12 @@ export class HddsComponent implements OnInit {
 
   // Send Clicked Item To Wishlist
   addWishlist(item: any) {
-    this.wishlistservice.getItems(item);
+    this.wishlistservice.sendItems(item);
   }
 
   // Send Clicked Item To Cart
-  sendToCart(item: hddsType) {
-    this.cartitemservice.getItems(item)
+  sendToCart(item: HddsType) {
+    this.cartitemservice.sendItems(item)
   }
 
   // SnackBar

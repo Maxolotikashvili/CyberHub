@@ -19,7 +19,7 @@ import { BuildHomeComponent } from './build-home/build-home.component';
 import { PctypeComponent } from './pctype/pctype.component';
 import { IntelComponent } from './intel/intel.component';
 import { AmdComponent } from './amd/amd.component';
-
+// import { PartsComponent } from '../parts/parts.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,8 @@ import { AmdComponent } from './amd/amd.component';
     BuildHomeComponent,
     PctypeComponent,
     IntelComponent,
-    AmdComponent
+    AmdComponent,
+    // PartsComponent
   ],
   imports: [
     CommonModule,

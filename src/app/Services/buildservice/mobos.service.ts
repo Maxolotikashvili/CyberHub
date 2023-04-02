@@ -1,23 +1,13 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-
-export interface mobosType {
-  id: number,
-  moboId: number,
-  manufacturer: String,
-  imageUrl: string,
-  name: string,
-  socket: string,
-  quantity: number,
-  price: number
-}
+import { MobosType } from 'src/app/model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MobosService {
   
-  mobos: mobosType[] = [
+  mobos: MobosType[] = [
     {
       id: 82,
       moboId: 1,

@@ -1,24 +1,13 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-
-export interface psusType {
-  id: number,
-  psuId: number,
-  manufacturer: string,
-  imageUrl: string,
-  name: string,
-  power: number,
-  efficiency: string,
-  quantity: number,
-  price: number
-}
+import { PsusType } from 'src/app/model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PsusService {
 
-  psus: psusType[] = [
+  psus: PsusType[] = [
 
     {
       id: 91,

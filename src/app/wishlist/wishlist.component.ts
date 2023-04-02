@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { faCartShopping, faHeart, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { CartItemService } from '../Services/Cart/cart-item.service';
 import { WishlistService } from '../Services/Wishlist/wishlist.service';
+import { CartItemsType } from '../model';
 
 @Component({
   selector: 'app-wishlist',
@@ -11,7 +12,7 @@ import { WishlistService } from '../Services/Wishlist/wishlist.service';
 })
 export class WishlistComponent implements OnInit {
   // Items
-  items!: any[];
+  wishListItems!: CartItemsType[];
 
   // FontAwesome
   cart = faCartShopping;
@@ -39,22 +40,22 @@ export class WishlistComponent implements OnInit {
 
 
     //  Wishlist
-    this.wishlistservice.sendItems().subscribe((data) => {
-      this.items = data
+    this.wishlistservice.wishListFlow.subscribe((data: CartItemsType[]) => {
+      this.wishListItems = data
     });
   }
 
-  sendItems(item: any) {
-    this.cartitemservice.getItems(item);
-    this.items.splice(this.items.indexOf(item), 1)
+  sendWishListItems(item: any) {
+    this.cartitemservice.sendItems(item);
+    this.wishListItems.splice(this.wishListItems.indexOf(item), 1)
   }
 
   removeItem(item: any) {
-    this.items.splice(this.items.indexOf(item), 1);
+    this.wishListItems.splice(this.wishListItems.indexOf(item), 1);
   }
 
   clearCart() {
-    this.items.splice(0, this.items.length);
+    this.wishListItems.splice(0, this.wishListItems.length);
   }
 
   snackDisplay(message: string, action: any) {

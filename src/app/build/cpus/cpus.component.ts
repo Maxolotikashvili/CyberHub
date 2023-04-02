@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { CpusService, cpusType } from 'src/app/Services/buildservice/cpus.service';
+import { CpusType } from 'src/app/model';
+import { CpusService } from 'src/app/Services/buildservice/cpus.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
@@ -11,10 +12,10 @@ import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
   styleUrls: ['./cpus.component.scss']
 })
 export class CpusComponent implements OnInit {
-  cpus!: cpusType[];
+  cpus!: CpusType[];
 
   // For Filters
-  defaultCpus!: cpusType[];
+  defaultCpus!: CpusType[];
 
   // Filter Variables
   max!: number;
@@ -67,12 +68,12 @@ export class CpusComponent implements OnInit {
 
   // Send Cliced Item To Wishlist
   addWishlist(item: any) {
-    this.wishlistservice.getItems(item);
+    this.wishlistservice.sendItems(item);
   }
 
   // Send Clicked Item To Cart
-  sendToCart(item: cpusType) {
-    this.cartItemService.getItems(item);
+  sendToCart(item: CpusType) {
+    this.cartItemService.sendItems(item);
   }
 
   // SnackBar

@@ -2,13 +2,13 @@
   <div class="bigbox" [class]="blur">
     <h2 class="cart-h2">
       Wishlist
-      <span class="empty-span" *ngIf="items.length == 0">is empty</span>
+      <span class="empty-span" *ngIf="wishListItems.length == 0">is empty</span>
     </h2>
 
     <!-- Empty -->
-    <div class="emptybox" *ngIf="items.length == 0">
+    <div class="emptybox" *ngIf="wishListItems.length == 0">
       <fa-icon [icon]="heart"></fa-icon>
-      <h4 class="fill-h4">Add Items To Your Wishlist From Shopping Section</h4>
+      <h4 class="fill-h4">Add wishListItems To Your Wishlist From Shopping Section</h4>
       <button
         mat-flat-button
         class="goshopping"
@@ -19,7 +19,7 @@
       </button>
     </div>
 
-    <div class="smallbox" *ngIf="items.length !== 0">
+    <div class="smallbox" *ngIf="wishListItems.length !== 0">
       <div class="wishlistbox">
         <div class="titlebox">
           <br />
@@ -30,7 +30,7 @@
         </div>
 
         <div class="itembox">
-          <div class="item" *ngFor="let item of items">
+          <div class="item" *ngFor="let item of wishListItems">
             <img class="item-img" [src]="item.imageUrl" />
             <span class="item-text">{{ item.id }}</span>
             <span class="item-text">{{ item.manufacturer }}</span>
@@ -42,7 +42,7 @@
                 mat-mini-fab
                 color="primary"
                 class="cartbutton"
-                (click)="sendItems(item)"
+                (click)="sendWishListItems(item)"
                 (click)="snackDisplay('Item Added To Cart', 'Dismiss')"
               >
                 <fa-icon class="cart" [icon]="cart"></fa-icon>

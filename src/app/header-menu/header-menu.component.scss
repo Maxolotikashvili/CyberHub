@@ -1,0 +1,46 @@
+$white: #ffffff;
+$secondary-color: #171729;
+$font-play: "Play", sans-serif;
+$letter-spacing: 2px;
+
+$spacing: 1rem;
+
+.header-block2 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 $spacing * 5.5;
+
+    .button-wrapper:nth-child(3), .button-wrapper:nth-child(5), .button-wrapper:nth-child(2) {
+        border-right: none;
+    }
+
+    .button-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: $spacing;
+        border: 1px solid $secondary-color;
+        border-top: none;
+        border-bottom: none;
+        transition: all 0.2s ease;
+
+        img {
+            max-width: 30px;
+            width: 100%;
+        }
+    
+        button {
+            padding: 0;
+            margin-left: $spacing;
+            letter-spacing: $letter-spacing - 1px;
+            color: $white;
+            font-family: $font-play;
+            font-weight: 800;
+        }
+    }
+
+    .button-wrapper:hover {
+        background-color: $secondary-color;
+    }
+}

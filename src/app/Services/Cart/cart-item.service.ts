@@ -1,26 +1,28 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+import { CartItemsType } from 'src/app/model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartItemService {
-  items: any[] = [];
-  filteredItems!: any[];
+  cartItems: CartItemsType[] = []
+  filteredItems!: CartItemsType[];
+
+  cartItemsSubject = new BehaviorSubject<CartItemsType[]>(this.cartItems);
+  cartItemsFlow = this.cartItemsSubject.asObservable();
 
   constructor() { }
 
-  getItems(item: any) {
-    this.items.push(item);
+  sendItems(item: CartItemsType) {
+    this.cartItems.push(item);
 
-    this.filteredItems = this.items.filter((element, index) => this.items.indexOf(element) !== index);
+    this.filteredItems = this.cartItems.filter((element, index) => this.cartItems.indexOf(element) !== index);
     this.filteredItems.forEach(element => {
-      this.items[this.items.indexOf(element)].quantity++;
-      this.items.splice(this.items.indexOf(element), 1);
+      this.cartItems[this.cartItems.indexOf(element)].quantity++;
+      this.cartItems.splice(this.cartItems.indexOf(element), 1);
     });
-  }
-
-  sendItems() {
-    return of(this.items);
+  
+    this.cartItemsSubject.next(this.cartItems);
   }
 }

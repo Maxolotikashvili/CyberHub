@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./build.component.scss']
 })
 export class BuildComponent {
-
   partslist = [
     {
       name: "Pre - Built PC-s",

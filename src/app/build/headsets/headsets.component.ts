@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { HeadsetsService, headsetsType } from 'src/app/Services/buildservice/headsets.service';
+import { HeadsetsType } from 'src/app/model';
+import { HeadsetsService } from 'src/app/Services/buildservice/headsets.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
@@ -11,10 +12,10 @@ import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
   styleUrls: ['./headsets.component.scss']
 })
 export class HeadsetsComponent implements OnInit {
-  headsets!: headsetsType[];
+  headsets!: HeadsetsType[];
 
   // For Filters
-  defaultHeadsets!: headsetsType[];
+  defaultHeadsets!: HeadsetsType[];
 
   // Filter Variables
   max!: number;
@@ -67,12 +68,12 @@ export class HeadsetsComponent implements OnInit {
 
   // Send Clicked Items To Wishlist
   addWishlist(item: any) {
-    this.wishlistservice.getItems(item);
+    this.wishlistservice.sendItems(item);
   }
 
   // Send Clicked Items To Cart
-  sendToCart(item: headsetsType) {
-    this.cartitemservice.getItems(item)
+  sendToCart(item: HeadsetsType) {
+    this.cartitemservice.sendItems(item)
   }
 
   // SnackBar

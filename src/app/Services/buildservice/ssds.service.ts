@@ -1,23 +1,12 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-
-export interface ssdsType {
-  id: number,
-  ssdId: number,
-  manufacturer: string,
-  type: string,
-  imageUrl: string,
-  name: string,
-  memory: string,
-  quantity: number,
-  price: number
-}
+import { SsdsType } from 'src/app/model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SsdsService {
-  ssds: ssdsType[] = [
+  ssds: SsdsType[] = [
     {
       id: 112,
       ssdId: 1,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PcsService, pcsType } from 'src/app/Services/buildservice/pcs.service';
+import { PcsService } from 'src/app/Services/buildservice/pcs.service';
+import { PcsType } from 'src/app/model';
 
 @Component({
   selector: 'app-intel',
@@ -7,7 +8,7 @@ import { PcsService, pcsType } from 'src/app/Services/buildservice/pcs.service';
   styleUrls: ['./intel.component.scss']
 })
 export class IntelComponent implements OnInit {
-  intelpcs!: pcsType[];
+  intelpcs!: PcsType[];
 
 
   // Spinner

@@ -1,0 +1,113 @@
+$font-play: "Play", sans-serif;
+$font-saira: "Saira Condensed", sans-serif;
+$font-roboto: "Roboto", sans-serif;
+$silver: silver;
+
+$grid-column-width: 23rem;
+
+
+.gridbox {
+    display: grid;
+    grid-gap: 20px;
+
+    .gridlist {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        box-shadow: -2px 2px 10px $silver;
+        border-radius: 5px;
+
+        .iconbox {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 10px;
+            font-size: 20px;
+
+            .icon {
+                font-size: 0px;
+                cursor: pointer;
+                transition: all 0.25s linear;
+            }
+        }
+
+        .cpu-image {
+            max-width: 200px;
+            width: 100%;
+            height: 200px;
+            padding: 30px;
+            object-fit: contain;
+            margin-bottom: 30px;
+        }
+
+        .cpu-name {
+            font-family: $font-play;
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: black;
+        }
+
+        .cpu-price {
+            margin-top: 10px;
+            font-family: $font-play;
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: black;
+        }
+
+        .cpu-buy {
+            margin: 20px 0px 14px 0px;
+            font-family: $font-play;
+            letter-spacing: 1px;
+            border: 1px solid $silver;
+            transition: all 0.1s linear;
+        }
+
+        .cpu-buy:hover {
+            border-color: black;
+        }
+    }
+
+    .gridlist:hover {
+        .iconbox {
+            .icon {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+
+@media (min-width: 1800px) {
+    .gridbox {
+        grid-template-columns: repeat(7, minmax(0, $grid-column-width)) !important;
+    }
+}
+
+@media (min-width: 1580px) {
+    .gridbox {
+        grid-template-columns: repeat(6, minmax(0, $grid-column-width));
+    }
+}
+
+@media (min-width: 1471px) {
+    .gridbox {
+        grid-template-columns: repeat(5, minmax(0, $grid-column-width));
+    }
+}
+
+@media (max-width: 1470px) {
+    .gridbox {
+        grid-template-columns: repeat(4, minmax(0, $grid-column-width));
+    }
+}
+
+@media (max-width: 1090px) {
+    .filterbox {
+        .slider {
+            width: 100px !important;
+        }
+    }
+}

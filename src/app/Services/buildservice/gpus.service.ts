@@ -1,21 +1,12 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-
-export interface gpusType {
-  id: number,
-  gpuId: number,
-  manufacturer: String,
-  imageUrl: string,
-  name: string,
-  quantity: number,
-  price: number
-}
+import { GpusType } from 'src/app/model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GpusService {
-  gpus: gpusType[] = [
+  gpus: GpusType[] = [
     {
       id: 46,
       gpuId: 1,

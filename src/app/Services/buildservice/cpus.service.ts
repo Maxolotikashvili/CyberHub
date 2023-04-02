@@ -1,21 +1,12 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-
-export interface cpusType {
-  id: number,
-  cpuId: number,
-  manufacturer: string,
-  imageUrl: string,
-  name: string,
-  quantity: number,
-  price: number
-}
+import { CpusType } from 'src/app/model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CpusService {
-  cpus: cpusType[] = [
+  cpus: CpusType[] = [
     
     {
       id: 35,

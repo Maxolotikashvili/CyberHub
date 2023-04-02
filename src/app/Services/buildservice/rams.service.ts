@@ -1,22 +1,12 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-
-export interface ramsType {
-  id: number,
-  ramId: number,
-  manufacturer: string,
-  imageUrl: string,
-  name: string,
-  memory: string,
-  quantity: number,
-  price: number
-}
+import { RamsType } from 'src/app/model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RamsService {
-  rams: ramsType[] = [
+  rams: RamsType[] = [
     {
       id: 100,
       ramId: 1,

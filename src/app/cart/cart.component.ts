@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faCartShopping, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { CartItemService } from '../Services/Cart/cart-item.service';
 import { CheckoutService } from '../Services/checkout.service';
+import { CartItemsType } from '../model';
 
 @Component({
   selector: 'app-cart',
@@ -9,8 +10,8 @@ import { CheckoutService } from '../Services/checkout.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  items!: any[];
-  filteredItems!: any[];
+  cartItems!: CartItemsType[];
+  filteredItems!: CartItemsType[];
   itemQuantity!: any;
 
   // Fontawesome
@@ -37,8 +38,8 @@ export class CartComponent implements OnInit {
     }, 1400);
 
     // Get Items
-    this.cartitemservice.sendItems().subscribe((data) => {
-      this.items = data;
+    this.cartitemservice.cartItemsFlow.subscribe((cartItems: CartItemsType[]) => {
+      this.cartItems = cartItems;
     })
 
   }
@@ -55,22 +56,23 @@ export class CartComponent implements OnInit {
 
   // Remove Items
   removeItem(item: any) {
-    this.items[this.items.indexOf(item)].quantity = 1;
-    this.items.splice(this.items.indexOf(item), 1);
+    this.cartItems[this.cartItems.indexOf(item)].quantity = 1;
+    this.cartItems.splice(this.cartItems.indexOf(item), 1);
   }
 
   // Clear Cart
   clearCart() {
-    this.items.forEach(element => {
-      element.quantity = 1;
-    });
-    this.items.splice(0, this.items.length);
+    for (let item of this.cartItems) {
+      item.quantity = 1;
+    }
+    
+    this.cartItems.splice(0, this.cartItems.length);
   }
 
   // Total Items
   totalItems() {
     let total: number = 0;
-    this.items.forEach(element => {
+    this.cartItems.forEach(element => {
       total += element.quantity
     });
 
@@ -81,7 +83,7 @@ export class CartComponent implements OnInit {
   totalCost() {
     let total: number = 0;
 
-    this.items.forEach(element => {
+    this.cartItems.forEach(element => {
       total += element.price * element.quantity;
     });
 
@@ -90,7 +92,7 @@ export class CartComponent implements OnInit {
 
   // Send Items To Checkout
   sendToCheckout() {
-    this.checkoutservice.getItems(this.items);
+    this.checkoutservice.getItems(this.cartItems);
   }
 
 }

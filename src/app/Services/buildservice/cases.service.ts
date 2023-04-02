@@ -1,21 +1,12 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-
-export interface casesType {
-  id: number,
-  caseId: number,
-  manufacturer: string,
-  imageUrl: string,
-  name: string,
-  quantity: number,
-  price: number
-};
+import { CasesType } from 'src/app/model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CasesService {
-  cases: casesType[] = [
+  cases: CasesType[] = [
     {
       id: 1,
       caseId: 1,

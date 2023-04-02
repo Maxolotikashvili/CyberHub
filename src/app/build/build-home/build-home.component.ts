@@ -10,9 +10,10 @@ export class BuildHomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
-    // Scroll Up
-    window.scrollTo(0, 0);
+    this.scrollToTopOnComponentLoad();
   }
 
+  scrollToTopOnComponentLoad() {
+    window.scrollTo(0, 0);
+  }
 }

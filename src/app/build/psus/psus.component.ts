@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { PsusService, psusType } from 'src/app/Services/buildservice/psus.service';
+import { PsusType } from 'src/app/model';
+import { PsusService } from 'src/app/Services/buildservice/psus.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
@@ -11,10 +12,10 @@ import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
   styleUrls: ['./psus.component.scss']
 })
 export class PsusComponent implements OnInit {
-  psus!: psusType[];
+  psus!: PsusType[];
 
   // For Filters
-  defaultPsus!: psusType[];
+  defaultPsus!: PsusType[];
 
   // Filter Variables
   max!: number;
@@ -67,12 +68,12 @@ export class PsusComponent implements OnInit {
 
   // Send Clicked Items To Wishlist
   addWishlist(item: any) {
-    this.wishlistservice.getItems(item);
+    this.wishlistservice.sendItems(item);
   }
 
   // Send Clicked Items To Cart
-  sendToCart(item: psusType) {
-    this.cartitemservice.getItems(item)
+  sendToCart(item: PsusType) {
+    this.cartitemservice.sendItems(item)
   }
 
   // SnackBar

@@ -1,6 +1,6 @@
 <div class="bigbox">
   <div class="iconbox">
-    <fa-icon [icon]="xmark" class="xmark" (click)="dialogClose()"></fa-icon>
+    <fa-icon [icon]="fontawesome.xmark" class="xmark" (click)="closeDialog()"></fa-icon>
   </div>
 
   <h3 class="create">Create New Account</h3>
@@ -9,128 +9,53 @@
     <div class="flexbox">
       <mat-form-field class="firstnameform input">
         <mat-label>First name</mat-label>
-        <input
-          class="responsive-input"
-          matInput
-          type="text"
-          formControlName="firstName"
-          #firstname
-        />
+        <input class="responsive-input" matInput type="text" formControlName="firstName" #firstname/>
         <mat-hint align="end">{{ firstname.value.length }} / 20</mat-hint>
-        <mat-error *ngIf="Firstname?.errors?.['required']"
-          >Input Mandatory</mat-error
-        >
-        <mat-error *ngIf="Firstname?.errors?.['minlength']"
-          >Minimum Length Of 2 Charecters Required</mat-error
-        >
-        <mat-error *ngIf="Firstname?.errors?.['maxlength']"
-          >Maximum Length Of 20 Charecters Available</mat-error
-        >
+        <mat-error *ngIf="Firstname?.errors?.['required']">Input Mandatory</mat-error>
+        <mat-error *ngIf="Firstname?.errors?.['minlength']">Minimum Length Of 2 Charecters Required</mat-error>
+        <mat-error *ngIf="Firstname?.errors?.['maxlength']">Maximum Length Of 20 Charecters Available</mat-error>
       </mat-form-field>
 
       <mat-form-field class="lastnameform input">
         <mat-label>Last name</mat-label>
-        <input
-          class="responsive-input"
-          matInput
-          type="text"
-          formControlName="lastName"
-          #lastname
-        />
+        <input class="responsive-input" matInput type="text" formControlName="lastName" #lastname/>
         <mat-hint align="end">{{ lastname.value.length }} / 30</mat-hint>
-        <mat-error *ngIf="Lastname?.errors?.['required']"
-          >Input Mandatory</mat-error
-        >
-        <mat-error *ngIf="Lastname?.errors?.['minlength']"
-          >Minimum Length Of 3 Charecters Required</mat-error
-        >
-        <mat-error *ngIf="Lastname?.errors?.['maxlength']"
-          >Maximum Length Of 30 Charecters Available</mat-error
-        >
+        <mat-error *ngIf="Lastname?.errors?.['required']">Input Mandatory</mat-error>
+        <mat-error *ngIf="Lastname?.errors?.['minlength']">Minimum Length Of 3 Charecters Required</mat-error>
+        <mat-error *ngIf="Lastname?.errors?.['maxlength']">Maximum Length Of 30 Charecters Available</mat-error>
       </mat-form-field>
     </div>
 
     <mat-form-field class="emailform input">
       <mat-label>Email</mat-label>
-      <input
-        class="responsive-input"
-        matInput
-        type="email"
-        formControlName="email"
-      />
+      <input class="responsive-input" matInput type="email" formControlName="email"/>
       <mat-error *ngIf="Email?.errors?.['required']">Input Mandatory</mat-error>
-      <mat-error *ngIf="Email?.errors?.['email']"
-        >Please Enter a Valid Email</mat-error
-      >
+      <mat-error *ngIf="Email?.errors?.['email']">Please Enter a Valid Email</mat-error>
     </mat-form-field>
 
     <mat-form-field class="dateform input">
       <mat-label>Date</mat-label>
-      <input
-        class="responsive-input"
-        matInput
-        [matDatepicker]="datePicker"
-        formControlName="date"
-        [min]="minDate"
-        [max]="maxDate"
-        #date
-      />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="datePicker"
-      ></mat-datepicker-toggle>
+      <input class="responsive-input" matInput [matDatepicker]="datePicker" formControlName="date" [min]="minDate" [max]="maxDate" #date/>
+      <mat-datepicker-toggle matSuffix [for]="datePicker" ></mat-datepicker-toggle>
       <mat-datepicker #datePicker></mat-datepicker>
-      <mat-error *ngIf="Date?.errors?.['required']"
-        >Please Enter a Valid Date With a Following Format: MM / DD /
-        YY</mat-error
-      >
+      <mat-error *ngIf="Date?.errors?.['required']">Please Enter a Valid Date With a Following Format: MM / DD / YY</mat-error>
     </mat-form-field>
 
     <mat-form-field class="passwordform input">
       <mat-label>Password</mat-label>
-      <input
-        class="responsive-input"
-        matInput
-        type="password"
-        formControlName="password"
-      />
-      <mat-error *ngIf="Password?.errors?.['required']"
-        >Input Mandatory</mat-error
-      >
-      <mat-error *ngIf="Password?.errors?.['minlength']"
-        >Minimum Length Of 5 Charecters Required</mat-error
-      >
+      <input class="responsive-input" matInput type="password" formControlName="password"/>
+      <mat-error *ngIf="Password?.errors?.['required']">Input Mandatory</mat-error>
+      <mat-error *ngIf="Password?.errors?.['minlength']">Minimum Length Of 5 Charecters Required</mat-error>
     </mat-form-field>
 
     <mat-form-field class="confirmpasswordform input">
       <mat-label>Confirm Password</mat-label>
-      <input
-        class="responsive-input"
-        matInput
-        type="password"
-        formControlName="confirmPassword"
-      />
-      <mat-error *ngIf="Confirmpassword?.errors?.['required']"
-        >Input Mandatory</mat-error
-      >
+      <input class="responsive-input" matInput type="password" formControlName="confirmPassword"/>
+      <mat-error *ngIf="Confirmpassword?.errors?.['required']">Input Mandatory</mat-error>
     </mat-form-field>
-    <strong
-      class="strong"
-      *ngIf="userForm?.errors?.['match'] && Password?.status === 'VALID' && Confirmpassword?.status === 'VALID'"
-      >Passwords Do Not Match</strong
-    >
+    <strong class="strong" *ngIf="userForm?.errors?.['match'] && Password?.status === 'VALID' && Confirmpassword?.status === 'VALID'" >Passwords Do Not Match</strong>
 
-    <button
-      mat-flat-button
-      class="button"
-      color="primary"
-      [disabled]="userForm.status === 'INVALID'"
-      (click)="sendData()"
-    >
-      Create
-    </button>
-    <button type="reset" mat-flat-button color="warn" class="button">
-      Reset
-    </button>
+    <button mat-flat-button class="button" color="primary" [disabled]="userForm.status === 'INVALID'" (click)="sendUserDataToLoginComponent()">Create</button>
+    <button type="reset" mat-flat-button color="warn" class="button">Reset</button>
   </form>
 </div>

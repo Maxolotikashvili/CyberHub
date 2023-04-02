@@ -1,23 +1,13 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-
-export interface coolersType {
-  id: number,
-  coolerId: number,
-  manufacturer: string,
-  imageUrl: string,
-  name: string,
-  type: string,
-  quantity: number,
-  price: number
-}
+import { CoolersType } from 'src/app/model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CpuCoolersService {
 
-  coolers: coolersType[] = [
+  coolers: CoolersType[] = [
     {
       id: 15,
       coolerId: 1,

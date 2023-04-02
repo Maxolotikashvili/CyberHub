@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { faEye, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { KeyboardsService, keyboardsType } from 'src/app/Services/buildservice/keyboards.service';
+import { KeyboardsType } from 'src/app/model';
+import { KeyboardsService } from 'src/app/Services/buildservice/keyboards.service';
 import { CartItemService } from 'src/app/Services/Cart/cart-item.service';
 import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
 
@@ -11,10 +12,10 @@ import { WishlistService } from 'src/app/Services/Wishlist/wishlist.service';
   styleUrls: ['./keyboards.component.scss']
 })
 export class KeyboardsComponent implements OnInit {
-  keyboards!: keyboardsType[];
+  keyboards!: KeyboardsType[];
 
   // For Filters
-  defaultKeyboards!: keyboardsType[];
+  defaultKeyboards!: KeyboardsType[];
 
   // Filter Variables
   max!: number;
@@ -67,12 +68,12 @@ export class KeyboardsComponent implements OnInit {
 
   // Send Clicked Items To Wishlist
   addWishlist(item: any) {
-    this.wishlistservice.getItems(item);
+    this.wishlistservice.sendItems(item);
   }
 
   // Send Clicked Items To Cart
-  sendToCart(item: keyboardsType) {
-    this.cartitemservice.getItems(item)
+  sendToCart(item: KeyboardsType) {
+    this.cartitemservice.sendItems(item)
   }
 
   // SnackBar
