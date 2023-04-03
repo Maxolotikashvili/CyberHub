@@ -140,22 +140,6 @@ $font-play: "Play", sans-serif;
     }
 }
 
-// Spinner
-.spinnerboxhide {
-    display: none;
-}
-
-.spinnerboxshow {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.blur {
-    filter: blur(10px);
-}
-
 // Responsive
 
 @media (max-width: 669px) {

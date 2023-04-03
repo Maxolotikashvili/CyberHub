@@ -77,10 +77,14 @@ export class PartsComponent implements OnInit {
 
   //
   sendItemToCartOrWishList(item: PcPartType, sendTo: string) {
-    if (sendTo === 'cart') {
-      this.cartItemService.sendItems(item);
-    } else if (sendTo === 'wishlist') {
-      this.wishListService.sendItems(item);
+    if (this.pcPartName !== 'pc') {
+      if (sendTo === 'cart') {
+        this.cartItemService.sendItems(item);
+        this.displaySnackMessage('Item Sent To Cart', 'Dismiss');
+      } else if (sendTo === 'wishlist') {
+        this.wishListService.sendItems(item);
+        this.displaySnackMessage('Item Sent To Wishlist', 'Dismiss');
+      }
     }
   }
 

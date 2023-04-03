@@ -11,7 +11,7 @@
             <button *ngIf="pcPartName === 'mobo'" mat-button (click)="removeDuplicatesForMatMenu('socket')" [matMenuTriggerFor]="matmenu">Socket</button>
             <button *ngIf="pcPartName === 'ram'" (click)="removeDuplicatesForMatMenu('memory')" mat-button [matMenuTriggerFor]="matmenu">Memory</button>
             <button *ngIf="pcPartName === 'hdd' || pcPartName === 'ssd'" (click)="removeDuplicatesForMatMenu('memory')" mat-button [matMenuTriggerFor]="matmenu">Memory Capacity</button>
-            <button *ngIf="pcPartName === 'psu'" (click)="removeDuplicatesForMatMenu('power')" mat-button [matMenuTriggerFor]="matmenu">Wattage Power</button>
+            <button *ngIf="pcPartName === 'psu'" (click)="removeDuplicatesForMatMenu('power')" mat-button [matMenuTriggerFor]="matmenu">Power</button>
             <button *ngIf="pcPartName === 'psu'" (click)="removeDuplicatesForMatMenu('efficiency')" mat-button [matMenuTriggerFor]="matmenu">Efficiency</button>
             <button *ngIf="pcPartName === 'cpu-cooler'" (click)="removeDuplicatesForMatMenu('type')" mat-button [matMenuTriggerFor]="matmenu">Type</button>
             <button mat-button [matMenuTriggerFor]="priceMenu">Sort By Price</button>
@@ -43,8 +43,8 @@
         <div class="gridbox" *ngFor="let item of data">
 
             <div class="icon-wrapper">
-                <img src="assets/Icons/cart.png" alt="cart" (click)="sendItemToCartOrWishList(item, 'cart')" (click)="displaySnackMessage('Item Added To Cart', 'Dismiss')">
-                <img src="assets/Icons/heart.png" alt="wishlist" (click)="sendItemToCartOrWishList(item, 'wishlist')" (click)="displaySnackMessage('Item Added To Wishlist', 'Dismiss')">
+                <img src="assets/Icons/cart.png" alt="cart" (click)="sendItemToCartOrWishList(item, 'cart')">
+                <img src="assets/Icons/heart.png" alt="wishlist" (click)="sendItemToCartOrWishList(item, 'wishlist')">
             </div>
             
             <img [src]="item.imageUrl" alt="image">
@@ -59,7 +59,7 @@
                 <span class="item-price-span">{{item.price}}$</span>
             </div>
 
-            <button mat-button (click)="sendItemToCartOrWishList(item, 'cart')" (click)="displaySnackMessage('Item Added To Cart', 'Dismiss')">Add To Cart</button>
+            <button mat-button (click)="sendItemToCartOrWishList(item, 'cart')">Add To Cart</button>
             <div class="div"></div>
         </div>
     </div>

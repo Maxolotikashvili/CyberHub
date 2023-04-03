@@ -4,7 +4,7 @@ $secondary-color: rgb(192, 192, 192);
 $font-play: "Play", sans-serif;
 $box-shadow: -2px 2px 10px $secondary-color;
 
-$grid-row-size: 12vw;
+$grid-row-size: 23rem;
 
 .filterbox-gridbox-wrapper {
     .filterbox {
@@ -17,17 +17,18 @@ $grid-row-size: 12vw;
         box-shadow: $box-shadow;
 
         .slider-wrapper {
-            width: 40%;
+            max-width: 40%;
+            width: 100%;
             display: flex;
             align-items: center;
 
             mat-slider {
-                max-width: 40rem;
+                max-width: 20rem;
                 width: 100%;
-                color: #00000000;
             }
 
             span {
+                width: 70px;
                 margin-left: 1rem;
                 font-size: 1.6rem;
             }
@@ -39,14 +40,20 @@ $grid-row-size: 12vw;
                 justify-content: center;
                 align-items: center;
                 font-weight: 300;
-                font-size: 1.4rem;
                 letter-spacing: 0.5px;
             }
         }
 
         .filter-button-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 60%;
+
             button:not(:last-child) {
                 border: 1px solid transparent;
+                font-weight: 400;
+                padding: 0 1rem;
             }
 
             button:not(:last-child):hover {
@@ -55,7 +62,7 @@ $grid-row-size: 12vw;
             }
 
             .manufacturer-button {
-                margin-right: 4rem;
+                margin-right: 2rem;
             }
         }
     }
@@ -101,6 +108,9 @@ $grid-row-size: 12vw;
 
                 span:nth-child(2) {
                     margin: 1rem 0;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
                 }
 
                 .if-spans {
@@ -109,8 +119,12 @@ $grid-row-size: 12vw;
             }
 
             button {
+                display: flex;
+                align-items: center;
                 padding: 0 2rem;
+                height: 30px;
                 border: 1px solid $secondary-color;
+                font-size: 1.3rem;
                 font-weight: 400;
             }
         }
@@ -121,6 +135,23 @@ $grid-row-size: 12vw;
                     width: 20px;
                 }
             }
+        }
+    }
+}
+
+@media only screen and (max-width: 1700px) {
+    .filterbox-gridbox-wrapper {
+        .gridbox-wrapper {
+            grid-template-columns: repeat(5, minmax(0, $grid-row-size));
+        }
+    }
+}
+
+
+@media only screen and (max-width: 1400px) {
+    .filterbox-gridbox-wrapper {
+        .gridbox-wrapper {
+            grid-template-columns: repeat(4, minmax(0, $grid-row-size));
         }
     }
 }

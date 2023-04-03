@@ -1,22 +1,12 @@
 <section>
-  <div class="bigbox" [class]="blur">
-    <h2 class="cart-h2">
-      Wishlist
-      <span class="empty-span" *ngIf="wishListItems.length == 0">is empty</span>
-    </h2>
+  <div class="bigbox">
+    <h2 class="cart-h2">Wishlist<span class="empty-span" *ngIf="wishListItems.length == 0">is empty</span></h2>
 
     <!-- Empty -->
     <div class="emptybox" *ngIf="wishListItems.length == 0">
-      <fa-icon [icon]="heart"></fa-icon>
+      <fa-icon [icon]="fontawesome.heart"></fa-icon>
       <h4 class="fill-h4">Add wishListItems To Your Wishlist From Shopping Section</h4>
-      <button
-        mat-flat-button
-        class="goshopping"
-        color="accent"
-        routerLink="../build/buildhome"
-      >
-        Go Shopping
-      </button>
+      <button mat-flat-button class="goshopping" color="accent" routerLink="../assembly">Go Shopping</button>
     </div>
 
     <div class="smallbox" *ngIf="wishListItems.length !== 0">
@@ -38,53 +28,23 @@
             <span class="item-text">{{ item.price }}$</span>
 
             <div class="removebox">
-              <button
-                mat-mini-fab
-                color="primary"
-                class="cartbutton"
-                (click)="sendWishListItems(item)"
-                (click)="snackDisplay('Item Added To Cart', 'Dismiss')"
-              >
-                <fa-icon class="cart" [icon]="cart"></fa-icon>
+              <button mat-mini-fab color="primary" class="cartbutton" (click)="sendWishListItems(item)">
+                <fa-icon class="cart" [icon]="fontawesome.cart"></fa-icon>
               </button>
-              <button
-                mat-mini-fab
-                color="warn"
-                class="mat-fab"
-                (click)="removeItem(item)"
-              >
-                <fa-icon [icon]="xmark"></fa-icon>
+              <button mat-mini-fab color="warn" class="mat-fab" (click)="removeItemFromCart(item)">
+                <fa-icon [icon]="fontawesome.xmark"></fa-icon>
               </button>
             </div>
           </div>
 
           <div class="buttonbox">
             <br />
-            <button
-              mat-flat-button
-              color="warn"
-              class="clearbutton"
-              (click)="clearCart()"
-            >
-              Clear Wishlist
-            </button>
-            <button
-              mat-flat-button
-              color="accent"
-              class="gobutton"
-              routerLink="../build"
-            >
-              Go Shopping
-            </button>
+            <button mat-flat-button color="warn" class="clearbutton" (click)="clearCart()">Clear Wishlist</button>
+            <button mat-flat-button color="accent" class="gobutton" routerLink="../assembly">Go Shopping</button>
             <br />
           </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Spinner -->
-  <div [class]="spinnerboxshow">
-    <mat-spinner></mat-spinner>
   </div>
 </section>

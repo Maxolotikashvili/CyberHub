@@ -11,16 +11,13 @@ import { PcPartType } from '../model';
   styleUrls: ['./wishlist.component.scss']
 })
 export class WishlistComponent implements OnInit {
-  // Items
   wishListItems!: PcPartType[];
 
-  // FontAwesome
-  cart = faCartShopping;
-  heart = faHeart;
-  xmark = faXmark;
-
-  spinnerboxshow = "spinnerboxshow"
-  blur = "blur";
+  fontawesome = {
+    cart: faCartShopping,
+    heart: faHeart,
+    xmark: faXmark
+  }
 
   constructor(
     private wishlistservice: WishlistService,
@@ -29,36 +26,42 @@ export class WishlistComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.scrollToTopOnComponentLoad();
+   this.downloadApiData();
+  }
 
-    // Spinner Timeout
-    this.spinnerboxshow = "spinnerboxshow";
+  //
+  scrollToTopOnComponentLoad() {
+    window.scrollTo(0, 0);
+  }
 
-    setTimeout(() => {
-      this.spinnerboxshow = "spinnerboxhide";
-      this.blur = "";
-    }, 1000);
-
-
-    //  Wishlist
+  //
+  downloadApiData() {
     this.wishlistservice.wishListFlow.subscribe((data: PcPartType[]) => {
       this.wishListItems = data
     });
   }
 
+  //
   sendWishListItems(item: any) {
     this.cartitemservice.sendItems(item);
-    this.wishListItems.splice(this.wishListItems.indexOf(item), 1)
+    this.wishListItems.splice(this.wishListItems.indexOf(item), 1);
+
+    this.displaySnackMessage('Item Sent To Cart', 'Dismiss');
   }
 
-  removeItem(item: any) {
+  //
+  removeItemFromCart(item: any) {
     this.wishListItems.splice(this.wishListItems.indexOf(item), 1);
   }
 
+  //
   clearCart() {
     this.wishListItems.splice(0, this.wishListItems.length);
   }
 
-  snackDisplay(message: string, action: any) {
+  //
+  displaySnackMessage(message: string, action: any) {
     this.snack.open(message, action, { duration: 3000 })
   }
 

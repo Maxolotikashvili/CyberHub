@@ -12,38 +12,25 @@ import { PcPartType } from '../model';
 export class CartComponent implements OnInit {
   cartItems!: PcPartType[];
   filteredItems!: PcPartType[];
-  itemQuantity!: any;
 
-  // Fontawesome
-  xmark = faXmark;
-  cart = faCartShopping;
-
-  // Spinner
-  spinnerboxshow = "spinnerboxshow";
-  blur = "blur";
+  fontawesome = {
+    xmark: faXmark,
+    cart: faCartShopping
+  }
 
   constructor(private cartitemservice: CartItemService, private checkoutservice: CheckoutService) { }
 
   ngOnInit(): void {
-
-    // Scroll Up
-    window.scrollTo(0, 0);
-
-    // Spinner Timeout
-    this.spinnerboxshow = "spinnerboxshow";
-
-    setTimeout(() => {
-      this.spinnerboxshow = "spinnerboxhide";
-      this.blur = "";
-    }, 1400);
-
-    // Get Items
-    this.cartitemservice.cartItemsFlow.subscribe((cartItems: PcPartType[]) => {
-      this.cartItems = cartItems;
-    })
-
+    this.scrollToTopOnComponentLoad();
+    this.downloadApiData();
   }
 
+  //
+  scrollToTopOnComponentLoad() {
+    window.scrollTo(0, 0);
+  }
+
+  //
   changeQuantity(element: any, index: number) {
     if (index === 1) {
       if (element.quantity > 0) {
@@ -54,13 +41,20 @@ export class CartComponent implements OnInit {
     };
   };
 
-  // Remove Items
-  removeItem(item: any) {
+  //
+  downloadApiData() {
+    this.cartitemservice.cartItemsFlow.subscribe((cartItems: PcPartType[]) => {
+      this.cartItems = cartItems;
+    })
+  }
+
+  //
+  spliceItemFromCart(item: any) {
     this.cartItems[this.cartItems.indexOf(item)].quantity = 1;
     this.cartItems.splice(this.cartItems.indexOf(item), 1);
   }
 
-  // Clear Cart
+  //
   clearCart() {
     for (let item of this.cartItems) {
       item.quantity = 1;
@@ -69,8 +63,8 @@ export class CartComponent implements OnInit {
     this.cartItems.splice(0, this.cartItems.length);
   }
 
-  // Total Items
-  totalItems() {
+  //
+  calculatetotalItemsQuantity() {
     let total: number = 0;
     this.cartItems.forEach(element => {
       total += element.quantity!
@@ -79,8 +73,8 @@ export class CartComponent implements OnInit {
     return total
   }
 
-  // Total Cost
-  totalCost() {
+  //
+  calculateItemsTotalCost() {
     let total: number = 0;
 
     this.cartItems.forEach(element => {
@@ -90,9 +84,8 @@ export class CartComponent implements OnInit {
     return total;
   }
 
-  // Send Items To Checkout
-  sendToCheckout() {
+  //
+  sendItemsToCheckout() {
     this.checkoutservice.getItems(this.cartItems);
   }
-
 }

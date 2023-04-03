@@ -1,24 +1,13 @@
 <section>
-  <div class="bigbox" [class]="blur">
+  <div class="bigbox">
 
     <!-- Empty Cart -->
-    <h2 class="cart-h2">
-      Cart <span class="empty-span" *ngIf="cartItems.length == 0">is empty</span>
-    </h2>
+    <h2 class="cart-h2">Cart <span class="empty-span" *ngIf="cartItems.length == 0">is empty</span></h2>
 
     <div class="emptybox" *ngIf="cartItems.length == 0">
-      <fa-icon [icon]="cart"></fa-icon>
-      <h4 class="fill-h4">
-        You Can Fill Your Cart By Navigating To Shopping Section
-      </h4>
-      <button
-        mat-flat-button
-        class="goshopping"
-        color="primary"
-        routerLink="../build/buildhome"
-      >
-        Go Shopping
-      </button>
+      <fa-icon [icon]="fontawesome.cart"></fa-icon>
+      <h4 class="fill-h4">You Can Fill Your Cart By Navigating To Shopping Section</h4>
+      <button mat-flat-button class="goshopping" color="primary" routerLink="../assembly">Go Shopping</button>
     </div>
 
 
@@ -40,56 +29,25 @@
             <span class="item-price">{{ item.price }}$</span>
 
             <div class="item-quantity-box">
-              <button
-                mat-icon-button
-                class="icon-button"
-                (click)="changeQuantity(item, 1)"
-              >
-                -
-              </button>
+              <button mat-icon-button class="icon-button" (click)="changeQuantity(item, 1)">-</button>
               <span class="item-quantity">{{ item.quantity }}</span>
-              <button
-                mat-icon-button
-                class="icon-button"
-                (click)="changeQuantity(item, 2)"
-              >
-                +
-              </button>
+              <button mat-icon-button class="icon-button" (click)="changeQuantity(item, 2)">+</button>
             </div>
 
             <span class="item-overall">{{ item.quantity * item.price }}$</span>
             <div class="removebox">
-              <button
-                mat-mini-fab
-                color="warn"
-                class="mat-fab"
-                (click)="removeItem(item)"
-              >
-                <fa-icon [icon]="xmark"></fa-icon>
+              <button mat-mini-fab color="warn" class="mat-fab" (click)="spliceItemFromCart(item)">
+                <fa-icon [icon]="fontawesome.xmark"></fa-icon>
               </button>
             </div>
           </div>
 
-          <h5 class="quantity-h5">Items Quantity: {{ totalItems() }}</h5>
+          <h5 class="quantity-h5">Items Quantity: {{ calculatetotalItemsQuantity() }}</h5>
 
           <div class="buttonbox">
             <br />
-            <button
-              mat-flat-button
-              color="warn"
-              class="clearbutton"
-              (click)="clearCart()"
-            >
-              Clear Cart
-            </button>
-            <button
-              mat-flat-button
-              color="primary"
-              class="gobutton"
-              routerLink="../build"
-            >
-              Continue Shopping
-            </button>
+            <button mat-flat-button color="warn" class="clearbutton" (click)="clearCart()">Clear Cart</button>
+            <button mat-flat-button color="primary" class="gobutton" routerLink="../build">Continue Shopping</button>
             <br />
           </div>
         </div>
@@ -104,16 +62,12 @@
           </span>
         </div>
         <mat-divider></mat-divider>
-        <h4 class="total-h4">Total: <span class="dollar">{{ totalCost() }}$</span></h4>
+        <h4 class="total-h4">Total: <span class="dollar">{{ calculateItemsTotalCost() }}$</span></h4>
         <div class="checkoutbuttonbox">
-          <button mat-button color="primary" class="checkoutbutton" routerLink="/checkout" (click)="sendToCheckout()">To Checkout</button>
+          <button mat-button color="primary" class="checkoutbutton" routerLink="/checkout" (click)="sendItemsToCheckout()">To Checkout</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Spinner -->
-  <div [class]="spinnerboxshow">
-    <mat-spinner></mat-spinner>
-  </div>
 </section>
