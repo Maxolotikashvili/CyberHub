@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faCartShopping, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { CartItemService } from '../Services/Cart/cart-item.service';
 import { CheckoutService } from '../Services/checkout.service';
-import { CartItemsType } from '../model';
+import { PcPartType } from '../model';
 
 @Component({
   selector: 'app-cart',
@@ -10,8 +10,8 @@ import { CartItemsType } from '../model';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  cartItems!: CartItemsType[];
-  filteredItems!: CartItemsType[];
+  cartItems!: PcPartType[];
+  filteredItems!: PcPartType[];
   itemQuantity!: any;
 
   // Fontawesome
@@ -38,7 +38,7 @@ export class CartComponent implements OnInit {
     }, 1400);
 
     // Get Items
-    this.cartitemservice.cartItemsFlow.subscribe((cartItems: CartItemsType[]) => {
+    this.cartitemservice.cartItemsFlow.subscribe((cartItems: PcPartType[]) => {
       this.cartItems = cartItems;
     })
 
@@ -73,7 +73,7 @@ export class CartComponent implements OnInit {
   totalItems() {
     let total: number = 0;
     this.cartItems.forEach(element => {
-      total += element.quantity
+      total += element.quantity!
     });
 
     return total
@@ -84,7 +84,7 @@ export class CartComponent implements OnInit {
     let total: number = 0;
 
     this.cartItems.forEach(element => {
-      total += element.price * element.quantity;
+      total += element.price * element.quantity!;
     });
 
     return total;

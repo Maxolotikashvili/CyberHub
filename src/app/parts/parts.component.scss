@@ -1,0 +1,126 @@
+$white: #ffffff;
+$primary-color: rgb(0, 0, 255);
+$secondary-color: rgb(192, 192, 192);
+$font-play: "Play", sans-serif;
+$box-shadow: -2px 2px 10px $secondary-color;
+
+$grid-row-size: 12vw;
+
+.filterbox-gridbox-wrapper {
+    .filterbox {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+        box-shadow: $box-shadow;
+
+        .slider-wrapper {
+            width: 40%;
+            display: flex;
+            align-items: center;
+
+            mat-slider {
+                max-width: 40rem;
+                width: 100%;
+                color: #00000000;
+            }
+
+            span {
+                margin-left: 1rem;
+                font-size: 1.6rem;
+            }
+
+            button {
+                margin-left: 1rem;
+                height: 3rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 300;
+                font-size: 1.4rem;
+                letter-spacing: 0.5px;
+            }
+        }
+
+        .filter-button-wrapper {
+            button:not(:last-child) {
+                border: 1px solid transparent;
+            }
+
+            button:not(:last-child):hover {
+                color: blue;
+                border: 1px solid $secondary-color;
+            }
+
+            .manufacturer-button {
+                margin-right: 4rem;
+            }
+        }
+    }
+
+    .gridbox-wrapper {
+        display: grid;
+        grid-gap: 2rem;
+        grid-template-columns: repeat(6, minmax(0, $grid-row-size));
+
+        .gridbox {
+            display: flex;
+            flex-flow: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            box-shadow: $box-shadow;
+            border-radius: 5px;
+
+            .icon-wrapper {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                img {
+                    width: 0px;
+                    height: 20px;
+                    transition: all 0.3s ease;
+                    cursor: pointer;
+                }
+            }
+
+            img {
+                width: 60%;
+                height: 30%;
+            }
+
+            .text-wrapper {
+                display: flex;
+                flex-flow: column;
+                text-align: center;
+                margin-top: 3rem;
+
+                span:nth-child(2) {
+                    margin: 1rem 0;
+                }
+
+                .if-spans {
+                    margin: 1rem 0;
+                }
+            }
+
+            button {
+                padding: 0 2rem;
+                border: 1px solid $secondary-color;
+                font-weight: 400;
+            }
+        }
+
+        .gridbox:hover {
+            .icon-wrapper {
+                img {
+                    width: 20px;
+                }
+            }
+        }
+    }
+}

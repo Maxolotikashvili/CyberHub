@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { CartItemsType } from 'src/app/model';
+import { PcPartType } from 'src/app/model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartItemService {
-  cartItems: CartItemsType[] = []
-  filteredItems!: CartItemsType[];
+  cartItems: PcPartType[] = []
+  filteredItems!: PcPartType[];
 
-  cartItemsSubject = new BehaviorSubject<CartItemsType[]>(this.cartItems);
+  cartItemsSubject = new BehaviorSubject<PcPartType[]>(this.cartItems);
   cartItemsFlow = this.cartItemsSubject.asObservable();
 
   constructor() { }
 
-  sendItems(item: CartItemsType) {
+  sendItems(item: PcPartType) {
     this.cartItems.push(item);
 
     this.filteredItems = this.cartItems.filter((element, index) => this.cartItems.indexOf(element) !== index);

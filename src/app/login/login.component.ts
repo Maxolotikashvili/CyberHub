@@ -67,8 +67,8 @@ export class LoginComponent implements OnInit {
   logInUser() {
     let isLoggedIn: boolean = true;
 
-    alert('You are now logged in, please refresh the page to login');
     localStorage.setItem('isLoggedIn', JSON.stringify(isLoggedIn));
     this.dialog.closeAll();
+    location.reload();
   }
 }

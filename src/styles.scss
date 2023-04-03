@@ -4,6 +4,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100&display=swap'); // 'Saira Condensed', sans-serif
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'); // 'Roboto', sans-serif;
 
+
+// Swiper
+@import "swiper/css";
+@import "swiper/css/effect-fade";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
 // Reset
 * {
     box-sizing: border-box;
@@ -11,6 +18,10 @@
     padding: 0;
     text-decoration: none;
     list-style: none;
+}
+
+li, button, input, textarea:focus {
+    outline: none;
 }
 
 body,
@@ -26,4 +37,9 @@ html {
 .mat-menu-panel {
     min-width: 0 !important;
     min-height: 0 !important;
+}
+
+.mat-menu-content {
+    display: flex;
+    flex-flow: column;
 }

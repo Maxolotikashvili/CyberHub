@@ -1,0 +1,37 @@
+<section>
+    <div class="categories-wrapper">
+
+        <div class="categories-header">
+            <h4>Categories</h4>
+        </div>
+
+        <nav>
+            <ul>
+                <li *ngFor="let links of CATEGORIES_LIST" [routerLink]="['parts', links.routerId]" routerLinkActive="link-active">
+                    <a>{{links.name}}</a>
+                </li>
+            </ul>
+        </nav>
+
+
+        <div class="accessories-header">
+            <h4>Accessories</h4>
+        </div>
+
+        <nav>
+            <ul>
+                <li [routerLink]="['parts', 10]">
+                    <a>Keyboard</a>
+                </li>
+
+                <li [routerLink]="['parts', 11]">
+                    <a>Headset</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="router-box">
+        <router-outlet></router-outlet>
+    </div>
+</section>

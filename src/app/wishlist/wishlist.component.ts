@@ -3,7 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { faCartShopping, faHeart, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { CartItemService } from '../Services/Cart/cart-item.service';
 import { WishlistService } from '../Services/Wishlist/wishlist.service';
-import { CartItemsType } from '../model';
+import { PcPartType } from '../model';
 
 @Component({
   selector: 'app-wishlist',
@@ -12,7 +12,7 @@ import { CartItemsType } from '../model';
 })
 export class WishlistComponent implements OnInit {
   // Items
-  wishListItems!: CartItemsType[];
+  wishListItems!: PcPartType[];
 
   // FontAwesome
   cart = faCartShopping;
@@ -40,7 +40,7 @@ export class WishlistComponent implements OnInit {
 
 
     //  Wishlist
-    this.wishlistservice.wishListFlow.subscribe((data: CartItemsType[]) => {
+    this.wishlistservice.wishListFlow.subscribe((data: PcPartType[]) => {
       this.wishListItems = data
     });
   }

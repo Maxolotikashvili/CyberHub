@@ -6,7 +6,6 @@ import { PcPartType } from 'src/app/model';
 })
 export class PcPartsService {
 
-  //mobos
   pcParts: PcPartType[] = [
     {
       id: 1,
@@ -943,7 +942,7 @@ export class PcPartsService {
     {
       id: 82,
       moboId: 1,
-      productName: 'motherboard',
+      productName: 'mobo',
       manufacturer: "MSI",
       imageUrl:  "assets/PcParts/MOBOs/Msi-meggodlike.png",
       name: "MSI MEG Godlike",
@@ -955,7 +954,7 @@ export class PcPartsService {
     {
       id: 83,
       moboId: 2,
-      productName: 'motherboard',
+      productName: 'mobo',
       manufacturer: "MSI",
       imageUrl: "assets/PcParts/MOBOs/Msi-megace.png",
       name: "MSI Meg Z490 Ace",
@@ -967,7 +966,7 @@ export class PcPartsService {
     {
       id: 84,
       moboId: 3,
-      productName: 'motherboard',
+      productName: 'mobo',
       manufacturer: "Asus",
       imageUrl: "assets/PcParts/MOBOs/rog-maximus12hero.png",
       name: "Asus ROG Maximus 12 Hero",
@@ -979,7 +978,7 @@ export class PcPartsService {
     {
       id: 85,
       moboId: 4,
-      productName: 'motherboard',
+      productName: 'mobo',
       manufacturer: "Asus",
       imageUrl: "assets/PcParts/MOBOs/rog-maximus11wifi.png",
       name: "Asus ROG Maximus 11 Hero",
@@ -991,7 +990,7 @@ export class PcPartsService {
     {
       id: 86,
       moboId: 5,
-      productName: 'motherboard',
+      productName: 'mobo',
       manufacturer: "Asus",
       imageUrl: "assets/PcParts/MOBOs/Strix-z490egaming.png",
       name: "Asus ROG Z490 - E Gaming",
@@ -1003,7 +1002,7 @@ export class PcPartsService {
     {
       id: 87,
       moboId: 6,
-      productName: 'motherboard',
+      productName: 'mobo',
       manufacturer: "Asus",
       imageUrl: "assets/PcParts/MOBOs/strix-z490hgaming.png",
       name: "Asus ROG Z490 - H Gaming",
@@ -1015,7 +1014,7 @@ export class PcPartsService {
     {
       id: 88,
       moboId: 7,
-      productName: 'motherboard',
+      productName: 'mobo',
       manufacturer: "Gigabyte",
       imageUrl: "assets/PcParts/MOBOs/Gigabyte-z690master.png",
       name: "Gigabyte Z690 Aorus Master",
@@ -1027,7 +1026,7 @@ export class PcPartsService {
     {
       id: 89,
       moboId: 8,
-      productName: 'motherboard',     
+      productName: 'mobo',     
       manufacturer: "Gigabyte",
       imageUrl: "assets/PcParts/MOBOs/z590aoruselite.png",
       name: "Gigabyte Z590 Aorus Elite",
@@ -1039,7 +1038,7 @@ export class PcPartsService {
     {
       id: 90,
       moboId: 9,
-      productName: 'motherboard',
+      productName: 'mobo',
       manufacturer: "Gigabyte",
       imageUrl: "assets/PcParts/MOBOs/z390aorusprowifi.png",
       name: "Gigabyte Z390 Aorus Pro",
@@ -1450,6 +1449,7 @@ export class PcPartsService {
       ram: "32GB DDR5 6000, Corsair Dominator",
       memory: "6 TB HDD, 4TB SSD - M2",
       cooling: "Water Cooling",
+      quantity: 1,
       price: 13000
     },
 
@@ -1464,6 +1464,7 @@ export class PcPartsService {
       ram: "32GB DDR4, 4000 G-Skill Trident",
       memory: "4TB HDD, 2TB SSD - M2",
       cooling: "Water Cooling",
+      quantity: 1,
       price: 9000
     },
 
@@ -1478,6 +1479,7 @@ export class PcPartsService {
       ram: "32GB DDR4 3600 Corsair Vengeance",
       memory: "2TB HDD, 1TB SSD - M2",
       cooling: "Water Cooling",
+      quantity: 1,
       price: 6000
     },
 
@@ -1492,6 +1494,7 @@ export class PcPartsService {
       ram: "16GB DDR4 3200 Vengeance LPX",
       memory: "2TB HDD, 1TB SSD - M2",
       cooling: "Water Cooling",
+      quantity: 1,
       price: 4500
     },
 
@@ -1506,6 +1509,7 @@ export class PcPartsService {
       ram: "16GB DDR4 3200 G-Skill Ripjaws",
       memory: "1TB HDD, 500GB SSD - SATA",
       cooling: "Wind Cooling",
+      quantity: 1,
       price: 3000
     },
 
@@ -1520,6 +1524,7 @@ export class PcPartsService {
       ram: "32GB DDR5 6000 G-Skill Royal",
       memory: "8TB HDD, 4TB SSD - M2",
       cooling: "Water Cooling",
+      quantity: 1,
       price: 15000
     },
 
@@ -1534,6 +1539,7 @@ export class PcPartsService {
       ram: "32 GB DDR5 5600 Crucial Balistix",
       memory: "6TB HDD, 3TB SSD - M2",
       cooling: "Water Cooling",
+      quantity: 1,
       price: 10000
     },
 
@@ -1548,6 +1554,7 @@ export class PcPartsService {
       ram: "16 GB DDR4 4000 TeamGroup",
       memory: "4TB HDD, 2TB SSD - M2",
       cooling: "Water Cooling",
+      quantity: 1,
       price: 7000
     },
       
@@ -1562,6 +1569,7 @@ export class PcPartsService {
       ram: "16GB DDR4 3200 Adoto",
       memory: "2TB HDD, 1TB SSD - M2",
       cooling: "Wind Cooling",
+      quantity: 1,
       price: 4000
     },
 
@@ -1576,6 +1584,7 @@ export class PcPartsService {
       ram: "16GB DDR4 3200 Crucial Balistix",
       memory: "1TB HDD, 500GB SSD - SATA",
       cooling: "Wind Cooling",
+      quantity: 1,
       price: 1500
     },
 

@@ -25,8 +25,8 @@ export type PcPartType = {
     productName: string,
     imageUrl: string,
     price: number
+    quantity: number,
     name?: string,
-    quantity?: number,
     manufacturer?: String,
     moboId?: number,
     gpuId?: number,

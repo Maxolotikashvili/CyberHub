@@ -16,6 +16,10 @@ import { Page404Component } from './page404/page404.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { HeaderMenuComponent } from './header-menu/header-menu.component';
 import { LoadingComponent } from './loading/loading.component';
+import { AssemblyComponent } from './assembly/assembly.component';
+import { AssemblyHomeComponent } from './assembly-home/assembly-home.component';
+import { SwiperModule } from 'swiper/angular';
+import { PartsComponent } from './parts/parts.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,10 @@ import { LoadingComponent } from './loading/loading.component';
     Page404Component,
     CheckoutComponent,
     HeaderMenuComponent,
-    LoadingComponent
+    LoadingComponent,
+    AssemblyComponent,
+    AssemblyHomeComponent,
+    PartsComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +44,8 @@ import { LoadingComponent } from './loading/loading.component';
     FontAwesomeModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SwiperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

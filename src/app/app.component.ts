@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { faBars, faCartShopping, faCopyright, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { CartItemService } from './Services/Cart/cart-item.service';
 import { WishlistService } from './Services/Wishlist/wishlist.service';
 import { MatDialog } from '@angular/material/dialog'
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { CartItemsType } from './model';
+import { PcPartType } from './model';
 
 @Component({
   selector: 'app-root',
@@ -18,8 +18,8 @@ export class AppComponent implements OnInit {
   responsiveMode!: boolean;
   burgerBar = 'burger-bar'
 
-  wishList: CartItemsType[] = [];
-  cartItems: CartItemsType[] = [];
+  wishList: PcPartType[] = [];
+  cartItems: PcPartType[] = [];
 
   fontawesome = {
     cart: faCartShopping,
@@ -46,19 +46,19 @@ export class AppComponent implements OnInit {
   //
   signOutUser() {
     localStorage.removeItem('isLoggedIn');
-    alert('Refresh the page to sign out');
+    location.reload();
   }
 
   //
   getWishListtItems() {
-    this.wishListService.wishListFlow.subscribe((data: CartItemsType[]) => {
+    this.wishListService.wishListFlow.subscribe((data: PcPartType[]) => {
       this.wishList = data;
     });
   }
 
   //
   getCartItems() {
-    this.cartItemService.cartItemsFlow.subscribe((cartItems: CartItemsType[]) => {
+    this.cartItemService.cartItemsFlow.subscribe((cartItems: PcPartType[]) => {
       this.cartItems = cartItems;
     });
   }
