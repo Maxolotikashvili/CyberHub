@@ -26,7 +26,13 @@ export class PartsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private pcPartsService: PcPartsService, private cartItemService: CartItemService, private wishListService: WishlistService, private snack: MatSnackBar) { }
 
   ngOnInit(): void {
+    this.scrollToTopOnComponentLoad();
     this.catchRouterId();
+  }
+
+  //
+  scrollToTopOnComponentLoad() {
+    window.scrollTo(0, 0);
   }
 
   //

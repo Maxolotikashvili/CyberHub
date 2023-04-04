@@ -7,7 +7,7 @@ export type NewsType = {
 
 export type PcPartsType = {
     id: number,
-    router: string,
+    routerLink: string,
     imageUrl: string,
     name: string
 };

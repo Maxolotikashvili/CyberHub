@@ -1,0 +1,33 @@
+<h2 class="header-h2">Browse Game - Ready PC-s</h2>
+
+<div class="pc-gridbox">
+    <div [ngClass]="{'pcgrid-extreme': pc.id === 122, 'pcgrid-highend': pc.id === 125, 'pcgrid-budget': pc.id === 131}" *ngFor="let pc of completedBuilds">
+
+        <div class="gridbox-wrapper">
+            <h4 *ngIf="pc.id === 122">Extreme</h4>
+            <h4 *ngIf="pc.id === 125">High End</h4>
+            <h4 *ngIf="pc.id === 131">Budget</h4>
+
+            <img [src]="pc.imageUrl">
+        </div>
+
+        <div class="specs-wrapper">
+        <span class="specs-span">Specs</span>
+
+            <div class="details-wrapper">
+                <span class="pc-mobo margin">MotherBoard: {{pc.mobo}}</span>
+                <span class="pc-gpu margin">Video Card: {{pc.gpu}}</span>
+                <span class="pc-cpu margin">Proccessor: {{pc.cpu}}</span>
+                <span class="pc-ram margin">Memory: {{pc.ram}}</span>
+                <span class="pc-hdd margin">Capacity: {{pc.memory}}</span>
+
+                <div class="price-wrapper">
+                    <span class="pc-price">{{pc.price}}<span style="color: red">$</span></span>
+                    <button mat-button class="pc-button">Shop Now</button>
+                </div>
+        
+            </div>
+        </div>
+
+    </div>
+</div>

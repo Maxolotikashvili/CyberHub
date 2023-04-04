@@ -70,64 +70,65 @@ export class NewsService {
     // Pc Parts
     pcParts: PcPartsType[] = [
       {
-        id: 1,
-        router: "/build/mobos",
+        id: 0,
+        routerLink: "/assembly/parts",
         imageUrl: "assets/Icons/mobo-icon.png",
         name: "Motherboard"
       },
   
       {
-        id: 2,
-        router: "/build/cpus",
+        id: 1,
+        routerLink: "/assembly/parts",
         imageUrl: "assets/Icons/cpu-icon.png",
         name: "Cpu",
       },
   
       {
-        id: 3,
-        router: "/build/gpus",
+        id: 2,
+        routerLink: "/assembly/parts",
         imageUrl: "assets/Icons/gpu-icon.png",
         name: "Video Card",
       },
   
       {
-        id: 4,
-        router: "/build/rams",
+        id: 3,
+        routerLink: "/assembly/parts",
         imageUrl: "assets/Icons/ram-icon.png",
         name: "Memory",
       },
   
       {
-        id: 5,
-        router: "/build/psus",
+        id: 4,
+        routerLink: "/assembly/parts",
         imageUrl: "assets/Icons/psu-icon.png",
         name: "Power Supply",
       },
-  
+
       {
-        id: 6,
-        router: "/build/hdds",
-        imageUrl: "assets/Icons/hdd-icon.png",
-        name: "HDD",
-      },
-  
-      {
-        id: 7,
-        router: "/build/ssds",
+        id: 5,
+        routerLink: "/assembly/parts",
         imageUrl: "assets/Icons/ssd-icon.png",
         name: "SSD",
       },
   
       {
-        id: 8,
-        router: "/build/cpu-coolers",
+        id: 6,
+        routerLink: "/assembly/parts",
+        imageUrl: "assets/Icons/hdd-icon.png",
+        name: "HDD",
+      },
+  
+  
+      {
+        id: 7,
+        routerLink: "/assembly/parts",
         imageUrl: "assets/Icons/cooler-icon.png",
         name: "Cpu Cooler",
       },
   
       {
-        id: 9,
-        router: "/build/cases",
+        id: 8,
+        routerLink: "/assembly/parts",
         imageUrl: "assets/Icons/case-icon.png",
         name: "Case",
       },
@@ -135,13 +136,11 @@ export class NewsService {
 
   constructor() { }
 
-  // Get News
   getNews() {
     return of(this.news)
   };
 
 
-  // Get Parts
   getParts() {
     return of(this.pcParts)
   };

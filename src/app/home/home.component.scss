@@ -1,40 +1,56 @@
+$secondary-color: rgb(192, 192, 192);
 $font-play: "Play", sans-serif;
 $font-saira: "Saira Condensed", sans-serif;
 $font-dosis: "Dosis", sans-serif;
+
+$white: #ffffff;
+$gpu-color: rgb(135, 253, 0);
+$headset-color: rgb(0, 0, 255);
+
+@mixin gpu-headset-button {
+    padding: 10px;
+    margin-top: 2px;
+    background: black;
+    text-align: center;
+    letter-spacing: 5px;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
 
 .bodybox {
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
 
-    .section1 {
-        padding-top: 200px;
-        margin-bottom: 200px;
+    .header-section {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
 
         h1 {
-            font-size: 36px;
-            line-height: 50px;
-            text-align: center;
-            margin-top: 100px;
+            font-size: 3.6rem;
+            line-height: 5rem;
             font-family: $font-play;
-            color: white;
+            color: $white;
         }
 
         .shopbutton-box {
             display: flex;
             justify-content: center;
-            margin: 50px 0px 400px 0px;   
 
             .shop-button {
-                padding: 20px 50px 20px 50px;
+                padding: 2rem 5rem 2rem 5rem;
                 background-color: transparent;
-                color: rgb(230, 230, 230);
-                font-weight: bold;
-                font-size: 16px;
+                color: #ffffff;
+                font-weight: 800;
+                font-size: 1.66rem;
                 letter-spacing: 1px;
                 font-family: $font-play;
                 border: 3px solid blue;
-                border-radius: 30px; 
+                border-radius: 30px;
                 transition: all 0.2s linear;
                 cursor: pointer;
             }
@@ -44,111 +60,49 @@ $font-dosis: "Dosis", sans-serif;
                 color: white;
             }
         }
+    }
 
-        .bigbox {
+    .gpu-headset-section {
+        height: 100vh;
+
+        .gpubox-headsetbox-wrapper {
+            font-family: $font-play;
             padding-top: 20px;
-            background-color: rgba(0, 0, 0, 0.514);
+            background-color: rgba(0, 0, 0, 0.5);
 
-            .stock-h {
+            h3 {
                 text-align: center;
-                margin-bottom: 100px;
-                font-size: 36px;
-                color: white;
+                font-size: 3.6rem;
+                color: $white;
                 font-family: $font-play;
                 letter-spacing: 3px;
-                font-weight: bold;
+                font-weight: 800;
             }
 
-            // Commerce
-
-            .commercebox {
+            .gpu-headset-flexbox {
                 display: flex;
                 justify-content: space-around;
                 flex-wrap: wrap;
-                font-family: $font-play;
 
-                .gtx1060box {
+                .gpu-headset-column-wrapper {
                     display: flex;
                     flex-direction: column;
-                    margin-top: 20px;
 
-                    .nowinstock {
-                        background: rgb(31, 31, 31);
-                        background: radial-gradient(
-                            circle,
-                            rgba(31, 31, 31, 0.6965161064425771) 0%,
-                            rgba(0, 0, 0, 0.6965161064425771) 100%
-                        );
+                    .gpu-headset-headerbox {
                         text-align: center;
-                        padding: 20px;
+                        padding: 1rem 0;
+                        color: $gpu-color;
+                        letter-spacing: 3px;
+                        font-weight: 600;
+                        font-size: 1.8rem;
+                        background: radial-gradient(circle,rgba(31, 31, 31, 0.6965161064425771) 0%,rgba(0, 0, 0, 0.6965161064425771) 100%);
 
-                        .gtx1060-span {
-                            font-size: 18px;
-                            color: rgb(135, 253, 0);
-                            letter-spacing: 3px;
+                        .headset-span {
+                            color: $headset-color;
                         }
                     }
 
-                    .gtx1060 {
-                        max-width: 600px;
-                        width: 100%;
-                        max-height: 400px;
-                        object-fit: cover;
-                    }
-
-                    .buy-1060 {
-                        color: rgb(103, 194, 0);
-                        padding: 10px;
-                        margin-top: 2px;
-                        background: black;
-                        text-align: center;
-                        letter-spacing: 5px;
-                        font-weight: bolder;
-                        cursor: pointer;
-                        transition: all 0.3s linear;
-                    }
-
-                    .buy-1060:hover {
-                        background: rgb(103, 194, 0);
-                        color: white;
-                    }
-                }
-
-                // Arctis
-
-                .arctisbox {
-                    display: flex;
-                    flex-direction: column;
-                    margin-top: 20px;
-
-                    .newinstock {
-                        display: flex;
-                        flex-direction: column;
-                        text-align: center;
-                        flex-wrap: wrap;
-                        max-width: 600px;
-                        width: 100%;
-                        background: rgb(31, 31, 31);
-                        background: radial-gradient(
-                            circle,
-                            rgba(31, 31, 31, 0.6965161064425771) 0%,
-                            rgba(0, 0, 0, 0.6965161064425771) 100%
-                        );
-                        padding: 20px;
-
-                        .arctis-p {
-                            margin-bottom: 5px;
-                            font-size: 22px;
-                        }
-
-                        .arctis-span {
-                            color: blue;
-                            letter-spacing: 3px;
-                            font-size: 18px;
-                        }
-                    }
-
-                    .arctis {
+                    img {
                         max-width: 600px;
                         width: 100%;
                         max-height: 400px;
@@ -156,270 +110,78 @@ $font-dosis: "Dosis", sans-serif;
                         object-fit: cover;
                     }
 
-                    .buy-arctis {
-                        padding: 10px;
-                        margin-top: 2px;
-                        color: rgb(0, 0, 255);
-                        background: black;
-                        text-align: center;
-                        letter-spacing: 5px;
-                        font-weight: bolder;
-                        cursor: pointer;
-                        transition: all 0.3s linear;
+                    .gpu-button {
+                        color: $gpu-color;
+                        @include gpu-headset-button();
                     }
 
-                    .buy-arctis:hover {
-                        color: white;
-                        background-color: rgb(0, 0, 255);
-                    }
-                }
-            }
-        }
-
-        // Arrivals
-
-        .newmanufacturers-h {
-            margin: 200px 0px 100px 10px;
-            font-size: 36px;
-            letter-spacing: 3px;
-            font-family: $font-play;
-            color: white;
-            font-weight: bold;
-        }
-
-        .manufacturersbox {
-            padding-top: 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: $font-saira;
-
-            .kraken-h {
-                color: white;
-                font-weight: bolder;
-                font-size: 42px;
-                border-bottom: 1px solid white;
-                letter-spacing: 4px;
-                padding: 0px 14px 10px 14px;
-                margin-bottom: 10px;
-            }
-
-            .kraken-display {
-                font-size: 22px;
-                letter-spacing: 3px;
-                margin-bottom: 50px;
-                color: rgb(233, 233, 233);
-            }
-
-            // Pump
-
-            .pumpbox {
-                display: flex;
-                align-items: center;
-                justify-content: space-around;
-                margin: 100px 0px 100px 0px;
-                background-color: rgba(192, 192, 192, 0.705);
-
-                .pump {
-                    max-width: 400px;
-                    width: 100%;
-                }
-
-                .pumptextbox {
-                    display: flex;
-                    flex-direction: column;
-                    padding: 0px 50px 0px 50px;
-
-                    .pump-h {
-                        margin-bottom: 15px;
-                        font-size: 36px;
-                        letter-spacing: 1px;
-                        font-family: $font-saira;
-                        font-weight: bold;
+                    .headset-button {
+                        @include gpu-headset-button();
+                        color: $headset-color;
                     }
 
-                    .pump-p {
-                        font-size: 20px;
-                        letter-spacing: 1px;
-                        line-height: 28px;
-                        font-weight: bold;
-                    }
-                }
-            }
-
-            // Divider
-            .divider {
-                width: 90%;
-                background-color: white;
-                margin: 100px 0px 100px 0px;
-            }
-
-            // Rgb
-            .nzxt-rgbbox {
-                display: flex;
-                align-items: center;
-                padding: 0px 50px 0px 50px;
-                background-color: rgba(192, 192, 192, 0.705);
-
-                .rgbtextbox {
-                    display: flex;
-                    flex-direction: column;
-                    padding: 0px 50px 0px 50px;
-
-                    .nzxt-rgb-h {
-                        font-size: 36px;
-                        letter-spacing: 2px;
-                        margin-bottom: 15px;
-                        font-family: $font-saira;
-                        font-weight: bold;
+                    .gpu-button:hover {
+                        background: $gpu-color;
+                        color: #ffffff;
                     }
 
-                    .nzxt-rgb-p {
-                        font-size: 20px;
-                        letter-spacing: 1px;
-                        line-height: 27px;
-                        font-weight: bold;
-                    }
-                }
-
-                .nzxt-rgb {
-                    max-width: 350px;
-                    width: 100%;
-                }
-            }
-
-            // Kraken - Buy
-
-            .buy-now {
-                font-size: 34px;
-                font-weight: bold;
-                color: silver;
-                letter-spacing: 3px;
-                margin-top: 200px;
-                padding: 0px 30px 12px 30px;
-                border-bottom: 1px solid silver;
-            }
-
-            .buy-white {
-                font-size: 22px;
-                font-weight: bold;
-                color: silver;
-                letter-spacing: 3px;
-                margin: 10px 0px 50px 0px;
-            }
-
-            .nzxt-buy-box {
-                display: flex;
-                justify-content: space-around;
-                padding-top: 15px;
-                background: rgb(196, 196, 196);
-                background: radial-gradient(circle, rgba(196, 196, 196, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
-                width: 100%;
-
-                .responsivedivider {
-                    display: none;
-                }
-
-                .nzxtboxes {
-                    display: flex;
-                    flex-direction: column;
-                    text-align: center;
-
-                    .z73 {
-                        width: 250px;
-                    }
-
-                    .x73 {
-                        width: 250px;
-                    }
-
-                    .price-span {
-                        font-weight: bold;
-                        margin: 20px 0px 20px 0px;
-                        font-size: 20px;
-                        letter-spacing: 1px;
-                        color: white;
-                    }
-
-                    .nzxt-span {
-                        color: white;
-                        font-size: 24px;
-                        font-weight: bold;
-                        letter-spacing: 1px;
-                    }
-
-                    .span-buy {
-                        font-size: 18px;
-                        font-weight: bolder;
-                        color: white;
-                        padding: 5px;
-                        margin-bottom: 20px;
-                        letter-spacing: 2px;
-                        border: 1px solid white;
-                        border-radius: 50px;
-                        transition: all 0.2s linear;
-                        cursor: pointer;
-                    }
-
-                    .span-buy:hover {
-                        background-color: white;
-                        color: black;
+                    .headset-button:hover {
+                        background-color: $headset-color;
+                        color: #ffffff;
                     }
                 }
             }
         }
+    }
 
-        // News
+    .newsbox {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 250vh;
+        font-family: $font-play;
 
         .news-h {
-            margin: 200px 0px 50px 10px;
-            letter-spacing: 3px;
-            font-size: 36px;
-            color: white;
+            margin-bottom: 10rem;
+            letter-spacing: .3rem;
+            font-size: 3.6rem;
+            color: #ffffff;
             font-family: $font-play;
         }
 
-        .newsbox {
+        .ngfor-news {
+            display: flex;
+            padding: 2rem 0 2rem 0;
+            max-width: 70%;
+            width: 100%;
+            color: $secondary-color;
+            border-bottom: 1px solid $secondary-color;
+        }
+
+        img {
+            max-width: 23rem;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .news-text-box {
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 30px;
-            font-family: $font-play;
+            justify-content: space-around;
+            margin-left: 1rem;
+            cursor: default;
+            text-align: center;
 
-            .ngfor-news {
-                display: flex;
-                max-width: 500px;
-                width: 100%;
-                padding: 35px 0px 35px 0px;
-                max-width: 70%;
-                color: gray;
-                border-bottom: 1px solid gray;
+            h6 {
+                font-size: 2rem;
+                transition: all 0.1s linear;
             }
 
-            .news-images {
-                max-width: 230px;
-                width: 100%;
-                height: 150px;
-                object-fit: cover;
-            }
-
-            .news-text-box {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                padding-right: 30px;
-                margin-left: 10px;
-                cursor: default;
-                text-align: center;
-
-                .news-title {
-                    font-size: 20px;
-                    transition: all 0.1s linear;
-                }
-
-                .news-title:hover {
-                    color: blue;
-                }
+            p {
+                width: 70%;
             }
         }
     }
@@ -427,291 +189,59 @@ $font-dosis: "Dosis", sans-serif;
     // Section II
 
     .section2 {
-        padding-bottom: 100px;
+        // padding-bottom: 100px;
+        // display: flex;
+        // flex-direction: column;
+    }
+
+    .buildbox {
         display: flex;
         flex-direction: column;
+        align-items: center;
 
-        .intro-grid {
-            line-height: 35px;
-            letter-spacing: 3px;
-            font-size: 36px;
+        .build-h2 {
+            margin: 100px 0px 50px 0px;
+            font-size: 44px;
+            font-family: $font-dosis;
+            line-height: 45px;
+            letter-spacing: 2px;
+            word-wrap: break-word;
             color: white;
-            font-family: $font-play;
-            margin: 150px 0px 50px 0px;
         }
 
-        // Grid
-
-        .pc-gridbox {
+        .bigboxgrid {
+            color: white;
+            font-family: $font-saira;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin: 50px 0px 100px 0px;
+            text-align: center;
             display: grid;
-            grid-gap: 20px;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            font-family: $font-play;
-            font-size: 18px;
-            margin-bottom: 200px;
+            grid-gap: 30px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
 
-            .pc-grid {
-                grid-row: 1 / span 2;
-                display: flex;
-                background-color: black;
-                color: white;
-                border-radius: 10px;
+            .assemblebox {
+                border: 1px solid black;
+                border-radius: 2px;
+                background-color: rgb(0, 0, 0);
+                transition: all 0.125s linear;
 
-                .extremebox {
+                .partbox {
                     display: flex;
                     flex-direction: column;
-                    justify-content: center;
-
-                    .extreme {
-                        text-align: center;
-                        margin-left: 50px;
-                        font-size: 26px;
-                        letter-spacing: 4px;
-                        color: red;
-                        font-weight: bolder;
-                    }
-
-                    .pc-image-extreme {
-                        width: 300px;
-                        height: 70%;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        background-size: contain;
-                    }
-                }
-
-                .specsbox {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-end;
-                    margin-bottom: 30px;
-                    margin-left: 30px;
-                    width: 100%;
-
-                    .specs {
-                        border-bottom: 1px solid red;
-                        text-align: center;
-                        padding-bottom: 10px;
-                        letter-spacing: 1px;
-                        font-size: 20px;
-                        font-weight: bold;
-                    }
-
-                    .detailsbox {
-                        display: flex;
-                        flex-direction: column;
-                        margin-top: 20px;
-
-                        .pricebox {
-                            margin-top: 30px;
-                            display: flex;
-                            align-items: center;
-                            padding-bottom: 10px;
-
-                            .pc-price {
-                                font-size: 22px;
-                                letter-spacing: 1px;
-                                margin: 0px 10px 3px 0px;
-                            }
-
-                            .pc-button {
-                                border: 1px solid red;
-                                border-radius: 0px;
-                                font-family: $font-play;
-                                transition: all 0.2s ease;
-                            }
-
-                            .pc-button:hover {
-                                color: red;
-                            }
-                        }
-                    }
-                }
-
-                .margin {
-                    margin-bottom: 25px;
-                }
-            }
-
-            // Highend
-
-            .smallgrid {
-                display: flex;
-                height: fit-content;
-                padding: 0px 5px 2px 0px;
-                background-color: black;
-                color: white;
-                border-radius: 10px;
-
-                .highendbox {
-                    display: flex;
-                    flex-direction: column;
-
-                    .highend {
-                        text-align: center;
-                        font-size: 24px;
-                        letter-spacing: 2px;
-                        color: blue;
-                        font-weight: bolder;
-                        margin-top: 10px;
-                    }
-
-                    .pc-image-highend {
-                        width: 150px;
-                        height: 150px;
-                        margin-top: 20px;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        background-size: contain;
-                    }
-                }
-
-                .specsbox {
-                    display: flex;
-                    flex-direction: column;
-                    margin: 47px 0px 0px 20px;
-                    width: 100%;
-
-                    .specs {
-                        border-bottom: 1px solid blue;
-                        text-align: center;
-                        padding-bottom: 10px;
-                        letter-spacing: 1px;
-                        font-size: 20px;
-                        font-weight: bold;
-                    }
-
-                    .detailsbox {
-                        display: flex;
-                        flex-direction: column;
-                        margin-top: 10px;
-
-                        .pc-hdd {
-                            margin: 3.7px 0px 3.7px 0px;
-                        }
-
-                        .pricebox {
-                            display: flex;
-                            align-items: baseline;
-                            justify-content: space-between;
-
-                            .pc-price {
-                                font-size: 22px;
-                                letter-spacing: 1px;
-                                margin-right: 5px;
-                            }
-
-                            .pc-button {
-                                border: 1px solid blue;
-                                border-radius: 0px;
-                                font-family: $font-play;
-                                transition: all 0.2s ease;
-                            }
-
-                            .pc-button:hover {
-                                color: blue;
-                            }
-                        }
-                    }
-                }
-
-                .margin {
-                    margin-bottom: 3.7px;
-                }
-
-                // Budget
-
-                .pc-image-budget {
-                    width: 150px;
-                    height: 150px;
-                    margin-top: 20px;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                }
-
-                .budget {
-                    text-align: center;
-                    font-size: 24px;
-                    letter-spacing: 2px;
-                    color: yellow;
-                    font-weight: bolder;
-                    margin-top: 10px;
-                }
-
-                .specs-rx {
-                    border-bottom: 1px solid yellow;
-                    text-align: center;
-                    padding-bottom: 10px;
+                    align-items: center;
+                    padding: 20px;
                     letter-spacing: 1px;
-                    font-size: 20px;
-                    font-weight: bold;
-                }
 
-                .pc-rx-button {
-                    border: 1px solid yellow;
-                    border-radius: 0px;
-                    font-family: $font-play;
-                    transition: all 0.2s ease;
-                }
-
-                .pc-rx-button:hover {
-                    color: yellow;
-                }
-            }
-        }
-
-        // Build Your Own
-
-        .buildbox {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            .build-h2 {
-                margin: 100px 0px 50px 0px;
-                font-size: 44px;
-                font-family: $font-dosis;
-                line-height: 45px;
-                letter-spacing: 2px;
-                word-wrap: break-word;
-                color: white;
-            }
-
-            .bigboxgrid {
-                color: white;
-                font-family: $font-saira;
-                font-weight: bold;
-                letter-spacing: 2px;
-                margin: 50px 0px 100px 0px;
-                text-align: center;
-                display: grid;
-                grid-gap: 30px;
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-
-                .assemblebox {
-                    border: 1px solid black;
-                    border-radius: 2px;
-                    background-color: rgb(0, 0, 0);
-                    transition: all 0.125s linear;
-
-                    .partbox {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        padding: 20px;
-                        letter-spacing: 1px;
-
-                        .image {
-                            width: 60px;
-                            margin-bottom: 5px;
-                        }
+                    img {
+                        width: 60px;
+                        margin-bottom: 5px;
                     }
                 }
+            }
 
-                .assemblebox:hover {
-                    border-color: rgb(160, 0, 160);
-                }
+            .assemblebox:hover {
+                border-color: rgb(160, 0, 160);
             }
         }
     }

@@ -20,6 +20,8 @@ import { AssemblyComponent } from './assembly/assembly.component';
 import { AssemblyHomeComponent } from './assembly-home/assembly-home.component';
 import { SwiperModule } from 'swiper/angular';
 import { PartsComponent } from './parts/parts.component';
+import { NewManufacturersSectionComponent } from './new-manufacturers-section/new-manufacturers-section.component';
+import { GameReadyPcsSectionComponent } from './game-ready-pcs-section/game-ready-pcs-section.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { PartsComponent } from './parts/parts.component';
     LoadingComponent,
     AssemblyComponent,
     AssemblyHomeComponent,
-    PartsComponent
+    PartsComponent,
+    NewManufacturersSectionComponent,
+    GameReadyPcsSectionComponent
   ],
   imports: [
     BrowserModule,

@@ -1,214 +1,80 @@
 <div class="bodybox" [ngStyle]="{'background-image': 'url(assets/Backgrounds/background-gaming.jpg)'}">
-  <section class="section1">
+  
+  <section class="header-section">
     <h1>Premium PC Shop For Ultimate <span style="color: blue">Gaming</span></h1>
-
+  
     <div class="shopbutton-box">
       <button class="shop-button" routerLink="/assembly">Shop Now</button>
     </div>
-    <div class="bigbox">
+  </section>
 
-      <!-- Commerce -->
-      <h3 class="stock-h">Now In Stock</h3>
+  <section class="gpu-headset-section">
 
-      <div class="commercebox">
-        <div class="gtx1060box">
-          <div class="nowinstock">
-            <span class="gtx1060-span">GTX 1060</span>
+    <div class="gpubox-headsetbox-wrapper">
+      <h3>Now In Stock</h3>
+
+      <div class="gpu-headset-flexbox">
+
+        <div class="gpu-headset-column-wrapper">     
+          <div class="gpu-headset-headerbox">
+            <span>GTX 1060</span>
           </div>
 
-          <img src="assets/gtx1060.jpg" class="gtx1060" />
-          <button mat-button class="buy-1060">Buy Now</button>
+          <img src="assets/gtx1060.jpg">
+          <button mat-button class="gpu-button">Buy Now</button>
         </div>
 
-        <div class="arctisbox">
-          <div class="newinstock">
-            <span class="arctis-span">Steelseries Arctis Pro</span>
+        <div class="gpu-headset-column-wrapper">
+          <div class="gpu-headset-headerbox">
+            <span class="headset-span">Steelseries Arctis Pro</span>
           </div>
 
-          <img class="arctis" src="assets/arctis.jpg" />
-          <button mat-button class="buy-arctis">Buy Now</button>
+          <img src="assets/arctis.jpg">
+          <button mat-button class="headset-button">Buy Now</button>
         </div>
+
       </div>
     </div>
 
-    <!-- New Arrivals -->
+  </section>
 
-    <h3 class="newmanufacturers-h">New Manufacturer Products</h3>
+  <section class="manufacturers-section">
+    <app-new-manufacturers-section></app-new-manufacturers-section>
+  </section>
 
-    <div class="manufacturersbox">
-      <h3 class="kraken-h">NZXT Kraken 120 Series</h3>
-      <h5 class="kraken-display">Liquid Coolers With Displays</h5>
-
-      <div class="pumpbox">
-        <img class="pump" src="assets/NZXT/nzxt-pump.png" />
-
-        <div class="pumptextbox">
-          <h4 class="pump-h">New Pump Control System</h4>
-          <p class="pump-p">
-            New pump control system has reduced the usage of power and increased
-            the efficiency. All new Kraken series Cpu Coolers have implemented
-            new display system, which provides an absolute control over cooling
-            proccess in every detail.
-          </p>
-        </div>
-      </div>
-
-      <mat-divider class="divider"></mat-divider>
-
-      <div class="nzxt-rgbbox">
-        <div class="rgbtextbox">
-          <h4 class="nzxt-rgb-h">RGB Mode</h4>
-          <p class="nzxt-rgb-p">
-            Chained colors, Circle mode, Rainbow... NZXT RGB controller can now
-            integrate with your Motherboard to give you best possible experience
-            with controling RGB colors and lighting modes.
-          </p>
-        </div>
-
-        <img class="nzxt-rgb" src="assets/NZXT/nzxt-rgb.png" />
-      </div>
-
-      <!-- NZXT Buy  -->
-      <h3 class="buy-now">Buy Now</h3>
-      <h6 class="buy-white">NZXT<span style="color: white"> White</span> Series</h6>
-
-      <div class="nzxt-buy-box">
-        <div class="nzxtboxes">
-          <span class="nzxt-span">Z 73 RGB</span>
-          <img class="z73" src="assets/NZXT/kraken-z73.png" />
-          <span class="price-span">369.99$</span>
-          <button mat-button class="span-buy" routerLink="/build/cpu-coolers">Buy</button>
-        </div>
-
-        <mat-divider class="responsivedivider"></mat-divider>
-
-        <div class="nzxtboxes">
-          <span class="nzxt-span">X 73 RGB</span>
-          <img class="x73" src="assets/NZXT/kraken-x73.png" />
-          <span class="price-span">189.99$</span>
-          <button mat-button class="span-buy" routerLink="/build/cpu-coolers">Buy</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- News -->
-
+  <section>
     <div class="newsbox">
       <h3 class="news-h" id="News">News</h3>
 
       <div class="ngfor-news" *ngFor="let item of news">
-        <img class="news-images" [src]="item.photoUrl" alt="image" />
 
+        <img [src]="item.photoUrl" alt="image">
         <div class="news-text-box">
-          <p class="news-title">{{ item.title }}</p>
-          <p class="news-body">{{ item.body }}</p>
+          <h6>{{ item.title }}</h6>
+          <p>{{ item.body }}</p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Section II ( Build ) -->
-
   <section class="section2" id="quick-shopping">
-    <h2 class="intro-grid" id="Build">Browse Game - Ready PC-s</h2>
+    <app-game-ready-pcs-section></app-game-ready-pcs-section>
+  </section>
 
-    <!-- Grid -->
-
-    <div class="pc-gridbox">
-      <div class="pc-grid">
-        <div class="extremebox">
-          <h2 class="extreme">Extreme</h2>
-          <div class="pc-image-extreme" [ngStyle]="{   'background-image': 'url(assets/PcParts/PCs/3090-pc.png)' }"></div>
-        </div>
-
-        <div class="specsbox">
-          <span class="specs">Specs</span>
-
-          <div class="detailsbox">
-            <span class="pc-mobo margin">Motherboard: MSI MEG Godlike</span>
-            <span class="pc-gpu margin">Video Card: RTX 3090</span>
-            <span class="pc-cpu margin">Proccessor: i9 12900K</span>
-            <span class="pc-ram margin">Memory: 32GB</span>
-            <span class="pc-hdd margin">HDD: 6TB</span>
-            <span class="pc-ssd">SSD: 3TB</span>
-
-            <div class="pricebox">
-              <span class="pc-price">13 000<span style="color: red">$</span></span>
-              <button mat-button class="pc-button">Shop Now
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="smallgrid">
-        <div class="highendbox">
-          <h2 class="highend">High End</h2>
-          <div class="pc-image-highend" [ngStyle]="{'background-image': 'url(assets/PcParts/PCs/3070ti-pc.png)'}"></div>
-        </div>
-
-        <div class="specsbox">
-          <span class="specs">Specs</span>
-
-          <div class="detailsbox responsive-detailsbox">
-            <span class="pc-mobo margin">Motherboard: Z490-A Gaming</span>
-            <span class="pc-gpu margin">Video Card: RTX 3070 Ti</span>
-            <span class="pc-cpu margin">Proccessor: i5 11500KF</span>
-            <span class="pc-ram margin">Memory: 16GB</span>
-            <span class="pc-hdd">HDD: 2TB</span>
-            <div class="pricebox responsive-pricebox">
-              <span class="pc-ssd">SSD: 1TB</span>
-
-              <div class="price-buttonbox">
-                <span class="pc-price">4 500<span style="color: blue">$</span></span>
-                <button mat-button class="pc-button">Shop Now</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="smallgrid">
-        <div class="highendbox">
-          <h2 class="budget">Budget</h2>
-          <div class="pc-image-budget" [ngStyle]="{'background-image': 'url(assets/PcParts/PCs/rx580-pc.png)'}"></div>
-        </div>
-
-        <div class="specsbox">
-          <span class="specs-rx">Specs</span>
-
-          <div class="detailsbox responsive-detailsbox">
-            <span class="pc-mobo margin">Motherboard: B550 - A Pro</span>
-            <span class="pc-gpu margin">Video Card: RX 580 8GB</span>
-            <span class="pc-cpu margin">Proccessor: Ryzen 5 3600</span>
-            <span class="pc-ram margin">Memory: 16GB</span>
-            <span class="pc-hdd">HDD: 1TB</span>
-            <div class="pricebox responsive-pricebox">
-              <span class="pc-ssd">SSD: 500GB</span>
-
-              <div class="price-buttonbox">
-                <span class="pc-price">1 500<span style="color: yellow">$</span></span>
-                <button mat-button class="pc-rx-button">Shop Now</button>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+  <section>
     <div class="buildbox">
       <h2 class="build-h2">Build Your Own</h2>
-
       <div class="bigboxgrid">
-        <button mat-button class="assemblebox" *ngFor="let item of parts" [routerLink]="item.router">
+        <button mat-button class="assemblebox" *ngFor="let item of parts" [routerLink]="[item.routerLink, item.id]">
           <div class="partbox">
-            <img class="image" [src]="item.imageUrl" /> 
+            <img [src]="item.imageUrl" /> 
             {{ item.name }}</div>
         </button>
       </div>
     </div>
   </section>
+
 </div>
 
 <!-- Footer -->
