@@ -1,33 +1,26 @@
-<h2 class="header-h2">Browse Game - Ready PC-s</h2>
+<h2 class="header-h2" id="quick-shopping">Browse Game - Ready PC-s</h2>
 
-<div class="pc-gridbox">
-    <div [ngClass]="{'pcgrid-extreme': pc.id === 122, 'pcgrid-highend': pc.id === 125, 'pcgrid-budget': pc.id === 131}" *ngFor="let pc of completedBuilds">
-
-        <div class="gridbox-wrapper">
-            <h4 *ngIf="pc.id === 122">Extreme</h4>
-            <h4 *ngIf="pc.id === 125">High End</h4>
-            <h4 *ngIf="pc.id === 131">Budget</h4>
-
-            <img [src]="pc.imageUrl">
+<div class="pcs-wrapper">
+    <div class="pcbox" *ngFor="let pc of completedBuilds">
+        <div class="pc-header-wrapper">
+            <h4 *ngIf="pc.id === 122" [class.extreme-h4]="pc.id === 122">Extreme</h4>
+            <h4 *ngIf="pc.id === 125" [class.highend-h4]="pc.id === 125">High End</h4>
+            <h4 *ngIf="pc.id === 131" [class.budget-h4]="pc.id === 131">Budget</h4>
         </div>
 
-        <div class="specs-wrapper">
-        <span class="specs-span">Specs</span>
+        <img [src]="pc.imageUrl" alt="pc-image">
 
-            <div class="details-wrapper">
-                <span class="pc-mobo margin">MotherBoard: {{pc.mobo}}</span>
-                <span class="pc-gpu margin">Video Card: {{pc.gpu}}</span>
-                <span class="pc-cpu margin">Proccessor: {{pc.cpu}}</span>
-                <span class="pc-ram margin">Memory: {{pc.ram}}</span>
-                <span class="pc-hdd margin">Capacity: {{pc.memory}}</span>
+        <ul>
+            <li>{{pc.mobo}}</li>
+            <li>{{pc.gpu}}</li>
+            <li>{{pc.cpu}}</li>
+            <li>{{pc.ram}}</li>
+            <li>{{pc.memory}}</li>
+            <li>{{pc.cooling}}</li>
+        </ul>
 
-                <div class="price-wrapper">
-                    <span class="pc-price">{{pc.price}}<span style="color: red">$</span></span>
-                    <button mat-button class="pc-button">Shop Now</button>
-                </div>
-        
-            </div>
+        <div class="button-wrapper">
+            <button mat-button [ngClass]="{'red-button': pc.id === 122, 'blue-button': pc.id === 125, 'yellow-button': pc.id === 131}" [routerLink]="['/assembly/parts', 9]">Shop Now</button>
         </div>
-
     </div>
 </div>

@@ -1,37 +1,46 @@
-<div class="header-block2">
+<div class="header-block2-wrapper">
   
-  <a href="#quick-shopping" class="button-wrapper">
-    <img src="assets/Icons/quick-shopping.png" alt="Quick Shopping">
-    <button mat-button disableRipple>Quick Shopping</button>
-  </a>
-  
-  <mat-menu #builtmenu="matMenu">
-      <button mat-menu-item class="menu-inside-button" routerLink="/build/pctype/intel">Intel PC</button>
-      <button mat-menu-item class="menu-inside-button" routerLink="/build/pctype/amd">AMD PC</button>
-  </mat-menu>
-  
-  <div class="button-wrapper">
-    <img class="completed-builds-image" src="assets/Icons/completed-builds.png" alt="Pc">
-    <button mat-button class="menu-button" disableRipple [matMenuTriggerFor]="builtmenu">Completed Builds</button>
-  </div>
-  
-  <mat-menu #partsmenu="matMenu">
-    <button *ngFor="let item of MAT_MENU_ITEMS" class="menu-inside-button" mat-menu-item [routerLink]="item.routerLink">{{item.name}}</button>
-  </mat-menu>
-  
-  <div class="button-wrapper">
-    <img src="/assets/Icons/pc-parts.png" alt="Pc Part">
-    <button mat-button class="menu-button" disableRipple [matMenuTriggerFor]="partsmenu">Computer Parts</button>
+  <div [class]="header_block">
+    <app-badge-component *ngIf="responsiveMode"></app-badge-component>
+    
+    <a href="#quick-shopping" class="button-wrapper">
+      <img src="assets/Icons/quick-shopping.png" alt="Quick Shopping">
+      <button mat-button disableRipple>Quick Shopping</button>
+    </a>
+    
+    <mat-menu #builtmenu="matMenu">
+        <button mat-menu-item class="menu-inside-button" routerLink="/build/pctype/intel">Intel PC</button>
+        <button mat-menu-item class="menu-inside-button" routerLink="/build/pctype/amd">AMD PC</button>
+    </mat-menu>
+    
+    <div class="button-wrapper">
+      <img class="completed-builds-image" src="assets/Icons/completed-builds.png" alt="Pc">
+      <button mat-button class="menu-button" disableRipple [matMenuTriggerFor]="builtmenu">Completed Builds</button>
+    </div>
+    
+    <mat-menu #partsmenu="matMenu">
+      <button *ngFor="let item of MAT_MENU_ITEMS" class="menu-inside-button" mat-menu-item [routerLink]="item.routerLink">{{item.name}}</button>
+    </mat-menu>
+    
+    <div class="button-wrapper">
+      <img src="/assets/Icons/pc-parts.png" alt="Pc Part">
+      <button mat-button class="menu-button" disableRipple [matMenuTriggerFor]="partsmenu">Computer Parts</button>
+    </div>
+
+    <mat-menu #accessoriesmenu="matMenu">
+      <button mat-menu-item class="menu-inside-button" routerLink="/build/keyboards">Keyboard</button>
+      <button mat-menu-item class="menu-inside-button" routerLink="/build/headsets">Headset</button>
+    </mat-menu>
+    
+    <div class="button-wrapper">
+      <img src="/assets/Icons/pc-accessories.png" alt="Pc Accessory">
+      <button mat-button class="menu-button" disableRipple [matMenuTriggerFor]="accessoriesmenu">Computer Accessories</button>
+    </div>
   </div>
 
-  <mat-menu #accessoriesmenu="matMenu">
-    <button mat-menu-item class="menu-inside-button" routerLink="/build/keyboards">Keyboard</button>
-    <button mat-menu-item class="menu-inside-button" routerLink="/build/headsets">Headset</button>
-  </mat-menu>
-  
-  <div class="button-wrapper">
-    <img src="/assets/Icons/pc-accessories.png" alt="Pc Accessory">
-    <button mat-button class="menu-button" disableRipple [matMenuTriggerFor]="accessoriesmenu">Computer Accessories</button>
-  </div>
-
+  <button mat-icon-button [class]="burger_bar" (click)="animateBurgerBar()">
+    <div class="childbar1"></div>
+    <div class="childbar2"></div>
+    <div class="childbar3"></div>
+  </button>
 </div>

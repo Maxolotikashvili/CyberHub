@@ -3,9 +3,12 @@ $font-play: "Play", sans-serif;
 $font-saira: "Saira Condensed", sans-serif;
 $font-dosis: "Dosis", sans-serif;
 
+$headingh2-size: 4rem;
 $white: #ffffff;
 $gpu-color: rgb(135, 253, 0);
 $headset-color: rgb(0, 0, 255);
+
+$section-spacing: 10rem;
 
 @mixin gpu-headset-button {
     padding: 10px;
@@ -28,6 +31,7 @@ $headset-color: rgb(0, 0, 255);
         flex-flow: column;
         justify-content: center;
         align-items: center;
+        text-align: center;
         height: 100vh;
 
         h1 {
@@ -63,26 +67,27 @@ $headset-color: rgb(0, 0, 255);
     }
 
     .gpu-headset-section {
-        height: 100vh;
+        margin-bottom: $section-spacing;
 
         .gpubox-headsetbox-wrapper {
             font-family: $font-play;
-            padding-top: 20px;
+            padding-top: 2rem;
             background-color: rgba(0, 0, 0, 0.5);
 
             h3 {
+                margin-bottom: 4rem;
                 text-align: center;
                 font-size: 3.6rem;
                 color: $white;
                 font-family: $font-play;
-                letter-spacing: 3px;
+                letter-spacing: .3rem;
                 font-weight: 800;
             }
 
             .gpu-headset-flexbox {
                 display: flex;
-                justify-content: space-around;
-                flex-wrap: wrap;
+                justify-content: space-between;
+                padding: 0 2rem;
 
                 .gpu-headset-column-wrapper {
                     display: flex;
@@ -105,7 +110,6 @@ $headset-color: rgb(0, 0, 255);
                     img {
                         max-width: 600px;
                         width: 100%;
-                        max-height: 400px;
                         height: 100%;
                         object-fit: cover;
                     }
@@ -130,8 +134,20 @@ $headset-color: rgb(0, 0, 255);
                         color: #ffffff;
                     }
                 }
+
+                .gpu-headset-column-wrapper:nth-child(1) {
+                    margin-right: 1rem;
+                }
+
+                .gpu-headset-column-wrapper:nth-child(2) {
+                    margin-left: 1rem;
+                }
             }
         }
+    }
+
+    .newmanufacturers-section {
+        margin-top: $section-spacing;
     }
 
     .newsbox {
@@ -139,13 +155,13 @@ $headset-color: rgb(0, 0, 255);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 250vh;
+        margin-top: $section-spacing;
         font-family: $font-play;
 
-        .news-h {
-            margin-bottom: 10rem;
+        .news-h2 {
+            margin-bottom: 5rem;
             letter-spacing: .3rem;
-            font-size: 3.6rem;
+            font-size: $headingh2-size;
             color: #ffffff;
             font-family: $font-play;
         }
@@ -161,6 +177,7 @@ $headset-color: rgb(0, 0, 255);
 
         img {
             max-width: 23rem;
+            height: 100%;
             width: 100%;
             object-fit: cover;
         }
@@ -186,41 +203,43 @@ $headset-color: rgb(0, 0, 255);
         }
     }
 
-    // Section II
+    .game-ready-pc-section {
+        display: flex;
+        align-items: center;
+        margin: $section-spacing 0;
 
-    .section2 {
-        // padding-bottom: 100px;
-        // display: flex;
-        // flex-direction: column;
+        app-game-ready-pcs-section {
+            width: 100%;
+        }
     }
 
     .buildbox {
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 0 2rem;
 
-        .build-h2 {
-            margin: 100px 0px 50px 0px;
-            font-size: 44px;
-            font-family: $font-dosis;
-            line-height: 45px;
-            letter-spacing: 2px;
+        h2 {
+            font-size: $headingh2-size;
+            font-family: $font-play;
+            line-height: 4.5rem;
+            letter-spacing: .2rem;
             word-wrap: break-word;
-            color: white;
+            color: #ffffff;
         }
 
         .bigboxgrid {
-            color: white;
-            font-family: $font-saira;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin: 50px 0px 100px 0px;
+            color: #ffffff;
+            font-weight: 800;
+            letter-spacing: .2px;
+            margin: 5rem 0 10rem 0;
             text-align: center;
             display: grid;
-            grid-gap: 30px;
+            grid-gap: 3rem;
             grid-template-columns: repeat(3, minmax(0, 1fr));
 
-            .assemblebox {
+            button {
+                font-family: $font-play;
                 border: 1px solid black;
                 border-radius: 2px;
                 background-color: rgb(0, 0, 0);
@@ -230,273 +249,55 @@ $headset-color: rgb(0, 0, 255);
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    padding: 20px;
+                    padding: 2rem;
                     letter-spacing: 1px;
 
                     img {
-                        width: 60px;
-                        margin-bottom: 5px;
+                        width: 6rem;
+                        margin-bottom: .5rem;
                     }
                 }
             }
 
-            .assemblebox:hover {
+            button:hover {
                 border-color: rgb(160, 0, 160);
             }
         }
     }
 }
 
-// Responsive
+@media only screen and (max-width: 800px) {
+    .gpu-headset-section {
+        .gpu-headset-flexbox {
+            flex-wrap: wrap;
+            justify-content: center !important;
+        } 
 
-@media (max-width: 1225px) {
-    .pc-image-extreme {
-        width: 200px;
-    }
-
-    .highendbox {
-        padding-bottom: 20px;
-    }
-}
-
-@media (max-width: 1115px) {
-    .pc-grid {
-        border-radius: 2px !important;
-    }
-
-    .pc-gridbox {
-        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 600px;
-
-        .extreme {
-            text-align: center !important;
-            margin-left: 40px;
-        }
-
-        .specsbox {
-            margin-top: 60px;
-        }
-    }
-
-    .smallgrid {
-        padding-bottom: 5px !important;
-        border-radius: 2px !important;
-    }
-}
-
-@media (max-width: 1054px) {
-    .pumptextbox {
-        padding: 0 !important;
-    }
-
-    .pump-h {
-        text-align: center;
-        line-height: 35px;
-    }
-}
-
-@media (max-width: 943px) {
-    .pump {
-        max-width: 300px !important;
-        width: 100%;
-    }
-
-    .nzxt-rgbbox {
-        padding: 0 !important;
-
-        .rgbtextbox {
-            padding: 0 !important;
-            padding-left: 5px !important;
-        }
-    }
-
-    .pumptextbox {
-        padding: 10px 0px 10px 0px !important;
-    }
-}
-
-@media (max-width: 778px) {
-    .ngfor-news {
-        flex-direction: column;
-        align-items: center;
-
-        .news-images {
-            margin-bottom: 20px;
+        .gpu-headset-column-wrapper:nth-child(2) {
+            margin-top: 2rem;
         }
     }
 }
 
-@media (max-width: 736px) {
-    .pumpbox {
-        flex-direction: column;
-        padding: 0px 5px 0px 5px;
-    }
+@media only screen and (max-width: 700px) {
+    .news-section {
+        .newsbox {
+            .ngfor-news {
+                flex-flow: column;
+                align-items: center;
 
-    .nzxt-rgbbox {
-        flex-direction: column-reverse;
-
-        .nzxt-rgb-h {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .nzxt-rgb-p {
-            line-height: 25px;
-        }
-    }
-}
-
-@media (max-width: 655px) {
-    .extremebox {
-        .pc-image-extreme {
-            width: 250px !important;
-            height: 270px !important;
-        }
-    }
-}
-
-@media (max-width: 610px) {
-    .nzxt-buy-box {
-        flex-direction: column;
-        align-items: center;
-
-        .responsivedivider {
-            display: block !important;
-            margin: 30px 0px 30px 0px;
-            width: 100%;
-            background-color: white;
-        }
-    }
-}
-
-@media (max-width: 583px) {
-    .kraken-h {
-        text-align: center;
-        line-height: 40px;
-    }
-}
-
-@media (max-width: 576px) {
-    .h1 {
-        line-height: 45px;
-    }
-}
-
-@media (max-width: 555px) {
-    .newmanufacturers-h {
-        line-height: 40px;
-    }
-
-    .kraken-h {
-        text-align: center;
-        line-height: 45px;
-    }
-
-    .kraken-display {
-        text-align: center;
-    }
-}
-
-@media (max-width: 548px) {
-    .extreme {
-        text-align: center !important;
-    }
-
-    .pc-image-extreme {
-        width: 280px;
-    }
-
-    .specsbox {
-        margin-top: 20px;
-    }
-}
-
-@media (max-width: 525px) {
-    .responsive-pricebox {
-        flex-direction: column;
-
-        .pc-button,
-        .pc-rx-button {
-            margin-top: 15px;
-        }
-    }
-}
-
-@media (max-width: 493px) {
-    .pc-grid,
-    .smallgrid {
-        flex-direction: column;
-
-        .extreme {
-            margin-top: 10px;
-        }
-
-        .pc-image-extreme,
-        .pc-image-highend,
-        .pc-image-budget {
-            width: 100% !important;
-        }
-
-        .specsbox {
-            margin: 0 !important;
-            margin-top: 50px !important;
-
-            .detailsbox {
-                padding: 0px 50px 0px 50px;
-            }
-
-            .responsive-detailsbox {
-                margin-top: 20px !important;
+                img {
+                    margin-bottom: 2rem;
+                }
             }
         }
-
-        .pricebox {
-            flex-direction: column;
-            align-items: center;
-
-            .pc-price {
-                margin: 0px 0px 10px 2px !important;
-            }
-        }
-
-        .price-buttonbox {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            margin-top: 25px;
-
-            .pc-button,
-            .pc-rx-button {
-                margin: 0 !important;
-            }
-        }
-
-        .pc-hdd {
-            margin: 0 !important;
-            margin-bottom: 10px !important;
-        }
-
-        .margin {
-            margin-bottom: 10px !important;
-        }
     }
 }
 
-@media (max-width: 460px) {
-    .assemblebox {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 400px) {
-    .news-text-box {
-        padding: 0 !important;
-    }
-
-    .bigboxgrid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+@media only screen and (max-width: 450px) {
+    .buildbox {
+        .bigboxgrid {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        }
     }
 }

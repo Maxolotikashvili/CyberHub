@@ -5,16 +5,7 @@
         </a>
 
         <div class="header-wrapper">
-            <div class="cart-wishlist-wrapper">
-
-                <div [matBadge]="wishList.length" [matBadgeHidden]="wishList.length === 0" matBadgeOverlap="false">
-                    <fa-icon [icon]="fontawesome.wishlist" routerLink="/wishlist"></fa-icon>
-                </div>
-               
-                <div [matBadge]="cartItems.length" [matBadgeHidden]="cartItems.length === 0" matBadgeOverlap="false">
-                    <fa-icon [icon]="fontawesome.cart" routerLink="/cart"></fa-icon>
-                </div>
-            </div>
+            <app-badge-component></app-badge-component>
 
             <div class="column-divider"></div>
 
@@ -33,12 +24,6 @@
                 <button mat-button (click)="signOutUser()">Sign Out</button>
             </mat-menu>
         </div>
-
-        <div [class]="burgerBar" class="burger-bar" (click)="animateBurgerBar()">
-            <div class="childbar1"></div>
-            <div class="childbar2"></div>
-            <div class="childbar3"></div>
-        </div>
     </div>
     
     <div class="divider"></div>
@@ -48,4 +33,4 @@
 
 <router-outlet></router-outlet>
 
-<!-- <app-footer></app-footer> -->
+<app-footer></app-footer>

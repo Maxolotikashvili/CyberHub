@@ -26,7 +26,7 @@ li, button, input, textarea:focus {
 
 body,
 html {
-    height: 100%;
+    // height: 100%;
     font-size: 10px;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     scroll-behavior: smooth;
@@ -42,4 +42,10 @@ html {
 .mat-menu-content {
     display: flex;
     flex-flow: column;
+}
+
+@media only screen and (max-width: 1000px) {
+    html {
+        font-size: 8px;
+    }
 }

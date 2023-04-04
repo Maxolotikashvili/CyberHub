@@ -42,9 +42,9 @@
     <app-new-manufacturers-section></app-new-manufacturers-section>
   </section>
 
-  <section>
+  <section class="news-section">
     <div class="newsbox">
-      <h3 class="news-h" id="News">News</h3>
+      <h2 class="news-h2" id="News">News</h2>
 
       <div class="ngfor-news" *ngFor="let item of news">
 
@@ -58,15 +58,15 @@
     </div>
   </section>
 
-  <section class="section2" id="quick-shopping">
+  <section class="game-ready-pc-section">
     <app-game-ready-pcs-section></app-game-ready-pcs-section>
   </section>
 
   <section>
     <div class="buildbox">
-      <h2 class="build-h2">Build Your Own</h2>
+      <h2>Build Your Own</h2>
       <div class="bigboxgrid">
-        <button mat-button class="assemblebox" *ngFor="let item of parts" [routerLink]="[item.routerLink, item.id]">
+        <button mat-button *ngFor="let item of parts" [routerLink]="[item.routerLink, item.id]">
           <div class="partbox">
             <img [src]="item.imageUrl" /> 
             {{ item.name }}</div>
@@ -76,5 +76,3 @@
   </section>
 
 </div>
-
-<!-- Footer -->

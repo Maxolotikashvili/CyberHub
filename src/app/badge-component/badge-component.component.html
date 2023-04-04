@@ -1,0 +1,9 @@
+<div class="cart-wishlist-wrapper">
+    <div [matBadge]="wishList.length" [matBadgeHidden]="wishList.length === 0" matBadgeOverlap="false">
+        <fa-icon [icon]="fontawesome.wishlist" routerLink="/wishlist"></fa-icon>
+    </div>
+
+    <div [matBadge]="cartItems.length" [matBadgeHidden]="cartItems.length === 0" matBadgeOverlap="false">
+        <fa-icon [icon]="fontawesome.cart" routerLink="/cart"></fa-icon>
+</div>
+</div>

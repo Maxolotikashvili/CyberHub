@@ -3,13 +3,13 @@ $secondary-color: rgb(192, 192, 192);
 $font-play: "Play", sans-serif;
 $font-saira: "Saira Condensed", sans-serif;
 $font-dosis: "Dosis", sans-serif;
-
+$headingh2-size: 4rem;
 $section-background-color: rgba(0, 0, 0, 0.5);
 $letter-spacing: 0.3rem;
 
 .head-h {
     margin: 0 0 10rem 1rem;
-    font-size: 3.6rem;
+    font-size: $headingh2-size;
     letter-spacing: 0.3rem;
     font-family: $font-play;
     color: #ffffff;
@@ -27,21 +27,21 @@ $letter-spacing: 0.3rem;
 
         .header-h {
             color: #ffffff;
-            font-size: 4.2rem;
+            font-size: 3.2rem;
             border-bottom: 1px solid #ffffff;
             letter-spacing: $letter-spacing;
             padding: 1rem 1.4rem;
         }
 
         .header-h5 {
-            font-size: 2.2rem;
+            font-size: 2.6rem;
             letter-spacing: $letter-spacing;
             margin-bottom: 0;
             color: rgb(233, 233, 233);
         }
 
         .header-h3 {
-            font-size: 3.4rem;
+            font-size: 3.2rem;
             font-weight: 800;
             color: $secondary-color;
             letter-spacing: $letter-spacing;
@@ -49,8 +49,8 @@ $letter-spacing: 0.3rem;
             border-bottom: 1px solid silver;
         }
 
-        .header-h6 {
-            font-size: 2.2rem;
+        .header-h5-white-series {
+            font-size: 2.6rem;
             font-weight: 800;
             color: $secondary-color;
             letter-spacing: 3px;
@@ -63,6 +63,7 @@ $letter-spacing: 0.3rem;
         align-items: center;
         justify-content: space-around;
         margin: 10rem 0;
+        width: 90%;
         background-color: $section-background-color;
         color: $secondary-color;
 
@@ -77,15 +78,16 @@ $letter-spacing: 0.3rem;
             padding: 0px 5rem 0px 5rem;
 
             h4 {
+                color: #ffffff;
                 margin-bottom: 1.5rem;
-                font-size: 3.6rem;
+                font-size: 2.2rem;
                 letter-spacing: 1px;
                 font-family: $font-saira;
                 font-weight: 800;
             }
 
             p {
-                font-size: 2rem;
+                font-size: 1.8rem;
                 letter-spacing: 1px;
                 line-height: 2.8rem;
                 font-weight: 800;
@@ -102,11 +104,15 @@ $letter-spacing: 0.3rem;
         display: flex;
         justify-content: space-around;
         padding-top: 1.5rem;
+        border-radius: 10px;
         background: rgb(196, 196, 196);
         background: radial-gradient(circle, rgba(196, 196, 196, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
-        width: 100%;
+        width: 90%;
 
         mat-divider {
+            width: 100%;
+            margin: 2rem 0;
+            background-color: #ffffff;
             display: none;
         }
 
@@ -130,9 +136,9 @@ $letter-spacing: 0.3rem;
 
             .nzxt-span {
                 color: $secondary-color;
-                font-size: 24px;
+                font-size: 2.4rem;
                 font-weight: bold;
-                letter-spacing: 1px;
+                letter-spacing: .1rem;
             }
 
             button {
@@ -141,7 +147,7 @@ $letter-spacing: 0.3rem;
                 color: $secondary-color;
                 padding: .5rem;
                 margin-bottom: 2rem;
-                letter-spacing: 2px;
+                letter-spacing: .2rem;
                 border: 1px solid #ffffff;
                 border-radius: 50px;
                 transition: all 0.2s linear;
@@ -151,6 +157,31 @@ $letter-spacing: 0.3rem;
             button:hover {
                 background-color: $secondary-color;
                 color: black;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .manufacturersbox {
+        .manufacturer-box-wrapper {
+            flex-flow: column;
+        }
+
+        .manufacturer-box-wrapper:nth-child(2) {
+            flex-flow: column-reverse;
+        }
+
+        .nzxtbox-wrapper {
+            flex-flow: column;
+            align-items: center;
+
+            mat-divider {
+                display: block;
+            }
+
+            button {
+                margin-bottom: 0;
             }
         }
     }

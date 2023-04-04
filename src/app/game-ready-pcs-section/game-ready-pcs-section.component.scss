@@ -1,0 +1,144 @@
+$font-play: "Play", sans-serif;
+$primary-color: rgba(0, 0, 0, 0.486);
+$headingh2-size: 4rem;
+
+h2 {
+    color: #ffffff;
+    font-size: $headingh2-size;
+    letter-spacing: 3px;
+    margin: 0rem 0 4rem 1rem;
+}
+
+.pcs-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    font-family: $font-play;
+
+    .pcbox {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        padding-top: 2rem;
+        background: $primary-color;
+
+        .pc-header-wrapper {
+            h4 {
+                font-family: $font-play;
+                font-weight: 800;
+                text-align: center;
+                font-size: 2.6rem;
+                letter-spacing: 4px;
+            }
+
+            .extreme-h4 {
+                color: red;
+            }
+
+            .highend-h4 {
+                color: blue;
+            }
+
+            .budget-h4 {
+                color: yellow;
+            }
+        }
+
+        img {
+            width: 50%;
+            margin: 2rem 0;
+        }
+
+        ul {
+            display: grid;
+            grid-row-gap: 1rem;
+            grid-column-gap: 3rem;
+            grid-template-columns: repeat(2, minmax(0, 12rem));
+            margin: 2rem 0;
+
+            li {
+                text-align: center;
+                list-style: disc;
+                color: #ffffff;
+            }
+        }
+
+        .button-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem 0;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            font-family: $font-play;
+            color: #ffffff;
+            border-radius: 0px;
+            transition: all 0.4s ease;
+        }
+
+        .red-button {
+            color: red;
+        }
+
+        .blue-button {
+            color: blue;
+        }
+
+        .yellow-button {
+            color: yellow;
+        }
+
+        .red-button:hover {
+            box-shadow: inset 0px -56px 1px red;
+            color: #ffffff;
+        }
+
+        .blue-button:hover {
+            box-shadow: inset 0px -56px 1px blue;
+            color: #ffffff
+        }
+
+        .yellow-button:hover {
+            box-shadow: inset 0px -56px 1px yellow;
+            color: #ffffff
+        }
+    }
+
+    .pcbox:nth-child(2) {
+        margin: 0 1rem;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .pcs-wrapper {
+        .pcbox {
+            ul {
+                grid-template-columns: repeat(1, minmax(0, 12rem));
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .pcs-wrapper {
+        flex-flow: column;
+        padding: 0 4rem;
+
+        .pcbox {
+            margin: 2rem 0;
+
+            ul {
+                grid-template-columns: repeat(1, minmax(0, 20rem));
+
+                li {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}

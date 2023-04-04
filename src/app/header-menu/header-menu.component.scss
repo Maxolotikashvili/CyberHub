@@ -1,46 +1,175 @@
 $white: #ffffff;
-$secondary-color: #171729;
+$secondary-color: rgb(191, 191, 191);
 $font-play: "Play", sans-serif;
 $letter-spacing: 2px;
 
 $spacing: 1rem;
 
-.header-block2 {
+@mixin burger-bar-child {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.header-block2-wrapper {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0 $spacing * 5.5;
 
-    .button-wrapper:nth-child(3), .button-wrapper:nth-child(5), .button-wrapper:nth-child(2) {
-        border-right: none;
+    app-badge-component {
+        display: none;
     }
 
-    .button-wrapper {
+    .header-block2, .responsive-header-block2 {
         display: flex;
-        justify-content: center;
         align-items: center;
-        padding: $spacing;
-        border: 1px solid $secondary-color;
-        border-top: none;
-        border-bottom: none;
-        transition: all 0.2s ease;
+        justify-content: flex-start;
+        width: 100%;
 
-        img {
-            max-width: 30px;
-            width: 100%;
+        .button-wrapper:nth-child(1) {
+            border: none;
         }
-    
-        button {
-            padding: 0;
-            margin-left: $spacing;
-            letter-spacing: $letter-spacing - 1px;
-            color: $white;
-            font-family: $font-play;
-            font-weight: 800;
+
+        .button-wrapper:nth-child(3),
+        .button-wrapper:nth-child(5){
+            border-right: none;
+        }
+
+        .button-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: $spacing / 2 $spacing;
+            border: 1px solid $secondary-color;
+            border-top: none;
+            border-bottom: none;
+            transition: all 0.4s ease;
+
+            img {
+                max-width: 30px;
+                width: 100%;
+                transition: all .4s ease;
+            }
+
+            button {
+                padding: 0;
+                margin-left: $spacing;
+                letter-spacing: $letter-spacing - 1px;
+                color: $white;
+                font-family: $font-play;
+                font-weight: 800;
+                font-size: 1.4rem;
+                transition: all 0.4s ease;
+            }
         }
     }
 
-    .button-wrapper:hover {
-        background-color: $secondary-color;
+    .burger-bar {
+        margin: 2rem 2rem 2rem 0;
+        display: none;
+    }
+
+    .burger-bar,
+    .responsive-burger-bar {
+        display: none;
+        position: relative;
+        width: 30px;
+        height: 20px;
+
+        .childbar1 {
+            @include burger-bar-child();
+            top: 10%;
+        }
+
+        .childbar2 {
+            @include burger-bar-child();
+            top: 50%;
+        }
+
+        .childbar3 {
+            @include burger-bar-child();
+            bottom: 0%;
+        }
+    }
+
+    .responsive-burger-bar {
+        margin: 2rem 2rem 2rem 0;
+
+        .childbar1 {
+            top: 50%;
+            left: 0%;
+            transform: rotate(135deg);
+        }
+
+        .childbar2 {
+            opacity: 0;
+        }
+
+        .childbar3 {
+            top: 50%;
+            left: 0%;
+            transform: rotate(-135deg);
+        }
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .header-block2-wrapper {
+        align-items: flex-end;
+        flex-flow: column-reverse;
+
+        app-badge-component {
+            display: block;
+        }
+
+        .header-block2 {
+            flex-flow: column;
+            align-items: flex-end;
+            position: absolute;
+            top: 13.5%;
+            padding: 0;
+            z-index: -100;
+            transition: all 0.4s ease;
+            
+            .button-wrapper {
+                opacity: 0;
+                border: none;
+                
+                img {
+                    opacity: 0;
+                    transition: all 0.4s linear;
+                }
+                
+                button {
+                    font-size: 0px;
+                }
+            }
+        }
+        
+        .responsive-header-block2 {
+            flex-flow: column;
+            align-items: flex-end;
+            padding: 2rem 2rem 0 0;
+            background-color: black;
+            
+            .button-wrapper {
+                display: flex;
+                border: none;
+                
+                img {
+                    opacity: 1;
+                }
+                
+                button {
+                    font-size: 14px;
+                }
+            }
+        }
+        
+        .burger-bar, .responsive-burger-bar {
+            display: block;
+        }
     }
 }

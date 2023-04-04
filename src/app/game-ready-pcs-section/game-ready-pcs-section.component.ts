@@ -18,8 +18,11 @@ export class GameReadyPcsSectionComponent implements OnInit {
 
   downloadCompletedBuilds() {
     this.completedBuilds = this.pcPartsService.getPcParts().filter((pcs) => pcs.id === 122 || pcs.id === 125 || pcs.id === 131);
-    console.log(this.completedBuilds[0]);
-    
+  
+    for (let pc of this.completedBuilds) {
+      pc.ram = pc.ram?.slice(0, 14)
+      pc.memory = pc.memory?.slice(9)
+    }
   }
 
 }
