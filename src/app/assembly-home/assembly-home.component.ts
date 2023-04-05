@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import  SwiperCore, { Autoplay, Pagination } from "swiper";
 
 SwiperCore.use([Autoplay, Pagination]);
@@ -9,11 +9,5 @@ SwiperCore.use([Autoplay, Pagination]);
   styleUrls: ['./assembly-home.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AssemblyHomeComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class AssemblyHomeComponent {
 }
