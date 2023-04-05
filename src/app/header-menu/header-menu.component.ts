@@ -11,7 +11,7 @@ export class HeaderMenuComponent {
   
   responsiveMode!: boolean;
 
-  MAT_MENU_ITEMS = [{ name: 'Motherboard', routerLink: '/build/mobos' }, { name: 'Proccessor', routerLink: '/build/cpus' }, { name: 'Video Cards', routerLink: '/build/gpus' }, { name: 'Memory', routerLink: '/build/rams' }, { name: 'Solid State Drive', routerLink: '/build/ssds' }, { name: 'Hard Disk Drive', routerLink: '/build/hdds' }, { name: 'Cooler', routerLink: '/build/cpu-coolers' }, { name: 'Case', routerLink: '/build/cases' }];
+  MAT_MENU_ITEMS: {name: string, routerId: number}[] = [{ name: 'Motherboard', routerId: 0 }, { name: 'Proccessor', routerId: 2 }, { name: 'Video Cards', routerId: 1 }, { name: 'Memory', routerId: 3 }, { name: 'Power Supply', routerId: 4 }, {name: 'Solid State Drive', routerId: 5}, { name: 'Hard Disk Drive', routerId: 6 }, { name: 'Cooler', routerId: 7 }, { name: 'Case', routerId: 8 }];
 
   //
   animateBurgerBar() {

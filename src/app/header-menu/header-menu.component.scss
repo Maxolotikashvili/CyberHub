@@ -27,6 +27,7 @@ $spacing: 1rem;
         align-items: center;
         justify-content: flex-start;
         width: 100%;
+        padding-left: 4.5rem;
 
         .button-wrapper:nth-child(1) {
             border: none;
@@ -115,7 +116,7 @@ $spacing: 1rem;
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 820px) {
     .header-block2-wrapper {
         align-items: flex-end;
         flex-flow: column-reverse;

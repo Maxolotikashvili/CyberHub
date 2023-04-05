@@ -1,24 +1,20 @@
 <div class="filterbox-gridbox-wrapper">
     <div class="filterbox">
         
-        <div class="slider-wrapper">
-            <mat-slider color="primary" [value]="slider_min_value" [min]="slider_min_value" [max]="slider_max_value" #price_slider></mat-slider>
-            <span>0 - {{price_slider.value}}$</span>
-            <button mat-flat-button color="primary" (click)="sortItemsBySliderValue(price_slider.value)">Apply</button>
-        </div>
-
-        <div class="filter-button-wrapper">
-            <button *ngIf="pcPartName === 'mobo'" mat-button (click)="removeDuplicatesForMatMenu('socket')" [matMenuTriggerFor]="matmenu">Socket</button>
-            <button *ngIf="pcPartName === 'ram'" (click)="removeDuplicatesForMatMenu('memory')" mat-button [matMenuTriggerFor]="matmenu">Memory</button>
-            <button *ngIf="pcPartName === 'hdd' || pcPartName === 'ssd'" (click)="removeDuplicatesForMatMenu('memory')" mat-button [matMenuTriggerFor]="matmenu">Memory Capacity</button>
-            <button *ngIf="pcPartName === 'psu'" (click)="removeDuplicatesForMatMenu('power')" mat-button [matMenuTriggerFor]="matmenu">Power</button>
-            <button *ngIf="pcPartName === 'psu'" (click)="removeDuplicatesForMatMenu('efficiency')" mat-button [matMenuTriggerFor]="matmenu">Efficiency</button>
-            <button *ngIf="pcPartName === 'cpu-cooler'" (click)="removeDuplicatesForMatMenu('type')" mat-button [matMenuTriggerFor]="matmenu">Type</button>
-            <button mat-button [matMenuTriggerFor]="priceMenu">Sort By Price</button>
-            <button mat-button [matMenuTriggerFor]="nameMenu">Sort By Name</button>
-            <button mat-button class="manufacturer-button" (click)="removeDuplicatesForMatMenu('manufacturer')" [matMenuTriggerFor]="manufacturerMenu">Manufacturer</button>
-            <button mat-flat-button color="warn" (click)="downloadApiData()">Reset</button>
-        </div>
+        <mat-slider color="primary" [value]="slider_min_value" [min]="slider_min_value" [max]="slider_max_value" #price_slider></mat-slider>
+        <span>0 - {{price_slider.value}}$</span>
+        <button class="apply-button" mat-flat-button color="primary" (click)="sortItemsBySliderValue(price_slider.value)">Apply</button>
+        
+        <button class="filter-button" *ngIf="pcPartName === 'mobo'" mat-button (click)="removeDuplicatesForMatMenu('socket')" [matMenuTriggerFor]="matmenu">Socket</button>
+        <button class="filter-button" *ngIf="pcPartName === 'ram'" (click)="removeDuplicatesForMatMenu('memory')" mat-button [matMenuTriggerFor]="matmenu">Memory</button>
+        <button class="filter-button" *ngIf="pcPartName === 'hdd' || pcPartName === 'ssd'" (click)="removeDuplicatesForMatMenu('memory')" mat-button [matMenuTriggerFor]="matmenu">Capacity</button>
+        <button class="filter-button" *ngIf="pcPartName === 'psu'" (click)="removeDuplicatesForMatMenu('power')" mat-button [matMenuTriggerFor]="matmenu">Power</button>
+        <button class="filter-button" *ngIf="pcPartName === 'psu'" (click)="removeDuplicatesForMatMenu('efficiency')" mat-button [matMenuTriggerFor]="matmenu">Efficiency</button>
+        <button class="filter-button" *ngIf="pcPartName === 'cpu-cooler'" (click)="removeDuplicatesForMatMenu('type')" mat-button [matMenuTriggerFor]="matmenu">Type</button>
+        <button class="filter-button" mat-button [matMenuTriggerFor]="priceMenu">Price</button>
+        <button class="filter-button" mat-button [matMenuTriggerFor]="nameMenu">Name</button>
+        <button class="filter-button" mat-button (click)="removeDuplicatesForMatMenu('manufacturer')" [matMenuTriggerFor]="manufacturerMenu">Manufacturer</button>
+        <button class="reset-button" mat-flat-button color="warn" (click)="downloadApiData()">Reset</button>
 
         <mat-menu #matmenu>
             <button mat-button *ngFor="let menuItems of MAT_MENU_ITEMS" (click)="filterItemsByMatMenuItems(menuItems)">{{menuItems}}</button>
@@ -60,7 +56,6 @@
             </div>
 
             <button mat-button (click)="sendItemToCartOrWishList(item, 'cart')">Add To Cart</button>
-            <div class="div"></div>
         </div>
     </div>
 </div>

@@ -48,6 +48,7 @@ section {
                     border-bottom: 1px solid $secondary-color;
                     color: #000000;
                     transition: all 0.2s ease;
+                    cursor: pointer;
                 }
 
                 .link-active, li:hover {
@@ -65,5 +66,20 @@ section {
         width: 100%;
         display: flex;
         justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    section {
+        flex-flow: column;
+        align-items: center;
+
+        .categories-wrapper {
+            max-width: 40rem;
+        }
+
+        .router-box {
+            margin-top: 10rem;
+        }
     }
 }

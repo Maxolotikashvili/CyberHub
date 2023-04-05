@@ -10,3 +10,25 @@
         height: 100%;
     }
 }
+
+@media only screen and (max-width: 900px) {
+    .slider-wrapper {
+        .swiper {
+            width: 60vw;
+        }
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .slider-wrapper {
+        .swiper {
+            width: 40vw;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .slider-wrapper {
+        display: none;
+    }
+}

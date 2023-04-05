@@ -6,26 +6,19 @@
       <form class="form" [formGroup]="shippingForms">
         <div class="formbox">
           <div class="flexbox">
+
             <!-- First Name -->
             <mat-form-field appearance="outline" style="margin-right: 10px">
               <mat-label>First Name</mat-label>
-              <input
-                type="text"
-                matInput
-                required
-                formControlName="firstName"
-                #firstname
-              />
-              <mat-error *ngIf="FirstName?.errors?.['required']"
-                >Input Mandatory</mat-error>
+              <input type="text" matInput required formControlName="firstName" #firstname>
+              <mat-error *ngIf="FirstName?.errors?.['required']">Input Mandatory</mat-error>
             </mat-form-field>
 
             <!-- Last Name -->
             <mat-form-field appearance="outline">
               <mat-label>Last Name</mat-label>
               <input type="text" matInput required formControlName="lastName" #lastname />
-              <mat-error *ngIf="LastName?.errors?.['required']"
-                >Input Mandatory</mat-error>
+              <mat-error *ngIf="LastName?.errors?.['required']">Input Mandatory</mat-error>
             </mat-form-field>
           </div>
 
@@ -73,24 +66,14 @@
         </div>
         <div class="buttonbox-billing">
           <button mat-flat-button color="warn" class="back-button" (click)="backButton()">Back</button>
-          <button
-            class="billing-button" 
-            mat-flat-button
-            matStepperNext
-            [disabled]="shippingForms.status !== 'VALID'">
-            Proceed
-          </button>
+          <button class="billing-button"  mat-flat-button matStepperNext [disabled]="shippingForms.status !== 'VALID'"> Proceed</button>
         </div>
       </form>
     </mat-step>
 
-
     <!-- Billing Adress -->
 
-
-    <mat-step
-      label="Billing Details"
-      [completed]="shippingForms.status === 'VALID'">
+    <mat-step label="Billing Details" [completed]="shippingForms.status === 'VALID'">
 
       <div class="bigpaymentbox">
         <h3>Payment Method</h3>
@@ -115,15 +98,8 @@
         <div class="formbox">
           <mat-form-field appearance="outline">
             <mat-label>Credit Card Number</mat-label>
-            <input
-              type="number"
-              matInput
-              required
-              placeholder="XXXXXXXXXXXXXXXX"
-              formControlName="creditCard"
-              #creditcard/>
-            <span matSuffix class="suffix"
-              >{{ creditcard.value.length }} / 12</span>
+            <input type="number" matInput required placeholder="XXXXXXXXXXXXXXXX" formControlName="creditCard" #creditcard/>
+            <span matSuffix class="suffix">{{ creditcard.value.length }} / 12</span>
             <mat-error *ngIf="CreditCard?.errors?.['required']">Input Mandatory</mat-error>
             <mat-error *ngIf="CreditCard?.errors?.['min']">Please Enter a Valid Card Expiration Date</mat-error>
             <mat-error *ngIf="CreditCard?.errors?.['max']">Please Enter a Valid Card Expiration Date</mat-error>
@@ -142,7 +118,7 @@
               <mat-label>Exp Year</mat-label>
               <input type="number" matInput required formControlName="expYear" />
               <mat-error *ngIf="ExpYear?.errors?.['required']">Input Mandatory</mat-error>
-              <mat-error *ngIf="ExpYear?.errors?.['min']">Please Enter a Valid Card Expiration Year</mat-error>
+              <mat-error *ngIf="ExpYear?.errors?.['min'] || ExpYear?.errors?.['max']">Please Enter a Valid Card Expiration Year</mat-error>
             </mat-form-field>
           </div>
 
@@ -153,11 +129,7 @@
         </div>
         <div class="buttonbox-billing">
           <button mat-flat-button matStepperPrevious color="warn" class="back-button">Back</button>
-          <button 
-          mat-flat-button
-          matStepperNext
-          color="primary"
-          [disabled]="billingForms.status !== 'VALID'" (click)="getUser(
+          <button  mat-flat-button matStepperNext color="primary" [disabled]="billingForms.status !== 'VALID'" (click)="getUser(
             {
               name: firstname.value,
               lastname: lastname.value,
@@ -231,7 +203,7 @@
 
       <div class="submitbox">
         <button matStepperPrevious mat-flat-button color="accent" (click)="goBack()">Back</button>
-        <button mat-flat-button color="primary" (click)="purchaseItems()">Purchase</button>
+        <button mat-flat-button color="primary" (click)="purchaseItems()" [disabled]="shippingForms.status === 'INVALID'">Purchase</button>
       </div>
     </mat-step>
   

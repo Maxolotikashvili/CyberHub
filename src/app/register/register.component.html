@@ -34,11 +34,10 @@
     </mat-form-field>
 
     <mat-form-field class="dateform input">
-      <mat-label>Date</mat-label>
-      <input class="responsive-input" matInput [matDatepicker]="datePicker" formControlName="date" [min]="minDate" [max]="maxDate" #date/>
-      <mat-datepicker-toggle matSuffix [for]="datePicker" ></mat-datepicker-toggle>
-      <mat-datepicker #datePicker></mat-datepicker>
-      <mat-error *ngIf="Date?.errors?.['required']">Please Enter a Valid Date With a Following Format: MM / DD / YY</mat-error>
+      <mat-label>Date Of Birth</mat-label>
+      <input matInput class="responsive-input" (input)="addSlashesToDateInput(date)" formControlName="date" #date/>
+      <mat-error *ngIf="Date?.errors?.['required']">Please Enter a Valid Date</mat-error>
+      <mat-error *ngIf="Date?.errors?.['maxlength']">Really?</mat-error>
     </mat-form-field>
 
     <mat-form-field class="passwordform input">
@@ -53,7 +52,7 @@
       <input class="responsive-input" matInput type="password" formControlName="confirmPassword"/>
       <mat-error *ngIf="Confirmpassword?.errors?.['required']">Input Mandatory</mat-error>
     </mat-form-field>
-    <strong class="strong" *ngIf="userForm?.errors?.['match'] && Password?.status === 'VALID' && Confirmpassword?.status === 'VALID'" >Passwords Do Not Match</strong>
+    <strong class="strong" *ngIf="userForm?.errors?.['match'] && Password?.status === 'VALID' && Confirmpassword?.status === 'VALID'">Passwords Do Not Match</strong>
 
     <button mat-flat-button class="button" color="primary" [disabled]="userForm.status === 'INVALID'" (click)="sendUserDataToLoginComponent()">Create</button>
     <button type="reset" mat-flat-button color="warn" class="button">Reset</button>
