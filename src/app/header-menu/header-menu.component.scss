@@ -1,5 +1,5 @@
 $white: #ffffff;
-$secondary-color: rgb(191, 191, 191);
+$secondary-color: #ffffff;
 $font-play: "Play", sans-serif;
 $letter-spacing: 2px;
 
@@ -27,16 +27,7 @@ $spacing: 1rem;
         align-items: center;
         justify-content: flex-start;
         width: 100%;
-        padding-left: 4.5rem;
-
-        .button-wrapper:nth-child(1) {
-            border: none;
-        }
-
-        .button-wrapper:nth-child(3),
-        .button-wrapper:nth-child(5){
-            border-right: none;
-        }
+        padding-left: 6.8rem;
 
         .button-wrapper {
             display: flex;
@@ -64,6 +55,14 @@ $spacing: 1rem;
                 font-size: 1.4rem;
                 transition: all 0.4s ease;
             }
+        }
+
+        .no-border-left-button {
+            border-left: none;
+        }
+
+        .no-border-button {
+            border: none;
         }
     }
 

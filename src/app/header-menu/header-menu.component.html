@@ -8,9 +8,9 @@
       <button mat-button disableRipple>Quick Shopping</button>
     </a>
     
-    <div class="button-wrapper">
+    <div class="button-wrapper no-border-button">
       <img class="completed-builds-image" src="assets/Icons/completed-builds.png" alt="Pc">
-      <button mat-button class="menu-button" disableRipple [routerLink]="['assembly/parts', 9]">Completed Builds</button>
+      <button mat-button disableRipple [routerLink]="['assembly/parts', 9]">Completed Builds</button>
     </div>
     
     <mat-menu #partsmenu="matMenu">
@@ -19,7 +19,7 @@
     
     <div class="button-wrapper">
       <img src="assets/Icons/pc-parts.png" alt="Pc Part">
-      <button mat-button class="menu-button" disableRipple [matMenuTriggerFor]="partsmenu">Computer Parts</button>
+      <button mat-button disableRipple [matMenuTriggerFor]="partsmenu">Computer Parts</button>
     </div>
 
     <mat-menu #accessoriesmenu="matMenu">
@@ -27,9 +27,9 @@
       <button mat-menu-item class="menu-inside-button" [routerLink]="['assembly/parts', 11]">Headset</button>
     </mat-menu>
     
-    <div class="button-wrapper">
+    <div class="button-wrapper no-border-left-button">
       <img src="assets/Icons/pc-accessories.png" alt="Pc Accessory">
-      <button mat-button class="menu-button" disableRipple [matMenuTriggerFor]="accessoriesmenu">Computer Accessories</button>
+      <button mat-button disableRipple [matMenuTriggerFor]="accessoriesmenu">Computer Accessories</button>
     </div>
   </div>
 
