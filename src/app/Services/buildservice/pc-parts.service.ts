@@ -24,7 +24,7 @@ export class PcPartsService {
       productName: 'case',
       manufacturer: "Thermaltake",
       imageUrl: "assets/PcParts/Cases/Thermaltake-ah-t600white.png",
-      name: "Thermaltake AH-T 600 White",
+      name: "Thermaltake AH-T 600",
       quantity: 1,
       price: 469
     },
@@ -35,7 +35,7 @@ export class PcPartsService {
       productName: 'case',
       manufacturer: "Thermaltake",
       imageUrl: "assets/PcParts/Cases/Thermaltake-view71-rgbplus.png",
-      name: "Thermaltake View 71 RGB Plus",
+      name: "Thermaltake View 71 RGB",
       quantity: 1,
       price: 379
     },
@@ -156,7 +156,7 @@ export class PcPartsService {
       productName: 'case',
       manufacturer: "Asus",
       imageUrl: "assets/PcParts/Cases/tufgaming-gt501midwhite.png",
-      name: "Asus Tuf Gaming GT501 White",
+      name: "Asus Tuf Gaming GT501",
       quantity: 1,
       price: 149
     },
@@ -550,7 +550,7 @@ export class PcPartsService {
       productName: 'gpu',
       manufacturer: "Asus",
       imageUrl: "assets/PcParts/Gpus/Strix-6900xt.png",
-      name: "Asus Rog Strix Radeon 6900 XT",
+      name: "Asus Rog Strix Radeon 6900",
       quantity: 1,
       price: 1499
     },
@@ -802,7 +802,7 @@ export class PcPartsService {
       name: "Steelseries Arctis 9",
       wireless: true,
       quantity: 1,
-      price: 479
+      price: 359
     },
 
     {
@@ -814,7 +814,7 @@ export class PcPartsService {
       name: "Steelseries Arctis 7",
       wireless: true,
       quantity: 1,
-      price: 429
+      price: 329
     },
 
     {
@@ -826,7 +826,7 @@ export class PcPartsService {
       name: "Razer Nari",
       wireless: true,
       quantity: 1,
-      price: 389
+      price: 109
     },
 
     {
@@ -838,7 +838,7 @@ export class PcPartsService {
       name: "Asus Rog Delta RGB",
       wireless: false,
       quantity: 1,
-      price: 359
+      price: 229
     },
 
     {
@@ -850,7 +850,7 @@ export class PcPartsService {
       name: "HyperX Cloud Orbit S",
       wireless: true,
       quantity: 1,
-      price: 309
+      price: 399
     },
 
     {
@@ -862,7 +862,7 @@ export class PcPartsService {
       name: "HyperX Cloud 2",
       wireless: false,
       quantity: 1,
-      price: 179
+      price: 149
     },
 
     {
@@ -874,7 +874,7 @@ export class PcPartsService {
       name: "HyperX Cloud Orbit 71",
       wireless: false,
       quantity: 1,
-      price: 139
+      price: 119
     },
 
     {
@@ -1315,7 +1315,7 @@ export class PcPartsService {
       manufacturer: "Seagate",
       type: "SSD",
       imageUrl: "assets/PcParts/SSDs/firecuda-530headsink-2tb.png",
-      name: "Seagate Firecuda 530 Heatsink",
+      name: "Seagate Firecuda 530",
       memory: "2 TB",
       quantity: 1,
       price: 879
@@ -1406,7 +1406,7 @@ export class PcPartsService {
       manufacturer: "Western Digital",
       type: "SSD",
       imageUrl: "assets/PcParts/SSDs/WD-black-sn750-1tb.png",
-      name: "Western Digital Black SN 750",
+      name: "Western Digital Black SN",
       memory:"1 TB",
       quantity: 1,
       price: 379
