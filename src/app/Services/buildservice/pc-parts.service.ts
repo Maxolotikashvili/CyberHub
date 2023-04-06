@@ -1118,7 +1118,7 @@ export class PcPartsService {
       productName: 'psu',
       manufacturer: "Thermaltake",
       imageUrl: "assets/PcParts/Psus/thermaltake-toughpowere1200w.png",
-      name: "Thermaltake Toughpower PF1",
+      name: "Thermaltake Toughpower",
       power: 1200,
       efficiency: "80+ Platinum",
       quantity: 1,
@@ -1131,7 +1131,7 @@ export class PcPartsService {
       productName: 'psu',
       manufacturer: "Thermaltake",
       imageUrl: "assets/PcParts/Psus/thermaltaketoughpower-850w.png",
-      name: "Thermaltake Toughpower GF",
+      name: "Thermaltake Toughpower",
       power: 850,
       efficiency: "80+ Gold",
       quantity: 1,
@@ -1440,7 +1440,7 @@ export class PcPartsService {
     
     {
       id: 122,
-      type: "Intel",
+      manufacturer: "Intel",
       productName: 'pc',
       imageUrl: "assets/PcParts/PCs/3090-pc.png",
       mobo: "MSI MEG Godlike",
@@ -1455,7 +1455,7 @@ export class PcPartsService {
 
     {
       id: 123,
-      type: "Intel",
+      manufacturer: "Intel",
       productName: 'pc',
       imageUrl: "assets/PcParts/PCs/3080ti-pc.png",
       mobo: "Z590 - E Gaming",
@@ -1470,7 +1470,7 @@ export class PcPartsService {
 
     {
       id: 124,
-      type: "Intel",
+      manufacturer: "Intel",
       productName: 'pc',
       imageUrl: "assets/PcParts/PCs/3080-pc.png",
       mobo: "Z590 - H Gaming",
@@ -1485,7 +1485,7 @@ export class PcPartsService {
 
     {
       id: 125,
-      type: "Intel",
+      manufacturer: "Intel",
       productName: 'pc',
       imageUrl: "assets/PcParts/PCs/3070ti-pc.png",
       mobo: "Z490 - A Gaming",
@@ -1500,7 +1500,7 @@ export class PcPartsService {
 
     {
       id: 126,
-      type: "Intel",
+      manufacturer: "Intel",
       productName: 'pc',
       imageUrl: "assets/PcParts/PCs/3060-pc.png",
       mobo: "Z390 - A Gaming",
@@ -1515,7 +1515,7 @@ export class PcPartsService {
 
     {
       id: 127,
-      type: "AMD",
+      manufacturer: "AMD",
       productName: 'pc',
       imageUrl: "assets/PcParts/PCs/6900xt-pc.png",
       mobo: "MSI MEG Ace",
@@ -1530,7 +1530,7 @@ export class PcPartsService {
 
     {
       id: 128,
-      type: "AMD",
+      manufacturer: "AMD",
       productName: 'pc',
       imageUrl: "assets/PcParts/PCs/6800xt-pc.png",
       mobo: "Z590 - H Gaming",
@@ -1545,7 +1545,7 @@ export class PcPartsService {
 
     {
       id: 129,
-      type: "AMD",
+      manufacturer: "AMD",
       productName: 'pc',
       imageUrl: "assets/PcParts/PCs/6700xt-pc.png",
       mobo: "Z490 - E Gaming",
@@ -1560,7 +1560,7 @@ export class PcPartsService {
       
     {
       id: 130,
-      type: "AMD",
+      manufacturer: "AMD",
       productName: 'pc',
       imageUrl: "assets/PcParts/PCs/6600xt-pc.png",
       mobo: "Z490 - A Gaming",
@@ -1575,7 +1575,7 @@ export class PcPartsService {
 
     {
       id: 131,
-      type: "AMD",
+      manufacturer: "AMD",
       productName: 'pc',
       imageUrl: "assets/PcParts/PCs/rx580-pc.png",
       mobo: "B550 - A Pro",

@@ -46,11 +46,14 @@
             <img [src]="item.imageUrl" alt="image">
             
             <div class="text-wrapper">
-                <span class="item-name-span">{{item.name}}</span>
-                <span class="if-spans" *ngIf="item.power">{{item?.power}}W</span>
-                <span class="if-spans" *ngIf="item.switch">{{item?.switch}}</span>
+                <span class="item-name-span" *ngIf="item?.name">{{item?.name}}</span>
+                <span class="if-spans" *ngIf="item.mobo">{{item?.mobo}}</span>
+                <span class="if-spans" *ngIf="item.gpu">{{item?.gpu}}</span>
+                <span class="if-spans" *ngIf="item.ram">{{item?.ram}}</span>
                 <span class="if-spans" *ngIf="item.socket">{{item?.socket}}</span>
+                <span class="if-spans" *ngIf="item.power">{{item?.power}}W</span>
                 <span class="if-spans" *ngIf="item.memory">{{item?.memory}}</span>
+                <span class="if-spans" *ngIf="item.switch">{{item?.switch}}</span>
                 <span class="if-spans" *ngIf="item.wireless">{{item?.wireless}}</span>
                 <span class="item-price-span">{{item.price}}$</span>
             </div>

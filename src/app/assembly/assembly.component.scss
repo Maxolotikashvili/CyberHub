@@ -44,8 +44,11 @@ section {
             ul {
                 li {
                     padding: 3rem 0 3rem 2rem;
-                    border-radius: $border-radius;
-                    border-bottom: 1px solid $secondary-color;
+                    border-top-right-radius: $border-radius;
+                    border-bottom-right-radius: $border-radius;
+                    border: 1px solid $secondary-color;
+                    border-right: none;
+                    border-top: none;
                     color: #000000;
                     transition: all 0.2s ease;
                     cursor: pointer;
