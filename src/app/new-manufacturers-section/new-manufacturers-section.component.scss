@@ -6,14 +6,16 @@ $font-dosis: "Dosis", sans-serif;
 $headingh2-size: 4rem;
 $section-background-color: rgba(0, 0, 0, 0.5);
 $letter-spacing: 0.3rem;
+$line-height: 4rem;
 
-.head-h {
+.header-h2 {
     margin: 0 0 10rem 1rem;
     font-size: $headingh2-size;
     letter-spacing: 0.3rem;
     font-family: $font-play;
     color: #ffffff;
     font-weight: bold;
+    line-height: $line-height;
 }
 
 .manufacturersbox {
@@ -25,23 +27,25 @@ $letter-spacing: 0.3rem;
     .manufacturer-header-wrapper {
         text-align: center;
 
-        .header-h {
+        .header-h3 {
             color: #ffffff;
             font-size: 3.2rem;
             border-bottom: 1px solid #ffffff;
             letter-spacing: $letter-spacing;
             margin: 0 3rem;
             padding-bottom: 1rem;
+            line-height: $line-height - 1rem;
         }
 
-        .header-h5 {
+        .header-h4 {
             font-size: 2.6rem;
             letter-spacing: $letter-spacing;
             margin: 1rem 0 0 0;
             color: rgb(233, 233, 233);
+            line-height: $line-height - 1rem;
         }
 
-        .header-h3 {
+        .header-h4-buynow {
             font-size: 3.2rem;
             font-weight: 800;
             color: $secondary-color;
@@ -64,6 +68,7 @@ $letter-spacing: 0.3rem;
         align-items: center;
         justify-content: space-around;
         margin: 10rem 0;
+        padding: 1rem 0;
         width: 90%;
         background-color: $section-background-color;
         color: $secondary-color;
@@ -78,13 +83,14 @@ $letter-spacing: 0.3rem;
             flex-direction: column;
             padding: 0px 5rem 0px 5rem;
 
-            h4 {
+            h5 {
                 color: #ffffff;
                 margin-bottom: 1.5rem;
                 font-size: 2.2rem;
                 letter-spacing: 1px;
                 font-family: $font-saira;
                 font-weight: 800;
+                line-height: $line-height - 1rem;
             }
 
             p {
@@ -139,16 +145,16 @@ $letter-spacing: 0.3rem;
                 color: $secondary-color;
                 font-size: 2.4rem;
                 font-weight: bold;
-                letter-spacing: .1rem;
+                letter-spacing: 0.1rem;
             }
 
             button {
                 font-size: 1.8rem;
                 font-weight: bolder;
                 color: $secondary-color;
-                padding: .5rem;
+                padding: 0.5rem;
                 margin-bottom: 2rem;
-                letter-spacing: .2rem;
+                letter-spacing: 0.2rem;
                 border: 1px solid #ffffff;
                 border-radius: 50px;
                 transition: all 0.2s linear;
@@ -163,14 +169,14 @@ $letter-spacing: 0.3rem;
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     .manufacturersbox {
         .manufacturer-box-wrapper {
-            flex-flow: column;
+            flex-flow: column-reverse;
         }
 
         .manufacturer-box-wrapper:nth-child(2) {
-            flex-flow: column-reverse;
+            flex-flow: column;
         }
 
         .nzxtbox-wrapper {
@@ -183,6 +189,67 @@ $letter-spacing: 0.3rem;
 
             button {
                 margin-bottom: 0;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .header-h2 {
+        font-size: 2.8rem;
+    }
+
+    .manufacturersbox {
+        .manufacturer-header-wrapper {
+            .header-h3 {
+                font-size: 2.4rem;
+            }
+
+            .header-h4 {
+                font-size: 2.2rem;
+            }
+
+            .header-h4-buynow {
+                font-size: 2.2rem;
+            }
+
+            .header-h5-white-series {
+                font-size: 2rem;
+            }
+        }
+
+        .manufacturer-box-wrapper {
+            .manufacturer-textbox {
+                h5 {
+                    font-size: 2rem;
+                }
+            }
+        }
+
+        .manufacturer-box-wrapper {
+            img {
+                max-width: 30rem;
+            }
+        }
+
+        .nzxtbox-wrapper {
+            .nzxt-box {
+                img {
+                    max-width: 20rem;
+                }
+                
+                .nzxt-span {
+                    font-size: 1.8rem;
+                }
+
+                button {
+                    font-size: 1.4rem;
+                }
+
+                .price-span {
+                    font-size: 1.6rem;
+                }
+
             }
         }
     }

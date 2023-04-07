@@ -86,7 +86,7 @@ header {
       .userbox {
         display: flex;
         align-items: center;
-        
+
         img {
           width: 30px;
         }
@@ -107,7 +107,6 @@ header {
     background-color: $secondary-color;
   }
 }
-
 
 @media only screen and (max-width: 820px) {
   header {
@@ -157,7 +156,6 @@ header {
         .login-wrapper {
           button {
             padding: 0 5px;
-            // font-size: 1.5rem;
           }
         }
       }
@@ -183,6 +181,23 @@ header {
           button {
             min-width: 5rem;
             font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  header {
+    .header-block1 {
+      .header-wrapper {
+        .login-wrapper {
+          button {
+            font-size: 11px;
+            padding: 0 3px;
+            margin: 0 5px;
+            min-width: 0;
           }
         }
       }

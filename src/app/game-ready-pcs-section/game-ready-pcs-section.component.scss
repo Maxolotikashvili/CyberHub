@@ -1,12 +1,14 @@
 $font-play: "Play", sans-serif;
 $primary-color: rgba(0, 0, 0, 0.486);
-$headingh2-size: 4rem;
+$heading-h2-size: 4rem;
+$line-height: 4rem;
 
 h2 {
     color: #ffffff;
-    font-size: $headingh2-size;
+    font-size: $heading-h2-size;
     letter-spacing: 3px;
     margin: 0rem 0 4rem 1rem;
+    line-height: $line-height;
 }
 
 .pcs-wrapper {
@@ -32,15 +34,15 @@ h2 {
             }
 
             .extreme-h4 {
-                color: red;
+                color: rgb(255, 0, 0);
             }
 
             .highend-h4 {
-                color: blue;
+                color: rgb(0, 0, 255);
             }
 
             .budget-h4 {
-                color: yellow;
+                color: rgb(255, 255, 0);
             }
         }
 
@@ -82,29 +84,29 @@ h2 {
         }
 
         .red-button {
-            color: red;
+            color: rgb(255, 0, 0);
         }
 
         .blue-button {
-            color: blue;
+            color: rgb(0, 0, 255);
         }
 
         .yellow-button {
-            color: yellow;
+            color: rgb(255, 255, 0);
         }
 
         .red-button:hover {
-            box-shadow: inset 0px -56px 1px red;
+            box-shadow: inset 0px -56px 1px rgb(255, 0, 0);
             color: #ffffff;
         }
 
         .blue-button:hover {
-            box-shadow: inset 0px -56px 1px blue;
+            box-shadow: inset 0px -56px 1px rgb(0, 0, 255);
             color: #ffffff
         }
 
         .yellow-button:hover {
-            box-shadow: inset 0px -56px 1px yellow;
+            box-shadow: inset 0px -56px 1px rgb(255, 255, 0);
             color: #ffffff
         }
     }
@@ -137,6 +139,30 @@ h2 {
 
                 li {
                     font-size: 2rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    h2 {
+        font-size: 2.8rem;
+    }
+
+    .pcs-wrapper {
+        .pcbox {
+            .pc-header-wrapper {
+                h4 {
+                    font-size: 2.2rem;
+                }
+            }
+
+            ul {
+                li {
+                    font-size: 1.6rem;
+                    list-style: inside;
+                    text-align: justify;
                 }
             }
         }
