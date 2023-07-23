@@ -1,20 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PcPartsService } from '../Services/buildservice/pc-parts.service';
 import { PcPartType } from '../model';
 import { CartItemService } from '../Services/Cart/cart-item.service';
 import { WishlistService } from '../Services/Wishlist/wishlist.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Subscription } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-parts',
   templateUrl: './parts.component.html',
   styleUrls: ['./parts.component.scss']
 })
-export class PartsComponent implements OnInit {
+export class PartsComponent implements OnInit, OnDestroy {
   routerId!: number;
   pcPartName!: string;
   
+  dataSubscription!: Subscription;
   data: PcPartType[] = [];
   modifiedData: any[] = [];
 
@@ -23,7 +26,13 @@ export class PartsComponent implements OnInit {
 
   MAT_MENU_ITEMS: string[] = [];
 
-  constructor(private route: ActivatedRoute, private pcPartsService: PcPartsService, private cartItemService: CartItemService, private wishListService: WishlistService, private snack: MatSnackBar) { }
+  constructor(
+    private route: ActivatedRoute, 
+    private pcPartsService: PcPartsService, 
+    private cartItemService: CartItemService, 
+    private wishListService: WishlistService, 
+    private snack: MatSnackBar
+    ) { }
 
   ngOnInit(): void {
     this.scrollToTopOnComponentLoad();
@@ -42,7 +51,7 @@ export class PartsComponent implements OnInit {
 
     this.determinePcPartName();
     this.downloadApiData();
-    this.determineSliderValue();
+    // this.determineSliderValue();
    });
   }
 
@@ -76,27 +85,40 @@ export class PartsComponent implements OnInit {
   }
 
   //
-  downloadApiData() {
-    this.data = this.pcPartsService.getPcParts().filter((item: PcPartType) => item.productName === this.pcPartName);
-    this.modifiedData = this.pcPartsService.getPcParts().filter((item: PcPartType) => item.productName === this.pcPartName);
+  async downloadApiData() {
+    this.dataSubscription = this.pcPartsService.getPcParts().subscribe((data: PcPartType[]) => {
+      this.data = data.filter((item: PcPartType) => item.productName === this.pcPartName);
+      this.modifiedData = data.filter((item: PcPartType) => item.productName === this.pcPartName);
+    });
+
   }
 
   //
   sendItemToCartOrWishList(item: PcPartType, sendTo: string) {
     if (this.pcPartName !== 'pc') {
       if (sendTo === 'cart') {
-        this.cartItemService.sendItems(item);
-        this.displaySnackMessage('Item Sent To Cart', 'Dismiss');
+        this.cartItemService.sendItems(item).subscribe({
+          next: (res: string) => {
+            this.displaySnackMessage(res);
+          },
+          error: (err: HttpErrorResponse) => {
+            if (err.status === 404) {
+              this.displaySnackMessage('404 Error');
+            } else {
+              this.displaySnackMessage(err.message);
+            }
+          }
+        });
       } else if (sendTo === 'wishlist') {
         this.wishListService.sendItems(item);
-        this.displaySnackMessage('Item Sent To Wishlist', 'Dismiss');
+        this.displaySnackMessage('Item Sent To Wishlist');
       }
     }
   }
 
   //
-  displaySnackMessage(message: string, action: string) {
-    this.snack.open(message, action, {duration: 3000});
+  displaySnackMessage(message: string) {
+    this.snack.open(message, 'Dismiss', { duration: 3000 });
   }
 
   //
@@ -164,5 +186,10 @@ export class PartsComponent implements OnInit {
     this.downloadApiData();
 
     this.data = this.data.filter((parts: PcPartType) => parts.manufacturer === item);
+  }
+
+  //
+  ngOnDestroy(): void {
+      this.dataSubscription.unsubscribe();
   }
 }

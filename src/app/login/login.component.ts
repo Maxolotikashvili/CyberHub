@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { matchEmailValidator } from '../Validators/Custom-email.validator';
-import { matchPasswordValidator } from '../Validators/Custom-password.validator';
 import { RegisterComponent } from '../register/register.component';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { UserSignInType } from '../model';
+import { UserService } from '../Services/user.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -16,41 +17,28 @@ export class LoginComponent implements OnInit {
   user!: UserSignInType;
   userForm!: FormGroup;
   signedIn!: boolean;
-  
-  // Getters
-  Passwords!: AbstractControl | null;
-  Password!: AbstractControl | null | undefined;
 
   fontawesome = {
-    xmark: faXmark    
+    xmark: faXmark
   }
-  
-  constructor(private fb: FormBuilder, private dialog: MatDialog) { }
+
+  constructor(
+    private fb: FormBuilder,
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar,
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
-    this.receiveRegistrationData();
     this.activateFormValidation();
-  }
- 
-  //
-  receiveRegistrationData() {
-    this.user = JSON.parse(localStorage.getItem('userRegistrationData')!);
   }
 
   //
   activateFormValidation() {
     this.userForm = this.fb.group({
-      email: [''],
-      confirmEmail: [`${this.user?.email}`],
-      passwords: this.fb.group({
-        password: [''],
-        confirmPassword: [`${this.user?.password}`]
-      }, { validators: matchPasswordValidator })
-    }, { validators: matchEmailValidator })
-
-
-    this.Passwords = this.userForm.get('passwords');
-    this.Password = this.Passwords?.get('password')
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
   //
@@ -64,11 +52,27 @@ export class LoginComponent implements OnInit {
   }
 
   //
-  logInUser() {
-    let isLoggedIn: boolean = true;
+  checkForUserCredentials() {
+    const userCredits = {
+      username: this.userForm.get('username')?.value,
+      email: this.userForm.get('username')?.value,
+      password: this.userForm.get('password')?.value
+    }
 
-    localStorage.setItem('isLoggedIn', JSON.stringify(isLoggedIn));
-    this.dialog.closeAll();
-    location.reload();
+    this.userService.loginUser(userCredits).subscribe({
+      next: (response: { message: string, token: string }) => {
+        if (response.token) {
+          localStorage.setItem('user-token', response.token);
+          location.reload();
+        }
+        
+        this.snackBar.open(response.message, 'Dismiss', { duration: 3000 });
+        this.dialog.closeAll();
+      },
+
+      error: (error: HttpErrorResponse) => {
+        this.snackBar.open(error.error, 'Dismiss', { duration: 5000 });
+      }
+    });
   }
 }

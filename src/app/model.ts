@@ -13,7 +13,7 @@ export type PcPartsType = {
 };
 
 export type UserSignInType = {
-    name: string,
+    username: string,
     email: string,
     password: string
 }

@@ -36,7 +36,7 @@
 
             <span class="item-overall">{{ item.quantity * item.price }}$</span>
             <div class="removebox">
-              <button mat-mini-fab color="warn" class="mat-fab" (click)="spliceItemFromCart(item)">
+              <button mat-mini-fab color="warn" class="mat-fab" (click)="deleteItemFromCart(item)">
                 <fa-icon [icon]="fontawesome.xmark"></fa-icon>
               </button>
             </div>
@@ -47,7 +47,7 @@
           <div class="buttonbox">
             <br />
             <button mat-flat-button color="warn" class="clearbutton" (click)="clearCart()">Clear Cart</button>
-            <button mat-flat-button color="primary" class="gobutton" routerLink="../build">Continue Shopping</button>
+            <button mat-flat-button color="primary" class="gobutton" routerLink="../assembly">Continue Shopping</button>
             <br />
           </div>
         </div>

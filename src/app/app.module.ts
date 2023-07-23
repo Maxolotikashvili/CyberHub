@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -46,6 +47,7 @@ import { BadgeComponentComponent } from './badge-component/badge-component.compo
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
     BrowserAnimationsModule,

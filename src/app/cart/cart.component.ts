@@ -3,6 +3,8 @@ import { faCartShopping, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { CartItemService } from '../Services/Cart/cart-item.service';
 import { CheckoutService } from '../Services/checkout.service';
 import { PcPartType } from '../model';
+import { HttpErrorResponse } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +12,7 @@ import { PcPartType } from '../model';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  cartItems!: PcPartType[];
+  cartItems: PcPartType[] = [];
   filteredItems!: PcPartType[];
 
   fontawesome = {
@@ -18,7 +20,11 @@ export class CartComponent implements OnInit {
     cart: faCartShopping
   }
 
-  constructor(private cartitemservice: CartItemService, private checkoutservice: CheckoutService) { }
+  constructor(
+    private cartitemservice: CartItemService, 
+    private checkoutservice: CheckoutService,
+    private matSnack: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
     this.scrollToTopOnComponentLoad();
@@ -31,27 +37,38 @@ export class CartComponent implements OnInit {
   }
 
   //
-  changeQuantity(element: any, index: number) {
+  async changeQuantity(element: PcPartType, index: number) {
     if (index === 1) {
       if (element.quantity > 0) {
         element.quantity--
       }
     } else if (index === 2) {
-      element.quantity++;
+      element.quantity++
     };
+
+    this.cartitemservice.updateItemQuantity(element.quantity, element.id).subscribe((newItem: PcPartType) => {
+      element = newItem;
+    });
   };
 
   //
-  downloadApiData() {
-    this.cartitemservice.cartItemsFlow.subscribe((cartItems: PcPartType[]) => {
-      this.cartItems = cartItems;
-    })
+  async downloadApiData() {
+    this.cartitemservice.getCartItems().subscribe((items: PcPartType[]) => {
+      this.cartItems = items;
+    });
   }
 
   //
-  spliceItemFromCart(item: any) {
-    this.cartItems[this.cartItems.indexOf(item)].quantity = 1;
-    this.cartItems.splice(this.cartItems.indexOf(item), 1);
+  async deleteItemFromCart(item: PcPartType) {
+    this.cartitemservice.deleteItemFromCart(item).subscribe({
+      next: (deletedItem: PcPartType) => {
+        this.cartItems = this.cartItems.filter((item: PcPartType) => item.id !== deletedItem.id)
+      },
+
+      error: (error: HttpErrorResponse) => {
+        this.matSnack.open(error.message, 'Dismiss', { duration: 3000 });
+      }
+    })
   }
 
   //
@@ -70,7 +87,7 @@ export class CartComponent implements OnInit {
       total += element.quantity!
     });
 
-    return total
+    return total;
   }
 
   //

@@ -9,19 +9,19 @@
 
             <div class="column-divider"></div>
 
-            <div class="login-wrapper" *ngIf="!isUserLoggedIn">
+            <div class="login-wrapper" *ngIf="!user_token">
                 <button mat-button (click)="openUserLoginComponent()">Sign In</button>
                 <div class="column-divider"></div>
                 <button mat-button (click)="openUserRegisterComponent()">Register</button>
             </div>
 
-            <div class="userbox" *ngIf="isUserLoggedIn">
+            <div class="userbox" *ngIf="user_token">
                 <img src="assets/Icons/user.png" alt="User">
-                <button mat-button [matMenuTriggerFor]="usermenu">{{userName}}</button>
+                <button mat-button [matMenuTriggerFor]="usermenu">{{username}}</button>
             </div>
 
             <mat-menu #usermenu>
-                <button mat-button (click)="signOutUser()">Sign Out</button>
+                <button mat-button (click)="logOutUser()">Sign Out</button>
             </mat-menu>
         </div>
     </div>

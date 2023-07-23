@@ -4,6 +4,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { matchValidator } from '../Validators/Custom.validator';
 import { UserSignInType } from '../model';
+import { dateValidator } from '../Validators/date.validator'; 
+import { HttpErrorResponse } from '@angular/common/http';
+import { UserService } from '../Services/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +23,7 @@ export class RegisterComponent implements OnInit {
   Date!: AbstractControl | null;
   Password!: AbstractControl | null;
   Confirmpassword!: AbstractControl | null;
-
+  
   // Date
   minDate = new Date(1900, 1, 1);
   maxDate = new Date();
@@ -30,10 +34,15 @@ export class RegisterComponent implements OnInit {
 
   userData!: UserSignInType;
 
-  constructor(private fb: FormBuilder, private dialog: MatDialog) { }
+  constructor(
+    private fb: FormBuilder, 
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar,
+    private userService: UserService
+    ) { }
 
   ngOnInit(): void {
-   this.activateFormVaildators();
+    this.activateFormVaildators();
   }
 
   //
@@ -42,7 +51,7 @@ export class RegisterComponent implements OnInit {
       firstName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
       lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
       email: ['', [Validators.required, Validators.email]],
-      date: ['', [Validators.required, Validators.pattern('[0-90-9, /]*'), Validators.maxLength(10)]],
+      date: ['', [Validators.required, dateValidator]],
       password: ['', [Validators.required, Validators.minLength(5)]],
       confirmPassword: ['', Validators.required]
     }, { validators: matchValidator })
@@ -54,6 +63,18 @@ export class RegisterComponent implements OnInit {
     this.Date = this.userForm.get('date');
     this.Password = this.userForm.get('password');
     this.Confirmpassword = this.userForm.get('confirmPassword');
+  }
+
+  //
+  returnDateValidatorString() {
+    const currentYear = +new Date().getFullYear();
+    const userDate = this.Date?.value.split('/').map(Number)[2];
+   
+    if (currentYear > userDate) {
+      return `You can't be ${currentYear - userDate} years old`;
+    }
+
+    return 'Time travel not yet possible';
   }
 
   closeDialog() {
@@ -68,16 +89,27 @@ export class RegisterComponent implements OnInit {
   }
 
   // Save User Data
-  sendUserDataToLoginComponent() {
+  sendUserDataToLoginComponent(e: Event) {
+    e.preventDefault(); 
+
     this.userData = {
-      name: this.Firstname?.value,
+      username: this.Firstname?.value,
       email: this.Email?.value,
       password: this.Password?.value
     };
 
-    alert('Account Has Been Created');
-    localStorage.setItem('userRegistrationData', JSON.stringify(this.userData));
-    this.dialog.closeAll()
+    this.userService.registerNewUser(this.userData).subscribe({
+      next: (response: string) => {
+        this.snackBar.open(response, 'Dismiss', { duration: 3000 });
+        this.dialog.closeAll();
+      },
+
+      error: (error: HttpErrorResponse) => {
+        console.error('Eror registering user:', error);
+        this.snackBar.open(error.message, 'Dismiss', { duration: 5000 });
+      }
+    })
+
   }
 
 }

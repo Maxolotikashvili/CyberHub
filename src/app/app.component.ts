@@ -10,26 +10,13 @@ import { RegisterComponent } from './register/register.component';
 })
 export class AppComponent implements OnInit {
   title = 'Cyberhub';
-
-  isUserLoggedIn!: boolean;
-  userName!: string;
-
+  user_token: string = localStorage.getItem('user-token')!;
+  username!: string;
+  
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.checkIfUserIsLoggedIn();
-  }
-
-  //
-  checkIfUserIsLoggedIn() {
-    this.isUserLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn')!);
-    this.userName = JSON.parse(localStorage.getItem('userRegistrationData')!)?.name;
-  } 
-
-  //
-  signOutUser() {
-    localStorage.removeItem('isLoggedIn');
-    location.reload();
+    this.getUserInfoFromToken();
   }
 
   //
@@ -40,5 +27,21 @@ export class AppComponent implements OnInit {
   //
   openUserRegisterComponent() {
     this.dialog.open(RegisterComponent);
+  }
+
+  //
+  getUserInfoFromToken() {
+    if (this.user_token) {
+      const tokenPayload: string = this.user_token.split('.')[1];
+      const decodedPayload = atob(tokenPayload);
+      const userInfo = JSON.parse(decodedPayload);
+      this.username = userInfo.username;
+    }
+  }
+
+  //
+  logOutUser() {
+    localStorage.removeItem('user-token');
+    location.reload();
   }
 }

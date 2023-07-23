@@ -10,8 +10,8 @@ import { faCartShopping, faHeart } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./badge-component.component.scss']
 })
 export class BadgeComponentComponent implements OnInit {
-  wishList: PcPartType[] = [];
-  cartItems: PcPartType[] = [];
+  wishlistLength!: number;
+  cartItemsLength!: number;
 
   fontawesome = {
     cart: faCartShopping,
@@ -21,21 +21,21 @@ export class BadgeComponentComponent implements OnInit {
   constructor(private wishListService: WishlistService, private cartItemService: CartItemService) { }
 
   ngOnInit(): void {
-    this.getWishListtItems();
-    this.getCartItems();
+    this.getWishListtItemsLength();
+    this.getCartItemsLength();
   }
 
   //
-  getWishListtItems() {
+  getWishListtItemsLength() {
    this.wishListService.wishListFlow.subscribe((data: PcPartType[]) => {
-     this.wishList = data;
+     this.wishlistLength = data.length;
    });
   }
 
   //
-  getCartItems() {
-    this.cartItemService.cartItemsFlow.subscribe((cartItems: PcPartType[]) => {
-      this.cartItems = cartItems;
-    });
+  getCartItemsLength() {
+    this.cartItemService.cartItemsLengthObservableForMatBadge.subscribe((res) => {
+      this.cartItemsLength = res;
+    })
   }
 }
