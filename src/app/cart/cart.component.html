@@ -61,7 +61,9 @@
             <span *ngIf="cartItems.indexOf(names) !== cartItems.length - 1">,</span>
           </span>
         </div>
+
         <mat-divider></mat-divider>
+
         <h4 class="total-h4">Total: <span class="dollar">{{ calculateItemsTotalCost() }}$</span></h4>
         <div class="checkoutbuttonbox">
           <button mat-button color="primary" class="checkoutbutton" routerLink="/checkout" (click)="sendItemsToCheckout()">To Checkout</button>
@@ -69,5 +71,6 @@
       </div>
     </div>
   </div>
-
 </section>
+
+<app-spinner *ngIf="isLoading"></app-spinner>

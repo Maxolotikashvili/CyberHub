@@ -21,21 +21,13 @@ export class BadgeComponentComponent implements OnInit {
   constructor(private wishListService: WishlistService, private cartItemService: CartItemService) { }
 
   ngOnInit(): void {
-    this.getWishListtItemsLength();
     this.getCartItemsLength();
   }
 
   //
-  getWishListtItemsLength() {
-   this.wishListService.wishListFlow.subscribe((data: PcPartType[]) => {
-     this.wishlistLength = data.length;
-   });
-  }
-
-  //
   getCartItemsLength() {
-    this.cartItemService.cartItemsLengthObservableForMatBadge.subscribe((res) => {
-      this.cartItemsLength = res;
+    this.cartItemService.cartItemLengthObservable.subscribe((cartLength: number) => {
+      this.cartItemsLength = cartLength;
     })
   }
 }

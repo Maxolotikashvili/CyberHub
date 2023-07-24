@@ -51,7 +51,6 @@ export class PartsComponent implements OnInit, OnDestroy {
 
     this.determinePcPartName();
     this.downloadApiData();
-    // this.determineSliderValue();
    });
   }
 
@@ -86,45 +85,46 @@ export class PartsComponent implements OnInit, OnDestroy {
 
   //
   async downloadApiData() {
-    this.dataSubscription = this.pcPartsService.getPcParts().subscribe((data: PcPartType[]) => {
-      this.data = data.filter((item: PcPartType) => item.productName === this.pcPartName);
-      this.modifiedData = data.filter((item: PcPartType) => item.productName === this.pcPartName);
-    });
+    this.dataSubscription = this.pcPartsService.getPcParts().subscribe({
+      next: (data: PcPartType[]) => {
+        this.data = data.filter((item: PcPartType) => item.productName === this.pcPartName);
+        this.modifiedData = data.filter((item: PcPartType) => item.productName === this.pcPartName);
+        this.determineSliderValue();
+      },
 
+      error: (err: HttpErrorResponse) => {
+        console.log('Error fetching data:', err);
+
+        if (err.status === 404) {
+          this.displaySnackMessage('Error 404', 5000);
+          return;
+        }
+        
+        this.displaySnackMessage(err.message, 5000);
+      }
+    })
   }
 
   //
-  sendItemToCartOrWishList(item: PcPartType, sendTo: string) {
+  async sendItemToCartOrWishList(item: PcPartType, sendTo: string) {
     if (this.pcPartName !== 'pc') {
       if (sendTo === 'cart') {
-        this.cartItemService.sendItems(item).subscribe({
-          next: (res: string) => {
-            this.displaySnackMessage(res);
-          },
-          error: (err: HttpErrorResponse) => {
-            if (err.status === 404) {
-              this.displaySnackMessage('404 Error');
-            } else {
-              this.displaySnackMessage(err.message);
-            }
-          }
-        });
+        this.cartItemService.sendItems(item);
       } else if (sendTo === 'wishlist') {
-        this.wishListService.sendItems(item);
-        this.displaySnackMessage('Item Sent To Wishlist');
+        
       }
     }
   }
 
   //
-  displaySnackMessage(message: string) {
-    this.snack.open(message, 'Dismiss', { duration: 3000 });
+  displaySnackMessage(message: string, duration: number) {
+    this.snack.open(message, 'Dismiss', { duration: duration });
   }
 
   //
   determineSliderValue() {
-    this.slider_min_value = this.data.sort(((a, b) => {return a.price - b.price}))[0].price;
-    this.slider_max_value = this.data.sort(((a, b) => {return b.price - a.price}))[0].price;
+    this.slider_min_value = this.data.sort(((a: PcPartType, b: PcPartType) => {return a.price - b.price}))[0].price;
+    this.slider_max_value = this.data.sort(((a: PcPartType, b: PcPartType) => {return b.price - a.price}))[0].price;
   }
 
   //

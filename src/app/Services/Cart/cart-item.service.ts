@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { PcPartType } from 'src/app/model';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -9,30 +10,27 @@ import { HttpClient } from '@angular/common/http';
 export class CartItemService {
   filteredItems!: PcPartType[];
   API_URL: string = 'http://localhost:3000/cart';
-
-  cartItemLength: number = 0;
-  cartItemsLengthSubject = new BehaviorSubject<number>(this.cartItemLength);
-  cartItemsLengthObservableForMatBadge = this.cartItemsLengthSubject.asObservable();
-
-  constructor(private http: HttpClient) { }
-
-  // sendItems(item: PcPartType) {
-  //   this.cartItems.push(item);
-
-  //   this.filteredItems = this.cartItems.filter((element, index) => this.cartItems.indexOf(element) !== index);
-  //   this.filteredItems.forEach(element => {
-  //     this.cartItems[this.cartItems.indexOf(element)].quantity++;
-  //     this.cartItems.splice(this.cartItems.indexOf(element), 1);
-  //   });
   
-  //   this.cartItemsSubject.next(this.cartItems);
-  // }
+  cartItemLength: number = 0;
+  cartItemLengthSubject = new BehaviorSubject(this.cartItemLength);
+  cartItemLengthObservable = this.cartItemLengthSubject.asObservable();
+
+  constructor(private http: HttpClient, private snack: MatSnackBar) { }
 
   //
-  sendItems(item: PcPartType): Observable<string> {
-    this.cartItemLength++;
-    this.cartItemsLengthSubject.next(this.cartItemLength);
-    return this.http.post<string>(this.API_URL, item);
+  sendItems(item: PcPartType) {
+    this.http.post<{message: string, cartLength?: number}>(this.API_URL, item).subscribe({
+      next: (response: {message: string, cartLength?: number}) => {
+        this.snack.open(response.message, 'Dismiss', { duration: 3000 });
+        this.changeCartItemLength(response.cartLength!);
+        console.log(response.cartLength)
+      },
+
+      error: (err: HttpErrorResponse) => {
+        console.log('Error adding item to cart:', err);
+        this.snack.open('Error adding item to cart', 'Dismiss', { duration: 3000 });
+      }
+    });
   };
 
   //
@@ -41,12 +39,18 @@ export class CartItemService {
   };
 
   //
-  updateItemQuantity(quantity: number, cartItemId: number): Observable<PcPartType> {
-    return this.http.put<PcPartType>(`${this.API_URL}/${cartItemId}`, {quantity: quantity});
+  updateItemQuantity(quantity: number, cartItemId: number) {
+    this.http.put(`${this.API_URL}/${cartItemId}`, {quantity: quantity}).subscribe();
   }
 
   //
-  deleteItemFromCart(item: PcPartType): Observable<PcPartType> {
-    return this.http.delete<PcPartType>(`${this.API_URL}/${item.id}`);
+  deleteItemFromCart(item: PcPartType): Observable<number> {
+    return this.http.delete<number>(`${this.API_URL}/${item.id}`);
+  }
+
+  //
+  changeCartItemLength(param: number) {
+    this.cartItemLength = param;
+    this.cartItemLengthSubject.next(this.cartItemLength);
   }
 }

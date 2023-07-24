@@ -37,9 +37,7 @@ export class WishlistComponent implements OnInit {
 
   //
   downloadApiData() {
-    this.wishlistservice.wishListFlow.subscribe((data: PcPartType[]) => {
-      this.wishListItems = data
-    });
+    
   }
 
   //

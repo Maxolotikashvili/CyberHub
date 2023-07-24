@@ -105,6 +105,11 @@ export class RegisterComponent implements OnInit {
       },
 
       error: (error: HttpErrorResponse) => {
+        if (error.status === 409) {
+          this.snackBar.open(error.error, 'Dismiss', { duration: 5000 });
+          return;
+        }
+
         console.error('Eror registering user:', error);
         this.snackBar.open(error.message, 'Dismiss', { duration: 5000 });
       }

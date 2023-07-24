@@ -24,6 +24,7 @@ import { PartsComponent } from './parts/parts.component';
 import { NewManufacturersSectionComponent } from './new-manufacturers-section/new-manufacturers-section.component';
 import { GameReadyPcsSectionComponent } from './game-ready-pcs-section/game-ready-pcs-section.component';
 import { BadgeComponentComponent } from './badge-component/badge-component.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { BadgeComponentComponent } from './badge-component/badge-component.compo
     PartsComponent,
     NewManufacturersSectionComponent,
     GameReadyPcsSectionComponent,
-    BadgeComponentComponent
+    BadgeComponentComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
