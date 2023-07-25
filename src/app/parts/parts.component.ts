@@ -16,8 +16,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class PartsComponent implements OnInit, OnDestroy {
   routerId!: number;
   pcPartName!: string;
-  
+
   dataSubscription!: Subscription;
+  originalData: PcPartType[] = [];
   data: PcPartType[] = [];
   modifiedData: any[] = [];
 
@@ -27,12 +28,12 @@ export class PartsComponent implements OnInit, OnDestroy {
   MAT_MENU_ITEMS: string[] = [];
 
   constructor(
-    private route: ActivatedRoute, 
-    private pcPartsService: PcPartsService, 
-    private cartItemService: CartItemService, 
-    private wishListService: WishlistService, 
+    private route: ActivatedRoute,
+    private pcPartsService: PcPartsService,
+    private cartItemService: CartItemService,
+    private wishListService: WishlistService,
     private snack: MatSnackBar
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.scrollToTopOnComponentLoad();
@@ -46,49 +47,31 @@ export class PartsComponent implements OnInit, OnDestroy {
 
   //
   catchRouterId() {
-   this.route.params.subscribe(params => {
-    this.routerId = +params['id'];
+    this.route.params.subscribe(params => {
+      this.routerId = +params['id'];
 
-    this.determinePcPartName();
-    this.downloadApiData();
-   });
+      this.determinePcPartName();
+      this.downloadApiData();
+    });
   }
 
   //
   determinePcPartName() {
-    if (this.routerId === 0) {
-      this.pcPartName = 'mobo';
-    } else if (this.routerId === 1) {
-      this.pcPartName = 'gpu';
-    } else if (this.routerId === 2) {
-      this.pcPartName = 'cpu';
-    } else if (this.routerId === 3) {
-      this.pcPartName = 'ram';
-    } else if (this.routerId === 4) {
-      this.pcPartName = 'psu';
-    } else if (this.routerId === 5) {
-      this.pcPartName = 'ssd';
-    } else if (this.routerId === 6) {
-      this.pcPartName = 'hdd';
-    } else if (this.routerId === 7) {
-      this.pcPartName = 'cpu-cooler';
-    } else if (this.routerId === 8) {
-      this.pcPartName = 'case';
-    } else if (this.routerId === 9) {
-      this.pcPartName = 'pc';
-    } else if (this.routerId === 10) {
-      this.pcPartName = 'keyboard';
-    } else if (this.routerId === 11) {
-      this.pcPartName = 'headset';
+    const partNames: { [key: number]: string } = {
+      0: 'mobo', 1: 'gpu', 2: 'cpu', 3: 'ram', 4: 'psu', 5: 'ssd',
+      6: 'hdd', 7: 'cpu-cooler', 8: 'case', 9: 'pc', 10: 'keyboard', 11: 'headset'
     };
+    this.pcPartName = partNames[this.routerId];
   }
 
   //
-  async downloadApiData() {
+  downloadApiData() {
     this.dataSubscription = this.pcPartsService.getPcParts().subscribe({
       next: (data: PcPartType[]) => {
-        this.data = data.filter((item: PcPartType) => item.productName === this.pcPartName);
-        this.modifiedData = data.filter((item: PcPartType) => item.productName === this.pcPartName);
+        this.originalData = data.filter((item: PcPartType) => item.productName === this.pcPartName);
+        this.data = this.originalData;
+        this.modifiedData = this.originalData;
+
         this.determineSliderValue();
       },
 
@@ -96,22 +79,48 @@ export class PartsComponent implements OnInit, OnDestroy {
         console.log('Error fetching data:', err);
 
         if (err.status === 404) {
+          console.log('Error fetching data: Client error 404');
           this.displaySnackMessage('Error 404', 5000);
           return;
         }
-        
-        this.displaySnackMessage(err.message, 5000);
+
+        this.displaySnackMessage('Error fetching data', 5000);
       }
     })
   }
 
   //
-  async sendItemToCartOrWishList(item: PcPartType, sendTo: string) {
+  sendItemToCartOrWishList(item: PcPartType, sendTo: string) {
     if (this.pcPartName !== 'pc') {
       if (sendTo === 'cart') {
-        this.cartItemService.sendItems(item);
+        this.cartItemService.addItemToCart(item).subscribe({
+          next: (response: { message: string, cartLength?: number }) => {
+            this.snack.open(response.message, 'Dismiss', { duration: 3000 });
+            if (response.cartLength) {
+              this.cartItemService.changeCartItemLength(response.cartLength);
+            }
+          },
+    
+          error: (err: HttpErrorResponse) => {
+            console.error(`Error adding item to cart: ${err}`);
+            this.snack.open('Error adding item to cart', 'Dismiss', { duration: 3000 });
+          }
+        });
+
       } else if (sendTo === 'wishlist') {
-        
+        this.wishListService.addItemToWishList(item).subscribe({
+          next: (response: { message: string, wishListLength?: number }) => {
+            this.snack.open(response.message, 'Dismiss', { duration: 3000 });
+            if (response.wishListLength) {
+              this.wishListService.updateWishListLength(response.wishListLength);
+            }
+          },
+    
+          error: (err: HttpErrorResponse) => {
+            console.error(`Error adding item to wishlist: ${err}`);
+            this.snack.open('Error adding item to wishlist', 'Dismiss', { duration: 3000 });
+          }
+        });
       }
     }
   }
@@ -123,13 +132,13 @@ export class PartsComponent implements OnInit, OnDestroy {
 
   //
   determineSliderValue() {
-    this.slider_min_value = this.data.sort(((a: PcPartType, b: PcPartType) => {return a.price - b.price}))[0].price;
-    this.slider_max_value = this.data.sort(((a: PcPartType, b: PcPartType) => {return b.price - a.price}))[0].price;
+    this.slider_min_value = this.data.sort(((a, b) => { return a?.price - b?.price }))[0]?.price;
+    this.slider_max_value = this.data.sort(((a, b) => { return b?.price - a?.price }))[0]?.price;
   }
 
   //
   sortItemsBySliderValue(value: number) {
-    this.downloadApiData();
+    this.data = this.originalData;
 
     this.data = this.data.filter((items: PcPartType) => items.price <= value);
   }
@@ -147,7 +156,7 @@ export class PartsComponent implements OnInit, OnDestroy {
 
   //
   filterItemsByMatMenuItems(items: string | number) {
-    this.downloadApiData();
+    this.data = this.originalData;
 
     this.data = this.data.filter((item) => item.type === items || item.power === items || item.memory === items || item.socket === items || item.efficiency === items);
   }
@@ -155,9 +164,9 @@ export class PartsComponent implements OnInit, OnDestroy {
   //
   sortItemsByParamValue(sortType: string) {
     if (sortType === 'hightolow') {
-      this.data.sort(((a, b) => {return b.price - a.price}));
+      this.data.sort(((a, b) => { return b.price - a.price }));
     } else if (sortType === 'lowtohigh') {
-      this.data.sort(((a, b) => {return a.price - b.price}));
+      this.data.sort(((a, b) => { return a.price - b.price }));
     } else if (sortType === 'ascending') {
       this.data.sort(function (a, b) {
         if (a.name! < b.name!) {
@@ -182,14 +191,14 @@ export class PartsComponent implements OnInit, OnDestroy {
   }
 
   //
-  filterItemsByManufacturer(item: string) {
-    this.downloadApiData();
+  filterItemsByManufacturer(manufacturer: string) {
+    this.data = this.originalData;
 
-    this.data = this.data.filter((parts: PcPartType) => parts.manufacturer === item);
+    this.data = this.data.filter((parts: PcPartType) => parts.manufacturer === manufacturer);
   }
 
   //
   ngOnDestroy(): void {
-      this.dataSubscription.unsubscribe();
+    this.dataSubscription.unsubscribe();
   }
 }

@@ -4,6 +4,7 @@ import { faCartShopping, faHeart, faXmark } from '@fortawesome/free-solid-svg-ic
 import { CartItemService } from '../Services/Cart/cart-item.service';
 import { WishlistService } from '../Services/Wishlist/wishlist.service';
 import { PcPartType } from '../model';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-wishlist',
@@ -11,7 +12,7 @@ import { PcPartType } from '../model';
   styleUrls: ['./wishlist.component.scss']
 })
 export class WishlistComponent implements OnInit {
-  wishListItems!: PcPartType[];
+  wishListItems: PcPartType[] = [];
 
   fontawesome = {
     cart: faCartShopping,
@@ -21,13 +22,13 @@ export class WishlistComponent implements OnInit {
 
   constructor(
     private wishlistservice: WishlistService,
-    private cartitemservice: CartItemService,
+    private cartItemService: CartItemService,
     private snack: MatSnackBar
   ) { }
 
   ngOnInit(): void {
     this.scrollToTopOnComponentLoad();
-   this.downloadApiData();
+    this.downloadApiData();
   }
 
   //
@@ -37,30 +38,72 @@ export class WishlistComponent implements OnInit {
 
   //
   downloadApiData() {
-    
+    this.wishlistservice.getWishlistItems().subscribe({
+      next: (data: PcPartType[]) => {
+        this.wishListItems = data;
+      },
+
+      error: (err: HttpErrorResponse) => {
+        console.error(err);
+        this.displaySnackMessage('Error fetching data');
+      }
+    })
+  };
+
+  //
+  sendWishListItems(item: PcPartType) {
+    this.cartItemService.addItemToCart(item).subscribe({
+      next: (res: {message: string, cartLength?: number}) => {
+        this.displaySnackMessage(res.message);
+        this.wishlistservice.deleteItemFromWishlist(item).subscribe({
+          next: (res: number) => {
+            this.wishlistservice.updateWishListLength(res);
+            this.wishListItems.splice(this.wishListItems.indexOf(item), 1);
+          },
+
+          error: (err: HttpErrorResponse) => {
+            console.error(`Couldn't remove item from wishlist: ${err}`);
+          }
+        })
+
+        if (res.cartLength) {
+          this.cartItemService.changeCartItemLength(res.cartLength);
+        }
+      },
+
+      error: (err: HttpErrorResponse) => {
+        console.error(`Error sending item to cart: ${err}`);
+        this.displaySnackMessage('Erro sending item to cart');
+      }
+    });
+
   }
 
   //
-  sendWishListItems(item: any) {
-    this.cartitemservice.sendItems(item);
-    this.wishListItems.splice(this.wishListItems.indexOf(item), 1);
+  removeItemFromWishlist(item: PcPartType | 'deleteAll') {
+    this.wishlistservice.deleteItemFromWishlist(item).subscribe({
+      next: (res: number) => {
+        this.wishlistservice.updateWishListLength(res);
 
-    this.displaySnackMessage('Item Sent To Cart', 'Dismiss');
+        if (typeof item === 'string') {
+          this.wishListItems.splice(0, this.wishListItems.length);
+          this.displaySnackMessage('Wishlist cleared');
+        } else {
+          this.wishListItems = this.wishListItems.filter((items: PcPartType) => items.id !== item.id);
+          this.displaySnackMessage('Item removed from wishlist')
+        }
+      },
+      
+      error: (err: HttpErrorResponse) => {
+        console.error(`Error removing items from wishlist: ${err}`);
+        this.displaySnackMessage('Error updating wishlist');
+      }
+    });
   }
 
   //
-  removeItemFromCart(item: any) {
-    this.wishListItems.splice(this.wishListItems.indexOf(item), 1);
-  }
-
-  //
-  clearCart() {
-    this.wishListItems.splice(0, this.wishListItems.length);
-  }
-
-  //
-  displaySnackMessage(message: string, action: any) {
-    this.snack.open(message, action, { duration: 3000 })
+  displaySnackMessage(message: string) {
+    this.snack.open(message, 'Dismiss', { duration: 3000 })
   }
 
 }

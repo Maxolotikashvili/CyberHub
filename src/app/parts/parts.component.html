@@ -14,7 +14,7 @@
         <button class="filter-button" mat-button [matMenuTriggerFor]="priceMenu">Price</button>
         <button class="filter-button" mat-button [matMenuTriggerFor]="nameMenu">Name</button>
         <button class="filter-button" mat-button (click)="removeDuplicatesForMatMenu('manufacturer')" [matMenuTriggerFor]="manufacturerMenu">Manufacturer</button>
-        <button class="reset-button" mat-flat-button color="warn" (click)="downloadApiData()">Reset</button>
+        <button class="reset-button" mat-flat-button color="warn" (click)="data = originalData">Reset</button>
 
         <mat-menu #matmenu>
             <button mat-button *ngFor="let menuItems of MAT_MENU_ITEMS" (click)="filterItemsByMatMenuItems(menuItems)">{{menuItems}}</button>
@@ -57,7 +57,10 @@
                 <span class="item-price-span">{{item.price}}$</span>
             </div>
 
-            <button mat-button (click)="sendItemToCartOrWishList(item, 'cart')">Add To Cart</button>
+            <button mat-button (click)="sendItemToCartOrWishList(item, 'cart')">
+                <span *ngIf="pcPartName !== 'pc'">Add To Cart</span>
+                <span *ngIf="pcPartName === 'pc'">Pre-order Only</span>
+            </button>
         </div>
     </div>
 </div>

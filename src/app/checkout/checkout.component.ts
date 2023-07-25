@@ -1,9 +1,11 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { faCcVisa } from '@fortawesome/free-brands-svg-icons';
 import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
-import { CheckoutService } from '../Services/checkout.service';
+import { CartItemService } from '../Services/Cart/cart-item.service';
+import { PcPartType } from '../model';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-checkout',
@@ -21,19 +23,19 @@ export class CheckoutComponent implements OnInit {
   billingForms!: FormGroup;
 
   // Shipping Form Variables
-  FirstName!: any;
-  LastName!: any;
-  Country!: any;
-  City!: any;
-  Street!: any;
-  Apartament!: any;
-  Postal!: any;
+  FirstName!: AbstractControl | null;
+  LastName!: AbstractControl | null;
+  Country!: AbstractControl | null;
+  City!: AbstractControl | null;
+  Street!: AbstractControl | null;
+  Apartament!: AbstractControl | null;
+  Postal!: AbstractControl | null;
 
   // Billing Form Variables
-  CreditCard!: any;
-  ExpMonth!: any;
-  ExpYear!: any;
-  Policy!: any;
+  CreditCard!: AbstractControl | null;
+  ExpMonth!: AbstractControl | null;
+  ExpYear!: AbstractControl | null;
+  Policy!: AbstractControl | null;
 
   // Fontawesome
   expressCard = faCreditCard;
@@ -47,13 +49,18 @@ export class CheckoutComponent implements OnInit {
   spinnerboxshow = "spinnerboxhide";
   blur = "";
 
-  constructor(private fb: FormBuilder, private checkoutservice: CheckoutService, private location: Location) { }
+  constructor(private fb: FormBuilder, private cartItemService: CartItemService, private location: Location) { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
 
-    // Scroll Up
-    window.scrollTo(0, 0);   
+    this.activateForm();
+    this.getItems();
 
+  };
+
+  //
+  activateForm() {
     // Shipping Form
     this.shippingForms = this.fb.group({
       firstName: ['', Validators.required],
@@ -88,11 +95,20 @@ export class CheckoutComponent implements OnInit {
     this.ExpMonth = this.billingForms.get('expMonth');
     this.ExpYear = this.billingForms.get('expYear');
     this.Policy = this.billingForms.get('policy');
+  }
 
+  //
+  getItems() {
+    this.cartItemService.getCartItems().subscribe({
+      next: (res: PcPartType[]) => {
+        this.items = res;
+      },
 
-    // Get Items
-      this.checkoutservice.sendItems().subscribe((data: any[]) => {this.items = data;})
-  };
+      error: (err: HttpErrorResponse) => {
+        console.error(`Error fetching requested items: ${err}`);
+      }
+    })
+  }
 
   changeClass(change: boolean) {
     if (change === true) {
@@ -128,7 +144,7 @@ export class CheckoutComponent implements OnInit {
     setTimeout(() => {
       this.spinnerboxshow = "spinnerboxhide";
       this.blur = "";
-      
+
       this.deploy = true;
       window.scrollTo(0, 100);
     }, 1500);

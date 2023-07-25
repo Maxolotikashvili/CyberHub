@@ -3,14 +3,14 @@ import { PcPartType } from 'src/app/model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { API_URL } from 'src/app/api-url';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartItemService {
   filteredItems!: PcPartType[];
-  API_URL: string = 'http://localhost:3000/cart';
-  
+
   cartItemLength: number = 0;
   cartItemLengthSubject = new BehaviorSubject(this.cartItemLength);
   cartItemLengthObservable = this.cartItemLengthSubject.asObservable();
@@ -18,34 +18,32 @@ export class CartItemService {
   constructor(private http: HttpClient, private snack: MatSnackBar) { }
 
   //
-  sendItems(item: PcPartType) {
-    this.http.post<{message: string, cartLength?: number}>(this.API_URL, item).subscribe({
-      next: (response: {message: string, cartLength?: number}) => {
-        this.snack.open(response.message, 'Dismiss', { duration: 3000 });
-        this.changeCartItemLength(response.cartLength!);
-        console.log(response.cartLength)
-      },
-
-      error: (err: HttpErrorResponse) => {
-        console.log('Error adding item to cart:', err);
-        this.snack.open('Error adding item to cart', 'Dismiss', { duration: 3000 });
-      }
-    });
+  addItemToCart(item: PcPartType): Observable<{message: string, cartLength?: number}> {
+    return this.http.post<{ message: string, cartLength?: number }>(`${API_URL}cart`, item);
   };
 
   //
   getCartItems(): Observable<PcPartType[]> {
-    return this.http.get<PcPartType[]>(this.API_URL);
+    return this.http.get<PcPartType[]>(`${API_URL}cart`);
   };
 
   //
   updateItemQuantity(quantity: number, cartItemId: number) {
-    this.http.put(`${this.API_URL}/${cartItemId}`, {quantity: quantity}).subscribe();
+    this.http.put(`${`${API_URL}cart`}/${cartItemId}`, { quantity: quantity }).subscribe();
   }
 
   //
-  deleteItemFromCart(item: PcPartType): Observable<number> {
-    return this.http.delete<number>(`${this.API_URL}/${item.id}`);
+  deleteItemFromCart(item: PcPartType | string): Observable<number> {
+    if (typeof item === 'string') {
+      return this.http.delete<number>(`${`${API_URL}cart`}/${item}`);
+    } else {
+      return this.http.delete<number>(`${`${API_URL}cart`}/${item.id}`);
+    }
+  }
+
+  //
+  updateCheckout(): Observable<number> {
+    return this.http.get<number>(`${API_URL}checkout`);
   }
 
   //

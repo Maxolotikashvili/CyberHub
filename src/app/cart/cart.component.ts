@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faCartShopping, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { CartItemService } from '../Services/Cart/cart-item.service';
-import { CheckoutService } from '../Services/checkout.service';
 import { PcPartType } from '../model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -23,7 +22,6 @@ export class CartComponent implements OnInit {
 
   constructor(
     private cartitemservice: CartItemService,
-    private checkoutservice: CheckoutService,
     private matSnack: MatSnackBar
   ) { }
 
@@ -64,11 +62,13 @@ export class CartComponent implements OnInit {
     this.cartitemservice.deleteItemFromCart(item).subscribe({
       next: (response: number) => {
         this.cartItems = this.cartItems.filter((parts: PcPartType) => parts.id !== item.id);
+        this.matSnack.open('Item removed from cart', 'Dismiss', { duration: 3000 });
         this.cartitemservice.changeCartItemLength(response);
       },
 
       error: (error: HttpErrorResponse) => {
-        this.matSnack.open(error.message, 'Dismiss', { duration: 3000 });
+        console.log(error)
+        this.matSnack.open('Error removing item from cart', 'Dismiss', { duration: 5000 });
       },
 
       complete: () => {
@@ -79,11 +79,18 @@ export class CartComponent implements OnInit {
 
   //
   clearCart() {
-    for (let item of this.cartItems) {
-      item.quantity = 1;
-    }
+    this.cartitemservice.deleteItemFromCart('deleteAll').subscribe({
+      next: (response: number) => {
+        this.cartItems.splice(0, this.cartItems.length);
+        this.matSnack.open('Cart cleared', 'Dismiss', { duration: 3000 });
+        this.cartitemservice.changeCartItemLength(response);
+      },
 
-    this.cartItems.splice(0, this.cartItems.length);
+      error: (error: HttpErrorResponse) => {
+        console.log(`Error clearing the cart: ${error}`);
+        this.matSnack.open('Error clearing the cart', 'Dismiss', { duration: 5000 });
+      }
+    });
   }
 
   //
@@ -109,6 +116,14 @@ export class CartComponent implements OnInit {
 
   //
   sendItemsToCheckout() {
-    this.checkoutservice.getItems(this.cartItems);
+    this.cartitemservice.updateCheckout().subscribe({
+      next: (res: number) => {
+        this.cartitemservice.changeCartItemLength(res);
+      },
+
+      error: (err: HttpErrorResponse) => {
+        console.error(`Error advancing to checkout: ${err}`);
+      }
+    });
   }
 }

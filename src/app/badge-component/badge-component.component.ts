@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PcPartType } from '../model';
 import { WishlistService } from '../Services/Wishlist/wishlist.service';
 import { CartItemService } from '../Services/Cart/cart-item.service';
 import { faCartShopping, faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -10,8 +9,8 @@ import { faCartShopping, faHeart } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./badge-component.component.scss']
 })
 export class BadgeComponentComponent implements OnInit {
-  wishlistLength!: number;
-  cartItemsLength!: number;
+  wishListLength: number = 0;
+  cartItemsLength: number = 0;
 
   fontawesome = {
     cart: faCartShopping,
@@ -21,13 +20,21 @@ export class BadgeComponentComponent implements OnInit {
   constructor(private wishListService: WishlistService, private cartItemService: CartItemService) { }
 
   ngOnInit(): void {
-    this.getCartItemsLength();
+    this.getCartLength();
+    this.getWishListLength();
   }
 
   //
-  getCartItemsLength() {
+  getCartLength() {
     this.cartItemService.cartItemLengthObservable.subscribe((cartLength: number) => {
       this.cartItemsLength = cartLength;
+    });
+  }
+
+  //
+  getWishListLength() {
+    this.wishListService.wishListItemLengthObservable.subscribe((length: number) => {
+      this.wishListLength = length;
     })
   }
 }
