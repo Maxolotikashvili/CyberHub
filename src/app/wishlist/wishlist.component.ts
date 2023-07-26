@@ -13,6 +13,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class WishlistComponent implements OnInit {
   wishListItems: PcPartType[] = [];
+  isLoading!: boolean;
 
   fontawesome = {
     cart: faCartShopping,
@@ -38,12 +39,16 @@ export class WishlistComponent implements OnInit {
 
   //
   downloadApiData() {
+    this.isLoading = true
+
     this.wishlistservice.getWishlistItems().subscribe({
       next: (data: PcPartType[]) => {
         this.wishListItems = data;
+        this.isLoading = false;
       },
 
       error: (err: HttpErrorResponse) => {
+        this.isLoading = false;
         console.error(err);
         this.displaySnackMessage('Error fetching data');
       }
@@ -51,18 +56,23 @@ export class WishlistComponent implements OnInit {
   };
 
   //
-  sendWishListItems(item: PcPartType) {
+  sendWishListItemsToCart(item: PcPartType) {
+    this.isLoading = true;
+
     this.cartItemService.addItemToCart(item).subscribe({
       next: (res: {message: string, cartLength?: number}) => {
         this.displaySnackMessage(res.message);
+
         this.wishlistservice.deleteItemFromWishlist(item).subscribe({
           next: (res: number) => {
             this.wishlistservice.updateWishListLength(res);
             this.wishListItems.splice(this.wishListItems.indexOf(item), 1);
+            this.isLoading = false;
           },
 
           error: (err: HttpErrorResponse) => {
-            console.error(`Couldn't remove item from wishlist: ${err}`);
+            this.isLoading = false;
+            console.error(err);
           }
         })
 
@@ -72,7 +82,8 @@ export class WishlistComponent implements OnInit {
       },
 
       error: (err: HttpErrorResponse) => {
-        console.error(`Error sending item to cart: ${err}`);
+        this.isLoading = false;
+        console.error(err);
         this.displaySnackMessage('Erro sending item to cart');
       }
     });
@@ -81,9 +92,12 @@ export class WishlistComponent implements OnInit {
 
   //
   removeItemFromWishlist(item: PcPartType | 'deleteAll') {
+    this.isLoading = true;
+
     this.wishlistservice.deleteItemFromWishlist(item).subscribe({
       next: (res: number) => {
         this.wishlistservice.updateWishListLength(res);
+        this.isLoading = false;
 
         if (typeof item === 'string') {
           this.wishListItems.splice(0, this.wishListItems.length);
@@ -95,7 +109,8 @@ export class WishlistComponent implements OnInit {
       },
       
       error: (err: HttpErrorResponse) => {
-        console.error(`Error removing items from wishlist: ${err}`);
+        this.isLoading = false;
+        console.error(err);
         this.displaySnackMessage('Error updating wishlist');
       }
     });

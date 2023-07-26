@@ -16,6 +16,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class PartsComponent implements OnInit, OnDestroy {
   routerId!: number;
   pcPartName!: string;
+  isLoading!: boolean;
 
   dataSubscription!: Subscription;
   originalData: PcPartType[] = [];
@@ -66,6 +67,8 @@ export class PartsComponent implements OnInit, OnDestroy {
 
   //
   downloadApiData() {
+    this.isLoading = true;
+
     this.dataSubscription = this.pcPartsService.getPcParts().subscribe({
       next: (data: PcPartType[]) => {
         this.originalData = data.filter((item: PcPartType) => item.productName === this.pcPartName);
@@ -73,18 +76,19 @@ export class PartsComponent implements OnInit, OnDestroy {
         this.modifiedData = this.originalData;
 
         this.determineSliderValue();
+        this.isLoading = false;
       },
 
       error: (err: HttpErrorResponse) => {
-        console.log('Error fetching data:', err);
+        console.error(err);
 
         if (err.status === 404) {
-          console.log('Error fetching data: Client error 404');
-          this.displaySnackMessage('Error 404', 5000);
-          return;
+          this.displaySnackMessage('404 error', 5000);
+        } else {
+          this.displaySnackMessage('Error fetching data', 5000);
         }
 
-        this.displaySnackMessage('Error fetching data', 5000);
+        this.isLoading = false;
       }
     })
   }
@@ -93,8 +97,11 @@ export class PartsComponent implements OnInit, OnDestroy {
   sendItemToCartOrWishList(item: PcPartType, sendTo: string) {
     if (this.pcPartName !== 'pc') {
       if (sendTo === 'cart') {
+        this.isLoading = true;
+
         this.cartItemService.addItemToCart(item).subscribe({
           next: (response: { message: string, cartLength?: number }) => {
+            this.isLoading = false;
             this.snack.open(response.message, 'Dismiss', { duration: 3000 });
             if (response.cartLength) {
               this.cartItemService.changeCartItemLength(response.cartLength);
@@ -102,14 +109,19 @@ export class PartsComponent implements OnInit, OnDestroy {
           },
     
           error: (err: HttpErrorResponse) => {
-            console.error(`Error adding item to cart: ${err}`);
+            console.error(err);
+            this.isLoading = false;
             this.snack.open('Error adding item to cart', 'Dismiss', { duration: 3000 });
           }
         });
 
       } else if (sendTo === 'wishlist') {
+        this.isLoading = true;
+
         this.wishListService.addItemToWishList(item).subscribe({
           next: (response: { message: string, wishListLength?: number }) => {
+            this.isLoading =false;
+
             this.snack.open(response.message, 'Dismiss', { duration: 3000 });
             if (response.wishListLength) {
               this.wishListService.updateWishListLength(response.wishListLength);
@@ -117,7 +129,8 @@ export class PartsComponent implements OnInit, OnDestroy {
           },
     
           error: (err: HttpErrorResponse) => {
-            console.error(`Error adding item to wishlist: ${err}`);
+            console.error(err);
+            this.isLoading = false;
             this.snack.open('Error adding item to wishlist', 'Dismiss', { duration: 3000 });
           }
         });

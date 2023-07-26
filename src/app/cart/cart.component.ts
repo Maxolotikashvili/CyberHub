@@ -50,9 +50,20 @@ export class CartComponent implements OnInit {
 
   //
   downloadApiData() {
-    this.cartitemservice.getCartItems().subscribe((items: PcPartType[]) => {
-      this.cartItems = items;
-    });
+    this.isLoading = true;
+
+    this.cartitemservice.getCartItems().subscribe({
+      next: (data: PcPartType[]) => {
+        this.cartItems = data;
+        this.isLoading = false;
+      },
+
+      error: (err: HttpErrorResponse) => {
+        console.error(err);
+        this.matSnack.open('Error fetching data');
+        this.isLoading = false;
+      }
+    })
   }
 
   //
@@ -64,14 +75,12 @@ export class CartComponent implements OnInit {
         this.cartItems = this.cartItems.filter((parts: PcPartType) => parts.id !== item.id);
         this.matSnack.open('Item removed from cart', 'Dismiss', { duration: 3000 });
         this.cartitemservice.changeCartItemLength(response);
+        this.isLoading = false;
       },
 
       error: (error: HttpErrorResponse) => {
-        console.log(error)
+        console.error(error)
         this.matSnack.open('Error removing item from cart', 'Dismiss', { duration: 5000 });
-      },
-
-      complete: () => {
         this.isLoading = false;
       }
     })
@@ -79,16 +88,20 @@ export class CartComponent implements OnInit {
 
   //
   clearCart() {
+    this.isLoading = true;
+
     this.cartitemservice.deleteItemFromCart('deleteAll').subscribe({
       next: (response: number) => {
         this.cartItems.splice(0, this.cartItems.length);
         this.matSnack.open('Cart cleared', 'Dismiss', { duration: 3000 });
         this.cartitemservice.changeCartItemLength(response);
+        this.isLoading = false;
       },
 
       error: (error: HttpErrorResponse) => {
-        console.log(`Error clearing the cart: ${error}`);
+        console.error(error);
         this.matSnack.open('Error clearing the cart', 'Dismiss', { duration: 5000 });
+        this.isLoading = false;
       }
     });
   }
@@ -116,6 +129,8 @@ export class CartComponent implements OnInit {
 
   //
   sendItemsToCheckout() {
+    this.isLoading = true;
+    
     this.cartitemservice.updateCheckout().subscribe({
       next: (res: number) => {
         this.cartitemservice.changeCartItemLength(res);
@@ -123,6 +138,10 @@ export class CartComponent implements OnInit {
 
       error: (err: HttpErrorResponse) => {
         console.error(`Error advancing to checkout: ${err}`);
+      },
+
+      complete: () => {
+        this.isLoading = false;
       }
     });
   }

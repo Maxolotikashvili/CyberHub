@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   user!: UserSignInType;
   userForm!: FormGroup;
   signedIn!: boolean;
+  isLoading!: boolean;
 
   fontawesome = {
     xmark: faXmark
@@ -58,20 +59,32 @@ export class LoginComponent implements OnInit {
       email: this.userForm.get('username')?.value,
       password: this.userForm.get('password')?.value
     }
-
+    
+    this.isLoading = true;
+    
     this.userService.loginUser(userCredits).subscribe({
+
       next: (response: { message: string, token: string }) => {
         if (response.token) {
           localStorage.setItem('user-token', response.token);
           location.reload();
         }
-        
+
+        this.isLoading = false;
         this.snackBar.open(response.message, 'Dismiss', { duration: 3000 });
         this.dialog.closeAll();
       },
 
       error: (error: HttpErrorResponse) => {
-        this.snackBar.open(error.error, 'Dismiss', { duration: 5000 });
+        console.error(error);
+
+        if (error.status === 401) {
+          this.snackBar.open('Invalid credentials', 'Dismiss', { duration: 3000 });
+        } else {
+          this.snackBar.open("Couldn't sign in user", 'Dismiss', { duration: 5000 });
+        }
+
+        this.isLoading = false;
       }
     });
   }

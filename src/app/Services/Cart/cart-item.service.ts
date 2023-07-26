@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PcPartType } from 'src/app/model';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { HttpClient } from '@angular/common/http';
 import { API_URL } from 'src/app/api-url';
 
 @Injectable({
@@ -15,7 +14,7 @@ export class CartItemService {
   cartItemLengthSubject = new BehaviorSubject(this.cartItemLength);
   cartItemLengthObservable = this.cartItemLengthSubject.asObservable();
 
-  constructor(private http: HttpClient, private snack: MatSnackBar) { }
+  constructor(private http: HttpClient) { }
 
   //
   addItemToCart(item: PcPartType): Observable<{message: string, cartLength?: number}> {
@@ -44,6 +43,13 @@ export class CartItemService {
   //
   updateCheckout(): Observable<number> {
     return this.http.get<number>(`${API_URL}checkout`);
+  }
+
+  //
+  getCartItemLength() {
+    this.http.get<number>(`${API_URL}cartLength`).subscribe((res: number) => {
+      this.changeCartItemLength(res);
+    })
   }
 
   //

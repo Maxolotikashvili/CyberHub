@@ -14,7 +14,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class CheckoutComponent implements OnInit {
   // Items
-  items!: any[];
+  items!: PcPartType[];
   user!: any;
   deploy: boolean = false;
 
@@ -69,7 +69,7 @@ export class CheckoutComponent implements OnInit {
       city: ['', Validators.required],
       street: ['', Validators.required],
       apartament: [''],
-      postal: ['', [Validators.required, Validators.min(100), Validators.max(999)]],
+      postal: ['', [Validators.required, Validators.min(1000), Validators.max(9999)]],
     });
 
     // Shipping Form Getters
@@ -121,7 +121,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   // Get User Details
-  getUser(details: any) {
+  getUser(details: {[key: string]: string}) {
     this.user = details;
   }
 

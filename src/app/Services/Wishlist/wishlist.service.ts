@@ -35,6 +35,13 @@ export class WishlistService {
   }
 
   //
+  getWishlistLength() {
+    this.http.get<number>(`${API_URL}wishlistLength`).subscribe((res: number) => {
+      this.updateWishListLength(res);
+    })
+  }
+
+  //
   updateWishListLength(param: number) {
     this.wishListItemLength = param;
     this.wishListItemLengthSubject.next(this.wishListItemLength);

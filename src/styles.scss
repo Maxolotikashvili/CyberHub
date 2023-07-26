@@ -1,9 +1,8 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css2?family=Play&display=swap'); // 'Play', sans-serif
-@import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap'); // 'Play', sans-serif; ( Bolder )
-@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100&display=swap'); // 'Saira Condensed', sans-serif
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'); // 'Roboto', sans-serif;
-
+@import url("https://fonts.googleapis.com/css2?family=Play&display=swap"); // 'Play', sans-serif
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap"); // 'Play', sans-serif; ( Bolder )
+@import url("https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100&display=swap"); // 'Saira Condensed', sans-serif
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"); // 'Roboto', sans-serif;
 
 // Swiper
 @import "swiper/css";
@@ -20,7 +19,10 @@
     list-style: none;
 }
 
-li, button, input, textarea:focus {
+li,
+button,
+input,
+textarea:focus {
     outline: none;
 }
 
@@ -29,6 +31,20 @@ html {
     font-size: 10px;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     scroll-behavior: smooth;
+}
+app-cart, app-parts, app-wishlist, app-register, form {
+    position: relative;
+
+    app-loading {
+        display: block;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ffffffad;
+    }
 }
 
 // Material
@@ -47,4 +63,4 @@ html {
     .mat-stepper-horizontal-line {
         display: none;
     }
-} 
+}

@@ -11,11 +11,11 @@ export class UserService {
 
   //
   registerNewUser(user: {username: string, email: string, password: string}): Observable<string> {
-    return this.http.post<string>(`API_URL}register`, user);
+    return this.http.post<string>(`${API_URL}users/register`, user);
   }
 
   //
   loginUser(user: {username?: string, email: string, password: string}): Observable<{message: string, token: string}> {
-    return this.http.post<{message: string, token: string}>(`${API_URL}login`, user);
+    return this.http.post<{message: string, token: string}>(`${API_URL}users/login`, user);
   }
 }

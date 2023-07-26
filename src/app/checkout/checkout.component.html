@@ -59,8 +59,8 @@
               <mat-label>Postal Code</mat-label>
               <input type="number" matInput required formControlName="postal" #zipcode />
               <mat-error *ngIf="Postal?.errors?.['required']">Input Mandatory</mat-error>
-              <mat-error *ngIf="Postal?.errors?.['min']">Please Enter a Valid 3 Digit Postal Code</mat-error>
-              <mat-error *ngIf="Postal?.errors?.['max']">Please Enter a Valid 3 Digit Postal Code</mat-error>
+              <mat-error *ngIf="Postal?.errors?.['min']">Please Enter a Valid 4 Digit Postal Code</mat-error>
+              <mat-error *ngIf="Postal?.errors?.['max']">Please Enter a Valid 4 Digit Postal Code</mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -143,9 +143,7 @@
       </form>
     </mat-step>
 
-
     <!-- Place Order -->
-
 
     <mat-step label="Place Order">
       <div style="display: flex; justify-content: center;" *ngIf="deploy">
