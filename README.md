@@ -1,2 +1,2 @@
 # CyberHub
-E-Commerce type project built with Angular 13 ( Material )
+Full-stack e-commerce platform built with Angular, Node.js and MongoDB.
